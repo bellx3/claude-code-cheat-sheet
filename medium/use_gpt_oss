@@ -1,45 +1,45 @@
 """
-Claude Code to Ollama Proxy Server
+Claude Code to Ollama 프록시 서버
 ==================================
 
-This proxy server acts as a middleware between Claude Code and Ollama,
-translating API calls and responses between the two different formats.
+이 프록시 서버는 Claude Code와 Ollama 사이의 미들웨어 역할을 하며,
+서로 다른 두 API 형식 간의 요청/응답을 변환해 줍니다.
 
 Author: Joe Njenga
-Purpose: Enable Claude Code to work with local Ollama models (specifically GPT-OSS)
+목적: Claude Code가 로컬 Ollama 모델(특히 GPT-OSS)과 함께 동작하도록 지원
 Article : https://medium.com/@joe.njenga/how-i-tricked-claude-code-to-use-gpt-oss-the-new-openai-model-it-worked-5b7ee0483c22
 License: MIT
 
-Key Features:
-- Translates Claude API requests to Ollama format
-- Converts Ollama responses back to Claude API format
-- Supports both streaming and non-streaming requests
-- Handles authentication bypass for local models
-- Provides health check endpoints
+주요 기능:
+- Claude API 요청을 Ollama 형식으로 변환
+- Ollama 응답을 다시 Claude API 형식으로 변환
+- 스트리밍 및 비스트리밍 요청 모두 지원
+- 로컬 모델용 인증 우회 처리
+- 헬스 체크 엔드포인트 제공
 
-Requirements:
+요구 사항:
 - Python 3.7+
 - Flask
 - Requests
-- Ollama running locally with GPT-OSS model
+- GPT-OSS 모델로 로컬에서 실행 중인 Ollama
 
-Usage:
-1. Start Ollama: `ollama serve`
-2. Pull model: `ollama pull gpt-oss:20b`
-3. Run proxy: `python claude_ollama_proxy.py`
-4. Configure Claude Code to use http://localhost:8000 as base URL
+사용법:
+1. Ollama 실행: `ollama serve`
+2. 모델 다운로드: `ollama pull gpt-oss:20b`
+3. 프록시 실행: `python claude_ollama_proxy.py`
+4. Claude Code가 http://localhost:8000 을 base URL로 사용하도록 설정
 
-Environment Variables:
-- ANTHROPIC_API_KEY="dummy-key" (required by Claude Code)
-- ANTHROPIC_BASE_URL="http://localhost:8000" (points to this proxy)
+환경 변수:
+- ANTHROPIC_API_KEY="dummy-key" (Claude Code에서 필수로 요구함)
+- ANTHROPIC_BASE_URL="http://localhost:8000" (이 프록시를 가리킴)
 
-Endpoints:
-- POST /v1/messages - Main message endpoint (supports streaming)
-- GET /v1/models - List available models
-- GET /health - Health check
+엔드포인트:
+- POST /v1/messages - 메인 메시지 엔드포인트 (스트리밍 지원)
+- GET /v1/models - 사용 가능한 모델 목록 조회
+- GET /health - 헬스 체크
 
-Note: This proxy makes Claude Code think it's talking to Claude while
-actually communicating with your local Ollama instance.
+참고: 이 프록시는 실제로는 로컬 Ollama 인스턴스와 통신하면서도,
+Claude Code가 마치 Claude와 대화하는 것처럼 착각하게 만듭니다.
 """
 
 from flask import Flask, request, jsonify, Response
@@ -50,25 +50,25 @@ from typing import Dict, Any
 
 app = Flask(__name__)
 
-# Configuration
+# 설정
 OLLAMA_BASE_URL = "http://localhost:11434"
-OLLAMA_MODEL = "gpt-oss:20b"  # Change to your model
+OLLAMA_MODEL = "gpt-oss:20b"  # 사용할 모델로 변경하세요
 
 class ClaudeOllamaProxy:
     def __init__(self):
         self.conversation_history = {}
     
     def claude_to_ollama_format(self, claude_request: Dict[str, Any]) -> Dict[str, Any]:
-        """Convert Claude API request to Ollama format"""
-        
+        """Claude API 요청을 Ollama 형식으로 변환"""
+
         messages = claude_request.get('messages', [])
         ollama_messages = []
-        
+
         for msg in messages:
             role = msg.get('role', 'user')
             content = msg.get('content', '')
-            
-            # Handle Claude's content format (can be string or list)
+
+            # Claude의 content 형식 처리 (문자열일 수도, 리스트일 수도 있음)
             if isinstance(content, list):
                 text_content = ""
                 for block in content:
@@ -88,7 +88,7 @@ class ClaudeOllamaProxy:
         }
     
     def ollama_to_claude_format(self, ollama_response: Dict[str, Any]) -> Dict[str, Any]:
-        """Convert Ollama response to Claude API format"""
+        """Ollama 응답을 Claude API 형식으로 변환"""
         
         if 'message' in ollama_response:
             content = ollama_response['message'].get('content', '')
@@ -115,34 +115,34 @@ class ClaudeOllamaProxy:
         return ollama_response
 
 def handle_streaming_request(ollama_request: Dict[str, Any], proxy: ClaudeOllamaProxy):
-    """Handle streaming requests from Claude Code"""
+    """Claude Code로부터의 스트리밍 요청 처리"""
     def generate_claude_stream():
         try:
-            # Make streaming request to Ollama
+            # Ollama로 스트리밍 요청 전송
             response = requests.post(
                 f"{OLLAMA_BASE_URL}/api/chat",
                 json=ollama_request,
                 stream=True,
-                timeout=120  # Increased timeout for large models
+                timeout=120  # 대형 모델을 위해 타임아웃 증가
             )
             response.raise_for_status()
-            
-            # Send initial message_start event
+
+            # 초기 message_start 이벤트 전송
             yield f"data: {json.dumps({'type': 'message_start'})}\n\n"
-            
-            # Process Ollama's streaming response
+
+            # Ollama의 스트리밍 응답 처리
             for line in response.iter_lines():
                 if line:
                     try:
                         ollama_chunk = json.loads(line.decode('utf-8'))
-                        
-                        # Check if this is the final chunk
+
+                        # 마지막 청크인지 확인
                         if ollama_chunk.get('done', False):
-                            # Send final chunk in Claude format
+                            # Claude 형식으로 최종 청크 전송
                             yield f"data: {json.dumps({'type': 'message_stop'})}\n\n"
                             break
-                        
-                        # Convert streaming chunk to Claude format
+
+                        # 스트리밍 청크를 Claude 형식으로 변환
                         if 'message' in ollama_chunk:
                             content = ollama_chunk['message'].get('content', '')
                             if content:
@@ -181,15 +181,15 @@ def handle_streaming_request(ollama_request: Dict[str, Any], proxy: ClaudeOllama
 
 @app.route('/v1/messages', methods=['POST'])
 def handle_messages():
-    """Main endpoint that Claude Code hits"""
+    """Claude Code가 호출하는 메인 엔드포인트"""
     try:
         claude_request = request.get_json()
         proxy = ClaudeOllamaProxy()
-        
-        # Convert request format
+
+        # 요청 형식 변환
         ollama_request = proxy.claude_to_ollama_format(claude_request)
-        
-        # Handle streaming vs non-streaming
+
+        # 스트리밍/비스트리밍 분기 처리
         if ollama_request.get('stream', False):
             return handle_streaming_request(ollama_request, proxy)
         else:
@@ -199,12 +199,12 @@ def handle_messages():
         return jsonify({"error": str(e)}), 500
 
 def handle_non_streaming_request(ollama_request: Dict[str, Any], proxy: ClaudeOllamaProxy):
-    """Handle regular (non-streaming) requests"""
+    """일반(비스트리밍) 요청 처리"""
     try:
         response = requests.post(
             f"{OLLAMA_BASE_URL}/api/chat",
             json=ollama_request,
-            timeout=120  # Increased timeout for large models
+            timeout=120  # 대형 모델을 위해 타임아웃 증가
         )
         response.raise_for_status()
         
@@ -218,7 +218,7 @@ def handle_non_streaming_request(ollama_request: Dict[str, Any], proxy: ClaudeOl
 
 @app.route('/v1/models', methods=['GET'])
 def list_models():
-    """Return available models (mimics Claude API)"""
+    """사용 가능한 모델 목록 반환 (Claude API를 모방)"""
     return jsonify({
         "data": [
             {
@@ -232,7 +232,7 @@ def list_models():
 
 @app.route('/health', methods=['GET'])
 def health_check():
-    """Health check endpoint"""
+    """헬스 체크 엔드포인트"""
     try:
         response = requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=5)
         if response.status_code == 200:
