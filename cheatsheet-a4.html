@@ -4,93 +4,50 @@
 <meta charset="UTF-8">
 <title>Claude Code 치트시트 (A4)</title>
 <style>
-  @page { size: A4 landscape; margin: 6mm; }
+  @page { size: A4 landscape; margin: 4mm; }
   * { box-sizing: border-box; }
   body {
     font-family: "Malgun Gothic", "Segoe UI", -apple-system, sans-serif;
-    font-size: 7.1px;
-    line-height: 1.28;
+    font-size: 7.4px;
+    line-height: 1.26;
     color: #1a1a1a;
     margin: 0;
-    padding: 4px;
+    padding: 3px;
   }
-  h1 {
-    font-size: 13px;
-    margin: 0 0 2px 0;
-    color: #b45309;
-  }
-  .subtitle {
-    font-size: 7.4px;
-    color: #555;
-    margin-bottom: 4px;
-  }
-  .columns {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 4px;
-    align-items: start;
-  }
-  @media screen and (max-width: 1400px) {
-    .columns { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media screen and (max-width: 800px) {
-    .columns { grid-template-columns: repeat(2, 1fr); }
-  }
+  h1 { font-size: 13.5px; margin: 0 0 2px 0; color: #b45309; }
+  .subtitle { font-size: 7.6px; color: #555; margin-bottom: 3px; }
+  .columns { column-count: 4; column-gap: 5px; orphans: 1; widows: 1; }
+  @media screen and (max-width: 1400px) { .columns { column-count: 3; } }
+  @media screen and (max-width: 800px)  { .columns { column-count: 2; } }
   section {
     break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: inline-block;
+    width: 100%;
     margin-bottom: 4px;
     border: 1px solid #ddd;
     border-radius: 3px;
-    padding: 3px 4px;
+    padding: 3px 5px;
     background: #fafafa;
-    min-width: 0;
-    overflow: hidden;
   }
   h2 {
-    font-size: 8.2px;
-    margin: 0 0 2px 0;
-    padding-bottom: 1px;
-    border-bottom: 2px solid;
-    display: flex;
-    align-items: center;
-    gap: 2px;
+    font-size: 8.6px; margin: 0 0 2px 0; padding-bottom: 1px;
+    border-bottom: 2px solid; display: flex; align-items: center; gap: 2px;
   }
-  h3 {
-    font-size: 6.8px;
-    margin: 3px 0 1px 0;
-    color: #444;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-  }
+  h3 { font-size: 7px; margin: 4px 0 1px 0; color: #444; text-transform: uppercase; letter-spacing: 0.02em; }
   code, .cmd {
     font-family: "Consolas", "Cascadia Code", monospace;
-    background: #eef0f3;
-    border-radius: 2px;
-    padding: 0 2px;
-    font-size: 6.6px;
-    white-space: normal;
-    word-break: break-word;
+    background: #eef0f3; border-radius: 2px; padding: 0 2px; font-size: 6.9px;
   }
   pre {
-    background: #1e1e2e;
-    color: #cdd6f4;
-    padding: 2px 3px;
-    border-radius: 3px;
-    margin: 1px 0;
-    font-size: 6px;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    word-break: normal;
-    line-height: 1.25;
+    background: #1e1e2e; color: #cdd6f4; padding: 2px 3px; border-radius: 3px;
+    margin: 1px 0; font-size: 6.3px; white-space: pre-wrap;
+    overflow-wrap: anywhere; word-break: normal; line-height: 1.28;
   }
+  .cmd { white-space: normal; word-break: break-word; }
   table { table-layout: fixed; width: 100%; border-collapse: collapse; margin: 1px 0; }
-  td:first-child { width: 46%; word-break: break-word; }
-  td, th {
-    padding: 0.5px 2px;
-    text-align: left;
-    vertical-align: top;
-    font-size: 6.5px;
-  }
+  td:first-child { width: 45%; word-break: break-word; }
+  td, th { padding: 0.5px 2px; text-align: left; vertical-align: top; font-size: 6.7px; }
   tr:nth-child(even) { background: #f0f0f0; }
   .desc { color: #555; }
   ul { margin: 1px 0; padding-left: 10px; }
@@ -101,24 +58,22 @@
   .lvl4 h2 { border-color:#ef4444; color:#991b1b; }
   .lvl5 h2 { border-color:#3b82f6; color:#1e40af; }
   .lvl6 h2 { border-color:#a855f7; color:#6b21a8; }
-  .tip { border-color:#0ea5e9; color:#075985; }
+  .lvl7 h2 { border-color:#374151; color:#111827; }
+  .lvl8 h2 { border-color:#0891b2; color:#155e75; }
+  .lvl9 h2 { border-color:#78350f; color:#78350f; }
+  .lvl10 h2 { border-color:#dc2626; color:#991b1b; }
+  .tip h2 { border-color:#0ea5e9; color:#075985; }
+  .ref h2 { border-color:#7c3aed; color:#5b21b6; }
   .header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 3px solid #b45309;
-    padding-bottom: 3px;
-    margin-bottom: 4px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 3px solid #b45309; padding-bottom: 2px; margin-bottom: 4px;
   }
-  .header-bar .meta { font-size: 6.5px; color: #777; text-align: right; }
+  .header-bar .meta { font-size: 6.6px; color: #777; text-align: right; }
   .kbd {
     display:inline-block; background:#fff; border:1px solid #bbb; border-bottom-width:2px;
-    border-radius:3px; padding:0 2px; font-family:monospace; font-size:6.3px;
+    border-radius:3px; padding:0 2px; font-family:monospace; font-size:6.4px;
   }
-  @media print {
-    body { padding: 0; }
-    section { background: white; }
-  }
+  @media print { body { padding: 0; } section { background: white; } }
 </style>
 </head>
 <body>
@@ -126,15 +81,15 @@
 <div class="header-bar">
   <div>
     <h1>⚡ Claude Code 치트시트 — 실무자용 한 장 요약 (A4)</h1>
-    <div class="subtitle">설치부터 엔터프라이즈 운영까지, CLI · 슬래시 명령어 · 단축키 · 모범 사례 총정리</div>
+    <div class="subtitle">설치부터 엔터프라이즈 운영까지, CLI · 슬래시 명령어 · 단축키 · 서브에이전트 · 모범 사례 총정리</div>
   </div>
-  <div class="meta">공식 문서 기준 최종 확인: 2026-05-26<br>출력 권장: A4 가로, 여백 최소</div>
+  <div class="meta">공식 문서 기준 최종 확인: 2026-05-26<br>출력 권장: A4 가로, 여백 최소, 배경 그래픽 인쇄 켜기</div>
 </div>
 
 <div class="columns">
 
 <section class="lvl1">
-<h2>🟢 설치 &amp; 인증</h2>
+<h2>🟢 설치</h2>
 <pre># macOS/Linux/WSL
 curl -fsSL https://claude.ai/install.sh | bash
 # Windows PowerShell
@@ -144,107 +99,162 @@ brew install --cask claude-code
 winget install Anthropic.ClaudeCode</pre>
 <table>
 <tr><td class="cmd">claude auth login</td><td class="desc">로그인</td></tr>
-<tr><td class="cmd">claude auth status</td><td class="desc">인증 확인</td></tr>
+<tr><td class="cmd">claude auth status</td><td class="desc">인증 상태 확인</td></tr>
 <tr><td class="cmd">claude auth logout</td><td class="desc">로그아웃</td></tr>
-<tr><td class="cmd">claude --version</td><td class="desc">버전 확인</td></tr>
-<tr><td class="cmd">claude update</td><td class="desc">업데이트</td></tr>
-<tr><td class="cmd">claude install stable</td><td class="desc">버전 설치</td></tr>
-<tr><td class="cmd">claude doctor</td><td class="desc">설치 점검</td></tr>
+<tr><td class="cmd">claude doctor</td><td class="desc">설치 상태 점검</td></tr>
 </table>
 </section>
 
-<section class="lvl1">
-<h2>🟢 기본 실행</h2>
+<section class="ref">
+<h2>📘 CLI 명령어 전체 참조</h2>
 <table>
-<tr><td class="cmd">claude</td><td class="desc">대화형 REPL</td></tr>
-<tr><td class="cmd">claude "q"</td><td class="desc">프롬프트로 시작</td></tr>
-<tr><td class="cmd">claude -p "q"</td><td class="desc">프린트 모드</td></tr>
-<tr><td class="cmd">cat f\|claude -p</td><td class="desc">파이프 입력</td></tr>
-<tr><td class="cmd">claude -c</td><td class="desc">최근 대화 이어가기</td></tr>
-<tr><td class="cmd">claude -c -p "q"</td><td class="desc">프린트+이어가기</td></tr>
+<tr><td class="cmd">claude</td><td class="desc">대화형 REPL 시작</td></tr>
+<tr><td class="cmd">claude "query"</td><td class="desc">프롬프트와 함께 시작</td></tr>
+<tr><td class="cmd">claude -p "query"</td><td class="desc">프린트 모드: 실행 후 종료</td></tr>
+<tr><td class="cmd">cat f \| claude -p "q"</td><td class="desc">파이프 콘텐츠 처리</td></tr>
+<tr><td class="cmd">claude -c / --continue</td><td class="desc">현재 폴더 최근 대화 이어가기</td></tr>
+<tr><td class="cmd">claude -r / --resume &lt;s&gt;</td><td class="desc">ID·이름으로 세션 재개</td></tr>
+<tr><td class="cmd">claude --resume</td><td class="desc">세션 선택 화면 열기</td></tr>
+<tr><td class="cmd">claude -n &lt;name&gt;</td><td class="desc">시작 시 세션 이름 지정</td></tr>
+<tr><td class="cmd">claude --from-pr &lt;PR&gt;</td><td class="desc">PR 연결 세션 재개</td></tr>
+<tr><td class="cmd">claude update</td><td class="desc">최신 버전 업데이트</td></tr>
+<tr><td class="cmd">claude install [version]</td><td class="desc">네이티브 바이너리 설치/재설치</td></tr>
+<tr><td class="cmd">claude mcp</td><td class="desc">MCP 서버 설정</td></tr>
 </table>
 </section>
 
-<section class="lvl1">
-<h2>🟢 세션 관리</h2>
+<section class="ref">
+<h2>🚩 CLI 플래그 전체 참조</h2>
 <table>
-<tr><td class="cmd">--continue</td><td class="desc">최근 세션</td></tr>
-<tr><td class="cmd">--resume abc123</td><td class="desc">ID/이름 재개</td></tr>
-<tr><td class="cmd">--resume</td><td class="desc">선택 화면</td></tr>
-<tr><td class="cmd">-n name</td><td class="desc">이름 지정</td></tr>
-<tr><td class="cmd">--from-pr 123</td><td class="desc">PR 연결</td></tr>
-<tr><td class="cmd">/rename name</td><td class="desc">이름 변경</td></tr>
-<tr><td class="cmd">/branch name</td><td class="desc">대화 분기</td></tr>
+<tr><td class="cmd">--model</td><td class="desc">세션 모델 지정</td></tr>
+<tr><td class="cmd">--effort</td><td class="desc">추론 강도 설정</td></tr>
+<tr><td class="cmd">--add-dir</td><td class="desc">작업 디렉토리 추가</td></tr>
+<tr><td class="cmd">--allowedTools</td><td class="desc">확인 없이 도구 허용</td></tr>
+<tr><td class="cmd">--disallowedTools</td><td class="desc">특정 도구 금지</td></tr>
+<tr><td class="cmd">--output-format</td><td class="desc">출력 형식 지정</td></tr>
+<tr><td class="cmd">--input-format</td><td class="desc">입력 형식 지정</td></tr>
+<tr><td class="cmd">--max-turns</td><td class="desc">에이전트 턴 수 제한</td></tr>
+<tr><td class="cmd">--verbose</td><td class="desc">상세 로그 활성화</td></tr>
+<tr><td class="cmd">--continue / --resume</td><td class="desc">세션 이어가기/재개</td></tr>
+<tr><td class="cmd">--from-pr</td><td class="desc">PR 연결 세션 재개</td></tr>
+<tr><td class="cmd">--fork-session</td><td class="desc">세션 복사 후 분기 재개</td></tr>
+<tr><td class="cmd">--dangerously-skip-permissions</td><td class="desc">권한 확인 전체 생략</td></tr>
+</table>
+</section>
+
+<section class="ref">
+<h2>⌨ 슬래시 명령어 전체 참조</h2>
+<table>
+<tr><td class="cmd">/help /exit</td><td class="desc">도움말/종료</td></tr>
+<tr><td class="cmd">/clear [name]</td><td class="desc">새 대화 시작</td></tr>
+<tr><td class="cmd">/compact [지시]</td><td class="desc">대화 요약</td></tr>
+<tr><td class="cmd">/context [all]</td><td class="desc">컨텍스트 사용량</td></tr>
+<tr><td class="cmd">/config /status</td><td class="desc">설정/상태 표시</td></tr>
+<tr><td class="cmd">/doctor</td><td class="desc">설치 상태 점검</td></tr>
+<tr><td class="cmd">/usage /cost /stats</td><td class="desc">비용·한도·활동 통계</td></tr>
+<tr><td class="cmd">/model [model]</td><td class="desc">세션 내 모델 변경</td></tr>
+<tr><td class="cmd">/effort [level\|auto]</td><td class="desc">추론 강도 조정</td></tr>
+<tr><td class="cmd">/resume [session]</td><td class="desc">다른 대화 재개</td></tr>
+<tr><td class="cmd">/rename [name]</td><td class="desc">세션 이름 변경</td></tr>
+<tr><td class="cmd">/branch [name]</td><td class="desc">대화 분기</td></tr>
+<tr><td class="cmd">/export [filename]</td><td class="desc">대화 내보내기</td></tr>
+<tr><td class="cmd">/diff</td><td class="desc">diff 뷰어</td></tr>
+<tr><td class="cmd">/ide /mcp</td><td class="desc">IDE/MCP 관리</td></tr>
 </table>
 </section>
 
 <section class="lvl1">
 <h2>⌨️ 키보드 단축키</h2>
 <table>
-<tr><td><span class="kbd">Ctrl+C</span></td><td class="desc">중단(2회=종료)</td></tr>
-<tr><td><span class="kbd">Ctrl+D</span></td><td class="desc">종료</td></tr>
-<tr><td><span class="kbd">Ctrl+O</span></td><td class="desc">트랜스크립트</td></tr>
-<tr><td><span class="kbd">Ctrl+R</span></td><td class="desc">히스토리 검색</td></tr>
-<tr><td><span class="kbd">Ctrl+T</span></td><td class="desc">작업 목록</td></tr>
-<tr><td><span class="kbd">Esc</span></td><td class="desc">중단</td></tr>
+<tr><td><span class="kbd">Ctrl+C</span></td><td class="desc">중단 (2회=종료)</td></tr>
+<tr><td><span class="kbd">Ctrl+D</span></td><td class="desc">Claude Code 종료</td></tr>
+<tr><td><span class="kbd">Ctrl+O</span></td><td class="desc">트랜스크립트 뷰어</td></tr>
+<tr><td><span class="kbd">Ctrl+R</span></td><td class="desc">히스토리 역검색</td></tr>
+<tr><td><span class="kbd">Ctrl+T</span></td><td class="desc">작업 목록 토글</td></tr>
+<tr><td><span class="kbd">Esc</span></td><td class="desc">응답/도구 중단</td></tr>
 <tr><td><span class="kbd">Esc Esc</span></td><td class="desc">초안삭제/되돌리기</td></tr>
-<tr><td><span class="kbd">Shift+Tab</span></td><td class="desc">권한 모드</td></tr>
+<tr><td><span class="kbd">Shift+Tab</span></td><td class="desc">권한 모드 전환</td></tr>
 <tr><td><span class="kbd">Alt+P</span></td><td class="desc">모델 전환</td></tr>
-<tr><td><span class="kbd">Alt+T</span></td><td class="desc">확장 사고</td></tr>
-<tr><td><span class="kbd">Alt+O</span></td><td class="desc">패스트 모드</td></tr>
+<tr><td><span class="kbd">Alt+T</span></td><td class="desc">확장 사고 토글</td></tr>
+<tr><td><span class="kbd">Alt+O</span></td><td class="desc">패스트 모드 토글</td></tr>
 <tr><td><span class="kbd">@</span> / <span class="kbd">!</span></td><td class="desc">파일멘션/셸모드</td></tr>
+<tr><td><span class="kbd">Up/Down</span></td><td class="desc">이동/히스토리 탐색</td></tr>
 </table>
 </section>
 
+<section class="ref">
+<h2>🤖 서브에이전트 한눈에 보기</h2>
+<div class="desc">Task 도구 <code>subagent_type=</code>이름으로 호출</div>
+<h3>개발 전문가</h3>
+<ul>
+<li><b>frontend-developer</b> — UI/컴포넌트</li>
+<li><b>backend-developer</b> — 서버/API/아키텍처</li>
+<li><b>api-developer</b> — API 설계·문서화</li>
+<li><b>mobile-developer</b> — iOS/Android</li>
+</ul>
+<h3>언어 전문가</h3>
+<ul>
+<li>python · javascript · typescript</li>
+<li>php · wordpress · ios-developer</li>
+</ul>
+<h3>DB & 품질</h3>
+<ul>
+<li><b>database-designer</b>, <b>code-reviewer</b></li>
+<li><b>code-debugger</b>, <b>code-documenter</b></li>
+<li><b>code-refactor</b>, <b>code-security-auditor</b></li>
+<li><b>code-standards-enforcer</b></li>
+</ul>
+<div class="desc">상세: subagents.md, subagents/*.md</div>
+</section>
+
 <section class="lvl2">
-<h2>🟡 모델 &amp; 설정</h2>
+<h2>🟡 모델 & 추론 설정</h2>
 <table>
 <tr><td class="cmd">--model sonnet/opus</td><td class="desc">모델 지정</td></tr>
-<tr><td class="cmd">--effort high</td><td class="desc">추론 강도</td></tr>
-<tr><td class="cmd">/model sonnet</td><td class="desc">세션 내 변경</td></tr>
-<tr><td class="cmd">/effort high</td><td class="desc">세션 내 강도</td></tr>
-<tr><td class="cmd">--add-dir ../lib</td><td class="desc">작업 폴더 추가</td></tr>
-<tr><td class="cmd">--verbose</td><td class="desc">상세 로그</td></tr>
+<tr><td class="cmd">--model claude-sonnet-4-6</td><td class="desc">특정 버전 지정</td></tr>
+<tr><td class="cmd">--effort high</td><td class="desc">추론 강도 설정</td></tr>
+<tr><td class="cmd">/model, /effort</td><td class="desc">세션 내 변경</td></tr>
 </table>
 </section>
 
 <section class="lvl2">
-<h2>🟡 출력 형식</h2>
+<h2>🟡 디렉토리 관리</h2>
 <table>
-<tr><td class="cmd">--output-format json</td><td class="desc">JSON 출력</td></tr>
+<tr><td class="cmd">--add-dir ../apps ../lib</td><td class="desc">추가 작업 디렉토리 등록</td></tr>
+<tr><td class="cmd">--add-dir /path/to/project</td><td class="desc">디렉토리 경로 유효성 확인</td></tr>
+<tr><td class="cmd">--add-dir ../fe ../be ../shared</td><td class="desc">여러 디렉토리 동시 접근</td></tr>
+</table>
+</section>
+
+<section class="lvl2">
+<h2>🟡 출력/입력 형식</h2>
+<table>
+<tr><td class="cmd">--output-format json</td><td class="desc">JSON 출력 (스크립팅용)</td></tr>
 <tr><td class="cmd">--output-format text</td><td class="desc">텍스트 출력</td></tr>
-<tr><td class="cmd">--output-format stream-json</td><td class="desc">스트림</td></tr>
-<tr><td class="cmd">--input-format stream-json</td><td class="desc">스트림 입력</td></tr>
-<tr><td class="cmd">--max-turns 3</td><td class="desc">턴 수 제한</td></tr>
-<tr><td class="cmd">/usage /cost /stats</td><td class="desc">비용·통계</td></tr>
+<tr><td class="cmd">--output-format stream-json</td><td class="desc">실시간 처리용 스트림</td></tr>
+<tr><td class="cmd">--input-format stream-json</td><td class="desc">프린트 모드 입력 형식</td></tr>
 </table>
 </section>
 
 <section class="lvl2">
-<h2>🟡 기본 슬래시 명령어</h2>
+<h2>🟡 세션 제어 & 비용</h2>
 <table>
-<tr><td class="cmd">/help /exit</td><td class="desc">도움말/종료</td></tr>
-<tr><td class="cmd">/clear [name]</td><td class="desc">새 대화 시작</td></tr>
-<tr><td class="cmd">/compact [지시]</td><td class="desc">대화 요약</td></tr>
-<tr><td class="cmd">/context [all]</td><td class="desc">컨텍스트 사용량</td></tr>
-<tr><td class="cmd">/config /status</td><td class="desc">설정/상태</td></tr>
-<tr><td class="cmd">/doctor</td><td class="desc">설치 점검</td></tr>
-<tr><td class="cmd">/diff</td><td class="desc">diff 뷰어</td></tr>
-<tr><td class="cmd">/export [file]</td><td class="desc">내보내기</td></tr>
-<tr><td class="cmd">/ide /mcp</td><td class="desc">IDE/MCP 관리</td></tr>
+<tr><td class="cmd">-p --max-turns 3</td><td class="desc">턴 수 제한</td></tr>
+<tr><td class="cmd">--verbose</td><td class="desc">상세 로그</td></tr>
+<tr><td class="cmd">/usage /cost /stats</td><td class="desc">비용·활동 통계</td></tr>
 </table>
 </section>
 
 <section class="lvl3">
-<h2>🟠 도구 &amp; 권한</h2>
+<h2>🟠 도구 & 권한 실전 예시</h2>
 <pre>--allowedTools "Bash(git log:*)" "Write"
 --disallowedTools "Bash(rm:*)" "Bash(sudo:*)"
 --permission-prompt-tool mcp_auth_tool
---dangerously-skip-permissions  # 위험</pre>
+--dangerously-skip-permissions  # 위험, 지양</pre>
 </section>
 
 <section class="lvl4">
-<h2>🔴 MCP &amp; 파이프라인</h2>
+<h2>🔴 MCP & 파이프라인</h2>
 <table>
 <tr><td class="cmd">claude mcp</td><td class="desc">MCP 서버 설정</td></tr>
 <tr><td class="cmd">/mcp</td><td class="desc">MCP 기능 접근</td></tr>
@@ -254,60 +264,91 @@ cat error.log | claude -p "원인 찾기"</pre>
 </section>
 
 <section class="lvl5">
-<h2>🔵 커스텀 명령어</h2>
-<div class="desc">
-<code>.claude/commands/*.md</code> → <code>/debug</code> <code>/test</code> <code>/deploy</code>
-</div>
+<h2>🔵 커스텀 명령어 & 조합</h2>
+<div class="desc"><code>.claude/commands/*.md</code> → <code>/debug</code> <code>/test</code> <code>/deploy</code></div>
 <pre>claude --allowedTools "Bash(git:*)" "Write" \
   --disallowedTools "Bash(rm:*)"
 claude --add-dir ../frontend ../backend</pre>
 </section>
 
 <section class="lvl6">
-<h2>🟣 자동화 &amp; 스크립팅</h2>
+<h2>🟣 자동화 스크립팅</h2>
 <pre>claude -p "analyze" --output-format json > a.json
 SID=$(claude -p "start" --output-format json | jq -r '.session_id')
 claude -r "$SID" "continue"
 claude -p "s1" | claude -p "s2"</pre>
 </section>
 
-<section>
-<h2 style="border-color:#374151;color:#111827;">⚫ CI/CD·Git 연동</h2>
+<section class="lvl7">
+<h2>🟤 자동 코드 리뷰 & CI</h2>
 <pre>git diff HEAD~1 | claude -p "보안 리뷰" > r.md
 claude -p "커버리지 분석" --output-format json | jq '.coverage_percentage'
-docker logs c | claude -p "에러 찾기"</pre>
+find . -name "*.js" -exec claude -p "버그: {}" \; > bugs.txt</pre>
 </section>
 
-<section>
-<h2 style="border-color:#0891b2;color:#155e75;">⚪ 성능 최적화</h2>
-<ul>
-<li><code>/clear</code> 작업마다 자주 사용</li>
-<li><code>--max-turns</code>로 컨텍스트 제한</li>
-<li><code>/compact "핵심만"</code></li>
-<li><code>claude -p a & claude -p b & wait</code></li>
-</ul>
+<section class="lvl8">
+<h2>⚫ IDE 연동</h2>
+<pre>/ide vscode        # VS Code 연동 설정
+/ide configure      # IDE 설정 구성
+claude --ide-mode "선택한 코드 설명해줘"
+claude --ide-mode "이 함수 리팩터링해줘"</pre>
 </section>
 
-<section>
-<h2 style="border-color:#78350f;color:#78350f;">🔘 엔터프라이즈</h2>
-<pre>claude --production-mode --security-enabled \
-  --audit-logging --max-turns 10
-claude --disallowedTools "Bash(rm:*)" "Bash(sudo:*)" \
-  --audit-mode --no-external-calls</pre>
+<section class="lvl8">
+<h2>⚫ Git & 서드파티 연동</h2>
+<pre>git log --oneline -10 | claude -p "체인지로그 작성"
+git diff --name-only | claude -p "변경사항 설명"
+mysql -e "SHOW TABLES" | claude -p "DB 구조 분석"
+docker ps | claude -p "실행 중 컨테이너 분석"
+docker logs c | claude -p "로그에서 에러 찾기"</pre>
+</section>
+
+<section class="lvl9">
+<h2>⚪ 성능·메모리·대규모 처리</h2>
+<pre>claude -p --max-turns 1 "빠른 분석"
+claude -c -p "이전 분석 이어가기"
+claude -p a & claude -p b & wait   # 병렬
+claude --add-dir . --max-context 50000 "전체 분석"</pre>
+</section>
+
+<section class="lvl10">
+<h2>🔘 팀 협업 & 프로덕션</h2>
+<pre>claude --config-file team-config.json "표준 분석"
+claude -r "team-session-id" "팀 논의 이어가기"
+
+claude --production-mode --security-enabled \
+  --audit-logging --max-turns 10 "프로덕션 분석"</pre>
+</section>
+
+<section class="lvl10">
+<h2>🔘 엔터프라이즈 보안 & 컴플라이언스</h2>
+<pre>claude --disallowedTools "Bash(rm:*)" "Bash(sudo:*)" \
+  "Bash(chmod:*)" --audit-mode --no-external-calls
+
+claude --audit-log /var/log/claude-audit.log "점검"
+claude --compliance-mode "보안 컴플라이언스 분석"</pre>
 </section>
 
 <section class="tip">
-<h2>💡 실무 모범 사례</h2>
-<h3>성능/보안</h3>
+<h2>💡 실무 모범 사례 — 성능·보안</h2>
 <ul>
-<li>작업 전환마다 <code>/clear</code>, <code>--max-turns</code>로 폭주 방지</li>
-<li><code>--dangerously-skip-permissions</code> 지양, <code>--disallowedTools</code> 상시 적용</li>
-<li>도구 권한 주기 점검, 최신 버전 유지</li>
+<li>작업 전환마다 <code>/clear</code>로 컨텍스트 초기화</li>
+<li><code>--max-turns</code>로 무한 반복 방지</li>
+<li>장기 대화는 <code>/compact</code>로 압축</li>
+<li><code>--dangerously-skip-permissions</code> 사용 지양</li>
+<li>위험 명령은 <code>--disallowedTools</code>로 상시 차단</li>
+<li>도구 권한 주기적 점검, 항상 최신 버전 유지</li>
 </ul>
-<h3>워크플로우</h3>
+</section>
+
+<section class="tip">
+<h2>💡 실무 모범 사례 — 워크플로우</h2>
 <ul>
-<li>반복 작업 → <code>.claude/commands/</code> 커스텀화</li>
-<li>자동화 → <code>--output-format json</code>, 세션 ID 활용</li>
+<li>반복 작업 → <code>.claude/commands/</code> 커스텀 명령어화</li>
+<li>자동화 스크립트 → <code>--output-format json</code></li>
+<li>복합 작업 → 파이프로 단계별 연결</li>
+<li>장시간 작업 → 세션 ID로 관리, 에러 처리 구현</li>
+<li>팀 공유용 워크플로우는 문서화</li>
 </ul>
 </section>
 
@@ -321,16 +362,36 @@ claude --disallowedTools "Bash(rm:*)" "Bash(sudo:*)" \
 </section>
 
 <section>
-<h2 style="border-color:#dc2626;color:#991b1b;">🛠 트러블슈팅</h2>
-<pre>claude doctor
-npm uninstall -g @anthropic-ai/claude-code && npm install -g @anthropic-ai/claude-code
-claude --list-permissions
-claude --reset-permissions</pre>
+<h2 style="border-color:#dc2626;color:#991b1b;">🛠 트러블슈팅 — 설치</h2>
+<pre>claude --version && claude auth status && claude doctor
+claude install stable         # 네이티브 재설치
+npm uninstall -g @anthropic-ai/claude-code
+npm install -g @anthropic-ai/claude-code   # npm 재설치</pre>
+</section>
+
+<section>
+<h2 style="border-color:#dc2626;color:#991b1b;">🛠 트러블슈팅 — 성능·권한</h2>
+<pre>/clear                          # 컨텍스트 비우기
+claude -p --max-turns 3 "포커스 질의"
+/compact "핵심만 유지"
+
+claude --list-permissions       # 현재 권한 확인
+claude --reset-permissions      # 권한 초기화</pre>
+</section>
+
+<section class="ref">
+<h2>🔗 참고 링크</h2>
+<ul>
+<li>공식 문서: code.claude.com/docs</li>
+<li>CLI/명령어 레퍼런스: /cli-reference, /commands</li>
+<li>MCP 문서: /mcp</li>
+<li>GitHub: github.com/anthropics/claude-code</li>
+</ul>
 </section>
 
 </div>
 
-<div style="margin-top:4px; font-size:6px; color:#999; text-align:center;">
+<div style="margin-top:4px; font-size:6.2px; color:#999; text-align:center;">
 Claude Code Cheat Sheet (Korean Edition · A4) · MIT License · 공식 문서: code.claude.com/docs
 </div>
 
