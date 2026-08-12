@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Claude Desktop 치트시트 (A4)</title>
+<style>
+  @page { size: A4 landscape; margin: 4mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "Segoe UI", -apple-system, sans-serif;
+    font-size: 7.2px;
+    line-height: 1.24;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 3px;
+  }
+  h1 { font-size: 13px; margin: 0 0 2px 0; color: #6d28d9; }
+  .subtitle { font-size: 7.3px; color: #555; margin-bottom: 3px; }
+  .columns { column-count: 4; column-gap: 5px; orphans: 1; widows: 1; }
+  @media screen and (max-width: 1400px) { .columns { column-count: 3; } }
+  @media screen and (max-width: 800px)  { .columns { column-count: 2; } }
+  section {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 3px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 3px 5px;
+    background: #fafafa;
+  }
+  h2 {
+    font-size: 8.4px; margin: 0 0 2px 0; padding-bottom: 1px;
+    border-bottom: 2px solid; display: flex; align-items: center; gap: 2px;
+  }
+  h3 { font-size: 6.9px; margin: 4px 0 1px 0; color: #444; text-transform: uppercase; letter-spacing: 0.02em; }
+  code, .cmd {
+    font-family: "Consolas", "Cascadia Code", monospace;
+    background: #eef0f3; border-radius: 2px; padding: 0 2px; font-size: 6.7px;
+  }
+  pre {
+    background: #1e1e2e; color: #cdd6f4; padding: 2px 3px; border-radius: 3px;
+    margin: 1px 0; font-size: 6.2px; white-space: pre-wrap;
+    overflow-wrap: anywhere; word-break: normal; line-height: 1.25;
+  }
+  .cmd { white-space: normal; word-break: break-word; }
+  table { table-layout: fixed; width: 100%; border-collapse: collapse; margin: 1px 0; }
+  td:first-child { width: 40%; word-break: break-word; }
+  td, th { padding: 0.5px 2px; text-align: left; vertical-align: top; font-size: 6.6px; }
+  tr:nth-child(even) { background: #f0f0f0; }
+  .desc { color: #555; }
+  ul { margin: 1px 0; padding-left: 10px; }
+  li { margin-bottom: 0.5px; }
+  .warn {
+    background: #fef3c7; color: #92400e; font-weight: bold;
+    border-radius: 3px; padding: 1px 3px; margin-top: 2px; display: block;
+  }
+  .c1 h2 { border-color:#8b5cf6; color:#6d28d9; }
+  .c2 h2 { border-color:#ec4899; color:#9d174d; }
+  .c3 h2 { border-color:#06b6d4; color:#0e7490; }
+  .c4 h2 { border-color:#22c55e; color:#166534; }
+  .c5 h2 { border-color:#f59e0b; color:#92400e; }
+  .c6 h2 { border-color:#ef4444; color:#991b1b; }
+  .ref h2 { border-color:#3b82f6; color:#1e40af; }
+  .tip h2 { border-color:#0ea5e9; color:#075985; }
+  .header-bar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 3px solid #6d28d9; padding-bottom: 2px; margin-bottom: 4px;
+  }
+  .header-bar .meta { font-size: 6.4px; color: #777; text-align: right; }
+  .kbd {
+    display:inline-block; background:#fff; border:1px solid #bbb; border-bottom-width:2px;
+    border-radius:3px; padding:0 2px; font-family:monospace; font-size:6.3px;
+  }
+  @media print { body { padding: 0; } section { background: white; } }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div>
+    <h1>🖥️ Claude Desktop 치트시트 — Code 탭 실무자용 (CLI 미포함) (A4)</h1>
+    <div class="subtitle">다운로드부터 권한 모드·워크스페이스·Computer Use·엔터프라이즈 관리까지, 공식 문서 기준 정리</div>
+  </div>
+  <div class="meta">공식 문서 웹 조사 기준 최종 확인: 2026-08-12<br>출력 권장: A4 가로, 여백 최소, 배경 그래픽 인쇄 켜기</div>
+</div>
+
+<div class="columns">
+
+<section class="c1">
+<h2>🟣 다운로드 & 시작</h2>
+<ul>
+<li>macOS: 유니버설 dmg / Windows: x64(ARM64 별도) / Linux(베타): apt·deb</li>
+<li>설치 후 로그인 → <b>Code</b> 탭 클릭</li>
+</ul>
+<span class="warn">⚠️ Windows는 Git for Windows 필요(설치 후 재시작)</span>
+</section>
+
+<section class="c1">
+<h2>🟣 세 가지 탭</h2>
+<table>
+<tr><td class="cmd">Chat</td><td class="desc">일반 대화</td></tr>
+<tr><td class="cmd">Cowork</td><td class="desc">Dispatch·장기 에이전틱 작업</td></tr>
+<tr><td class="cmd">Code</td><td class="desc">소프트웨어 개발 (이 치트시트 범위)</td></tr>
+</table>
+</section>
+
+<section class="c1">
+<h2>🟣 세션 시작 설정 (4가지)</h2>
+<table>
+<tr><td class="cmd">Environment</td><td class="desc">Local/Cloud/SSH/WSL(Win) 선택</td></tr>
+<tr><td class="cmd">Project folder</td><td class="desc">작업할 폴더·저장소 선택</td></tr>
+<tr><td class="cmd">Model</td><td class="desc">전송 버튼 옆 드롭다운(세션 중 변경)</td></tr>
+<tr><td class="cmd">Permission mode</td><td class="desc">모드 선택기(세션 중 변경)</td></tr>
+</table>
+</section>
+
+<section class="c2">
+<h2>🔐 권한 모드</h2>
+<table>
+<tr><td class="cmd">Manual (default)</td><td class="desc">편집·명령 전 항상 확인</td></tr>
+<tr><td class="cmd">Accept edits</td><td class="desc">파일편집+기본 명령 자동승인</td></tr>
+<tr><td class="cmd">Plan</td><td class="desc">탐색만, 편집 전 계획 제시</td></tr>
+<tr><td class="cmd">Auto</td><td class="desc">안전검사로 대부분 자동</td></tr>
+<tr><td class="cmd">Bypass permissions</td><td class="desc">프롬프트 없음, 격리 전용</td></tr>
+</table>
+<span class="warn">⚠️ Bypass: Pro/Max 설정 토글, Team/Ent.는 조직정책. dontAsk는 CLI 전용</span>
+</section>
+
+<section class="c2">
+<h2>🖊 프롬프트 박스</h2>
+<ul>
+<li>Enter 전송, 진행 중 정정 메시지도 중단 없이 반영</li>
+<li><code>@파일명</code> 컨텍스트 추가(로컬·SSH만) · 이미지/PDF 드래그첨부</li>
+<li><b>+</b> 버튼: 파일첨부/스킬/커넥터/플러그인</li>
+</ul>
+</section>
+
+<section class="ref">
+<h2>⌨ 슬래시 명령어</h2>
+<div class="desc"><code>/</code> 입력 또는 +→Slash commands 로 탐색 (내장 명령어 + 커스텀·프로젝트·플러그인 스킬)</div>
+<table style="margin-top:2px">
+<tr><td class="cmd">/clear, /compact, /context</td><td class="desc">새 대화/요약/컨텍스트 확인</td></tr>
+<tr><td class="cmd">/rewind, /diff</td><td class="desc">체크포인트 롤백/diff 뷰어</td></tr>
+<tr><td class="cmd">/model, /effort, /plan</td><td class="desc">모델·강도 변경/계획 모드</td></tr>
+<tr><td class="cmd">/rename, /branch, /export</td><td class="desc">이름변경/분기/내보내기</td></tr>
+<tr><td class="cmd">/code-review, /security-review</td><td class="desc">diff·보안 검토</td></tr>
+<tr><td class="cmd">/background, /tasks, /fork</td><td class="desc">백그라운드 분리/작업목록/복사</td></tr>
+<tr><td class="cmd">/loop, /goal, /recap</td><td class="desc">반복/목표설정/요약</td></tr>
+<tr><td class="cmd">/btw, /desktop, /ide, /mcp</td><td class="desc">사이드챗/CLI→데스크톱 이동/연동</td></tr>
+</table>
+<span class="warn">⚠️ /permissions 등 터미널 전용 대화형 명령어는 "isn't available in this environment" 응답. /config 는 인자 무시하고 설정 화면만 열림</span>
+</section>
+
+<section class="c3">
+<h2>🖥 앱 미리보기 (Browser pane)</h2>
+<ul>
+<li>수정 후 자동으로 dev 서버 실행·검증(스크린샷/DOM검사/클릭/폼입력)</li>
+<li>서버 드롭다운에서 시작/중지</li>
+<li><b>Persist sessions</b>: 재시작해도 쿠키·로컬스토리지 유지</li>
+</ul>
+</section>
+
+<section class="c3">
+<h2>🌐 외부 사이트 브라우징</h2>
+<ul>
+<li><span class="kbd">Cmd/Ctrl+Shift+B</span> 로 Browser pane 열기</li>
+<li>첫 접근 시 승인 카드(Allow once/Always allow/Deny), 사이트별 개별 승인</li>
+<li>로그인 상태 공유 필요시 Claude in Chrome 확장 사용 (Browser pane은 별도 프로필)</li>
+</ul>
+</section>
+
+<section class="c3">
+<h2>📝 Diff 리뷰 & 코드 리뷰</h2>
+<ul>
+<li>diff stats(<code>+12 -1</code>) 클릭 → diff 뷰어에서 파일별 검토</li>
+<li>줄 클릭해 댓글, Cmd/Ctrl+Enter로 한번에 제출</li>
+<li><b>Review code</b>: 컴파일오류·버그·보안 위주 자동 리뷰(스타일 제외)</li>
+</ul>
+</section>
+
+<section class="c3">
+<h2>🔀 PR 모니터링</h2>
+<ul>
+<li>PR 생성 후 CI 상태 바 표시 (GitHub CLI <code>gh</code> 필요)</li>
+<li><b>Auto-fix</b>: 실패한 체크 자동 수정 / <b>Auto-merge</b>: 통과 시 squash 병합</li>
+<li>완료 시 데스크톱 알림</li>
+</ul>
+</section>
+
+<section class="c4">
+<h2>🧩 워크스페이스 배치</h2>
+<div class="desc">패널: chat·diff·browser·terminal·file·plan·tasks·subagent(+macOS iOS시뮬레이터)</div>
+<div class="desc" style="margin-top:2px">헤더 드래그 이동, <span class="kbd">Cmd/Ctrl+\</span> 포커스 패널 닫기</div>
+</section>
+
+<section class="c4">
+<h2>💻 터미널 & 파일 편집기</h2>
+<ul>
+<li><span class="kbd">Ctrl+`</span> 통합 터미널(로컬 세션 전용, 세션과 환경 공유)</li>
+<li>파일 클릭→편집·저장, 우클릭→다른 앱/탐색기/경로복사</li>
+</ul>
+</section>
+
+<section class="c4">
+<h2>👁 뷰 모드</h2>
+<table>
+<tr><td class="cmd">Normal</td><td class="desc">도구호출 요약+전체 응답</td></tr>
+<tr><td class="cmd">Verbose</td><td class="desc">모든 도구호출·중간단계</td></tr>
+<tr><td class="cmd">Summary</td><td class="desc">최종 응답·변경사항만</td></tr>
+</table>
+<div class="desc"><span class="kbd">Ctrl+O</span> 순환 전환</div>
+</section>
+
+<section class="ref">
+<h2>⌨️ 키보드 단축키 전체</h2>
+<table>
+<tr><td class="cmd">Cmd/Ctrl + /</td><td class="desc">단축키 목록</td></tr>
+<tr><td class="cmd">Cmd/Ctrl + N / W</td><td class="desc">새 세션/닫기</td></tr>
+<tr><td class="cmd">Ctrl+Tab/Shift+Tab</td><td class="desc">세션 전환</td></tr>
+<tr><td class="cmd">Esc</td><td class="desc">응답 중단</td></tr>
+<tr><td class="cmd">Cmd/Ctrl+Shift+D</td><td class="desc">diff 패널</td></tr>
+<tr><td class="cmd">Cmd/Ctrl+Shift+B</td><td class="desc">Browser 패널</td></tr>
+<tr><td class="cmd">Cmd/Ctrl+Shift+S</td><td class="desc">Browser 요소 선택</td></tr>
+<tr><td class="cmd">Ctrl + `</td><td class="desc">터미널 패널</td></tr>
+<tr><td class="cmd">Cmd/Ctrl + \</td><td class="desc">포커스 패널 닫기</td></tr>
+<tr><td class="cmd">Cmd/Ctrl + ;</td><td class="desc">사이드 챗</td></tr>
+<tr><td class="cmd">Ctrl + O</td><td class="desc">뷰 모드 순환</td></tr>
+<tr><td class="cmd">Cmd/Ctrl+Shift+M/I/E</td><td class="desc">권한모드/모델/effort 메뉴</td></tr>
+<tr><td class="cmd">1–9</td><td class="desc">메뉴 항목 선택</td></tr>
+</table>
+</section>
+
+<section class="c5">
+<h2>📊 사용량 확인</h2>
+<div class="desc">모델 선택기 옆 사용량 링 클릭 → 컨텍스트 사용량(세션별) + 플랜 사용량(전체 서피스 공유)</div>
+</section>
+
+<section class="c5">
+<h2>🖱 Computer Use</h2>
+<ul>
+<li>화면·앱 직접 조작(CLI 없는 GUI 자동화), macOS/Win Pro·Max 프리뷰(Team/Ent 불가)</li>
+<li>기본 꺼짐: 설정→Computer use 토글(macOS는 손쉬운사용+화면기록 권한 추가)</li>
+<li>View only/Click only/Full control 3단계, 세션당 1회 승인</li>
+</ul>
+</section>
+
+<section class="c5">
+<h2>🗂 세션 관리</h2>
+<ul>
+<li>Cmd/Ctrl+N 새 세션, 병렬 실행, 세션마다 자동 Git worktree 격리</li>
+<li>Cmd/Ctrl+클릭으로 2개 세션 분할 보기</li>
+<li>완료 후 보관 아이콘, PR 병합 시 자동 보관 설정 가능</li>
+</ul>
+</section>
+
+<section class="c5">
+<h2>💬 사이드 채팅</h2>
+<div class="desc">Cmd/Ctrl+; 또는 <code>/btw</code> 로 열기 — 메인 세션 컨텍스트는 읽지만 기록엔 안 남음(로컬·SSH·WSL만)</div>
+</section>
+
+<section class="c6">
+<h2>📋 백그라운드 & 세션 간 작업</h2>
+<ul>
+<li>Tasks 패널: 서브에이전트·백그라운드 셸·워크플로우</li>
+<li>자연어로 다른 세션 확인/메시지/보관 요청(최근 20개, 클라우드 제외)</li>
+</ul>
+</section>
+
+<section class="c6">
+<h2>☁ 클라우드 세션 & 이어가기</h2>
+<ul>
+<li>Cloud 선택 → 앱 종료해도 계속 실행, claude.ai/code·모바일 앱에서 확인</li>
+<li>여러 저장소 동시 추가 가능</li>
+<li><b>Continue in</b>: 웹 세션 전송 또는 IDE로 열기</li>
+</ul>
+</section>
+
+<section class="c6">
+<h2>📱 Dispatch (Cowork 탭)</h2>
+<ul>
+<li>폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성(Dispatch 배지)</li>
+<li>완료·승인 필요 시 푸시 알림, Pro/Max 전용(Team/Enterprise 불가)</li>
+</ul>
+</section>
+
+<section class="c1">
+<h2>🔌 커넥터 연결</h2>
+<div class="desc">+ 버튼 → Connectors: Google Calendar/Slack/GitHub/Linear/Notion 등(로컬·SSH만, 클라우드·WSL 불가)</div>
+<div class="desc" style="margin-top:2px">설정→Connectors 에서 관리·연결 해제</div>
+</section>
+
+<section class="c1">
+<h2>🧰 스킬 & 플러그인</h2>
+<ul>
+<li>+→Slash commands: 내장 명령어·커스텀 스킬·플러그인 스킬 탐색</li>
+<li>+→Plugins: 설치 확인, "Add plugin"으로 마켓플레이스 설치</li>
+<li>플러그인은 클라우드·WSL 세션에서는 사용 불가</li>
+</ul>
+</section>
+
+<section class="c2">
+<h2>⚙ 프리뷰 서버 (.claude/launch.json)</h2>
+<table>
+<tr><td class="cmd">name/runtimeExecutable</td><td class="desc">식별자/실행 명령</td></tr>
+<tr><td class="cmd">runtimeArgs/port(3000)</td><td class="desc">인자/포트</td></tr>
+<tr><td class="cmd">cwd/env/autoPort</td><td class="desc">경로/환경변수/포트 자동할당</td></tr>
+<tr><td class="cmd">program/url</td><td class="desc">node 직접 실행/접속 주소</td></tr>
+</table>
+<div class="desc">autoVerify 기본 켜짐(수정마다 자동 검증)</div>
+</section>
+
+<section class="c2">
+<h2>🖧 환경 종류</h2>
+<table>
+<tr><td class="cmd">Local</td><td class="desc">내 컴퓨터에서 직접 실행</td></tr>
+<tr><td class="cmd">Cloud</td><td class="desc">Anthropic 관리 인프라</td></tr>
+<tr><td class="cmd">SSH</td><td class="desc">원격 머신(Linux·macOS만)</td></tr>
+<tr><td class="cmd">WSL(Windows)</td><td class="desc">WSL2 배포판 내 실행</td></tr>
+</table>
+</section>
+
+<section class="c2">
+<h2>🏢 엔터프라이즈 관리</h2>
+<ul>
+<li>관리 콘솔: Code 데스크톱 사용여부, 웹 세션, Remote Control, Bypass 모드 비활성화 등 제어</li>
+<li>Managed settings: disableAutoMode, sshHostAllowlist, managedMcpServers 등</li>
+<li>macOS는 MDM(Jamf/Kandji), Windows는 그룹 정책/레지스트리로 관리</li>
+</ul>
+</section>
+
+<section class="c2">
+<h2>🔒 네트워크 & 데이터 처리</h2>
+<div class="desc">허용 도메인: anthropic.com, claude.ai, claude.com, claude.app, *.claudeusercontent.com (HTTPS 443)</div>
+<div class="desc" style="margin-top:2px">로컬 세션은 로컬 처리, 클라우드 세션은 Anthropic 관리 인프라에서 처리</div>
+</section>
+
+<section class="ref">
+<h2>📊 CLI → 데스크톱 대응표</h2>
+<table>
+<tr><td class="cmd">--model</td><td class="desc">모델 드롭다운</td></tr>
+<tr><td class="cmd">--resume/--continue</td><td class="desc">사이드바 세션 클릭</td></tr>
+<tr><td class="cmd">--permission-mode</td><td class="desc">모드 선택기</td></tr>
+<tr><td class="cmd">--dangerously-skip-permissions</td><td class="desc">Bypass permissions 모드</td></tr>
+<tr><td class="cmd">--add-dir</td><td class="desc">클라우드 세션 + 버튼</td></tr>
+<tr><td class="cmd">--allowedTools 등</td><td class="desc">대응 없음(설정파일만 적용)</td></tr>
+<tr><td class="cmd">--verbose</td><td class="desc">Verbose 뷰 모드</td></tr>
+<tr><td class="cmd">--print/--output-format</td><td class="desc">미지원(대화형 전용)</td></tr>
+</table>
+</section>
+
+<section class="ref">
+<h2>📋 기능 비교: CLI vs 데스크톱</h2>
+<table>
+<tr><td class="cmd">권한 모드</td><td class="desc">CLI 전체(dontAsk포함) / 데스크톱 4종+Bypass</td></tr>
+<tr><td class="cmd">MCP·플러그인</td><td class="desc">CLI는 설정파일·명령 / 데스크톱은 UI</td></tr>
+<tr><td class="cmd">파일 첨부</td><td class="desc">CLI 불가 / 데스크톱 이미지·PDF 가능</td></tr>
+<tr><td class="cmd">세션 격리</td><td class="desc">CLI --worktree / 데스크톱 자동</td></tr>
+<tr><td class="cmd">반복 작업</td><td class="desc">CLI cron/CI / 데스크톱 Scheduled tasks</td></tr>
+<tr><td class="cmd">Dispatch/스크립팅</td><td class="desc">데스크톱만/CLI만 지원</td></tr>
+</table>
+</section>
+
+<section class="tip">
+<h2>🔗 CLI와 공유되는 설정</h2>
+<ul>
+<li>CLAUDE.md, CLAUDE.local.md — 둘 다 사용</li>
+<li>MCP 서버, Hooks, Skills, ~/.claude/settings.json — 모두 공유</li>
+<li>터미널에서 <code>/desktop</code> 입력 → 현재 세션을 데스크톱 앱으로 이동</li>
+</ul>
+</section>
+
+<section class="tip">
+<h2>💡 데스크톱 vs CLI, 언제 무엇을</h2>
+<div class="desc">병렬 세션 관리, 패널 배치, 변경사항 시각적 검토 → <b>데스크톱</b></div>
+<div class="desc" style="margin-top:2px">스크립팅, 자동화, 터미널 워크플로우 선호 → <b>CLI</b></div>
+</section>
+
+<section>
+<h2 style="border-color:#dc2626;color:#991b1b;">🛠 트러블슈팅</h2>
+<ul>
+<li>403/인증 오류 → 재로그인, 구독 확인</li>
+<li>화면 멈춤 → 재시작, 업데이트, 방화벽 CDN 확인</li>
+<li>"Failed to load session" → 폴더/Git LFS 확인</li>
+<li>Windows Git 필요 → Git for Windows 설치 후 재시작</li>
+</ul>
+</section>
+
+<section class="ref">
+<h2>🔗 참고 링크</h2>
+<ul>
+<li>공식 문서: code.claude.com/docs/en/desktop</li>
+<li>Cowork: claude.com/product/cowork</li>
+<li>다운로드: claude.com/download</li>
+</ul>
+</section>
+
+</div>
+
+<div style="margin-top:4px; font-size:6px; color:#999; text-align:center;">
+Claude Desktop Cheat Sheet (Korean Edition · Code tab, CLI 제외 · A4) · MIT License · 공식 문서: code.claude.com/docs/en/desktop · 일부 항목은 버전·플랜에 따라 다를 수 있음
+</div>
+
+</body>
+</html>
