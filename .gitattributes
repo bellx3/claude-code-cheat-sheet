@@ -1,0 +1,10 @@
+# Windows에서 편집해도 리포에는 LF만 들어가게 한다.
+# CRLF가 섞이면 diff가 통째로 바뀐 것처럼 보이고, 데이터 파일이 많은 리포에서 특히 심하다.
+* text=auto eol=lf
+
+# 바이너리
+*.pdf   binary
+*.png   binary
+*.gif   binary
+*.jpg   binary
+*.ico   binary

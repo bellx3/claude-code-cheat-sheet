@@ -74,3 +74,10 @@ build/
 *.backup
 *.bak
 *.tmp
+# 빌드 산출물
+_site/
+dist-artifacts/
+
+# 문서 감시 보고서(매 실행 생성, 스냅샷만 커밋)
+sources/watch-report.md
+tools/search-report.json
