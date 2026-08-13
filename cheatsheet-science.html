@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Claude Science 치트시트</title>
+<style>
+  @page { size: A3 landscape; margin: 5mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "Segoe UI", -apple-system, sans-serif;
+    font-size: 7.9px;
+    line-height: 1.27;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 3px;
+  }
+  h1 { font-size: 15px; margin: 0 0 2px 0; color: #1d4ed8; }
+  .subtitle { font-size: 8px; color: #555; margin-bottom: 3px; }
+  .columns { column-count: 5; column-gap: 5px; orphans: 1; widows: 1; }
+  @media screen and (max-width: 1400px) { .columns { column-count: 3; } }
+  @media screen and (max-width: 800px)  { .columns { column-count: 2; } }
+  section {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px 5px;
+    background: #fafafa;
+  }
+  h2 {
+    font-size: 9.2px; margin: 0 0 2px 0; padding-bottom: 1px;
+    border-bottom: 2px solid; display: flex; align-items: center; gap: 3px;
+  }
+  h3 { font-size: 7.5px; margin: 4px 0 1px 0; color: #444; text-transform: uppercase; letter-spacing: 0.02em; }
+  code, .cmd {
+    font-family: "Consolas", "Cascadia Code", monospace;
+    background: #eef0f3; border-radius: 2px; padding: 0 2px; font-size: 7.3px;
+  }
+  pre {
+    background: #1e1e2e; color: #cdd6f4; padding: 2px 3px; border-radius: 3px;
+    margin: 1px 0; font-size: 6.7px; white-space: pre-wrap;
+    overflow-wrap: anywhere; word-break: normal; line-height: 1.26;
+  }
+  .cmd { white-space: normal; word-break: break-word; }
+  table { table-layout: fixed; width: 100%; border-collapse: collapse; margin: 1px 0; }
+  td:first-child { width: 40%; word-break: break-word; }
+  td, th { padding: 0.5px 2px; text-align: left; vertical-align: top; font-size: 7.1px; }
+  tr:nth-child(even) { background: #f0f0f0; }
+  .desc { color: #555; }
+  ul { margin: 2px 0; padding-left: 12px; }
+  li { margin-bottom: 1px; }
+  .warn {
+    background: #fef3c7; color: #92400e; font-weight: bold;
+    border-radius: 3px; padding: 2px 4px; margin-top: 3px; display: block;
+  }
+  .danger {
+    background: #fee2e2; color: #991b1b; font-weight: bold;
+    border-radius: 3px; padding: 2px 4px; margin-top: 3px; display: block;
+  }
+  .c1 h2 { border-color:#2563eb; color:#1d4ed8; }
+  .c2 h2 { border-color:#0891b2; color:#0e7490; }
+  .c3 h2 { border-color:#7c3aed; color:#5b21b6; }
+  .c4 h2 { border-color:#059669; color:#047857; }
+  .c5 h2 { border-color:#ea580c; color:#9a3412; }
+  .c6 h2 { border-color:#db2777; color:#9d174d; }
+  .c7 h2 { border-color:#65a30d; color:#3f6212; }
+  .c8 h2 { border-color:#dc2626; color:#991b1b; }
+  .ref h2 { border-color:#475569; color:#1e293b; }
+  .tip h2 { border-color:#0ea5e9; color:#075985; }
+  .header-bar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 3px solid #1d4ed8; padding-bottom: 3px; margin-bottom: 5px;
+  }
+  .header-bar .meta { font-size: 7.8px; color: #777; text-align: right; }
+  @media print { body { padding: 0; } section { background: white; } }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div>
+    <h1>🔬 Claude Science 치트시트 — 연구자용 워크벤치 (베타)</h1>
+    <div class="subtitle">설치부터 커넥터·스킬·HPC 연동·CLI·네트워크 정책까지, 공식 문서 기준 정리</div>
+  </div>
+  <div class="meta">공식 문서 웹 조사 기준 최종 확인: 2026-08-13 (v0.1.27)<br>출력 권장: A3 가로, 여백 최소, 배경 그래픽 인쇄 켜기</div>
+</div>
+
+<div class="columns">
+
+<section class="c1">
+<h2>🔬 Claude Science란</h2>
+<div class="desc">Claude + 로컬 분석 환경을 결합한 <b>데스크톱 앱</b>. 자연어로 요청하면 Python/R/shell 코드를 샌드박스에서 작성·실행하고, 결과를 출처 기록이 포함된 <b>버전 관리 아티팩트</b>로 저장</div>
+<ul>
+<li>파일은 내 컴퓨터에 유지, 코드는 샌드박스에서 실행</li>
+<li>새 폴더·네트워크 호스트·원격 잡은 매번 승인 후 사용</li>
+<li>백그라운드 <b>리뷰어</b>가 주장과 실제 실행 기록을 대조</li>
+</ul>
+<span class="danger">⚠️ 연구 도구 — 임상·진단 용도 아님. 리뷰어는 오류를 줄일 뿐 없애지 못하므로 결과는 반드시 직접 검증</span>
+</section>
+
+<section class="c1">
+<h2>💻 시스템 요구사항</h2>
+<table>
+<tr><td class="cmd">플랜</td><td class="desc">Pro/Max/Team/Enterprise (<b>Free 불가</b>)</td></tr>
+<tr><td class="cmd">macOS</td><td class="desc">13 이상 (Apple Silicon/Intel)</td></tr>
+<tr><td class="cmd">Linux</td><td class="desc">x64 glibc 배포판 (arm64·Alpine 불가)</td></tr>
+<tr><td class="cmd">디스크</td><td class="desc">약 5GB (런타임+기본 환경)</td></tr>
+<tr><td class="cmd">Linux 필수</td><td class="desc">socat, bubblewrap 0.8.0+, 비특권 유저 네임스페이스</td></tr>
+</table>
+<span class="warn">⚠️ 네이티브 Windows 빌드 없음 — WSL2 사용</span>
+</section>
+
+<section class="c1">
+<h2>📥 설치</h2>
+<h3>macOS</h3>
+<div class="desc">claude.com/product/claude-science 에서 설치 파일 다운로드 → 더블클릭. 첫 실행 시 Python·R 기본 환경 구성(수 분) 후 브라우저 탭 자동 오픈</div>
+<h3>Linux</h3>
+<pre># 샌드박스 의존성 (sudo 필요)
+sudo apt-get install -y curl bubblewrap socat   # Ubuntu/Debian
+sudo dnf install -y curl bubblewrap socat       # Fedora/RHEL
+sudo pacman -S curl bubblewrap socat            # Arch
+
+bwrap --version    # 0.8.0 이상 확인 (22.04는 불가, 24.04 OK)
+
+curl -fsSL https://claude.ai/install-claude-science.sh | bash
+claude-science serve</pre>
+<span class="warn">⚠️ 브라우저 탭에서 열리지만 <b>로컬 앱</b> — 공개 URL 없음. API 키 불필요</span>
+</section>
+
+<section class="c1">
+<h2>🪟 Windows (WSL2)</h2>
+<pre># 관리자 PowerShell
+wsl --install -d Ubuntu-24.04
+wsl -l -v                        # 버전 2 확인
+wsl --set-version Ubuntu-24.04 2 # 1이면 전환
+
+# WSL 내부
+sudo apt update && sudo apt install -y curl bubblewrap socat
+curl -fsSL https://claude.ai/install-claude-science.sh | bash
+. ~/.profile && claude-science --version
+claude-science serve --port 8765 --no-browser</pre>
+<div class="desc">WSL2가 localhost 자동 포워딩 → 출력 URL을 Windows 브라우저에 붙여넣기</div>
+<span class="warn">⚠️ WSL 1 불가, Ubuntu 24.04 이상 필요. <code>wsl --shutdown</code> 시 앱도 종료</span>
+</section>
+
+<section class="c2">
+<h2>📚 핵심 개념 (용어집)</h2>
+<table>
+<tr><td class="cmd">Project</td><td class="desc">관련 세션·산출물 묶음. custom instructions와 폴더 권한이 세션 간 유지</td></tr>
+<tr><td class="cmd">Session</td><td class="desc">프로젝트 내 대화 스레드 1개. 자체 kernel·workspace 보유</td></tr>
+<tr><td class="cmd">Artifact</td><td class="desc">Claude가 저장한 파일. Files view에 표시, 영구 보존</td></tr>
+<tr><td class="cmd">Workspace</td><td class="desc">아티팩트 저장 전 코드가 읽고 쓰는 세션별 폴더</td></tr>
+<tr><td class="cmd">Kernel</td><td class="desc">변수를 메모리에 유지하는 살아있는 Python·R 프로세스</td></tr>
+<tr><td class="cmd">Environment</td><td class="desc">conda 기반 명명된 패키지 세트, 세션 간 재사용</td></tr>
+<tr><td class="cmd">Version</td><td class="desc">아티팩트의 불변 저장본 — 덮어쓰지 않고 위에 쌓임</td></tr>
+<tr><td class="cmd">Execution log</td><td class="desc">해당 아티팩트 버전을 만든 노트북 셀 구간</td></tr>
+<tr><td class="cmd">Data directory</td><td class="desc"><code>~/.claude-science</code> — DB·아티팩트·워크스페이스·로그</td></tr>
+</table>
+</section>
+
+<section class="c2">
+<h2>🖱 UI 조작 & 컴포저 단축키</h2>
+<table>
+<tr><td class="cmd">@</td><td class="desc">아티팩트·업로드 파일 삽입</td></tr>
+<tr><td class="cmd">#</td><td class="desc">과거 세션 삽입</td></tr>
+<tr><td class="cmd">/</td><td class="desc">스킬 삽입 (스킬 피커)</td></tr>
+<tr><td class="cmd">Cmd/Ctrl+K</td><td class="desc">검색 (프로젝트 설명까지 매칭)</td></tr>
+</table>
+<div class="desc" style="margin-top:2px"><b>Files</b> 사이드바 = 프로젝트 전체 아티팩트 그리드 (업로드는 <b>Your uploads</b>)</div>
+<div class="desc" style="margin-top:2px"><b>아티팩트 메뉴</b>: Open / Open beside session / View in context / <b>Provenance</b> / Versions / Copy link / Star / Rename / Download / Delete</div>
+<div class="desc" style="margin-top:2px"><b>Settings</b>: Permissions · Memory · Specialists · Connectors · Skills · Network · Compute · Credentials · Storage · Usage</div>
+<div class="desc" style="margin-top:2px"><b>Compute 탭</b>: 실행 중인 커널의 메모리·CPU 확인 및 중지</div>
+</section>
+
+<section class="c2">
+<h2>✏️ 어노테이션 (주석)</h2>
+<div class="desc">영역 선택 → <b>Annotate</b> pill 클릭 → 코멘트 입력 → <b>Cmd/Ctrl+Enter</b> 또는 Save</div>
+<ul>
+<li>저장만으로는 전송 안 됨 — 컴포저의 <b>N comments</b> chip에 모였다가 다음 메시지와 함께 전송</li>
+<li>가능: Markdown, plain text, LaTeX, code(텍스트 선택), PDF(페이지 단위), 이미지·figure(점 클릭), 렌더된 HTML, 세션 transcript</li>
+<li>불가: 테이블 · 스레드/resolve 없음 · 1,000자 제한</li>
+</ul>
+</section>
+
+<section class="c4">
+<h2>🐍 실행 환경 & 패키지</h2>
+<div class="desc">Python·R은 <b>persistent kernel</b>에서 실행, 변수 유지. 약 30분 idle·패키지 설치·세션 종료 시 재시작</div>
+<h3>Starter environments (읽기 전용)</h3>
+<div class="desc">Python: numpy, pandas, scipy, matplotlib, seaborn, pillow<br>R: tidyverse, ggplot2, jsonlite</div>
+<h3>설치 소스</h3>
+<div class="desc"><b>micromamba</b>(conda-forge, bioconda, defaults, pytorch) · <b>pip/PyPI</b> · <b>CRAN·Bioconductor</b></div>
+<ul>
+<li>환경 설치 = 영구 / 셀 내 인라인 <code>pip install</code>·<code>install.packages()</code> = 커널 재시작까지만</li>
+<li>Task environment(예: single-cell, structural-biology)는 필요 시 생성, 머신 전체 공유. 목록·삭제는 Claude에게 요청</li>
+<li>GPU는 <b>Linux만</b> — <code>Settings &gt; Compute</code>에서 활성화(샌드박스 강도 낮아짐)</li>
+</ul>
+<span class="warn">⚠️ <code>apt</code>·<code>sudo</code>·root 없음 — 패키지가 없으면 conda-forge 컴파일러로 소스 빌드</span>
+</section>
+
+<section class="c4">
+<h2>📦 아티팩트 & Provenance</h2>
+<ul>
+<li>아티팩트는 <b>영구</b>, 그 외 세션 파일은 종료 몇 시간 후 삭제</li>
+<li>같은 파일명 재저장 = 새 버전. 열면 version stepper + diff 토글</li>
+<li>과거 버전은 읽기 전용(복원하려면 다시 저장 요청), 대화 속 링크는 <b>당시 버전</b>을 가리킴</li>
+<li>인라인 편집 가능: Markdown, code, plain text (Edit content → Save = 새 버전)<br>불가: 이미지, PDF, HTML, 테이블</li>
+</ul>
+<h3>Provenance 5개 탭</h3>
+<div class="desc"><b>Messages</b> · <b>Code</b>(스크립트·노트북 다운로드) · <b>Execution Log</b> · <b>Environment</b>(환경명·언어·패키지 버전) · <b>Review</b></div>
+<span class="warn">⚠️ <b>Execution Log가 실행의 권위 있는 기록</b> — Code 탭과 불일치하면 로그를 신뢰. <code>~/.claude-science</code> 내부 파일 직접 이동·삭제 금지</span>
+</section>
+
+<section class="c4">
+<h2>🔍 리뷰어 (Reviewer)</h2>
+<div class="desc">응답·승인된 plan·아티팩트·실행 기록을 독립적으로 재독해 주장과 실제 실행을 대조 (<b>재실행은 하지 않음</b>)</div>
+<h3>검증 예시</h3>
+<ul>
+<li>실행 없이 계산했다고 보고한 결과</li>
+<li>응답 값과 원본 파일 불일치</li>
+<li>인용이 주장을 뒷받침하지 않음 / <b>DOI가 다른 논문으로 연결</b></li>
+<li>미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론</li>
+</ul>
+<div class="desc" style="margin-top:2px">응답 후 자동 실행 + <b>Request review</b> 수동 트리거. 결과는 <b>Reviewer · N findings</b> 카드(claim·evidence·transcript 링크)</div>
+<div class="desc" style="margin-top:2px">기본값: Max/Team/Enterprise <b>ON</b>, Pro <b>OFF</b>. 커스텀 기준은 <code>Settings &gt; Specialists &gt; Reviewer &gt; Instructions</code>(추가만 가능, 내장 체크 제거 불가)</div>
+</section>
+
+<section class="ref">
+<h2>⌨ CLI 서브커맨드</h2>
+<table>
+<tr><td class="cmd">serve</td><td class="desc">실행 + 1회용 로그인 링크 열기</td></tr>
+<tr><td class="cmd">open</td><td class="desc">새 로그인 링크 발급 후 브라우저 열기</td></tr>
+<tr><td class="cmd">url</td><td class="desc">새 로그인 링크만 출력 (SSH용)</td></tr>
+<tr><td class="cmd">status</td><td class="desc">실행 여부·버전·포트 JSON 출력</td></tr>
+<tr><td class="cmd">logs [--tail]</td><td class="desc">로그 출력 / 실시간 추적</td></tr>
+<tr><td class="cmd">stop</td><td class="desc">정상 종료</td></tr>
+<tr><td class="cmd">update [--check]</td><td class="desc">업데이트 (<code>--to &lt;ver&gt;</code>로 롤백)</td></tr>
+<tr><td class="cmd">import &lt;path&gt;</td><td class="desc">다른 데이터 디렉터리 병합</td></tr>
+<tr><td class="cmd">--version</td><td class="desc">버전 출력</td></tr>
+</table>
+<div class="desc">전역: <code>--data-dir &lt;dir&gt;</code>(기본 <code>~/.claude-science</code>), <code>--config &lt;file&gt;</code></div>
+<span class="danger">⚠️ <code>import</code>는 미리보기·되돌리기 없음 — 사전 백업 필수</span>
+</section>
+
+<section class="ref">
+<h2>🚩 serve 플래그</h2>
+<table>
+<tr><td class="cmd">--port &lt;n&gt;</td><td class="desc">기본 8000 (0=자동 할당)</td></tr>
+<tr><td class="cmd">--no-browser</td><td class="desc">브라우저 자동 오픈 안 함</td></tr>
+<tr><td class="cmd">--detached</td><td class="desc">백그라운드 실행</td></tr>
+<tr><td class="cmd">--no-auto-update</td><td class="desc">자동 업데이트 끄기</td></tr>
+<tr><td class="cmd">--host &lt;addr&gt;</td><td class="desc">기본 127.0.0.1 (변경 시 네트워크 노출)</td></tr>
+<tr><td class="cmd">--base-path &lt;/prefix&gt;</td><td class="desc">리버스 프록시용</td></tr>
+<tr><td class="cmd">--allow-origin &lt;url&gt;</td><td class="desc">허용 오리진 (반복 지정)</td></tr>
+<tr><td class="cmd">--sandbox-port &lt;n&gt;</td><td class="desc">기본 port+1, HTML 미리보기용</td></tr>
+<tr><td class="cmd">--verbose</td><td class="desc">상세 로그</td></tr>
+</table>
+<span class="danger">☠️ <code>--dangerously-no-sandbox</code>(홈 전체 접근+무제한 네트워크) · <code>--dangerously-skip-approvals</code>(모든 승인 자동)</span>
+</section>
+
+<section class="c2">
+<h2>🌐 원격 Linux 서버 (SSH 터널)</h2>
+<pre># ① 내 컴퓨터에서 먼저 터널 (링크 3분 만료)
+ssh -L 8000:localhost:8000 \
+    -L 8001:localhost:8001 you@server.example.com
+
+# ② 서버에서
+claude-science serve --no-browser
+claude-science url          # 링크 재발급</pre>
+<div class="desc">리다이렉트 실패 시 로그인 화면의 <b>Paste a code</b> 사용</div>
+<span class="warn">⚠️ 미리보기 포트(8001)를 안 열면 인터랙티브 차트가 정적 스냅샷으로 표시</span>
+</section>
+
+<section class="c3">
+<h2>🧬 Featured 커넥터 (기본 ON·읽기전용)</h2>
+<div class="desc">계정·키 불필요, 승인 카드 없이 실행. <code>Settings &gt; Connectors</code>에서 개별 OFF</div>
+<table>
+<tr><td class="cmd">Genomes</td><td class="desc">Ensembl(VEP), UCSC</td></tr>
+<tr><td class="cmd">Genes &amp; Ontologies</td><td class="desc">MyGene, UniProt, GO, Reactome, OLS</td></tr>
+<tr><td class="cmd">Variants</td><td class="desc">gnomAD, ClinVar, dbSNP</td></tr>
+<tr><td class="cmd">Human Genetics</td><td class="desc">GWAS Catalog, eQTL Catalogue, FinnGen, BioBank Japan</td></tr>
+<tr><td class="cmd">Clinical Genomics</td><td class="desc">ClinGen, CIViC, Open Targets</td></tr>
+<tr><td class="cmd">Expression</td><td class="desc">GTEx</td></tr>
+<tr><td class="cmd">Regulation</td><td class="desc">ENCODE, JASPAR, UniBind</td></tr>
+<tr><td class="cmd">Protein Annotation</td><td class="desc">InterPro, Pfam, Human Protein Atlas, STRING</td></tr>
+<tr><td class="cmd">Structures</td><td class="desc">PDB, AlphaFold, EMDB, Complex Portal, IntAct</td></tr>
+<tr><td class="cmd">RNA</td><td class="desc">Rfam</td></tr>
+<tr><td class="cmd">Omics Archives</td><td class="desc">GEO, ArrayExpress, PRIDE, MGnify, MetaboLights</td></tr>
+<tr><td class="cmd">Cancer Models</td><td class="desc">cBioPortal</td></tr>
+<tr><td class="cmd">Chemistry</td><td class="desc">PubChem, ChEBI, Rhea, BindingDB</td></tr>
+<tr><td class="cmd">Drug Regulatory</td><td class="desc">FDA drug data, openFDA</td></tr>
+<tr><td class="cmd">Literature Graph</td><td class="desc">OpenAlex, arXiv</td></tr>
+<tr><td class="cmd">Research Resources</td><td class="desc">Grants.gov, Antibody Registry</td></tr>
+</table>
+<div class="desc">추가: <b>BioMart</b>, <b>CellGuide</b>(CELLxGENE), <b>ZINC</b>, <b>Ketcher</b>(2D 분자 스케처)</div>
+<span class="warn">⚠️ 일부 DB는 비상업/출처표기 라이선스 — 사용 전 확인</span>
+</section>
+
+<section class="c3">
+<h2>🔗 Directory 커넥터 (타 Claude 제품 공용)</h2>
+<div class="desc">claude.com/connectors 기반 4종: <b>PubMed</b>, <b>Clinical Trials</b>, <b>ChEMBL</b>, <b>bioRxiv</b></div>
+<div class="desc" style="margin-top:2px">Team/Enterprise는 관리자가 추가해야 표시됨</div>
+</section>
+
+<section class="c4">
+<h2>🧪 기본 제공 스킬</h2>
+<div class="desc"><code>Settings &gt; Skills</code> · 자동 로드, 컴포저에 <code>/</code> 입력해 직접 선택 가능</div>
+<table>
+<tr><td class="cmd">워크플로우</td><td class="desc">literature review, indication dossier</td></tr>
+<tr><td class="cmd">구조예측·폴딩</td><td class="desc">AlphaFold2, Boltz-2, Chai-1, ESMFold2, OpenFold3</td></tr>
+<tr><td class="cmd">단백질 설계</td><td class="desc">ProteinMPNN (Ligand/Soluble 포함)</td></tr>
+<tr><td class="cmd">도킹</td><td class="desc">DiffDock</td></tr>
+<tr><td class="cmd">단백질 언어모델</td><td class="desc">ESM-2</td></tr>
+<tr><td class="cmd">유전체·시퀀스</td><td class="desc">Evo 2, Borzoi</td></tr>
+<tr><td class="cmd">단일세포</td><td class="desc">scGPT, scvi-tools</td></tr>
+</table>
+</section>
+
+<section class="c4">
+<h2>🛠 커스텀 스킬 만들기</h2>
+<div class="desc"><b>Add skill</b> 버튼 → 4가지 방식</div>
+<ul>
+<li><b>Chat with Claude</b> — 대화로 생성</li>
+<li><b>Write from scratch</b> — 직접 작성</li>
+<li><b>Upload a skill</b> — 파일 업로드</li>
+<li><b>Import from GitHub</b> — private repo 가능(<code>Settings &gt; Credentials</code>에 GitHub 토큰 추가 후)</li>
+</ul>
+<div class="desc">기존 세션의 워크플로를 스킬로 증류(distill)해 달라고 요청 가능</div>
+</section>
+
+<section class="c5">
+<h2>🖥 SSH / Slurm 클러스터</h2>
+<div class="desc"><code>Settings &gt; Compute &gt; SSH hosts &gt; Add SSH host</code></div>
+<ol>
+<li><code>~/.ssh/config</code>의 alias 선택 (주소·user·port·ProxyJump 자동 인식)</li>
+<li>호스트 메모 입력 (partition, account code, module load 등) — 첫 작업 전 Claude가 읽음</li>
+<li><b>Advanced</b>에서 User/Port/Identity file 재정의 → <b>Add</b></li>
+</ol>
+<div class="desc">추가 시 read-only 프로브로 CPU/GPU/CUDA, conda·modules·Apptainer, scratch, <code>sbatch</code> 존재 여부 자동 탐지 (<b>Probe</b>로 재실행)</div>
+<div class="desc" style="margin-top:2px">실행: 워크스테이션=detached 프로세스, SLURM=<code>sbatch</code>. 연결 끊겨도 잡 유지</div>
+<div class="desc" style="margin-top:2px">기본 잡 타임아웃 <b>30분</b>, 동시 잡 <b>100</b>. 약 100MB 초과 출력은 호스트에 남고 경로만 기록</div>
+<span class="danger">⚠️ 원격 잡은 샌드박스 밖 — 내 계정 권한 전체로 실행됨. 호스트엔 아무것도 설치하지 않음</span>
+</section>
+
+<section class="c5">
+<h2>☁ 외부 컴퓨트 (Modal)</h2>
+<div class="desc"><code>Settings &gt; Compute &gt; Cloud providers</code> → Modal <b>Connect</b></div>
+<pre>modal token new        # CLI 로그인 → ~/.modal.toml 자동 인식</pre>
+<div class="desc">또는 <code>Settings &gt; Credentials &gt; Modal</code>에 Token ID + secret 붙여넣기(암호화 저장, Claude에 미노출)</div>
+<ul>
+<li>승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시</li>
+<li>입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 <code>./out/</code> 최대 5 GiB</li>
+<li>동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)</li>
+</ul>
+<span class="danger">⚠️ 지출 상한 없음 · 과금은 Modal이 직접 청구 · 앱 종료해도 잡은 계속 과금</span>
+</section>
+
+<section class="c5">
+<h2>🧠 모델 엔드포인트 (HTTP)</h2>
+<div class="desc"><code>Settings &gt; Compute &gt; Model endpoints</code> → <b>NVIDIA BioNeMo NIM</b> Connect</div>
+<div class="desc" style="margin-top:2px">BioNeMo Agent Toolkit 스킬 import + <b>NVIDIA NGC API</b> 자격증명 → NVIDIA 호스팅 API 또는 로컬 Docker NIM 컨테이너 선택</div>
+</section>
+
+<section class="c6">
+<h2>🗄 클라우드 스토리지 (S3/GCS/Azure)</h2>
+<div class="desc"><code>Settings &gt; Credentials</code> → AWS / Google Cloud / Microsoft Azure</div>
+<ul>
+<li>access key, service-account JSON, HMAC key, connection string 등 + 버킷명(또는 Azure Blob containers) 나열</li>
+<li>버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)</li>
+<li>코드에서 <code>boto3</code>, Azure SDK로 접근. <code>Settings &gt; Storage</code>에서 탐색·임포트(최대 100GB)</li>
+</ul>
+<span class="warn">⚠️ GCS는 <b>HMAC key + boto3</b> 또는 import/export만 가능 — <code>gsutil</code>·<code>gcloud storage</code>·google-cloud-storage는 path-style이라 차단됨</span>
+</section>
+
+<section class="c6">
+<h2>📚 문헌 접근</h2>
+<div class="desc"><code>Settings &gt; Credentials &gt; Services &gt; Literature access</code> (claude.ai 계정 설정과 별개)</div>
+<div class="desc" style="margin-top:2px"><b>시도 순서</b>: 오픈액세스(Unpaywall·Semantic Scholar·PMC) → CrossRef 링크 → 보유 키 출판사 → 라이브러리 프록시 → 출판사 페이지</div>
+<table>
+<tr><td class="cmd">Elsevier API key</td><td class="desc">+ institutional token (구독 필요)</td></tr>
+<tr><td class="cmd">Springer Nature key</td><td class="desc">Springer 경로 활성</td></tr>
+<tr><td class="cmd">Semantic Scholar key</td><td class="desc">해당 단계 가속</td></tr>
+<tr><td class="cmd">NCBI API key</td><td class="desc">PubMed 3→10 req/s</td></tr>
+<tr><td class="cmd">CORE API key</td><td class="desc">오픈액세스 aggregator</td></tr>
+<tr><td class="cmd">EZproxy URL + 쿠키</td><td class="desc">도서관 경유 재시도</td></tr>
+<tr><td class="cmd">OpenAlex API key</td><td class="desc"><b>매 요청 필수</b> (무료 발급)</td></tr>
+</table>
+<span class="warn">⚠️ 어떤 키도 페이월을 우회하지 않음. Unpaywall 단계는 <code>Settings &gt; General &gt; Contact email</code> 공유해야 작동</span>
+</section>
+
+<section class="c6">
+<h2>🔌 커스텀 MCP 커넥터</h2>
+<div class="desc"><code>Settings &gt; Connectors &gt; Add connector</code> → <b>Remote</b>(HTTPS) 또는 <b>Local command</b>. Name은 소문자·숫자·하이픈만</div>
+<ul>
+<li><b>Remote</b>: 서버 URL + Advanced(transport SSE/Streamable HTTP, OAuth, Headers helper)</li>
+<li><b>Local command</b>: 실행 명령 + Advanced(인자, 환경변수)</li>
+<li>툴 기본값 <b>Ask each time</b> → Tools 탭에서 Always allow/Block</li>
+</ul>
+<span class="danger">⚠️ Local 커넥터 환경변수는 <b>암호화 없이</b> 설정 파일 저장 — 고가치 시크릿 금지. <b>Skip approvals</b>는 신뢰하는 개발자만</span>
+</section>
+
+<section class="tip">
+<h2>✅ 승인 범위 (권한 카드)</h2>
+<div class="desc">폴더 접근·코드 실행·원격 잡·커넥터 툴마다 카드 표시</div>
+<table>
+<tr><td class="cmd">Once</td><td class="desc">이번 한 번만</td></tr>
+<tr><td class="cmd">This conversation</td><td class="desc">현재 세션 동안</td></tr>
+<tr><td class="cmd">This project</td><td class="desc">이 프로젝트 전체</td></tr>
+<tr><td class="cmd">Global</td><td class="desc">모든 프로젝트</td></tr>
+</table>
+</section>
+
+<section class="c7">
+<h2>📄 config.toml</h2>
+<div class="desc"><code>~/.claude-science/config.toml</code> — 시작 시 1회 읽음, <b>변경은 재시작 후 적용</b></div>
+<pre>[network]
+proxy = "http://proxy.example.corp:8080"
+no_proxy = ".example.corp,registry.example.corp"
+ca_bundle = "/etc/claude-science/corporate-ca.pem"
+mcp_x509_strict = "auto"   # relaxed | strict
+
+[conda]
+channel_mirror = "https://..."   # 내부 미러
+pip_index_url  = "https://..."
+allow_insecure_mirror = false
+
+[sandbox.network]
+enabled = true
+allowed_domains = ["*.example.org"]
+denied_domains = []          # 거부 우선</pre>
+<span class="warn">⚠️ 미러 값이 잘못되면 앱이 시작되지 않음. 파일 값이 Settings보다 우선(“조직 관리” 표시)</span>
+</section>
+
+<section class="c7">
+<h2>🌱 환경 변수</h2>
+<table>
+<tr><td class="cmd">DO_NOT_TRACK</td><td class="desc">텔레메트리 끄기(값 무관)</td></tr>
+<tr><td class="cmd">GITHUB_TOKEN</td><td class="desc">api.github.com 레이트리밋 완화</td></tr>
+<tr><td class="cmd">HTTPS_PROXY / HTTP_PROXY</td><td class="desc">프록시 (설정파일보다 우선)</td></tr>
+<tr><td class="cmd">NO_PROXY / ALL_PROXY</td><td class="desc">NO_PROXY는 설정 키와 <b>병합</b></td></tr>
+</table>
+</section>
+
+<section class="c8">
+<h2>🔒 데이터 취급 (local-first)</h2>
+<ul>
+<li>대화·산출물은 <b>내 기기에만</b> 저장 (<code>~/.claude-science</code>) — Anthropic 측 세션 저장소 없음</li>
+<li>Anthropic이 받는 것: <b>프롬프트·응답</b> + 제품 사용 <b>텔레메트리</b>(대화 내용 아님, 끌 수 있음)</li>
+<li>원격 컴퓨트 트래픽은 Anthropic 경유하지 않음</li>
+<li>Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신</li>
+</ul>
+<span class="danger">⚠️ 폴더 삭제 = 모든 프로젝트·아티팩트·대화 영구 삭제. Custom Data Retention·Compliance API는 로컬 데이터에 미적용 → MDM/EDR로 관리</span>
+</section>
+
+<section class="c8">
+<h2>🏢 플랜 & 조직 활성화</h2>
+<table>
+<tr><td class="cmd">Free</td><td class="desc">사용 불가</td></tr>
+<tr><td class="cmd">Pro / Max</td><td class="desc">기본 켜짐</td></tr>
+<tr><td class="cmd">Team / Enterprise</td><td class="desc">기본 <b>꺼짐</b> — Owner가 활성화</td></tr>
+</table>
+<div class="desc">Organization settings &gt; Claude Science &gt; Enable for your organization → 마법사 → Enable</div>
+<span class="danger">⚠️ Owner/Primary Owner만 가능(Admin 불가). HIPAA 조직도 기본 꺼짐이며 켜도 <b>BAA 미적용·PHI 사용 금지</b></span>
+</section>
+
+<section class="c8">
+<h2>🚧 베타 미지원 항목</h2>
+<ul>
+<li>감사 로그 미기록, Compliance API 내보내기/삭제 불가</li>
+<li>조직 데이터 내보내기 제외, Custom Data Retention 무효</li>
+<li>커넥터·도메인·스킬 허용목록이 <b>로컬/커스텀 커넥터엔 미적용</b></li>
+<li>관리자가 원격 컴퓨트 연결을 제한할 수 없음</li>
+<li>오프보딩 시 로컬 데이터 미삭제 · 네이티브 Windows 빌드 없음</li>
+</ul>
+</section>
+
+<section class="ref">
+<h2>🌐 방화벽 허용 도메인 (443)</h2>
+<h3>앱 필수</h3>
+<div class="desc"><code>claude.ai</code>, <code>platform.claude.com</code>, <code>api.anthropic.com</code></div>
+<h3>선택</h3>
+<div class="desc"><code>*.mcp.claude.com</code>(커넥터), <code>storage.googleapis.com</code>(자동 업데이트), <code>api.github.com</code>·<code>codeload.github.com</code>(스킬)</div>
+<h3>문헌</h3>
+<div class="desc">api.unpaywall.org, doi.org, eutils.ncbi.nlm.nih.gov, api.semanticscholar.org, api.crossref.org, api.openalex.org, api.elsevier.com, api.springernature.com</div>
+<h3>패키지 (항상 허용·차단 불가)</h3>
+<div class="desc">pypi.org, files.pythonhosted.org, conda.anaconda.org, repo.anaconda.com, cran.r-project.org, bioconductor.org, registry.npmjs.org, github.com, *.githubusercontent.com</div>
+<h3>영구 차단 (해제 불가)</h3>
+<div class="desc">익명 파일 업로드·웹훅·리버스 터널·<b>path-style 오브젝트 스토리지</b>(s3.amazonaws.com 등) → 버킷은 <code>&lt;bucket&gt;.s3.&lt;region&gt;.amazonaws.com</code> 호스트명 형식으로 사용</div>
+<span class="warn">⚠️ 미러 트래픽은 프록시를 거치지 않고 직접 연결 — 프록시 허용목록만으로는 환경 빌드가 안 되고 로그에도 안 남음</span>
+</section>
+
+<section class="ref">
+<h2>🔗 참고 링크</h2>
+<ul>
+<li>공식 문서: claude.com/docs/claude-science/overview</li>
+<li>시작 가이드: /docs/claude-science/get-started</li>
+<li>커넥터·스킬: /docs/claude-science/connectors-and-skills</li>
+<li>CLI 설정: /docs/claude-science/command-line-settings</li>
+<li>다운로드: claude.com/product/claude-science</li>
+</ul>
+</section>
+
+</div>
+
+<div style="margin-top:5px; font-size:7.3px; color:#999; text-align:center;">
+Claude Science Cheat Sheet (Korean Edition) · MIT License · 공식 문서: claude.com/docs/claude-science · 베타 제품으로 기능·정책이 자주 변경될 수 있음
+</div>
+
+</body>
+</html>
