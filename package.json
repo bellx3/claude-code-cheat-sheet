@@ -1,0 +1,26 @@
+{
+  "name": "claude-ref",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude 참고자료 — 탭 기반 레퍼런스 · 작업축 · 프롬프트 저장소",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "gate": "node tools/gate-all.mjs",
+    "build": "node tools/gate-all.mjs --pre && eleventy && node tools/gate-all.mjs --post",
+    "serve": "eleventy --serve",
+    "verify": "npm run build && node tools/search-test.mjs --strict && node tools/gate-reverse-test.mjs && node tools/measure-print.mjs",
+    "pdf": "node tools/build-pdf.mjs && node tools/pdf-expect.mjs && python tools/verify-pdf.py",
+    "shots": "node tools/shots-cdp.mjs",
+    "docs": "node tools/fetch-llms-txt.mjs",
+    "watch-docs": "node tools/watch-docs.mjs",
+    "extract": "node tools/extract-ref.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "js-yaml": "^4.1.0"
+  }
+}
