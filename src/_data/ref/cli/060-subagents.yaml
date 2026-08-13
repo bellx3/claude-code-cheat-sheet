@@ -18,6 +18,19 @@ items:
     desc: >-
       Task 도구로 호출: subagent_type=이름 · .claude/agents/*.md frontmatter(name/description/tools/model)로
       정의 · --agent/--agents 플래그로도 지정 가능
+    detail: |
+      **실질 이점은 전문성이 아니라 컨텍스트 격리다.** 탐색으로 파일 50개를 훑어야 하는데
+      그 내용이 본 대화에 다 쌓이면 이후 작업이 계속 무거워진다. 서브에이전트에 맡기면
+      결론만 돌아온다.
+
+      쓸 자리는 셋이다 — 넓게 훑고 결론만 필요할 때, 같은 일을 여러 관점으로 각각 돌릴 때,
+      실패해도 본 대화가 안 다쳐야 할 때. 반대로 맥락이 계속 이어져야 하는 작업은
+      쪼개면 오히려 나빠진다.
+    caveat: |
+      결과는 요약이라 근거가 잘려 있다. 중요한 판정은 파일 경로와 재현 명령을 같이 요구하고,
+      받은 뒤 직접 확인할 것.
+    see_also: [cli/advanced-slash#agents, cli/new-flags#agent-agents]
+    tasks: [split-work-across-agents]
   - id: frontend-developer
     term: frontend-developer
     kind: value
@@ -82,5 +95,13 @@ items:
     term: DB & 품질
     kind: note
     tier: full
-    desc: "상세: subagents.md, subagents/*.md"
+    desc: "위 17종은 원본 프로젝트에서 온 개발직군 롤 템플릿이다 (legacy/subagents/)"
     subhead: DB & 품질
+    detail: |
+      이 목록은 이 리포가 갈라져 나온 원본(Njengah/claude-code-cheat-sheet)의 템플릿이고,
+      wordpress-developer·php-developer 처럼 특정 직군에 묶인 것이 많다.
+      **내 작업과 맞는지 확인된 바 없으므로 그대로 쓰기보다 필요한 것만 골라 다시 쓰는 편이 낫다.**
+
+      원문은 `legacy/subagents/*.md` 에 그대로 남겨뒀다(MIT, 본문은 한국어).
+      쓸 만한 게 있으면 거기서 가져와 `.claude/agents/` 에 두면 된다.
+    tasks: [split-work-across-agents]
