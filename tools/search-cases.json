@@ -1,0 +1,171 @@
+{
+ "_comment": "질의 → 기대 착지 URL. 가중치를 눈으로 만지는 대신 이 통과율로만 조정한다. want가 상위 rank 안에 있으면 통과.",
+ "rank": 5,
+ "cases": [
+  {
+   "q": "커밋 전에 자동으로",
+   "want": "/task/pre-commit-gate/"
+  },
+  {
+   "q": "커밋 전에 테스트",
+   "want": "/task/pre-commit-gate/"
+  },
+  {
+   "q": "승인 창",
+   "want": "/task/reduce-permission-prompts/"
+  },
+  {
+   "q": "권한 확인 창 그만",
+   "want": "/task/reduce-permission-prompts/"
+  },
+  {
+   "q": "되돌리기",
+   "want": "/task/undo-mistake/"
+  },
+  {
+   "q": "실수했다",
+   "want": "/task/undo-mistake/"
+  },
+  {
+   "q": "토큰 아끼기",
+   "want": "/task/shrink-context-cost/"
+  },
+  {
+   "q": "컨텍스트 꽉 참",
+   "want": "/task/shrink-context-cost/"
+  },
+  {
+   "q": "CI에 붙이기",
+   "want": "/task/ci-headless-run/"
+  },
+  {
+   "q": "헤드리스",
+   "want": "/task/ci-headless-run/"
+  },
+  {
+   "q": "나만의 명령어",
+   "want": "/task/ship-a-reusable-command/"
+  },
+  {
+   "q": "안 돼요",
+   "want": "/task/it-broke/"
+  },
+  {
+   "q": "윈도우",
+   "want": "/task/windows-gotchas/"
+  },
+  {
+   "q": "어제 대화",
+   "want": "/task/resume-yesterday/"
+  },
+  {
+   "q": "MCP 연결",
+   "want": "/task/connect-external-tools/"
+  },
+  {
+   "q": "서브에이전트",
+   "want": "/task/split-work-across-agents/"
+  },
+  {
+   "q": "--resume",
+   "want": "/ref/cli/#cli-flags--continue-resume"
+  },
+  {
+   "q": "dontAsk",
+   "want": "/ref/cli/#permission-modes--dontask"
+  },
+  {
+   "q": "bypassPermissions",
+   "want": "/ref/cli/#permission-modes--bypasspermissions"
+  },
+  {
+   "q": "/rewind",
+   "want": "/ref/cli/#advanced-slash--rewind-turn"
+  },
+  {
+   "q": "권한모드",
+   "want": "/ref/cli/#permission-modes--auto"
+  },
+  {
+   "q": "Shift+Tab",
+   "want": "/ref/cli/#keybindings--shift-tab"
+  },
+  {
+   "q": "--max-turns",
+   "want": "/ref/cli/#cli-flags--max-turns"
+  },
+  {
+   "q": "샌드박스",
+   "want": "/ref/cli/#sandbox--sandbox"
+  },
+  {
+   "q": "cygpath",
+   "want": "/task/windows-gotchas/"
+  },
+  {
+   "q": "회귀 위험",
+   "want": "/prompts/pre-commit-risk-scan/"
+  },
+  {
+   "q": "프롬프트 복사",
+   "want": "/prompts/"
+  },
+  {
+   "q": "hooks",
+   "want": "https://code.claude.com/docs/en/hooks"
+  },
+  {
+   "q": "플러그인 설치",
+   "want": "/task/connect-external-tools/",
+   "holdout": true
+  },
+  {
+   "q": "비용",
+   "want": "/task/shrink-context-cost/",
+   "holdout": true
+  },
+  {
+   "q": "acceptEdits",
+   "want": "/ref/cli/#permission-modes--acceptedits",
+   "holdout": true
+  },
+  {
+   "q": "--add-dir",
+   "want": "/ref/cli/#cli-flags--add-dir",
+   "holdout": true
+  },
+  {
+   "q": "CLAUDE.md",
+   "want": "/ref/cli/#memory--memory",
+   "holdout": true
+  },
+  {
+   "q": "WSL",
+   "want": "/task/windows-gotchas/",
+   "holdout": true
+  },
+  {
+   "q": "단축키",
+   "holdout": true,
+   "wantPrefix": "/ref/",
+   "wantContains": "keybindings--"
+  },
+  {
+   "q": "a3 인쇄",
+   "want": "/download/",
+   "holdout": true
+  },
+  {
+   "q": "Computer Use",
+   "holdout": true,
+   "wantPrefix": "/ref/desktop/#computer-use--"
+  },
+  {
+   "q": "슬럼",
+   "want": "/ref/science/#slurm--slurm-1",
+   "holdout": true
+  }
+ ],
+ "_holdout_note": "holdout=true 인 케이스는 랭커 튜닝을 끝낸 뒤 추가했다. 이쪽 통과율이 진짜 성능에 가깝다.",
+ "_first_holdout_run": "2026-08-13 최초 holdout 7/10 (70%). 기록: tools/search-report-first-holdout.json. 이후 실패 3건 중 2건은 기대값 오류(같은 섹션 인접 항목이 맞는 착지)로 wantPrefix로 정정, 1건(슬럼)은 진짜 실패라 데이터에 alias를 넣어 고쳤다."
+}

@@ -1,0 +1,43 @@
+name: gates
+
+# PR·push마다 데이터·산출물 게이트를 전수 실행한다. Netlify 크레딧을 쓰지 않는다.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+
+      # 게이트 → 빌드 → 산출물 게이트
+      - name: 빌드 + 게이트
+        run: npm run build
+
+      # 랭커 통과율. holdout 이 떨어지면 알아야 한다.
+      - name: 검색 랭커 통과율
+        run: node tools/search-test.mjs --strict
+
+      # 게이트가 실제로 잡는지. 통과만 확인하면 게이트가 아무것도 안 해도 통과한다.
+      - name: 게이트 역방향 검증
+        run: node tools/gate-reverse-test.mjs
+
+      - name: 요약
+        if: always()
+        run: |
+          echo "### 빌드 산출물" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat _site/build.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "검색 인덱스: $(wc -c < _site/search-index.js) bytes" >> $GITHUB_STEP_SUMMARY

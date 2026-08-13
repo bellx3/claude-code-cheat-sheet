@@ -1,0 +1,41 @@
+{
+ "rank": 5,
+ "tuned": {
+  "n": 28,
+  "pass": 28,
+  "pct": 100
+ },
+ "holdout": {
+  "n": 10,
+  "pass": 7,
+  "pct": 70
+ },
+ "fails": [
+  {
+   "q": "단축키",
+   "want": "/ref/cli/#keybindings--ctrl-c",
+   "holdout": true,
+   "got": [
+    "ref:/ref/desktop/#keybindings--cmd-ctrl",
+    "ref:/ref/desktop/#keybindings--keybindings-1",
+    "ref:/ref/slash/#settings-personal--keybindings"
+   ]
+  },
+  {
+   "q": "Computer Use",
+   "want": "/ref/desktop/#computer-use--computer-use",
+   "holdout": true,
+   "got": [
+    "ref:/ref/desktop/#computer-use--computer-use-1",
+    "ref:/ref/desktop/#feature-compare--computer-use",
+    "ref:/ref/desktop/#computer-use--general-computer-use-macos"
+   ]
+  },
+  {
+   "q": "슬럼",
+   "want": "/ref/science/#slurm--slurm-1",
+   "holdout": true,
+   "got": []
+  }
+ ]
+}
