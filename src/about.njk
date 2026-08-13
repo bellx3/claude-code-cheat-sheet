@@ -17,8 +17,10 @@ permalink: /about/index.html
 <table class="tbl">
   <tr><th>지표</th><th>값</th><th>뜻</th></tr>
   <tr><td>레퍼런스 항목</td><td>{{ stats.itemCount }}</td><td>섹션 {{ stats.sectionCount }}개</td></tr>
-  <tr><td>세부 채움</td><td>{{ stats.detailCount }} / {{ stats.itemCount }} ({{ stats.detailPct }}%)</td>
-      <td>{% if stats.detailPct < 20 %}<span class="badge warn">대부분 아직 한 줄 설명 상태</span>{% else %}진행 중{% endif %}</td></tr>
+  <tr><td>섹션 설명(<code>summary</code>)</td><td>{{ stats.summaryCount }} / {{ stats.sectionCount }} ({{ stats.summaryPct }}%)</td>
+      <td>{% if stats.summaryPct < 100 %}<span class="badge warn">모든 섹션에 필요하다 — 미완</span>{% else %}<span class="badge ok">완료</span>{% endif %}</td></tr>
+  <tr><td>항목 세부(<code>detail</code>)</td><td>{{ stats.detailCount }}</td>
+      <td>100%가 목표가 아니다 — 아래 「무엇을 채우고 무엇을 안 채우나」 참고</td></tr>
   <tr><td>A3 인쇄 대상</td><td>{{ stats.coreCount }}</td><td><code>tier: core</code></td></tr>
   <tr><td>고정 안전 경고</td><td>{{ stats.pinCount }}</td><td><code>pin</code> — 인쇄에서 빠지면 빌드 실패</td></tr>
   <tr><td>작업축</td><td>{{ stats.taskCount }}</td><td>자연어 진입점</td></tr>
@@ -28,6 +30,22 @@ permalink: /about/index.html
 <p class="prose">
   이 표를 자동 집계로 두는 이유는 하나다 — "세부까지 실었다"고 글로 쓰면 확인할 방법이 없지만
   숫자가 화면에 있으면 스스로 속일 수 없다.
+</p>
+
+<h3 id="fill-policy">무엇을 채우고 무엇을 안 채우나</h3>
+<p class="prose">
+  섹션 <code>summary</code> 는 100%가 목표다. "이 묶음이 뭔지"는 모든 섹션에 필요하고,
+  A3 치트시트가 지면 때문에 담지 못했던 것이 정확히 이 층이다.
+</p>
+<p class="prose">
+  항목 <code>detail</code> 은 다르다. <strong>100%가 목표가 아니다.</strong>
+  <code>Ctrl+C</code> 나 <code>--verbose</code> 에 문단을 붙이면 읽는 사람이 훑는 속도만 느려진다.
+  한 줄 설명이 오해를 만드는 항목에만 붙인다 — 예를 들어 <code>auto</code> 와 <code>dontAsk</code> 의
+  차이(묻고 멈추느냐 / 묻지 않고 실패하느냐)는 한 줄로는 전달되지 않고, 그걸 모르면 CI 가 멈춘다.
+</p>
+<p class="prose">
+  그래서 위 표에서 <code>summary</code> 는 비율로, <code>detail</code> 은 개수로만 센다.
+  비율로 세면 "639개를 다 채워야 한다"로 잘못 읽힌다.
 </p>
 
 <h2 id="limits">알려진 한계</h2>

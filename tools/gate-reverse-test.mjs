@@ -6,6 +6,13 @@ import { execFileSync } from "node:child_process";
 
 const CASES = [
   {
+    gate: "G0",
+    what: "YAML 들여쓰기를 깨뜨린다",
+    file: "src/_data/ref/cli/070-permission-modes.yaml",
+    edit: (t) => t + "\n  bad indent here\n",
+    pre: true,
+  },
+  {
     gate: "G1",
     what: "항목 id 를 한국어로 바꾼다",
     file: "src/_data/ref/cli/070-permission-modes.yaml",

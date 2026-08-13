@@ -26,6 +26,36 @@ const isDate = (v) => /^\d{4}-\d{2}-\d{2}$/.test(String(v || "").slice(0, 10));
 
 // ────────────────────────── PRE ──────────────────────────
 if (runPre) {
+  // G0 — YAML 파싱. 이게 없으면 깨진 파일이 게이트 실패가 아니라 스택 트레이스로 나와서
+  //      "어느 파일의 몇 행"이 로그에 묻힌다. 데이터를 손으로 고치는 리포에서는 흔한 실패다.
+  gate("G0 yaml", () => {
+    const walk = (dir) => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const f = path.join(dir, e.name);
+        if (e.isDirectory()) { walk(f); continue; }
+        if (!/\.(yaml|yml)$/.test(e.name)) continue;
+        let doc;
+        try {
+          doc = yaml.load(fs.readFileSync(f, "utf8"));
+        } catch (err) {
+          fail("G0", `${f}: YAML 파싱 실패 — ${String(err.message).split("\n")[0]}`);
+          continue;
+        }
+        // 섹션·작업·프롬프트 파일은 최상위 id 를 가져야 한다. nav.yaml 같은 배열은 예외.
+        if (/[\\/](ref|tasks|prompts)[\\/]/.test(f) && !doc?.id)
+          fail("G0", `${f}: 최상위 id 가 없다`);
+      }
+    };
+    walk("src/_data");
+  });
+  if (errors.length) {
+    // 파싱이 깨진 상태로 아래 게이트를 돌리면 무관한 에러가 쏟아져 원인이 묻힌다.
+    console.log(`게이트 ${ran.join(", ")}`);
+    console.log(`\n실패 ${errors.length}건:`);
+    for (const e of errors) console.log("  X " + e);
+    process.exit(1);
+  }
+
   const ref = refIndexFn();
   const tasks = taskIndexFn();
   const prompts = promptIndexFn();

@@ -46,7 +46,10 @@ export function toYmd(v) {
   return String(v).slice(0, 10);
 }
 
-// 문서에 나오는 자리표시자 도메인·경로. PII 검사에서 제외한다.
+// 문서에 나오는 자리표시자 도메인. PII 검사에서 제외한다.
+// 경로는 예외로 두지 않는다 — 자리표시자처럼 보이는 형태를 허용하면 예외가 계속 넓어지고,
+// 결국 진짜 경로가 통과한다. 문서에 경로 예시가 필요하면 문구를 바꾸는 쪽이 맞다
+// (실제로 check-before-external 프롬프트를 그렇게 고쳤다).
 export const PII_ALLOW = [
   /(^|@)(example\.(com|org|net)|server\.example\.com|localhost)/i,
   /user@host/i,
