@@ -1,0 +1,25 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: network-data
+title: 네트워크 & 데이터 처리
+icon: 🔒
+group: enterprise
+order: 270
+sheet: desktop
+summary: >-
+  데이터가 어디까지 나가는지에 대한 규칙.
+source:
+  url: https://code.claude.com/docs/en/security
+  checked_at: "2026-08-13"
+items:
+  - id: network-data-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: >-
+      주요 허용 도메인: anthropic.com, claude.ai, claude.com, claude.app, *.claudeusercontent.com (HTTPS
+      443)
+  - id: network-data-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: 로컬 세션은 로컬 처리, 클라우드 세션은 Anthropic 관리 인프라에서 코드·대화 컨텍스트 처리

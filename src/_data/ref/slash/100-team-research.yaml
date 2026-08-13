@@ -1,0 +1,48 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: team-research
+title: 팀 연동 & 리서치
+icon: 🏢
+group: extend
+order: 100
+sheet: slash
+summary: >-
+  팀 연동과 조사 성격의 명령.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: install-github-app
+    term: /install-github-app
+    kind: command
+    tier: core
+    desc: Claude GitHub App 설치
+  - id: install-slack-app
+    term: /install-slack-app
+    kind: command
+    tier: core
+    desc: Claude Slack 앱 설치
+  - id: release-notes
+    term: /release-notes
+    kind: command
+    tier: core
+    desc: 버전별 체인지로그 보기
+  - id: claude-api-subcommand
+    term: /claude-api [subcommand]
+    kind: command
+    tier: core
+    desc: Claude API 참고자료 로드
+  - id: deep-research-question
+    term: /deep-research <question>
+    kind: command
+    tier: core
+    desc: 웹 검색 기반 심화 조사
+  - id: dataviz-request
+    term: /dataviz [request]
+    kind: command
+    tier: core
+    desc: 차트·대시보드 설계 지침
+  - id: design-sync-hint
+    term: /design-sync [hint]
+    kind: command
+    tier: core
+    desc: 디자인 시스템 업로드

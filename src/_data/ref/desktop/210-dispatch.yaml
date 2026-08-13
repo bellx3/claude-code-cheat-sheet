@@ -1,0 +1,28 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: dispatch
+title: Dispatch (Cowork 탭)
+icon: 📱
+group: run
+order: 210
+sheet: desktop
+summary: >-
+  여러 작업을 한 번에 흩뿌려 돌리는 탭.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: code-dispatch
+    term: 휴대폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성 (Dispatch 배지 표시)
+    kind: note
+    tier: full
+    desc: 휴대폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성 (Dispatch 배지 표시)
+  - id: dispatch-1
+    term: 완료·승인 필요 시 폰으로 푸시 알림
+    kind: note
+    tier: full
+    desc: 완료·승인 필요 시 폰으로 푸시 알림
+  - id: pro-max-team-enterprise
+    term: Pro/Max 전용, Team/Enterprise 불가
+    kind: note
+    tier: full
+    desc: Pro/Max 전용, Team/Enterprise 불가

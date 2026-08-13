@@ -1,0 +1,38 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: links
+title: 참고 링크
+icon: 🔗
+group: trouble
+order: 330
+sheet: desktop
+summary: >-
+  판정 근거가 되는 1차 출처.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: code-claude-com-docs-en-desktop
+    term: "공식 문서: code.claude.com/docs/en/desktop"
+    kind: note
+    tier: full
+    desc: "공식 문서: code.claude.com/docs/en/desktop"
+  - id: cowork-claude-com-product-cowork
+    term: "Cowork: claude.com/product/cowork"
+    kind: note
+    tier: full
+    desc: "Cowork: claude.com/product/cowork"
+  - id: ios-docs-en-desktop-ios-simulator
+    term: "iOS 시뮬레이터: /docs/en/desktop-ios-simulator"
+    kind: note
+    tier: full
+    desc: "iOS 시뮬레이터: /docs/en/desktop-ios-simulator"
+  - id: wsl-docs-en-desktop-wsl
+    term: "WSL 연동: /docs/en/desktop-wsl"
+    kind: note
+    tier: full
+    desc: "WSL 연동: /docs/en/desktop-wsl"
+  - id: claude-com-download
+    term: "다운로드: claude.com/download"
+    kind: note
+    tier: full
+    desc: "다운로드: claude.com/download"

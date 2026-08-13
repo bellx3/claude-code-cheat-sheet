@@ -1,0 +1,27 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: tool-permissions
+title: 도구 & 권한 실전 예시
+icon: 🟠
+group: control
+order: 180
+sheet: cli
+summary: >-
+  모드보다 강한 층. --disallowedTools 는 우회되지 않으므로 위험한 명령은 여기서 상시 차단한다.
+source:
+  url: https://code.claude.com/docs/en/permissions
+  checked_at: "2026-08-13"
+items:
+  - id: allowedtools-bash-git-log
+    term: "--allowedTools \"Bash(git log:*)\" \\"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      --allowedTools "Bash(git log:*)" \
+        "Bash(git diff:*)" "Write"
+
+      --disallowedTools "Bash(rm:*)" "Bash(sudo:*)"
+
+      --permission-prompt-tool mcp_auth_tool
+
+      --dangerously-skip-permissions   # 위험, 지양

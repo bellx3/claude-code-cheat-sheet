@@ -1,0 +1,56 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: runtime-packages
+title: 실행 환경 & 패키지
+icon: 🐍
+group: use
+order: 80
+sheet: science
+summary: >-
+  패키지를 어떻게 설치하고 어디에 격리되는지.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: runtime-packages-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: Python·R은 persistent kernel에서 실행, 변수 유지. 약 30분 idle·패키지 설치·세션 종료 시 재시작
+  - id: starter-environments
+    term: Starter environments (읽기 전용)
+    kind: note
+    tier: full
+    desc: "Python: numpy, pandas, scipy, matplotlib, seaborn, pillow R: tidyverse, ggplot2, jsonlite"
+    subhead: Starter environments (읽기 전용)
+  - id: micromamba
+    term: micromamba
+    kind: value
+    tier: full
+    desc: (conda-forge, bioconda, defaults, pytorch) · pip/PyPI · CRAN·Bioconductor
+    subhead: 설치 소스
+  - id: pip-install-install-packages
+    term: 환경 설치 = 영구 / 셀 내 인라인 pip install·install.packages() = 커널 재시작까지만
+    kind: note
+    tier: full
+    desc: 환경 설치 = 영구 / 셀 내 인라인 pip install·install.packages() = 커널 재시작까지만
+    subhead: 설치 소스
+  - id: task-environment-single-cell-structural-bi
+    term: "Task environment(예: single-cell, structural-biology)는 필요 시 생성, 머신 전체 공유. 목록·삭제는 "
+    kind: note
+    tier: full
+    desc: "Task environment(예: single-cell, structural-biology)는 필요 시 생성, 머신 전체 공유. 목록·삭제는 Claude에게 요청"
+    subhead: 설치 소스
+  - id: linux
+    term: Linux만
+    kind: value
+    tier: full
+    desc: GPU는 — Settings > Compute에서 활성화(샌드박스 강도 낮아짐)
+    subhead: 설치 소스
+  - id: runtime-packages-2
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: apt·sudo·root 없음 — 패키지가 없으면 conda-forge 컴파일러로 소스 빌드
+    subhead: 설치 소스

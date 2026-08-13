@@ -1,0 +1,18 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: usage
+title: 사용량 확인
+icon: 📊
+group: control
+order: 150
+sheet: desktop
+summary: >-
+  사용량과 한도를 앱 안에서 확인한다.
+source:
+  url: https://code.claude.com/docs/en/costs
+  checked_at: "2026-08-13"
+items:
+  - id: usage-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 모델 선택기 옆 사용량 링 클릭 → 컨텍스트 사용량(세션별) + 플랜 사용량(전체 서피스 공유)

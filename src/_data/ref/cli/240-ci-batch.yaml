@@ -1,0 +1,25 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: ci-batch
+title: CI 연동 & 배치 처리
+icon: 🟤
+group: automate
+order: 240
+sheet: cli
+summary: >-
+  CI 에서 돌릴 때는 결과를 파싱 가능한 형식으로 받고, 실패가 조용히 지나가지 않게 한다.
+source:
+  url: https://code.claude.com/docs/en/github-actions
+  checked_at: "2026-08-13"
+items:
+  - id: claude-p-output-format-json
+    term: claude -p "커버리지 분석" --output-format json \
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      claude -p "커버리지 분석" --output-format json \
+        | jq '.coverage_percentage'
+      claude -p "커밋 기반 릴리스 노트 생성" \
+        --max-turns 2 > RELEASE_NOTES.md
+      find . -name "*.js" -exec claude -p "버그 분석: {}" \; \
+        > bug_report.txt

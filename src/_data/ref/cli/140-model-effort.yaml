@@ -1,0 +1,38 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: model-effort
+title: 모델 & 추론 설정
+icon: 🟡
+group: control
+order: 140
+sheet: cli
+summary: >-
+  작업 난이도에 맞춰 비용을 조절하는 축. 단순 반복에 최고 강도를 쓸 이유가 없다.
+source:
+  url: https://code.claude.com/docs/en/model-config
+  checked_at: "2026-08-13"
+items:
+  - id: model-sonnet-opus-haiku-fable
+    term: "--model sonnet/opus/haiku/fable"
+    kind: flag
+    tier: core
+    desc: 모델 별칭 지정
+  - id: model-claude-sonnet-5
+    term: "--model claude-sonnet-5"
+    kind: flag
+    tier: core
+    desc: 특정 모델 버전 지정
+  - id: effort-level
+    term: "--effort <level>"
+    kind: flag
+    tier: core
+    desc: low~max, ultracode 중 설정
+  - id: advisor-opus
+    term: "--advisor opus"
+    kind: flag
+    tier: core
+    desc: 어드바이저 모델 활성화
+  - id: model-effort
+    term: /model, /effort
+    kind: command
+    tier: core
+    desc: 세션 내 변경

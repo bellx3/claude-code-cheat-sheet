@@ -1,0 +1,45 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: permission-modes
+title: 권한 모드
+icon: 🔐
+group: control
+order: 40
+sheet: desktop
+summary: >-
+  CLI 와 같은 개념이지만 UI 라벨로 표기된다. API 식별자와 대조가 필요하면 CLI 시트를 볼 것.
+source:
+  url: https://code.claude.com/docs/en/permission-modes
+  checked_at: "2026-08-13"
+items:
+  - id: manual-default
+    term: Manual (default)
+    kind: value
+    tier: core
+    desc: 편집·명령 전 항상 확인
+  - id: accept-edits
+    term: Accept edits
+    kind: value
+    tier: core
+    desc: 파일편집+기본 명령 자동승인
+  - id: plan
+    term: Plan
+    kind: value
+    tier: core
+    desc: 탐색만, 편집 전 계획 제시
+  - id: auto
+    term: Auto
+    kind: value
+    tier: core
+    desc: 백그라운드 안전검사로 대부분 자동
+  - id: bypass-permissions
+    term: Bypass permissions
+    kind: value
+    tier: core
+    desc: 프롬프트 없음, 격리 환경 전용
+  - id: permission-modes-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: "Bypass: Pro/Max는 설정→Claude Code 토글, Team/Enterprise는 조직 정책. dontAsk 모드는 CLI 전용"

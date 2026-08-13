@@ -1,0 +1,48 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: misc-utils
+title: 기타 유틸리티
+icon: 🧰
+group: session
+order: 90
+sheet: slash
+summary: >-
+  자주 쓰이진 않지만 필요할 때 찾게 되는 것들.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: cd-path
+    term: /cd <path>
+    kind: command
+    tier: core
+    desc: 작업 디렉토리 이동
+  - id: add-dir-path
+    term: /add-dir <path>
+    kind: command
+    tier: core
+    desc: 작업 디렉토리 추가
+  - id: chrome
+    term: /chrome
+    kind: command
+    tier: core
+    desc: Claude in Chrome 설정
+  - id: web
+    term: /web
+    kind: command
+    tier: core
+    desc: 웹 검색 도구 활성화
+  - id: copy-n
+    term: /copy [N]
+    kind: command
+    tier: core
+    desc: 마지막 응답 클립보드 복사
+  - id: login-logout
+    term: /login, /logout
+    kind: command
+    tier: core
+    desc: 계정 로그인/로그아웃
+  - id: upgrade
+    term: /upgrade
+    kind: command
+    tier: core
+    desc: Claude Code 업그레이드

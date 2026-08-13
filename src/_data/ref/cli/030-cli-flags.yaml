@@ -1,0 +1,78 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: cli-flags
+title: CLI 플래그 전체 참조
+icon: 🚩
+group: start
+order: 30
+sheet: cli
+summary: >-
+  세션 시작 시 한 번 정하는 값들. 세션 안에서 바꿀 수 있는 것은 같은 이름의 슬래시 명령으로도 있다(--model ↔ /model).
+source:
+  url: https://code.claude.com/docs/en/cli-reference
+  checked_at: "2026-08-13"
+items:
+  - id: model
+    term: "--model"
+    kind: flag
+    tier: core
+    desc: 세션 모델 지정
+  - id: effort
+    term: "--effort"
+    kind: flag
+    tier: core
+    desc: 추론 강도 설정
+  - id: add-dir
+    term: "--add-dir"
+    kind: flag
+    tier: core
+    desc: 파일 접근용 작업 디렉토리 추가
+  - id: allowedtools
+    term: "--allowedTools"
+    kind: flag
+    tier: core
+    desc: 확인 없이 도구 허용
+  - id: disallowedtools
+    term: "--disallowedTools"
+    kind: flag
+    tier: core
+    desc: 특정 도구 금지
+  - id: output-format
+    term: "--output-format"
+    kind: flag
+    tier: core
+    desc: 출력 형식 지정
+  - id: input-format
+    term: "--input-format"
+    kind: flag
+    tier: core
+    desc: 입력 형식 지정
+  - id: max-turns
+    term: "--max-turns"
+    kind: flag
+    tier: core
+    desc: 에이전트 턴 수 제한
+  - id: verbose
+    term: "--verbose"
+    kind: flag
+    tier: core
+    desc: 상세 로그 활성화
+  - id: continue-resume
+    term: "--continue / --resume"
+    kind: flag
+    tier: core
+    desc: 세션 이어가기 / 재개
+  - id: from-pr
+    term: "--from-pr"
+    kind: flag
+    tier: core
+    desc: PR 연결 세션 재개
+  - id: fork-session
+    term: "--fork-session"
+    kind: flag
+    tier: core
+    desc: 세션을 복사해 분기 후 재개
+  - id: dangerously-skip-permissions
+    term: "--dangerously-skip-permissions"
+    kind: flag
+    tier: core
+    desc: 모든 권한 확인 생략

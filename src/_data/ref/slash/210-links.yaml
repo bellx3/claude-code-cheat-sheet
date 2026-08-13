@@ -1,0 +1,38 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: links
+title: 참고 링크
+icon: 🔗
+group: practice
+order: 210
+sheet: slash
+summary: >-
+  판정 근거가 되는 1차 출처.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: code-claude-com-docs-en-commands
+    term: "명령어 전체: code.claude.com/docs/en/commands"
+    kind: note
+    tier: full
+    desc: "명령어 전체: code.claude.com/docs/en/commands"
+  - id: code-claude-com-docs-en-discover-plugins
+    term: "플러그인 설치: code.claude.com/docs/en/discover-plugins"
+    kind: note
+    tier: full
+    desc: "플러그인 설치: code.claude.com/docs/en/discover-plugins"
+  - id: code-claude-com-docs-en-plugins
+    term: "플러그인 제작: code.claude.com/docs/en/plugins"
+    kind: note
+    tier: full
+    desc: "플러그인 제작: code.claude.com/docs/en/plugins"
+  - id: claude-com-plugins
+    term: "공식 마켓: claude.com/plugins"
+    kind: note
+    tier: full
+    desc: "공식 마켓: claude.com/plugins"
+  - id: claudemarketplaces-com
+    term: "커뮤니티 순위: claudemarketplaces.com"
+    kind: note
+    tier: full
+    desc: "커뮤니티 순위: claudemarketplaces.com"

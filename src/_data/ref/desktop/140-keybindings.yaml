@@ -1,0 +1,100 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: keybindings
+title: 키보드 단축키 전체
+icon: ⌨️
+group: start
+order: 140
+sheet: desktop
+summary: >-
+  데스크톱 전용 단축키. 터미널 CLI 와 같은 키가 다른 동작일 수 있다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: cmd-ctrl
+    term: Cmd/Ctrl + /
+    kind: shortcut
+    tier: core
+    desc: 단축키 목록 표시
+  - id: cmd-ctrl-n
+    term: Cmd/Ctrl + N
+    kind: shortcut
+    tier: core
+    desc: 새 세션
+  - id: cmd-ctrl-w
+    term: Cmd/Ctrl + W
+    kind: shortcut
+    tier: core
+    desc: 세션 닫기
+  - id: ctrl-tab-shift-tab
+    term: Ctrl+Tab / Shift+Tab
+    kind: shortcut
+    tier: core
+    desc: 다음/이전 세션
+  - id: esc
+    term: Esc
+    kind: shortcut
+    tier: core
+    desc: 응답 중단
+  - id: cmd-ctrl-shift-d
+    term: Cmd/Ctrl + Shift + D
+    kind: shortcut
+    tier: core
+    desc: diff 패널 토글
+  - id: cmd-ctrl-shift-b
+    term: Cmd/Ctrl + Shift + B
+    kind: shortcut
+    tier: core
+    desc: Browser 패널 토글
+  - id: cmd-ctrl-shift-s
+    term: Cmd/Ctrl + Shift + S
+    kind: shortcut
+    tier: core
+    desc: Browser 요소 선택
+  - id: ctrl
+    term: Ctrl + `
+    kind: shortcut
+    tier: core
+    desc: 터미널 패널 토글
+  - id: cmd-ctrl-2
+    term: Cmd/Ctrl + \
+    kind: shortcut
+    tier: core
+    desc: 포커스 패널 닫기
+  - id: cmd-ctrl-3
+    term: Cmd/Ctrl + ;
+    kind: shortcut
+    tier: core
+    desc: 사이드 챗 열기
+  - id: ctrl-o
+    term: Ctrl + O
+    kind: shortcut
+    tier: core
+    desc: 뷰 모드 순환
+  - id: cmd-ctrl-shift-m
+    term: Cmd/Ctrl + Shift + M
+    kind: shortcut
+    tier: core
+    desc: 권한 모드 메뉴
+  - id: cmd-ctrl-shift-i
+    term: Cmd/Ctrl + Shift + I
+    kind: shortcut
+    tier: core
+    desc: 모델 메뉴
+  - id: cmd-ctrl-shift-e
+    term: Cmd/Ctrl + Shift + E
+    kind: shortcut
+    tier: core
+    desc: effort 메뉴
+  - id: 1-9
+    term: 1–9
+    kind: value
+    tier: core
+    desc: 열린 메뉴에서 항목 선택
+  - id: keybindings-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: Code 탭 전용 — 터미널 CLI의 Shift+Tab 등과는 다름

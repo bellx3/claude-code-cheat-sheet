@@ -1,0 +1,30 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: enterprise
+title: 엔터프라이즈 관리
+icon: 🔘
+group: enterprise
+order: 300
+sheet: cli
+summary: >-
+  조직이 배포하는 managed-settings.json 이 최상단이라 개인 설정으로 뒤집을 수 없다.
+source:
+  url: https://code.claude.com/docs/en/settings
+  checked_at: "2026-08-13"
+items:
+  - id: enterprise-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: >-
+      설정 우선순위: managed-settings.json > CLI 인자 > .claude/settings.local.json > .claude/settings.json
+      > ~/.claude/settings.json
+  - id: enterprise-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: auto 모드는 프로덕션 배포·강제 푸시·시크릿 유출 등을 기본 차단
+  - id: sandbox-network-alloweddomains
+    term: sandbox.network.allowedDomains
+    kind: value
+    tier: full
+    desc: sandbox.network.allowedDomains 로 아웃바운드 도메인 제한

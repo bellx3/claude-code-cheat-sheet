@@ -1,0 +1,38 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: approval-scope
+title: 승인 범위 (권한 카드)
+icon: ✅
+group: control
+order: 240
+sheet: science
+summary: >-
+  승인 카드의 범위. 한 번인지 세션인지 프로젝트인지가 다르다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: approval-scope-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 폴더 접근·코드 실행·원격 잡·커넥터 툴마다 카드 표시
+  - id: once
+    term: Once
+    kind: value
+    tier: core
+    desc: 이번 한 번만
+  - id: this-conversation
+    term: This conversation
+    kind: value
+    tier: core
+    desc: 현재 세션 동안
+  - id: this-project
+    term: This project
+    kind: value
+    tier: core
+    desc: 이 프로젝트 전체
+  - id: global
+    term: Global
+    kind: value
+    tier: core
+    desc: 모든 프로젝트

@@ -1,0 +1,38 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: quality-security
+title: 코드 품질 & 보안
+icon: 🛡
+group: quality
+order: 40
+sheet: slash
+summary: >-
+  변경을 검토받는 명령들. 관점을 나눠 여러 번 돌리는 편이 깊이 들어간다.
+source:
+  url: https://code.claude.com/docs/en/security-guidance
+  checked_at: "2026-08-13"
+items:
+  - id: code-review-level-fix
+    term: /code-review [level] [--fix]
+    kind: command
+    tier: core
+    desc: diff·PR 검토 (별칭 /review)
+  - id: security-review
+    term: /security-review
+    kind: command
+    tier: core
+    desc: diff 보안 취약점 검사
+  - id: simplify
+    term: /simplify
+    kind: command
+    tier: core
+    desc: 코드 단순화 제안
+  - id: verify
+    term: /verify
+    kind: command
+    tier: core
+    desc: 코드 검증(스킬)
+  - id: autofix-pr-prompt
+    term: /autofix-pr [prompt]
+    kind: command
+    tier: core
+    desc: CI 실패 자동 수정 감시

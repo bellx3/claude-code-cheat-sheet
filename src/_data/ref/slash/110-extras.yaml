@@ -1,0 +1,38 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: extras
+title: 부가 기능
+icon: ✨
+group: session
+order: 110
+sheet: slash
+summary: >-
+  부가 기능.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: focus
+    term: /focus
+    kind: command
+    tier: core
+    desc: 포커스 뷰 토글
+  - id: radio
+    term: /radio
+    kind: command
+    tier: core
+    desc: Claude FM 로파이 라디오
+  - id: powerup
+    term: /powerup
+    kind: command
+    tier: core
+    desc: 인터랙티브 기능 학습 레슨
+  - id: passes
+    term: /passes
+    kind: command
+    tier: core
+    desc: Claude Code 무료 체험 공유
+  - id: design-login
+    term: /design-login
+    kind: command
+    tier: core
+    desc: 디자인 시스템 접근 권한

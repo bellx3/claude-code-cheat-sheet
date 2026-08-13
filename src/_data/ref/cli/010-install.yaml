@@ -1,0 +1,46 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: install
+title: 설치
+icon: 🟢
+group: start
+order: 10
+sheet: cli
+summary: >-
+  네이티브 설치가 권장 경로다. npm 설치는 레거시라 새로 깔 때 쓰지 않는다. 설치 후 문제가 생기면 추측하기 전에 claude doctor 를 먼저 돌린다.
+source:
+  url: https://code.claude.com/docs/en/setup
+  checked_at: "2026-08-13"
+items:
+  - id: curl-fssl-https-claude-ai-install-sh-bash
+    term: curl -fsSL https://claude.ai/install.sh | bash
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      # macOS/Linux/WSL
+      curl -fsSL https://claude.ai/install.sh | bash
+      # Windows PowerShell
+      irm https://claude.ai/install.ps1 | iex
+      # Homebrew / WinGet
+      brew install --cask claude-code
+      winget install Anthropic.ClaudeCode
+  - id: claude-auth-login
+    term: claude auth login
+    kind: command
+    tier: core
+    desc: 로그인
+  - id: claude-auth-status
+    term: claude auth status
+    kind: command
+    tier: core
+    desc: 인증 상태 확인
+  - id: claude-auth-logout
+    term: claude auth logout
+    kind: command
+    tier: core
+    desc: 로그아웃
+  - id: claude-doctor
+    term: claude doctor
+    kind: command
+    tier: core
+    desc: 설정 진단·문제 해결

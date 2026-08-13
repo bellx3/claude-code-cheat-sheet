@@ -1,0 +1,33 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: env-vars
+title: 환경 변수
+icon: 🌱
+group: control
+order: 260
+sheet: science
+summary: >-
+  환경 변수로 넘기는 값들.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: do-not-track
+    term: DO_NOT_TRACK
+    kind: value
+    tier: core
+    desc: 텔레메트리 끄기(값 무관)
+  - id: github-token
+    term: GITHUB_TOKEN
+    kind: value
+    tier: core
+    desc: api.github.com 레이트리밋 완화
+  - id: https-proxy-http-proxy
+    term: HTTPS_PROXY / HTTP_PROXY
+    kind: value
+    tier: core
+    desc: 프록시 (설정파일보다 우선)
+  - id: no-proxy-all-proxy
+    term: NO_PROXY / ALL_PROXY
+    kind: value
+    tier: core
+    desc: NO_PROXY는 설정 키와 병합

@@ -1,0 +1,63 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: new-flags
+title: 신규 플래그 확장판
+icon: 🚩
+group: start
+order: 120
+sheet: cli
+summary: >-
+  비교적 최근에 붙은 플래그들. 문제가 생겼을 때 원인을 좁히는 --safe-mode·--bare 가 특히 실전에서 값을 한다.
+source:
+  url: https://code.claude.com/docs/en/cli-reference
+  checked_at: "2026-08-13"
+items:
+  - id: permission-mode-mode
+    term: "--permission-mode <mode>"
+    kind: flag
+    tier: core
+    desc: 시작 권한 모드 지정
+  - id: agent-agents
+    term: "--agent / --agents"
+    kind: flag
+    tier: core
+    desc: 세션 에이전트 지정/JSON 정의
+  - id: safe-mode
+    term: "--safe-mode"
+    kind: flag
+    tier: core
+    desc: 커스터마이제이션 전체 비활성화
+  - id: bare
+    term: "--bare"
+    kind: flag
+    tier: core
+    desc: 훅·스킬·플러그인·MCP 생략
+  - id: settings-path-json
+    term: "--settings <path|json>"
+    kind: flag
+    tier: core
+    desc: 설정 파일/인라인 JSON 지정
+  - id: autocompact-auto-tokens
+    term: "--autocompact <auto|tokens>"
+    kind: flag
+    tier: core
+    desc: 자동 컴팩트 기준 설정
+  - id: fallback-model
+    term: "--fallback-model <목록>"
+    kind: flag
+    tier: core
+    desc: 과부하 시 폴백 모델
+  - id: max-budget-usd
+    term: "--max-budget-usd <금액>"
+    kind: flag
+    tier: core
+    desc: 지출 상한 (프린트 모드)
+  - id: system-prompt-file
+    term: "--system-prompt[-file]"
+    kind: flag
+    tier: core
+    desc: 시스템 프롬프트 교체/추가
+  - id: mcp-config-plugin-dir
+    term: "--mcp-config / --plugin-dir"
+    kind: flag
+    tier: core
+    desc: MCP·플러그인 로컬 로드

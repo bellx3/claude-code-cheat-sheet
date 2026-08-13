@@ -1,0 +1,45 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: computer-use
+title: Computer Use
+icon: 🖱
+group: extend
+order: 160
+sheet: desktop
+summary: >-
+  실제 데스크톱을 조작한다. 샌드박스 안의 Bash 와는 신뢰 경계가 다르다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: cli-gui
+    term: 화면·앱 직접 조작 (CLI 없는 GUI 자동화용)
+    kind: note
+    tier: full
+    desc: 화면·앱 직접 조작 (CLI 없는 GUI 자동화용)
+  - id: macos-windows-pro-max-team-enterprise
+    term: macOS·Windows Pro/Max 리서치 프리뷰, Team/Enterprise 불가
+    kind: note
+    tier: full
+    desc: macOS·Windows Pro/Max 리서치 프리뷰, Team/Enterprise 불가
+  - id: general-computer-use-macos
+    term: "기본 꺼짐: 설정→General→Computer use 토글, macOS는 손쉬운 사용+화면 기록 권한 추가 필요"
+    kind: note
+    tier: full
+    desc: "기본 꺼짐: 설정→General→Computer use 토글, macOS는 손쉬운 사용+화면 기록 권한 추가 필요"
+  - id: view-only-click-only-ide-full-control-3
+    term: View only(브라우저 등) / Click only(터미널·IDE) / Full control(그 외) 3단계
+    kind: note
+    tier: full
+    desc: View only(브라우저 등) / Click only(터미널·IDE) / Full control(그 외) 3단계
+  - id: 1-dispatch-30
+    term: 세션당 1회 승인 (Dispatch 세션은 30분마다 재승인)
+    kind: note
+    tier: full
+    desc: 세션당 1회 승인 (Dispatch 세션은 30분마다 재승인)
+  - id: computer-use-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 실제 데스크톱을 조작 — 샌드박스 Bash와는 다른 신뢰 경계

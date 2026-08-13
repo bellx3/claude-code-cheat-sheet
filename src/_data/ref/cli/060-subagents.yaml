@@ -1,0 +1,86 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: subagents
+title: 서브에이전트 한눈에 보기
+icon: 🤖
+group: extend
+order: 60
+sheet: cli
+summary: >-
+  컨텍스트를 따로 쓰는 별도 에이전트. 실질 이점은 전문성이 아니라 격리다 — 넓게 훑어야 하는데 결론만 필요할 때 본 대화가 안 무거워진다.
+source:
+  url: https://code.claude.com/docs/en/sub-agents
+  checked_at: "2026-08-13"
+items:
+  - id: subagents-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: >-
+      Task 도구로 호출: subagent_type=이름 · .claude/agents/*.md frontmatter(name/description/tools/model)로
+      정의 · --agent/--agents 플래그로도 지정 가능
+  - id: frontend-developer
+    term: frontend-developer
+    kind: value
+    tier: full
+    desc: UI/컴포넌트/스타일링
+    subhead: 개발 전문가
+  - id: backend-developer
+    term: backend-developer
+    kind: value
+    tier: full
+    desc: 서버, API, 아키텍처
+    subhead: 개발 전문가
+  - id: api-developer
+    term: api-developer
+    kind: value
+    tier: full
+    desc: API 설계·문서화·통합
+    subhead: 개발 전문가
+  - id: mobile-developer
+    term: mobile-developer
+    kind: value
+    tier: full
+    desc: iOS/Android 앱
+    subhead: 개발 전문가
+  - id: python-developer
+    term: python-developer
+    kind: command
+    tier: full
+    desc: javascript-developer · typescript-developer
+    subhead: 언어 전문가
+  - id: php-developer
+    term: php-developer
+    kind: value
+    tier: full
+    desc: wordpress-developer · ios-developer
+    subhead: 언어 전문가
+  - id: database-designer
+    term: database-designer
+    kind: value
+    tier: full
+    desc: 설계·최적화·모델링
+    subhead: DB & 품질
+  - id: code-reviewer
+    term: code-reviewer
+    kind: value
+    tier: full
+    desc: code-debugger · code-documenter
+    subhead: DB & 품질
+  - id: code-refactor
+    term: code-refactor
+    kind: value
+    tier: full
+    desc: code-security-auditor
+    subhead: DB & 품질
+  - id: code-standards-enforcer
+    term: code-standards-enforcer
+    kind: value
+    tier: full
+    desc: 스타일/일관성
+    subhead: DB & 품질
+  - id: db
+    term: DB & 품질
+    kind: note
+    tier: full
+    desc: "상세: subagents.md, subagents/*.md"
+    subhead: DB & 품질

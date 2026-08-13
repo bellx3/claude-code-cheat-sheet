@@ -1,0 +1,77 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: slash-commands
+title: 슬래시 명령어
+icon: ⌨
+group: start
+order: 60
+sheet: desktop
+summary: >-
+  데스크톱에서 쓸 수 있는 슬래시 명령. 터미널 전용 대화형 명령은 여기서 동작하지 않는다.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: slash-commands-1
+    term: /
+    kind: command
+    tier: full
+    desc: / 입력 또는 +→Slash commands 로 탐색 (내장 명령어 + 커스텀·프로젝트·플러그인 스킬)
+  - id: clear-compact-context
+    term: /clear, /compact, /context
+    kind: command
+    tier: core
+    desc: 새 대화 시작/요약/컨텍스트 확인
+  - id: rewind-diff
+    term: /rewind, /diff
+    kind: command
+    tier: core
+    desc: 체크포인트 롤백 / diff 뷰어
+  - id: model-effort-plan
+    term: /model, /effort, /plan
+    kind: command
+    tier: core
+    desc: 모델·추론강도 변경 / 계획 모드
+  - id: rename-branch-export
+    term: /rename, /branch, /export
+    kind: command
+    tier: core
+    desc: 이름변경/대화분기/내보내기
+  - id: code-review-security-review
+    term: /code-review, /security-review
+    kind: command
+    tier: core
+    desc: diff 검토 / 보안 취약점 검사
+  - id: background-tasks-fork
+    term: /background, /tasks, /fork
+    kind: command
+    tier: core
+    desc: 백그라운드 분리/작업목록/복사
+  - id: loop-goal-recap-insights
+    term: /loop, /goal, /recap, /insights
+    kind: command
+    tier: core
+    desc: 반복실행/목표설정/요약/분석
+  - id: btw
+    term: /btw
+    kind: command
+    tier: core
+    desc: 사이드 채팅 열기
+  - id: desktop
+    term: /desktop
+    kind: command
+    tier: core
+    desc: (터미널에서) 세션을 데스크톱으로 이동
+  - id: ide-mcp-doctor-usage
+    term: /ide, /mcp, /doctor, /usage
+    kind: command
+    tier: core
+    desc: IDE·MCP 관리/진단/사용량
+  - id: slash-commands-2
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: >-
+      /permissions 등 터미널 전용 대화형 명령어는 "isn't available in this environment" 응답. /config 는 인자 무시하고 설정
+      화면만 열림

@@ -1,0 +1,23 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: ide
+title: IDE 연동
+icon: ⚫
+group: run
+order: 250
+sheet: cli
+summary: >-
+  편집기와 붙이면 열려 있는 파일·선택 영역이 맥락으로 전달된다.
+source:
+  url: https://code.claude.com/docs/en/platforms
+  checked_at: "2026-08-13"
+items:
+  - id: ide-ide
+    term: "/ide                # IDE 연동 상태 표시/관리"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      /ide                # IDE 연동 상태 표시/관리
+      claude --ide          # 사용 가능한 IDE 자동 연결
+      claude --chrome        # Chrome 브라우저 연동 켜기
+      claude --no-chrome     # 이 세션만 Chrome 연동 끄기

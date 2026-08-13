@@ -1,0 +1,60 @@
+id: hooks-plugins
+title: Hooks & 플러그인
+icon: 🪝
+group: extend
+order: 80
+sheet: cli
+aliases: [훅, hook, 후크, 자동실행, 플러그인, plugin]
+summary: >-
+  Hooks 는 Claude가 도구를 쓰는 시점에 끼어들고, 플러그인은 명령·스킬·훅·MCP를 한 묶음으로 배포한다.
+  둘 다 "내 워크플로를 Claude 쪽에 심는" 장치다.
+source:
+  url: https://code.claude.com/docs/en/hooks
+  checked_at: "2026-08-13"
+items:
+  - id: hooks
+    term: Hooks
+    kind: value
+    tier: full
+    desc: settings.json의 hooks.<Event>[] (PreToolUse/PostToolUse/SessionStart/Stop 등), /hooks로 확인
+    detail: |
+      `settings.json` 의 `hooks.<Event>[]` 에 matcher 와 실행할 명령을 적는다.
+      주요 이벤트: `PreToolUse`(도구 호출 직전) · `PostToolUse`(성공 직후) ·
+      `SessionStart` · `Stop`(응답 종료).
+
+      **차단은 PreToolUse 에서 exit code 2 로만 된다.** stdout 이 Claude 에게 사유로 전달되므로
+      "왜 막혔는지"를 사람이 아니라 Claude 가 읽고 스스로 고친다. PostToolUse 는 이미 실행된 뒤라
+      차단이 아니라 뒷정리(포매터 등)용이다.
+
+      중요한 경계 하나 — 훅은 **Claude 의 도구 호출**에만 걸린다. 내가 터미널에서 직접 치는
+      `git commit` 은 막지 못한다. 그건 husky·lefthook 같은 git 훅의 몫이고, 둘은 층이 다르다.
+    example: |
+      // .claude/settings.json
+      {
+        "hooks": {
+          "PreToolUse": [{
+            "matcher": "Bash(git commit:*)",
+            "hooks": [{ "type": "command", "command": "npm test --silent" }]
+          }]
+        }
+      }
+    caveat: |
+      훅은 **매 도구 호출마다** 돈다. 전체 테스트를 PreToolUse 에 걸면 파일 하나 고칠 때마다
+      몇 분씩 멈춘다. matcher 를 좁히거나 빠른 검사만 걸 것. 설정에 썼는데 `/hooks` 목록에
+      안 보이면 JSON 문법 오류이거나 파일 위치가 틀린 것이다.
+    see_also: [cli/custom-commands#claude-commands-md, cli/enterprise#enterprise-1]
+    tasks: [pre-commit-gate, stop-touching-wrong-files]
+  - id: hooks-plugins-1
+    term: 플러그인
+    kind: value
+    tier: full
+    desc: .claude-plugin/plugin.json 매니페스트, claude plugin install <name>@<marketplace>, /plugin
+    detail: |
+      플러그인은 슬래시 명령·스킬·훅·MCP 서버·에이전트를 **한 묶음으로 배포**하는 단위다.
+      `.claude-plugin/plugin.json` 이 매니페스트이고, 마켓플레이스에서 설치하거나
+      로컬 디렉터리를 `--plugin-dir` 로 바로 물릴 수 있다.
+
+      직접 만들기 전에 순서를 지키면 헛수고를 줄인다 — 이미 있는 커넥터 → 마켓플레이스 플러그인 →
+      그래도 없으면 직접. `/plugin` 으로 마켓플레이스를 연다.
+    see_also: [slash/plugin-scope#project, cli/new-flags#mcp-config-plugin-dir]
+    tasks: [connect-external-tools, ship-a-reusable-command]

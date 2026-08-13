@@ -1,0 +1,45 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: install
+title: 설치
+icon: 📥
+group: start
+order: 30
+sheet: science
+summary: >-
+  설치 경로와 첫 실행.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: macos
+    term: macOS
+    kind: note
+    tier: full
+    desc: >-
+      claude.com/product/claude-science 에서 설치 파일 다운로드 → 더블클릭. 첫 실행 시 Python·R 기본 환경 구성(수 분) 후 브라우저 탭
+      자동 오픈
+    subhead: macOS
+  - id: sudo-apt-get-install-y-curl-bubblewrap-soc
+    term: "sudo apt-get install -y curl bubblewrap socat   # Ubuntu/Deb"
+    kind: snippet
+    tier: full
+    desc: Linux 예시
+    code: |-
+      # 샌드박스 의존성 (sudo 필요)
+      sudo apt-get install -y curl bubblewrap socat   # Ubuntu/Debian
+      sudo dnf install -y curl bubblewrap socat       # Fedora/RHEL
+      sudo pacman -S curl bubblewrap socat            # Arch
+
+      bwrap --version    # 0.8.0 이상 확인 (22.04는 불가, 24.04 OK)
+
+      curl -fsSL https://claude.ai/install-claude-science.sh | bash
+      claude-science serve
+    subhead: Linux
+  - id: install-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 브라우저 탭에서 열리지만 로컬 앱 — 공개 URL 없음. API 키 불필요
+    subhead: Linux

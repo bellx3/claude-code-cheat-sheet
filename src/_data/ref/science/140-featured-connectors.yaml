@@ -1,0 +1,110 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: featured-connectors
+title: Featured 커넥터 (기본 ON·읽기전용)
+icon: 🧬
+group: connect
+order: 140
+sheet: science
+summary: >-
+  기본으로 켜져 있는 읽기 전용 커넥터들. 대부분 공개 연구 DB 다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: featured-connectors-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 계정·키 불필요, 승인 카드 없이 실행. Settings > Connectors에서 개별 OFF
+  - id: genomes
+    term: Genomes
+    kind: value
+    tier: core
+    desc: Ensembl(VEP), UCSC
+  - id: genes-ontologies
+    term: Genes & Ontologies
+    kind: value
+    tier: core
+    desc: MyGene, UniProt, GO, Reactome, OLS
+  - id: variants
+    term: Variants
+    kind: value
+    tier: core
+    desc: gnomAD, ClinVar, dbSNP
+  - id: human-genetics
+    term: Human Genetics
+    kind: value
+    tier: core
+    desc: GWAS Catalog, eQTL Catalogue, FinnGen, BioBank Japan
+  - id: clinical-genomics
+    term: Clinical Genomics
+    kind: value
+    tier: core
+    desc: ClinGen, CIViC, Open Targets
+  - id: expression
+    term: Expression
+    kind: value
+    tier: core
+    desc: GTEx
+  - id: regulation
+    term: Regulation
+    kind: value
+    tier: core
+    desc: ENCODE, JASPAR, UniBind
+  - id: protein-annotation
+    term: Protein Annotation
+    kind: value
+    tier: core
+    desc: InterPro, Pfam, Human Protein Atlas, STRING
+  - id: structures
+    term: Structures
+    kind: value
+    tier: core
+    desc: PDB, AlphaFold, EMDB, Complex Portal, IntAct
+  - id: rna
+    term: RNA
+    kind: value
+    tier: core
+    desc: Rfam
+  - id: omics-archives
+    term: Omics Archives
+    kind: value
+    tier: core
+    desc: GEO, ArrayExpress, PRIDE, MGnify, MetaboLights
+  - id: cancer-models
+    term: Cancer Models
+    kind: value
+    tier: core
+    desc: cBioPortal
+  - id: chemistry
+    term: Chemistry
+    kind: value
+    tier: core
+    desc: PubChem, ChEBI, Rhea, BindingDB
+  - id: drug-regulatory
+    term: Drug Regulatory
+    kind: value
+    tier: core
+    desc: FDA drug data, openFDA
+  - id: literature-graph
+    term: Literature Graph
+    kind: value
+    tier: core
+    desc: OpenAlex, arXiv
+  - id: research-resources
+    term: Research Resources
+    kind: value
+    tier: core
+    desc: Grants.gov, Antibody Registry
+  - id: featured-connectors-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: "추가: BioMart, CellGuide(CELLxGENE), ZINC, Ketcher(2D 분자 스케처)"
+  - id: featured-connectors-3
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 일부 DB는 비상업/출처표기 라이선스 — 사용 전 확인

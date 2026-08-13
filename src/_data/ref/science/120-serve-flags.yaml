@@ -1,0 +1,65 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: serve-flags
+title: serve 플래그
+icon: 🚩
+group: cli
+order: 120
+sheet: science
+summary: >-
+  serve 실행 시 정하는 값들. 네트워크 노출 범위를 여기서 정한다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: port-n
+    term: "--port <n>"
+    kind: flag
+    tier: core
+    desc: 기본 8000 (0=자동 할당)
+  - id: no-browser
+    term: "--no-browser"
+    kind: flag
+    tier: core
+    desc: 브라우저 자동 오픈 안 함
+  - id: detached
+    term: "--detached"
+    kind: flag
+    tier: core
+    desc: 백그라운드 실행
+  - id: no-auto-update
+    term: "--no-auto-update"
+    kind: flag
+    tier: core
+    desc: 자동 업데이트 끄기
+  - id: host-addr
+    term: "--host <addr>"
+    kind: flag
+    tier: core
+    desc: 기본 127.0.0.1 (변경 시 네트워크 노출)
+  - id: base-path-prefix
+    term: "--base-path </prefix>"
+    kind: flag
+    tier: core
+    desc: 리버스 프록시용
+  - id: allow-origin-url
+    term: "--allow-origin <url>"
+    kind: flag
+    tier: core
+    desc: 허용 오리진 (반복 지정)
+  - id: sandbox-port-n
+    term: "--sandbox-port <n>"
+    kind: flag
+    tier: core
+    desc: 기본 port+1, HTML 미리보기용
+  - id: verbose
+    term: "--verbose"
+    kind: flag
+    tier: core
+    desc: 상세 로그
+  - id: serve-flags-1
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: ☠️ --dangerously-no-sandbox(홈 전체 접근+무제한 네트워크) · --dangerously-skip-approvals(모든 승인 자동)

@@ -1,0 +1,31 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: learning-path
+title: 레벨별 학습 가이드
+icon: 🧭
+group: practice
+order: 330
+sheet: cli
+summary: >-
+  무엇부터 익힐지 순서. 권한 모드와 컨텍스트 관리가 초반 체감이 가장 크다.
+source:
+  url: https://code.claude.com/docs/en/quickstart
+  checked_at: "2026-08-13"
+items:
+  - id: learning-path-1
+    term: 초급
+    kind: note
+    tier: full
+    desc: 기본 명령어부터 → /help 자주 활용 → 간단한 질의로 연습 → 작업 간 /clear
+    subhead: 초급
+  - id: learning-path-2
+    term: 중급
+    kind: note
+    tier: full
+    desc: 권한 모드·도구 권한 마스터 → JSON 출력 자동화 → MCP 연동 → 커스텀 명령어화
+    subhead: 중급
+  - id: learning-path-3
+    term: 고급
+    kind: note
+    tier: full
+    desc: Hooks·플러그인·샌드박싱 활용 → 백그라운드/클라우드 세션 → 팀 협업·엔터프라이즈 정책 준수
+    subhead: 고급

@@ -1,0 +1,40 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: data-handling
+title: 데이터 취급 (local-first)
+icon: 🔒
+group: control
+order: 270
+sheet: science
+summary: >-
+  데이터가 어디에 남고 어디로 나가는지.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: data-handling-1
+    term: 내 기기에만
+    kind: value
+    tier: full
+    desc: 대화·산출물은 저장 (~/.claude-science) — Anthropic 측 세션 저장소 없음
+  - id: data-handling-2
+    term: 프롬프트·응답
+    kind: value
+    tier: full
+    desc: "Anthropic이 받는 것: + 제품 사용 텔레메트리(대화 내용 아님, 끌 수 있음)"
+  - id: anthropic
+    term: 원격 컴퓨트 트래픽은 Anthropic 경유하지 않음
+    kind: note
+    tier: full
+    desc: 원격 컴퓨트 트래픽은 Anthropic 경유하지 않음
+  - id: directory-anthropic
+    term: Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신
+    kind: note
+    tier: full
+    desc: Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신
+  - id: data-handling-3
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: 폴더 삭제 = 모든 프로젝트·아티팩트·대화 영구 삭제. Custom Data Retention·Compliance API는 로컬 데이터에 미적용 → MDM/EDR로 관리

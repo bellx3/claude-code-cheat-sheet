@@ -1,0 +1,27 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: custom-commands
+title: 커스텀 슬래시 명령어
+icon: 🔵
+group: extend
+order: 200
+sheet: cli
+summary: >-
+  반복하는 지시를 파일 한 장으로 굳힌다. 커스텀 명령은 스킬로 통합됐고 문법이 같다.
+source:
+  url: https://code.claude.com/docs/en/skills
+  checked_at: "2026-08-13"
+items:
+  - id: claude-commands-md
+    term: .claude/commands/*.md
+    kind: file
+    tier: full
+    desc: .claude/commands/*.md에 정의, frontmatter(name/description/aliases), 본문에 $ARGUMENTS 사용
+  - id: debug-claude-commands-debug-md
+    term: "/debug     # .claude/commands/debug.md"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      /debug     # .claude/commands/debug.md
+      /test      # .claude/commands/test.md
+      /deploy    # .claude/commands/deploy.md

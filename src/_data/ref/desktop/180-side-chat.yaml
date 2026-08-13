@@ -1,0 +1,18 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: side-chat
+title: 사이드 채팅
+icon: 💬
+group: run
+order: 180
+sheet: desktop
+summary: >-
+  본 작업 흐름을 끊지 않고 옆에서 묻는다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: side-chat-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: Cmd/Ctrl+; 또는 /btw 로 열기 — 메인 세션 컨텍스트는 읽지만 기록엔 안 남음, 앱 종료 시 사라짐 (로컬·SSH·WSL만)

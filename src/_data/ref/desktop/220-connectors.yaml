@@ -1,0 +1,23 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: connectors
+title: 커넥터 연결
+icon: 🔌
+group: extend
+order: 220
+sheet: desktop
+summary: >-
+  외부 서비스를 UI 에서 바로 연결한다. MCP 를 직접 설정하기 전에 여기부터 본다.
+source:
+  url: https://code.claude.com/docs/en/mcp
+  checked_at: "2026-08-13"
+items:
+  - id: connectors-1
+    term: +
+    kind: value
+    tier: full
+    desc: "버튼 → Connectors: Google Calendar/Slack/GitHub/Linear/Notion 등 (로컬·SSH만, 클라우드·WSL 불가)"
+  - id: connectors-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: 설정→Connectors 에서 관리·연결 해제

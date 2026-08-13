@@ -1,0 +1,65 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: literature
+title: 문헌 접근
+icon: 📚
+group: connect
+order: 220
+sheet: science
+summary: >-
+  문헌 DB 접근. 기관 구독이 필요한 것과 아닌 것이 갈린다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: settings-credentials-services-literature-a
+    term: Settings > Credentials > Services > Literature access
+    kind: value
+    tier: full
+    desc: Settings > Credentials > Services > Literature access (claude.ai 계정 설정과 별개)
+  - id: literature-1
+    term: 시도 순서
+    kind: value
+    tier: full
+    desc: 오픈액세스(Unpaywall·Semantic Scholar·PMC) → CrossRef 링크 → 보유 키 출판사 → 라이브러리 프록시 → 출판사 페이지
+  - id: elsevier-api-key
+    term: Elsevier API key
+    kind: value
+    tier: core
+    desc: + institutional token (구독 필요)
+  - id: springer-nature-key
+    term: Springer Nature key
+    kind: value
+    tier: core
+    desc: Springer 경로 활성
+  - id: semantic-scholar-key
+    term: Semantic Scholar key
+    kind: value
+    tier: core
+    desc: 해당 단계 가속
+  - id: ncbi-api-key
+    term: NCBI API key
+    kind: value
+    tier: core
+    desc: PubMed 3→10 req/s
+  - id: core-api-key
+    term: CORE API key
+    kind: value
+    tier: core
+    desc: 오픈액세스 aggregator
+  - id: ezproxy-url
+    term: EZproxy URL + 쿠키
+    kind: value
+    tier: core
+    desc: 도서관 경유 재시도
+  - id: openalex-api-key
+    term: OpenAlex API key
+    kind: value
+    tier: core
+    desc: 매 요청 필수 (무료 발급)
+  - id: literature-2
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 어떤 키도 페이월을 우회하지 않음. Unpaywall 단계는 Settings > General > Contact email 공유해야 작동

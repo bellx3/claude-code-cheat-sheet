@@ -1,0 +1,23 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: when-which
+title: 데스크톱 vs CLI, 언제 무엇을
+icon: 💡
+group: practice
+order: 310
+sheet: desktop
+summary: >-
+  터미널이 나은 상황과 앱이 나은 상황의 구분.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: when-which-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 병렬 세션 관리, 패널 배치, 변경사항 시각적 검토 → 데스크톱
+  - id: when-which-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: 스크립팅, 자동화, 터미널 워크플로우 선호 → CLI

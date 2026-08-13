@@ -1,0 +1,73 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: cli-commands
+title: CLI 명령어 전체 참조
+icon: 📘
+group: start
+order: 20
+sheet: cli
+summary: >-
+  터미널에서 치는 진입점. 대부분은 claude 하나로 시작하고, 나머지는 이어가기(-c/-r)와 관리 명령이다.
+source:
+  url: https://code.claude.com/docs/en/cli-reference
+  checked_at: "2026-08-13"
+items:
+  - id: claude
+    term: claude
+    kind: command
+    tier: core
+    desc: 대화형 세션 시작
+  - id: claude-query
+    term: claude "query"
+    kind: command
+    tier: core
+    desc: 프롬프트와 함께 시작
+  - id: claude-p-query
+    term: claude -p "query"
+    kind: command
+    tier: core
+    desc: "프린트 모드: 실행 후 종료"
+  - id: cat-f-claude-p-q
+    term: cat f | claude -p "q"
+    kind: value
+    tier: core
+    desc: 파이프 콘텐츠 처리
+  - id: claude-c-continue
+    term: claude -c / --continue
+    kind: command
+    tier: core
+    desc: 최근 대화 이어가기
+  - id: claude-r-s-query
+    term: claude -r "<s>" "query"
+    kind: command
+    tier: core
+    desc: 세션 ID·이름으로 재개
+  - id: claude-n-name
+    term: claude -n <name>
+    kind: command
+    tier: core
+    desc: 세션 표시 이름 지정
+  - id: claude-from-pr-pr
+    term: claude --from-pr <PR>
+    kind: command
+    tier: core
+    desc: PR 연결 세션 재개
+  - id: claude-update
+    term: claude update
+    kind: command
+    tier: core
+    desc: 최신 버전 업데이트
+  - id: claude-install-version
+    term: claude install [version]
+    kind: command
+    tier: core
+    desc: 네이티브 바이너리 설치
+  - id: claude-setup-token
+    term: claude setup-token
+    kind: command
+    tier: core
+    desc: 장기 OAuth 토큰 생성
+  - id: claude-mcp
+    term: claude mcp
+    kind: command
+    tier: core
+    desc: MCP 서버 구성

@@ -1,0 +1,43 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: plan-control
+title: 계획 & 실행 제어
+icon: 🧭
+group: session
+order: 30
+sheet: slash
+summary: >-
+  실행 전에 계획을 받거나, 완료 조건을 걸고 맡기는 축.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: plan-description
+    term: /plan [description]
+    kind: command
+    tier: core
+    desc: 계획 모드 진입
+  - id: background-prompt-bg
+    term: /background [prompt], /bg
+    kind: command
+    tier: core
+    desc: 세션을 백그라운드로 분리
+  - id: loop-interval-prompt
+    term: /loop [interval] [prompt]
+    kind: command
+    tier: core
+    desc: 프롬프트 반복 실행
+  - id: goal-condition-clear
+    term: /goal [condition|clear]
+    kind: command
+    tier: core
+    desc: 완료 조건 설정 후 자동 진행
+  - id: subtask-prompt
+    term: /subtask <prompt>
+    kind: command
+    tier: core
+    desc: 서브에이전트에 하위작업 할당
+  - id: batch-instruction
+    term: /batch <instruction>
+    kind: command
+    tier: core
+    desc: 병렬 대규모 변경 조직화

@@ -1,0 +1,36 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: mcp
+title: MCP & 고급 파이프라인
+icon: 🔴
+group: extend
+order: 190
+sheet: cli
+summary: >-
+  외부 서비스와 내 도구를 붙이는 표준 통로. 직접 만들기 전에 커넥터·플러그인부터 찾는 편이 빠르다.
+source:
+  url: https://code.claude.com/docs/en/mcp
+  checked_at: "2026-08-13"
+items:
+  - id: claude-mcp
+    term: claude mcp
+    kind: command
+    tier: core
+    desc: MCP 서버 설정
+  - id: claude-mcp-login-logout-s
+    term: claude mcp login/logout <s>
+    kind: command
+    tier: core
+    desc: MCP OAuth 로그인/해제
+  - id: mcp
+    term: /mcp
+    kind: command
+    tier: core
+    desc: MCP 기능 접근
+  - id: git-log-oneline-claude-p
+    term: git log --oneline | claude -p "요약해줘"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      git log --oneline | claude -p "요약해줘"
+      cat error.log | claude -p "원인 찾아줘"

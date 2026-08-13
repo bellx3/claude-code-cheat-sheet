@@ -1,0 +1,47 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: artifacts
+title: 아티팩트 & Provenance
+icon: 📦
+group: use
+order: 90
+sheet: science
+summary: >-
+  산출물과 그 출처 추적. 무엇이 어떤 실행에서 나왔는지 남는다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: artifacts-1
+    term: 영구
+    kind: value
+    tier: full
+    desc: 아티팩트는 , 그 외 세션 파일은 종료 몇 시간 후 삭제
+  - id: version-stepper-diff
+    term: 같은 파일명 재저장 = 새 버전. 열면 version stepper + diff 토글
+    kind: note
+    tier: full
+    desc: 같은 파일명 재저장 = 새 버전. 열면 version stepper + diff 토글
+  - id: artifacts-2
+    term: 당시 버전
+    kind: value
+    tier: full
+    desc: 과거 버전은 읽기 전용(복원하려면 다시 저장 요청), 대화 속 링크는 을 가리킴
+  - id: markdown-code-plain-text-edit-content-save
+    term: "인라인 편집 가능: Markdown, code, plain text (Edit content → Save = 새 버전) 불가: 이미지, PDF,"
+    kind: note
+    tier: full
+    desc: "인라인 편집 가능: Markdown, code, plain text (Edit content → Save = 새 버전) 불가: 이미지, PDF, HTML, 테이블"
+  - id: messages
+    term: Messages
+    kind: value
+    tier: full
+    desc: · Code(스크립트·노트북 다운로드) · Execution Log · Environment(환경명·언어·패키지 버전) · Review
+    subhead: Provenance 5개 탭
+  - id: artifacts-3
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: Execution Log가 실행의 권위 있는 기록 — Code 탭과 불일치하면 로그를 신뢰. ~/.claude-science 내부 파일 직접 이동·삭제 금지
+    subhead: Provenance 5개 탭

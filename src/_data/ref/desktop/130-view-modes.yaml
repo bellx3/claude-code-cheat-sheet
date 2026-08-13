@@ -1,0 +1,33 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: view-modes
+title: 뷰 모드
+icon: 👁
+group: start
+order: 130
+sheet: desktop
+summary: >-
+  무엇을 크게 볼지 고르는 축.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: normal
+    term: Normal
+    kind: value
+    tier: core
+    desc: 도구 호출 요약 + 전체 텍스트 응답
+  - id: verbose
+    term: Verbose
+    kind: value
+    tier: core
+    desc: 모든 도구 호출·중간 단계 표시
+  - id: summary
+    term: Summary
+    kind: value
+    tier: core
+    desc: 최종 응답과 변경사항만
+  - id: view-modes-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: Ctrl+O 로 순환 전환

@@ -1,0 +1,63 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: session-mgmt
+title: 세션 & 대화 관리
+icon: 💬
+group: session
+order: 10
+sheet: slash
+summary: >-
+  대화 자체를 다루는 명령들. 작업이 바뀌면 이어가지 말고 자르는 편이 낫다.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: clear-name
+    term: /clear [name]
+    kind: command
+    tier: core
+    desc: 새 대화 시작
+  - id: compact
+    term: /compact [지시]
+    kind: command
+    tier: core
+    desc: 대화 요약
+  - id: context-all
+    term: /context [all]
+    kind: command
+    tier: core
+    desc: 컨텍스트 사용량 표시
+  - id: resume
+    term: /resume
+    kind: command
+    tier: core
+    desc: 다른 대화로 전환
+  - id: rename-name
+    term: /rename [name]
+    kind: command
+    tier: core
+    desc: 세션 이름 변경
+  - id: branch-name
+    term: /branch [name]
+    kind: command
+    tier: core
+    desc: 대화 분기
+  - id: fork-prompt
+    term: /fork [prompt]
+    kind: command
+    tier: core
+    desc: 새 백그라운드 세션으로 복사
+  - id: export-filename
+    term: /export [filename]
+    kind: command
+    tier: core
+    desc: 대화 내보내기
+  - id: diff
+    term: /diff
+    kind: command
+    tier: core
+    desc: 변경사항 대화형 뷰어
+  - id: rewind-turn
+    term: /rewind [turn#]
+    kind: command
+    tier: core
+    desc: 코드+대화 체크포인트 롤백

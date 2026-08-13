@@ -1,0 +1,43 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: info-diagnostics
+title: 정보 & 진단
+icon: 📊
+group: quality
+order: 50
+sheet: slash
+summary: >-
+  지금 상태가 어떤지 읽는 명령들. 고치기 전에 여기부터 본다.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: status
+    term: /status
+    kind: command
+    tier: core
+    desc: 세션 상태·진행 작업 표시
+  - id: usage-cost
+    term: /usage, /cost
+    kind: command
+    tier: core
+    desc: 토큰 사용량·비용 표시
+  - id: doctor
+    term: /doctor
+    kind: command
+    tier: core
+    desc: 설정 진단 및 문제 해결
+  - id: insights
+    term: /insights
+    kind: command
+    tier: core
+    desc: 세션 사용 패턴 분석 보고서
+  - id: recap
+    term: /recap
+    kind: command
+    tier: core
+    desc: 세션 한 줄 요약
+  - id: heapdump
+    term: /heapdump
+    kind: command
+    tier: core
+    desc: 메모리 진단 스냅샷

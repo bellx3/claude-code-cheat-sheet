@@ -1,0 +1,28 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: cloud-sessions
+title: 클라우드 세션 & 이어가기
+icon: ☁
+group: run
+order: 200
+sheet: desktop
+summary: >-
+  실행을 웹으로 올려 기기를 닫아도 계속 돌린다.
+source:
+  url: https://code.claude.com/docs/en/cloud-environments
+  checked_at: "2026-08-13"
+items:
+  - id: environment-cloud-claude-ai-code
+    term: Environment에서 Cloud 선택 → 앱 종료해도 계속 실행, claude.ai/code·모바일 앱에서 확인
+    kind: note
+    tier: full
+    desc: Environment에서 Cloud 선택 → 앱 종료해도 계속 실행, claude.ai/code·모바일 앱에서 확인
+  - id: cloud-sessions-1
+    term: 여러 저장소 동시 추가 가능
+    kind: note
+    tier: full
+    desc: 여러 저장소 동시 추가 가능
+  - id: continue-in
+    term: Continue in
+    kind: value
+    tier: full
+    desc: "메뉴: 웹 세션으로 전송 또는 IDE로 열기"

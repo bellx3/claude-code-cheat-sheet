@@ -1,0 +1,38 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: shared-settings
+title: CLI와 공유되는 설정
+icon: 🔗
+group: practice
+order: 300
+sheet: desktop
+summary: >-
+  CLI 와 공유되는 설정. 한쪽에서 고치면 다른 쪽에도 적용된다.
+source:
+  url: https://code.claude.com/docs/en/settings
+  checked_at: "2026-08-13"
+items:
+  - id: claude-md-claude-local-md
+    term: CLAUDE.md, CLAUDE.local.md — 둘 다 사용
+    kind: note
+    tier: full
+    desc: CLAUDE.md, CLAUDE.local.md — 둘 다 사용
+  - id: mcp-claude-json-mcp-json
+    term: MCP 서버(~/.claude.json, .mcp.json) — 공유
+    kind: note
+    tier: full
+    desc: MCP 서버(~/.claude.json, .mcp.json) — 공유
+  - id: hooks-skills
+    term: Hooks, Skills — 공유
+    kind: note
+    tier: full
+    desc: Hooks, Skills — 공유
+  - id: claude-settings-json
+    term: ~/.claude/settings.json — 공유(권한 규칙 등)
+    kind: note
+    tier: full
+    desc: ~/.claude/settings.json — 공유(권한 규칙 등)
+  - id: desktop
+    term: 터미널에서 /desktop 입력 → 현재 세션을 데스크톱 앱으로 이동
+    kind: note
+    tier: full
+    desc: 터미널에서 /desktop 입력 → 현재 세션을 데스크톱 앱으로 이동

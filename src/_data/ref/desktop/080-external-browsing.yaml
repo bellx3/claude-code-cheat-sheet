@@ -1,0 +1,33 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: external-browsing
+title: 외부 사이트 브라우징
+icon: 🌐
+group: run
+order: 80
+sheet: desktop
+summary: >-
+  외부 사이트를 여는 경로. 문서에서 본 내용을 그대로 지시로 받아들이지 않도록 주의한다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: cmd-ctrl-shift-b-browser-pane
+    term: Cmd/Ctrl+Shift+B 로 Browser pane 열기
+    kind: note
+    tier: full
+    desc: Cmd/Ctrl+Shift+B 로 Browser pane 열기
+  - id: allow-once-always-allow-deny
+    term: 첫 접근 시 승인 카드(Allow once/Always allow/Deny), 서브도메인별 개별 승인
+    kind: note
+    tier: full
+    desc: 첫 접근 시 승인 카드(Allow once/Always allow/Deny), 서브도메인별 개별 승인
+  - id: claude-in-chrome-browser-pane
+    term: 로그인 상태 공유 필요하면 Claude in Chrome 확장 사용 (Browser pane은 별도 프로필)
+    kind: note
+    tier: full
+    desc: 로그인 상태 공유 필요하면 Claude in Chrome 확장 사용 (Browser pane은 별도 프로필)
+  - id: allow-blocklist
+    term: 조직 차원 allow/blocklist 및 외부 탐색 자체 차단 가능
+    kind: note
+    tier: full
+    desc: 조직 차원 allow/blocklist 및 외부 탐색 자체 차단 가능

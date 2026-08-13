@@ -1,0 +1,24 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: trouble-runtime
+title: 트러블슈팅 — 성능·권한
+icon: 🛠
+group: trouble
+order: 350
+sheet: cli
+summary: >-
+  동작이 이상하면 커스터마이제이션을 배제해 범위를 반씩 줄이는 게 가장 빠르다.
+source:
+  url: https://code.claude.com/docs/en/troubleshooting
+  checked_at: "2026-08-13"
+items:
+  - id: clear
+    term: "/clear                          # 컨텍스트 비우기"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      /clear                          # 컨텍스트 비우기
+      claude -p --max-turns 3 "포커스 질의"
+      /compact "핵심만 유지"
+
+      /permissions                    # 권한 규칙 확인·관리

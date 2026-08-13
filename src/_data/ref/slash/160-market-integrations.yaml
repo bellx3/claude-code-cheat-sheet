@@ -1,0 +1,52 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: market-integrations
+title: 공식 마켓 — 외부 연동 & 워크플로우
+icon: 🔌
+group: plugin
+order: 160
+sheet: slash
+summary: >-
+  외부 서비스 연동 계열.
+source:
+  url: https://code.claude.com/docs/en/discover-plugins
+  checked_at: "2026-08-13"
+items:
+  - id: market-integrations-1
+    term: 소스관리
+    kind: value
+    tier: full
+    desc: "github, gitlab PM: atlassian, asana, linear, notion"
+  - id: market-integrations-2
+    term: 디자인
+    kind: value
+    tier: full
+    desc: "figma 인프라: vercel, firebase, supabase"
+  - id: market-integrations-3
+    term: 협업
+    kind: value
+    tier: full
+    desc: "slack 모니터링: sentry"
+  - id: security-guidance
+    term: security-guidance
+    kind: value
+    tier: full
+    desc: 변경마다 자동 보안 리뷰
+    subhead: 개발 워크플로우
+  - id: commit-commands
+    term: commit-commands
+    kind: value
+    tier: full
+    desc: 커밋·푸시·PR 생성 스킬
+    subhead: 개발 워크플로우
+  - id: pr-review-toolkit
+    term: pr-review-toolkit
+    kind: value
+    tier: full
+    desc: PR 리뷰 전용 에이전트
+    subhead: 개발 워크플로우
+  - id: agent-sdk-dev-plugin-dev
+    term: agent-sdk-dev, plugin-dev
+    kind: value
+    tier: full
+    desc: SDK·플러그인 개발 도구
+    subhead: 개발 워크플로우

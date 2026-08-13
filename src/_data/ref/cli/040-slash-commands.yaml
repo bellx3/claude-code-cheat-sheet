@@ -1,0 +1,103 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: slash-commands
+title: 슬래시 명령어 전체 참조
+icon: ⌨
+group: start
+order: 40
+sheet: cli
+summary: >-
+  세션 안에서 치는 명령. 대화 흐름을 끊지 않고 상태를 바꾸거나 확인할 때 쓴다.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: help
+    term: /help
+    kind: command
+    tier: core
+    desc: 도움말 표시
+  - id: exit
+    term: /exit
+    kind: command
+    tier: core
+    desc: CLI 종료(백그라운드는 분리)
+  - id: clear-name
+    term: /clear [name]
+    kind: command
+    tier: core
+    desc: 새 대화 시작
+  - id: compact
+    term: /compact [지시]
+    kind: command
+    tier: core
+    desc: 대화 요약, 컨텍스트 확보
+  - id: context-all
+    term: /context [all]
+    kind: command
+    tier: core
+    desc: 컨텍스트 사용량 표시
+  - id: config
+    term: /config
+    kind: command
+    tier: core
+    desc: 설정 패널 열기
+  - id: status
+    term: /status
+    kind: command
+    tier: core
+    desc: 세션 상태·진행 작업 표시
+  - id: doctor
+    term: /doctor
+    kind: command
+    tier: core
+    desc: 설정 진단 및 문제 해결
+  - id: usage-cost
+    term: /usage, /cost
+    kind: command
+    tier: core
+    desc: 토큰 사용량·비용 표시
+  - id: model-model
+    term: /model [model]
+    kind: command
+    tier: core
+    desc: 세션 내 모델 변경
+  - id: effort-level-auto
+    term: /effort [level|auto]
+    kind: command
+    tier: core
+    desc: 추론 강도 조정
+  - id: resume
+    term: /resume
+    kind: command
+    tier: core
+    desc: 다른 대화로 돌아가기
+  - id: rename-name
+    term: /rename [name]
+    kind: command
+    tier: core
+    desc: 현재 세션 이름 변경
+  - id: branch-name
+    term: /branch [name]
+    kind: command
+    tier: core
+    desc: 현재 지점에서 대화 분기
+  - id: export-filename
+    term: /export [filename]
+    kind: command
+    tier: core
+    desc: 대화를 텍스트로 내보내기
+  - id: diff
+    term: /diff
+    kind: command
+    tier: core
+    desc: 변경사항 대화형 뷰어
+  - id: ide
+    term: /ide
+    kind: command
+    tier: core
+    desc: IDE 연동 관리·상태 표시
+  - id: mcp
+    term: /mcp
+    kind: command
+    tier: core
+    desc: MCP 서버 연결 관리

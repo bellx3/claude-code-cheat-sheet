@@ -1,0 +1,57 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: ui-shortcuts
+title: UI 조작 & 컴포저 단축키
+icon: 🖱
+group: use
+order: 60
+sheet: science
+summary: >-
+  노트북 조작과 컴포저 단축키.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: ui-shortcuts-1
+    term: "@"
+    kind: value
+    tier: core
+    desc: 아티팩트·업로드 파일 삽입
+  - id: ui-shortcuts-2
+    term: "#"
+    kind: value
+    tier: core
+    desc: 과거 세션 삽입
+  - id: ui-shortcuts-3
+    term: /
+    kind: command
+    tier: core
+    desc: 스킬 삽입 (스킬 피커)
+  - id: cmd-ctrl-k
+    term: Cmd/Ctrl+K
+    kind: shortcut
+    tier: core
+    desc: 검색 (프로젝트 설명까지 매칭)
+  - id: files
+    term: Files
+    kind: value
+    tier: full
+    desc: 사이드바 = 프로젝트 전체 아티팩트 그리드 (업로드는 Your uploads)
+  - id: ui-shortcuts-4
+    term: 아티팩트 메뉴
+    kind: value
+    tier: full
+    desc: >-
+      Open / Open beside session / View in context / Provenance / Versions / Copy link / Star /
+      Rename / Download / Delete
+  - id: settings
+    term: Settings
+    kind: value
+    tier: full
+    desc: >-
+      Permissions · Memory · Specialists · Connectors · Skills · Network · Compute · Credentials ·
+      Storage · Usage
+  - id: compute
+    term: Compute 탭
+    kind: value
+    tier: full
+    desc: 실행 중인 커널의 메모리·CPU 확인 및 중지

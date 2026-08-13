@@ -1,0 +1,53 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: builtin-skills
+title: 기본 제공 스킬
+icon: 🧪
+group: extend
+order: 160
+sheet: science
+summary: >-
+  기본 제공 스킬.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: settings-skills
+    term: Settings > Skills
+    kind: value
+    tier: full
+    desc: Settings > Skills · 자동 로드, 컴포저에 / 입력해 직접 선택 가능
+  - id: builtin-skills-1
+    term: 워크플로우
+    kind: value
+    tier: core
+    desc: literature review, indication dossier
+  - id: builtin-skills-2
+    term: 구조예측·폴딩
+    kind: value
+    tier: core
+    desc: AlphaFold2, Boltz-2, Chai-1, ESMFold2, OpenFold3
+  - id: builtin-skills-3
+    term: 단백질 설계
+    kind: value
+    tier: core
+    desc: ProteinMPNN (Ligand/Soluble 포함)
+  - id: builtin-skills-4
+    term: 도킹
+    kind: value
+    tier: core
+    desc: DiffDock
+  - id: builtin-skills-5
+    term: 단백질 언어모델
+    kind: value
+    tier: core
+    desc: ESM-2
+  - id: builtin-skills-6
+    term: 유전체·시퀀스
+    kind: value
+    tier: core
+    desc: Evo 2, Borzoi
+  - id: builtin-skills-7
+    term: 단일세포
+    kind: value
+    tier: core
+    desc: scGPT, scvi-tools

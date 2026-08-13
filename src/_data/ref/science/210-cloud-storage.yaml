@@ -1,0 +1,44 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: cloud-storage
+title: 클라우드 스토리지 (S3/GCS/Azure)
+icon: 🗄
+group: connect
+order: 210
+sheet: science
+summary: >-
+  S3·GCS·Azure 버킷을 붙인다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: settings-credentials
+    term: Settings > Credentials
+    kind: value
+    tier: full
+    desc: Settings > Credentials → AWS / Google Cloud / Microsoft Azure
+  - id: access-key-service-account-json-hmac-key-c
+    term: access key, service-account JSON, HMAC key, connection string 등 + 버킷명(또는 Azure B
+    kind: note
+    tier: full
+    desc: >-
+      access key, service-account JSON, HMAC key, connection string 등 + 버킷명(또는 Azure Blob
+      containers) 나열
+  - id: cloud-storage-1
+    term: 버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)
+    kind: note
+    tier: full
+    desc: 버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)
+  - id: boto3-azure-sdk-settings-storage-100gb
+    term: 코드에서 boto3, Azure SDK로 접근. Settings > Storage에서 탐색·임포트(최대 100GB)
+    kind: note
+    tier: full
+    desc: 코드에서 boto3, Azure SDK로 접근. Settings > Storage에서 탐색·임포트(최대 100GB)
+  - id: cloud-storage-2
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: >-
+      GCS는 HMAC key + boto3 또는 import/export만 가능 — gsutil·gcloud storage·google-cloud-storage는
+      path-style이라 차단됨

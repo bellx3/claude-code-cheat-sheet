@@ -1,0 +1,40 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: plans-org
+title: 플랜 & 조직 활성화
+icon: 🏢
+group: control
+order: 280
+sheet: science
+summary: >-
+  플랜별로 쓸 수 있는 범위가 다르다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: free
+    term: Free
+    kind: value
+    tier: core
+    desc: 사용 불가
+  - id: pro-max
+    term: Pro / Max
+    kind: value
+    tier: core
+    desc: 기본 켜짐
+  - id: team-enterprise
+    term: Team / Enterprise
+    kind: value
+    tier: core
+    desc: 기본 꺼짐 — Owner가 활성화
+  - id: plans-org-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: Organization settings > Claude Science > Enable for your organization → 마법사 → Enable
+  - id: plans-org-2
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: Owner/Primary Owner만 가능(Admin 불가). HIPAA 조직도 기본 꺼짐이며 켜도 BAA 미적용·PHI 사용 금지

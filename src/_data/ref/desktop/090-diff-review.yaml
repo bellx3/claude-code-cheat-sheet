@@ -1,0 +1,28 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: diff-review
+title: Diff 리뷰 & 코드 리뷰
+icon: 📝
+group: run
+order: 90
+sheet: desktop
+summary: >-
+  변경을 시각적으로 훑고 그 자리에서 코멘트를 남긴다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: 12-1-diff-stats-diff
+    term: 변경 후 +12 -1 형태 diff stats 클릭 → diff 뷰어
+    kind: note
+    tier: full
+    desc: 변경 후 +12 -1 형태 diff stats 클릭 → diff 뷰어
+  - id: cmd-ctrl-enter
+    term: 줄 클릭해 댓글, Cmd/Ctrl+Enter 로 한번에 제출
+    kind: note
+    tier: full
+    desc: 줄 클릭해 댓글, Cmd/Ctrl+Enter 로 한번에 제출
+  - id: review-code
+    term: Review code
+    kind: value
+    tier: full
+    desc: "버튼: 컴파일오류·명백한 버그·보안취약점 위주(스타일은 안 봄)"

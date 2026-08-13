@@ -1,0 +1,70 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: cli-subcommands
+title: CLI 서브커맨드
+icon: ⌨
+group: cli
+order: 110
+sheet: science
+summary: >-
+  터미널에서 쓰는 서브커맨드.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: serve
+    term: serve
+    kind: value
+    tier: core
+    desc: 실행 + 1회용 로그인 링크 열기
+  - id: open
+    term: open
+    kind: value
+    tier: core
+    desc: 새 로그인 링크 발급 후 브라우저 열기
+  - id: url
+    term: url
+    kind: value
+    tier: core
+    desc: 새 로그인 링크만 출력 (SSH용)
+  - id: status
+    term: status
+    kind: value
+    tier: core
+    desc: 실행 여부·버전·포트 JSON 출력
+  - id: logs-tail
+    term: logs [--tail]
+    kind: value
+    tier: core
+    desc: 로그 출력 / 실시간 추적
+  - id: stop
+    term: stop
+    kind: value
+    tier: core
+    desc: 정상 종료
+  - id: update-check
+    term: update [--check]
+    kind: value
+    tier: core
+    desc: 업데이트 (--to <ver>로 롤백)
+  - id: import-path
+    term: import <path>
+    kind: value
+    tier: core
+    desc: 다른 데이터 디렉터리 병합
+  - id: version
+    term: "--version"
+    kind: flag
+    tier: core
+    desc: 버전 출력
+  - id: cli-subcommands-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: "전역: --data-dir <dir>(기본 ~/.claude-science), --config <file>"
+  - id: cli-subcommands-2
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: import는 미리보기·되돌리기 없음 — 사전 백업 필수

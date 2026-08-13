@@ -1,0 +1,33 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: browser-pane
+title: 앱 미리보기 (Browser pane)
+icon: 🖥
+group: run
+order: 70
+sheet: desktop
+summary: >-
+  앱 안에서 로컬 서버를 띄워 결과를 바로 본다. 코드를 고치고 화면을 확인하는 왕복이 짧아진다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: dev-dom
+    term: 수정 후 자동으로 dev 서버 실행·검증(스크린샷/DOM검사/클릭/폼입력)
+    kind: note
+    tier: full
+    desc: 수정 후 자동으로 dev 서버 실행·검증(스크린샷/DOM검사/클릭/폼입력)
+  - id: browser-pane-1
+    term: 서버 드롭다운에서 시작/중지
+    kind: note
+    tier: full
+    desc: 서버 드롭다운에서 시작/중지
+  - id: persist-sessions
+    term: Persist sessions
+    kind: value
+    tier: full
+    desc: ": 재시작해도 쿠키·로컬스토리지 유지"
+  - id: html-pdf-browser-pane
+    term: HTML/PDF/이미지/영상 경로 클릭 시 Browser pane에서 열림
+    kind: note
+    tier: full
+    desc: HTML/PDF/이미지/영상 경로 클릭 시 Browser pane에서 열림

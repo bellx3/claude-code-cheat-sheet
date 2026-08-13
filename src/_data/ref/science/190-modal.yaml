@@ -1,0 +1,51 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: modal
+title: 외부 컴퓨트 (Modal)
+icon: ☁
+group: compute
+order: 190
+sheet: science
+summary: >-
+  외부 컴퓨트로 실행을 넘긴다. 과금이 붙는 경로다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: settings-compute-cloud-providers
+    term: Settings > Compute > Cloud providers
+    kind: value
+    tier: full
+    desc: Settings > Compute > Cloud providers → Modal Connect
+  - id: modal-token-new-cli-modal-toml
+    term: "modal token new        # CLI 로그인 → ~/.modal.toml 자동 인식"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: "modal token new        # CLI 로그인 → ~/.modal.toml 자동 인식"
+  - id: modal-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 또는 Settings > Credentials > Modal에 Token ID + secret 붙여넣기(암호화 저장, Claude에 미노출)
+  - id: h100
+    term: 승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시
+    kind: note
+    tier: full
+    desc: 승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시
+  - id: 1-gib-submit-modal-volume-out-5-gib
+    term: 입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 ./out/ 최대 5 GiB
+    kind: note
+    tier: full
+    desc: 입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 ./out/ 최대 5 GiB
+  - id: 10-12-23
+    term: 동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)
+    kind: note
+    tier: full
+    desc: 동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)
+  - id: modal-2
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: 지출 상한 없음 · 과금은 Modal이 직접 청구 · 앱 종료해도 잡은 계속 과금

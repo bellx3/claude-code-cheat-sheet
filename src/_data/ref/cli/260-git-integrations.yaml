@@ -1,0 +1,23 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: git-integrations
+title: Git & 서드파티 연동
+icon: ⚫
+group: run
+order: 260
+sheet: cli
+summary: >-
+  표준 입력으로 무엇이든 넘길 수 있다. git·docker·DB 출력이 그대로 입력이 된다.
+source:
+  url: https://code.claude.com/docs/en/headless
+  checked_at: "2026-08-13"
+items:
+  - id: git-log-oneline-10-claude-p
+    term: git log --oneline -10 | claude -p "체인지로그 작성"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      git log --oneline -10 | claude -p "체인지로그 작성"
+      git diff --name-only | claude -p "변경사항 설명"
+      mysql -e "SHOW TABLES" | claude -p "DB 구조 분석"
+      docker logs c | claude -p "로그에서 에러 찾기"

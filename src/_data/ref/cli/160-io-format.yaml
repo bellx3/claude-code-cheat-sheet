@@ -1,0 +1,38 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: io-format
+title: 출력/입력 형식
+icon: 🟡
+group: automate
+order: 160
+sheet: cli
+summary: >-
+  사람이 읽는 출력 대신 기계가 파싱할 출력을 받는 축. 자동화의 출발점이다.
+source:
+  url: https://code.claude.com/docs/en/headless
+  checked_at: "2026-08-13"
+items:
+  - id: output-format-json
+    term: "--output-format json"
+    kind: flag
+    tier: core
+    desc: JSON 출력 (스크립팅용)
+  - id: output-format-stream-json
+    term: "--output-format stream-json"
+    kind: flag
+    tier: core
+    desc: 실시간 처리용 스트림
+  - id: input-format-stream-json
+    term: "--input-format stream-json"
+    kind: flag
+    tier: core
+    desc: 프린트 모드 입력 형식
+  - id: json-schema-schema
+    term: "--json-schema '<schema>'"
+    kind: flag
+    tier: core
+    desc: 스키마 검증된 JSON 출력
+  - id: p-max-turns-1
+    term: "-p --max-turns 1 \"질의\""
+    kind: flag
+    tier: core
+    desc: 배치/1회성 처리

@@ -1,0 +1,28 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: background-tasks
+title: 백그라운드 작업 & 세션 간 작업
+icon: 📋
+group: run
+order: 190
+sheet: desktop
+summary: >-
+  오래 걸리는 작업을 떼어내고 다른 일을 한다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: tasks
+    term: "Tasks 패널: 서브에이전트·백그라운드 셸·동적 워크플로우 진행상황"
+    kind: note
+    tier: full
+    desc: "Tasks 패널: 서브에이전트·백그라운드 셸·동적 워크플로우 진행상황"
+  - id: code
+    term: "\"다른 세션이 뭐 했어?\" 같은 자연어로 다른 Code 세션 확인·메시지·이름변경·보관 요청"
+    kind: note
+    tier: full
+    desc: "\"다른 세션이 뭐 했어?\" 같은 자연어로 다른 Code 세션 확인·메시지·이름변경·보관 요청"
+  - id: "20"
+    term: 최근 20개 세션까지, 클라우드 세션은 제외
+    kind: note
+    tier: full
+    desc: 최근 20개 세션까지, 클라우드 세션은 제외

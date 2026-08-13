@@ -1,0 +1,38 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: remote-ssh
+title: 원격 Linux 서버 (SSH 터널)
+icon: 🌐
+group: compute
+order: 130
+sheet: science
+summary: >-
+  원격 리눅스 서버에 SSH 터널로 붙인다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: ssh-l-8000-localhost-8000
+    term: ssh -L 8000:localhost:8000 \
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      # ① 내 컴퓨터에서 먼저 터널 (링크 3분 만료)
+      ssh -L 8000:localhost:8000 \
+          -L 8001:localhost:8001 you@server.example.com
+
+      # ② 서버에서
+      claude-science serve --no-browser
+      claude-science url          # 링크 재발급
+  - id: remote-ssh-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 리다이렉트 실패 시 로그인 화면의 Paste a code 사용
+  - id: remote-ssh-2
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 미리보기 포트(8001)를 안 열면 인터랙티브 차트가 정적 스냅샷으로 표시

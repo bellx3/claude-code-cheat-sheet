@@ -1,0 +1,68 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: market-lsp
+title: 공식 마켓 — 코드 인텔리전스(LSP)
+icon: 🏢
+group: plugin
+order: 150
+sheet: slash
+summary: >-
+  언어 서버를 붙여 코드 인텔리전스를 얹는 계열.
+source:
+  url: https://code.claude.com/docs/en/discover-plugins
+  checked_at: "2026-08-13"
+items:
+  - id: c-c
+    term: C/C++
+    kind: value
+    tier: core
+    desc: clangd-lsp
+  - id: market-lsp-1
+    term: C#
+    kind: value
+    tier: core
+    desc: csharp-lsp
+  - id: go
+    term: Go
+    kind: value
+    tier: core
+    desc: gopls-lsp
+  - id: java
+    term: Java
+    kind: value
+    tier: core
+    desc: jdtls-lsp
+  - id: kotlin
+    term: Kotlin
+    kind: value
+    tier: core
+    desc: kotlin-lsp
+  - id: php
+    term: PHP
+    kind: value
+    tier: core
+    desc: php-lsp
+  - id: python
+    term: Python
+    kind: command
+    tier: core
+    desc: pyright-lsp
+  - id: rust
+    term: Rust
+    kind: value
+    tier: core
+    desc: rust-analyzer-lsp
+  - id: swift
+    term: Swift
+    kind: value
+    tier: core
+    desc: swift-lsp
+  - id: typescript
+    term: TypeScript
+    kind: value
+    tier: core
+    desc: typescript-lsp
+  - id: market-lsp-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: 설치 후 해당 언어서버 바이너리 별도 설치 필요 — 자동 진단(에러·타입) + 정밀 코드 탐색 제공

@@ -1,0 +1,68 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: feature-compare
+title: "기능 비교: CLI vs 데스크톱"
+icon: 📋
+group: practice
+order: 290
+sheet: desktop
+summary: >-
+  같은 일을 어디서 하는 게 나은지 판단하는 표.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: feature-compare-1
+    term: 권한 모드
+    kind: value
+    tier: core
+    desc: CLI는 dontAsk 포함 전체 / 데스크톱은 4종+Bypass
+  - id: feature-compare-2
+    term: 서드파티 프로바이더
+    kind: value
+    tier: core
+    desc: CLI는 Bedrock 등 / 데스크톱은 기본 Anthropic API
+  - id: mcp
+    term: MCP 서버
+    kind: value
+    tier: core
+    desc: CLI는 설정파일 / 데스크톱은 Connectors UI 또는 설정파일
+  - id: feature-compare-3
+    term: 플러그인
+    kind: value
+    tier: core
+    desc: CLI는 /plugin / 데스크톱은 플러그인 관리자 UI
+  - id: feature-compare-4
+    term: 파일 첨부
+    kind: value
+    tier: core
+    desc: CLI 불가 / 데스크톱은 이미지·PDF 지원
+  - id: feature-compare-5
+    term: 세션 격리
+    kind: value
+    tier: core
+    desc: CLI는 --worktree / 데스크톱은 자동 worktree
+  - id: feature-compare-6
+    term: 반복 작업
+    kind: value
+    tier: core
+    desc: CLI는 cron/CI / 데스크톱은 Scheduled tasks
+  - id: computer-use
+    term: Computer Use
+    kind: value
+    tier: core
+    desc: CLI는 macOS /mcp 활성화 / 데스크톱은 앱 내장
+  - id: ios
+    term: iOS 시뮬레이터
+    kind: value
+    tier: core
+    desc: CLI는 Computer Use로 구동 / 데스크톱은 전용 패널
+  - id: dispatch
+    term: Dispatch
+    kind: value
+    tier: core
+    desc: CLI 없음 / 데스크톱은 사이드바 지원
+  - id: feature-compare-7
+    term: 스크립팅/자동화
+    kind: value
+    tier: core
+    desc: CLI는 --print·Agent SDK / 데스크톱 미지원

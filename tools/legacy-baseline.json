@@ -1,0 +1,5118 @@
+{
+ "generatedAt": "2026-08-13",
+ "total": 639,
+ "items": [
+  {
+   "surface": "cli",
+   "section": "install",
+   "id": "curl-fssl-https-claude-ai-install-sh-bash",
+   "term": "curl -fsSL https://claude.ai/install.sh | bash",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "install",
+   "id": "claude-auth-login",
+   "term": "claude auth login",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "install",
+   "id": "claude-auth-status",
+   "term": "claude auth status",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "install",
+   "id": "claude-auth-logout",
+   "term": "claude auth logout",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "install",
+   "id": "claude-doctor",
+   "term": "claude doctor",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude",
+   "term": "claude",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-query",
+   "term": "claude \"query\"",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-p-query",
+   "term": "claude -p \"query\"",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "cat-f-claude-p-q",
+   "term": "cat f | claude -p \"q\"",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-c-continue",
+   "term": "claude -c / --continue",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-r-s-query",
+   "term": "claude -r \"<s>\" \"query\"",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-n-name",
+   "term": "claude -n <name>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-from-pr-pr",
+   "term": "claude --from-pr <PR>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-update",
+   "term": "claude update",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-install-version",
+   "term": "claude install [version]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-setup-token",
+   "term": "claude setup-token",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-commands",
+   "id": "claude-mcp",
+   "term": "claude mcp",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "model",
+   "term": "--model",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "effort",
+   "term": "--effort",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "add-dir",
+   "term": "--add-dir",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "allowedtools",
+   "term": "--allowedTools",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "disallowedtools",
+   "term": "--disallowedTools",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "output-format",
+   "term": "--output-format",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "input-format",
+   "term": "--input-format",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "max-turns",
+   "term": "--max-turns",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "verbose",
+   "term": "--verbose",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "continue-resume",
+   "term": "--continue / --resume",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "from-pr",
+   "term": "--from-pr",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "fork-session",
+   "term": "--fork-session",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "cli-flags",
+   "id": "dangerously-skip-permissions",
+   "term": "--dangerously-skip-permissions",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "help",
+   "term": "/help",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "exit",
+   "term": "/exit",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "clear-name",
+   "term": "/clear [name]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "compact",
+   "term": "/compact [지시]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "context-all",
+   "term": "/context [all]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "config",
+   "term": "/config",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "status",
+   "term": "/status",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "doctor",
+   "term": "/doctor",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "usage-cost",
+   "term": "/usage, /cost",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "model-model",
+   "term": "/model [model]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "effort-level-auto",
+   "term": "/effort [level|auto]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "resume",
+   "term": "/resume",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "rename-name",
+   "term": "/rename [name]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "branch-name",
+   "term": "/branch [name]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "export-filename",
+   "term": "/export [filename]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "diff",
+   "term": "/diff",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "ide",
+   "term": "/ide",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "slash-commands",
+   "id": "mcp",
+   "term": "/mcp",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "ctrl-c",
+   "term": "Ctrl+C",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "ctrl-d",
+   "term": "Ctrl+D",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "ctrl-o",
+   "term": "Ctrl+O",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "ctrl-r",
+   "term": "Ctrl+R",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "ctrl-t",
+   "term": "Ctrl+T",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "ctrl-g",
+   "term": "Ctrl+G",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "esc",
+   "term": "Esc",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "esc-esc",
+   "term": "Esc Esc",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "shift-tab",
+   "term": "Shift+Tab",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "alt-p-option-p",
+   "term": "Alt+P / Option+P",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "alt-t-option-t",
+   "term": "Alt+T / Option+T",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "alt-o-option-o",
+   "term": "Alt+O / Option+O",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "keybindings-1",
+   "term": "@",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "keybindings",
+   "id": "keybindings-2",
+   "term": "!",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "subagents-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "frontend-developer",
+   "term": "frontend-developer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "backend-developer",
+   "term": "backend-developer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "api-developer",
+   "term": "api-developer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "mobile-developer",
+   "term": "mobile-developer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "python-developer",
+   "term": "python-developer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "php-developer",
+   "term": "php-developer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "database-designer",
+   "term": "database-designer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "code-reviewer",
+   "term": "code-reviewer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "code-refactor",
+   "term": "code-refactor",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "code-standards-enforcer",
+   "term": "code-standards-enforcer",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "subagents",
+   "id": "db",
+   "term": "DB & 품질",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "default-manual",
+   "term": "default (Manual)",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "acceptedits",
+   "term": "acceptEdits",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "plan",
+   "term": "plan",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "auto",
+   "term": "auto",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "dontask",
+   "term": "dontAsk",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "bypasspermissions",
+   "term": "bypassPermissions",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "permission-modes",
+   "id": "permission-modes-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "cli",
+   "section": "hooks-plugins",
+   "id": "hooks",
+   "term": "Hooks",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "hooks-plugins",
+   "id": "hooks-plugins-1",
+   "term": "플러그인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "memory",
+   "id": "memory-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "memory",
+   "id": "path-to-file",
+   "term": "@path/to/file",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "memory",
+   "id": "memory",
+   "term": "/memory",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "sandbox",
+   "id": "sandbox",
+   "term": "/sandbox",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "sandbox",
+   "id": "sandbox-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "sandbox",
+   "id": "sandbox-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "cli",
+   "section": "background-cloud",
+   "id": "claude-bg",
+   "term": "claude --bg \"작업 지시\"        # 백그라운드 실행",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "background-cloud",
+   "id": "background",
+   "term": "/background",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "permission-mode-mode",
+   "term": "--permission-mode <mode>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "agent-agents",
+   "term": "--agent / --agents",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "safe-mode",
+   "term": "--safe-mode",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "bare",
+   "term": "--bare",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "settings-path-json",
+   "term": "--settings <path|json>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "autocompact-auto-tokens",
+   "term": "--autocompact <auto|tokens>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "fallback-model",
+   "term": "--fallback-model <목록>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "max-budget-usd",
+   "term": "--max-budget-usd <금액>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "system-prompt-file",
+   "term": "--system-prompt[-file]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "new-flags",
+   "id": "mcp-config-plugin-dir",
+   "term": "--mcp-config / --plugin-dir",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "rewind-turn",
+   "term": "/rewind [turn#]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "agents",
+   "term": "/agents",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "sandbox",
+   "term": "/sandbox",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "permissions",
+   "term": "/permissions",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "plan",
+   "term": "/plan",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "code-review-review",
+   "term": "/code-review, /review",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "security-review",
+   "term": "/security-review",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "background-bg",
+   "term": "/background, /bg",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "tasks",
+   "term": "/tasks",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "fork",
+   "term": "/fork",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "loop",
+   "term": "/loop",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "goal",
+   "term": "/goal",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "recap",
+   "term": "/recap",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "advanced-slash",
+   "id": "insights",
+   "term": "/insights",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "model-effort",
+   "id": "model-sonnet-opus-haiku-fable",
+   "term": "--model sonnet/opus/haiku/fable",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "model-effort",
+   "id": "model-claude-sonnet-5",
+   "term": "--model claude-sonnet-5",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "model-effort",
+   "id": "effort-level",
+   "term": "--effort <level>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "model-effort",
+   "id": "advisor-opus",
+   "term": "--advisor opus",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "model-effort",
+   "id": "model-effort",
+   "term": "/model, /effort",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "directories",
+   "id": "add-dir-apps-lib",
+   "term": "--add-dir ../apps ../lib",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "directories",
+   "id": "add-dir-path-to-project",
+   "term": "--add-dir /path/to/project",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "directories",
+   "id": "add-dir-fe-be-shared",
+   "term": "--add-dir ../fe ../be ../shared",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "io-format",
+   "id": "output-format-json",
+   "term": "--output-format json",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "io-format",
+   "id": "output-format-stream-json",
+   "term": "--output-format stream-json",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "io-format",
+   "id": "input-format-stream-json",
+   "term": "--input-format stream-json",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "io-format",
+   "id": "json-schema-schema",
+   "term": "--json-schema '<schema>'",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "io-format",
+   "id": "p-max-turns-1",
+   "term": "-p --max-turns 1 \"질의\"",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "session-cost",
+   "id": "p-max-turns-3",
+   "term": "-p --max-turns 3",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "session-cost",
+   "id": "max-budget-usd-5-00",
+   "term": "--max-budget-usd 5.00",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "session-cost",
+   "id": "verbose",
+   "term": "--verbose",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "session-cost",
+   "id": "usage-cost",
+   "term": "/usage, /cost",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "tool-permissions",
+   "id": "allowedtools-bash-git-log",
+   "term": "--allowedTools \"Bash(git log:*)\" \\",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "mcp",
+   "id": "claude-mcp",
+   "term": "claude mcp",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "mcp",
+   "id": "claude-mcp-login-logout-s",
+   "term": "claude mcp login/logout <s>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "mcp",
+   "id": "mcp",
+   "term": "/mcp",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "mcp",
+   "id": "git-log-oneline-claude-p",
+   "term": "git log --oneline | claude -p \"요약해줘\"",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "custom-commands",
+   "id": "claude-commands-md",
+   "term": ".claude/commands/*.md",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "custom-commands",
+   "id": "debug-claude-commands-debug-md",
+   "term": "/debug     # .claude/commands/debug.md",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "scripting",
+   "id": "claude-p-analyze-codebase",
+   "term": "claude -p \"analyze codebase\" \\",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "session-workflow",
+   "id": "sid-claude-p-start-output-format-json",
+   "term": "SID=$(claude -p \"start\" --output-format json \\",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "auto-review",
+   "id": "git-diff-head-1-claude-p-security-md",
+   "term": "git diff HEAD~1 | claude -p \"보안 이슈 리뷰\" > security.md",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "ci-batch",
+   "id": "claude-p-output-format-json",
+   "term": "claude -p \"커버리지 분석\" --output-format json \\",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "ide",
+   "id": "ide-ide",
+   "term": "/ide                # IDE 연동 상태 표시/관리",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "git-integrations",
+   "id": "git-log-oneline-10-claude-p",
+   "term": "git log --oneline -10 | claude -p \"체인지로그 작성\"",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "performance",
+   "id": "claude-p-max-turns-1",
+   "term": "claude -p --max-turns 1 \"빠른 분석\"     # 단일 턴",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "caching-fallback",
+   "id": "claude-c-p",
+   "term": "claude -c -p \"이전 분석 이어가기\"   # 컨텍스트 재사용",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "team",
+   "id": "claude-settings-team-config-json",
+   "term": "claude --settings team-config.json \"표준 분석\"",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "enterprise",
+   "id": "enterprise-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "enterprise",
+   "id": "enterprise-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "enterprise",
+   "id": "sandbox-network-alloweddomains",
+   "term": "sandbox.network.allowedDomains",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-security",
+   "id": "clear",
+   "term": "작업 전환마다 /clear로 컨텍스트 초기화",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-security",
+   "id": "max-turns",
+   "term": "--max-turns로 무한 반복 방지",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-security",
+   "id": "compact",
+   "term": "장기 대화는 /compact로 압축",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-security",
+   "id": "dangerously-skip-permissions",
+   "term": "--dangerously-skip-permissions 사용 지양",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-security",
+   "id": "disallowedtools",
+   "term": "위험 명령은 --disallowedTools로 상시 차단",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-security",
+   "id": "practices-security-1",
+   "term": "도구 권한 주기적 점검, 항상 최신 버전 유지",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-workflow",
+   "id": "claude-commands",
+   "term": "반복 작업 → .claude/commands/ 커스텀 명령어화",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-workflow",
+   "id": "output-format-json",
+   "term": "자동화 스크립트 → --output-format json",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-workflow",
+   "id": "practices-workflow-1",
+   "term": "복합 작업 → 파이프로 단계별 연결",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-workflow",
+   "id": "id",
+   "term": "장시간 작업 → 세션 ID로 관리, 에러 처리 구현",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "practices-workflow",
+   "id": "practices-workflow-2",
+   "term": "팀 공유용 워크플로우는 문서화",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "learning-path",
+   "id": "learning-path-1",
+   "term": "초급",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "learning-path",
+   "id": "learning-path-2",
+   "term": "중급",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "learning-path",
+   "id": "learning-path-3",
+   "term": "고급",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "trouble-install",
+   "id": "claude-version-claude-auth-status-claude-d",
+   "term": "claude --version && claude auth status && claude doctor",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "trouble-runtime",
+   "id": "clear",
+   "term": "/clear                          # 컨텍스트 비우기",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "links",
+   "id": "code-claude-com-docs-en-overview",
+   "term": "공식 문서: code.claude.com/docs/en/overview",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "links",
+   "id": "cli-code-claude-com-docs-en-cli-reference",
+   "term": "CLI 레퍼런스: code.claude.com/docs/en/cli-reference",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "links",
+   "id": "code-claude-com-docs-en-commands",
+   "term": "명령어 레퍼런스: code.claude.com/docs/en/commands",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "links",
+   "id": "code-claude-com-docs-en-permission-modes",
+   "term": "권한 모드: code.claude.com/docs/en/permission-modes",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "links",
+   "id": "hooks-code-claude-com-docs-en-hooks",
+   "term": "Hooks: code.claude.com/docs/en/hooks",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "cli",
+   "section": "links",
+   "id": "github-github-com-anthropics-claude-code",
+   "term": "GitHub: github.com/anthropics/claude-code",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "download-start",
+   "id": "macos-dmg-intel-apple-silicon",
+   "term": "macOS: 유니버설 dmg (Intel/Apple Silicon)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "download-start",
+   "id": "windows-x64-arm64",
+   "term": "Windows: x64 설치 / ARM64는 별도 설치파일",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "download-start",
+   "id": "linux-apt-deb",
+   "term": "Linux(베타): apt 또는 .deb",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "download-start",
+   "id": "code",
+   "term": "Code",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "download-start",
+   "id": "download-start-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "desktop",
+   "section": "three-tabs",
+   "id": "chat",
+   "term": "Chat",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "three-tabs",
+   "id": "cowork",
+   "term": "Cowork",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "three-tabs",
+   "id": "code",
+   "term": "Code",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "session-setup",
+   "id": "environment",
+   "term": "Environment",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "session-setup",
+   "id": "project-folder",
+   "term": "Project folder",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "session-setup",
+   "id": "model",
+   "term": "Model",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "session-setup",
+   "id": "permission-mode",
+   "term": "Permission mode",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "permission-modes",
+   "id": "manual-default",
+   "term": "Manual (default)",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "permission-modes",
+   "id": "accept-edits",
+   "term": "Accept edits",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "permission-modes",
+   "id": "plan",
+   "term": "Plan",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "permission-modes",
+   "id": "auto",
+   "term": "Auto",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "permission-modes",
+   "id": "bypass-permissions",
+   "term": "Bypass permissions",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "permission-modes",
+   "id": "permission-modes-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "desktop",
+   "section": "prompt-box",
+   "id": "enter",
+   "term": "Enter 전송, 진행 중 정정 메시지 입력 시 중단 없이 다음 단계에 반영",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "prompt-box",
+   "id": "prompt-box-1",
+   "term": "정지 버튼: 즉시 중단",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "prompt-box",
+   "id": "ssh-wsl",
+   "term": "@파일명: 컨텍스트 추가 (로컬·SSH만, 클라우드·WSL 불가)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "prompt-box",
+   "id": "pdf",
+   "term": "첨부: 이미지·PDF 드래그앤드롭",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "prompt-box",
+   "id": "prompt-box-2",
+   "term": "+",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "slash-commands-1",
+   "term": "/",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "clear-compact-context",
+   "term": "/clear, /compact, /context",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "rewind-diff",
+   "term": "/rewind, /diff",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "model-effort-plan",
+   "term": "/model, /effort, /plan",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "rename-branch-export",
+   "term": "/rename, /branch, /export",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "code-review-security-review",
+   "term": "/code-review, /security-review",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "background-tasks-fork",
+   "term": "/background, /tasks, /fork",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "loop-goal-recap-insights",
+   "term": "/loop, /goal, /recap, /insights",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "btw",
+   "term": "/btw",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "desktop",
+   "term": "/desktop",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "ide-mcp-doctor-usage",
+   "term": "/ide, /mcp, /doctor, /usage",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "slash-commands",
+   "id": "slash-commands-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "desktop",
+   "section": "browser-pane",
+   "id": "dev-dom",
+   "term": "수정 후 자동으로 dev 서버 실행·검증(스크린샷/DOM검사/클릭/폼입력)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "browser-pane",
+   "id": "browser-pane-1",
+   "term": "서버 드롭다운에서 시작/중지",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "browser-pane",
+   "id": "persist-sessions",
+   "term": "Persist sessions",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "browser-pane",
+   "id": "html-pdf-browser-pane",
+   "term": "HTML/PDF/이미지/영상 경로 클릭 시 Browser pane에서 열림",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "external-browsing",
+   "id": "cmd-ctrl-shift-b-browser-pane",
+   "term": "Cmd/Ctrl+Shift+B 로 Browser pane 열기",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "external-browsing",
+   "id": "allow-once-always-allow-deny",
+   "term": "첫 접근 시 승인 카드(Allow once/Always allow/Deny), 서브도메인별 개별 승인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "external-browsing",
+   "id": "claude-in-chrome-browser-pane",
+   "term": "로그인 상태 공유 필요하면 Claude in Chrome 확장 사용 (Browser pane은 별도 프로필)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "external-browsing",
+   "id": "allow-blocklist",
+   "term": "조직 차원 allow/blocklist 및 외부 탐색 자체 차단 가능",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "diff-review",
+   "id": "12-1-diff-stats-diff",
+   "term": "변경 후 +12 -1 형태 diff stats 클릭 → diff 뷰어",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "diff-review",
+   "id": "cmd-ctrl-enter",
+   "term": "줄 클릭해 댓글, Cmd/Ctrl+Enter 로 한번에 제출",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "diff-review",
+   "id": "review-code",
+   "term": "Review code",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "pr-monitor",
+   "id": "pr-ci-github-cli-gh",
+   "term": "PR 생성 후 세션에 CI 상태 바 표시 (GitHub CLI gh 필요)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "pr-monitor",
+   "id": "auto-fix",
+   "term": "Auto-fix",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "pr-monitor",
+   "id": "auto-merge",
+   "term": "Auto-merge",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "pr-monitor",
+   "id": "pr-monitor-1",
+   "term": "완료 시 데스크톱 알림",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "workspace-layout",
+   "id": "workspace-layout-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "workspace-layout",
+   "id": "workspace-layout-2",
+   "term": "헤더 드래그로 위치 변경, 가장자리 드래그로 크기 조절",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "workspace-layout",
+   "id": "views",
+   "term": "Views",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "workspace-layout",
+   "id": "cmd-ctrl",
+   "term": "Cmd/Ctrl+\\ 포커스된 패널 닫기",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "terminal-editor",
+   "id": "ctrl",
+   "term": "통합 터미널 Ctrl+`: 세션과 동일한 작업 디렉토리·환경 공유 (로컬 세션 전용)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "terminal-editor",
+   "id": "terminal-editor-1",
+   "term": "파일 클릭 → 파일 패널에서 바로 편집·저장",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "terminal-editor",
+   "id": "terminal-editor-2",
+   "term": "파일 우클릭: 컨텍스트로 첨부/다른 앱에서 열기/탐색기 표시/경로 복사",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "view-modes",
+   "id": "normal",
+   "term": "Normal",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "view-modes",
+   "id": "verbose",
+   "term": "Verbose",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "view-modes",
+   "id": "summary",
+   "term": "Summary",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "view-modes",
+   "id": "view-modes-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl",
+   "term": "Cmd/Ctrl + /",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-n",
+   "term": "Cmd/Ctrl + N",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-w",
+   "term": "Cmd/Ctrl + W",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "ctrl-tab-shift-tab",
+   "term": "Ctrl+Tab / Shift+Tab",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "esc",
+   "term": "Esc",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-shift-d",
+   "term": "Cmd/Ctrl + Shift + D",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-shift-b",
+   "term": "Cmd/Ctrl + Shift + B",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-shift-s",
+   "term": "Cmd/Ctrl + Shift + S",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "ctrl",
+   "term": "Ctrl + `",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-2",
+   "term": "Cmd/Ctrl + \\",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-3",
+   "term": "Cmd/Ctrl + ;",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "ctrl-o",
+   "term": "Ctrl + O",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-shift-m",
+   "term": "Cmd/Ctrl + Shift + M",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-shift-i",
+   "term": "Cmd/Ctrl + Shift + I",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "cmd-ctrl-shift-e",
+   "term": "Cmd/Ctrl + Shift + E",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "1-9",
+   "term": "1–9",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "keybindings",
+   "id": "keybindings-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "desktop",
+   "section": "usage",
+   "id": "usage-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "computer-use",
+   "id": "cli-gui",
+   "term": "화면·앱 직접 조작 (CLI 없는 GUI 자동화용)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "computer-use",
+   "id": "macos-windows-pro-max-team-enterprise",
+   "term": "macOS·Windows Pro/Max 리서치 프리뷰, Team/Enterprise 불가",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "computer-use",
+   "id": "general-computer-use-macos",
+   "term": "기본 꺼짐: 설정→General→Computer use 토글, macOS는 손쉬운 사용+화면 기록 권한 추가 필요",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "computer-use",
+   "id": "view-only-click-only-ide-full-control-3",
+   "term": "View only(브라우저 등) / Click only(터미널·IDE) / Full control(그 외) 3단계",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "computer-use",
+   "id": "1-dispatch-30",
+   "term": "세션당 1회 승인 (Dispatch 세션은 30분마다 재승인)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "computer-use",
+   "id": "computer-use-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "desktop",
+   "section": "sessions",
+   "id": "cmd-ctrl-n",
+   "term": "Cmd/Ctrl+N 새 세션, 여러 세션 병렬 실행",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "sessions",
+   "id": "git-worktree",
+   "term": "Git worktree",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "sessions",
+   "id": "cmd-ctrl-2",
+   "term": "Cmd/Ctrl 누르고 사이드바 클릭 → 2개 세션 분할 보기",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "sessions",
+   "id": "pr-auto-archive",
+   "term": "완료 후 보관 아이콘, PR 병합 시 자동 보관(Auto-archive) 설정 가능",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "side-chat",
+   "id": "side-chat-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "background-tasks",
+   "id": "tasks",
+   "term": "Tasks 패널: 서브에이전트·백그라운드 셸·동적 워크플로우 진행상황",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "background-tasks",
+   "id": "code",
+   "term": "\"다른 세션이 뭐 했어?\" 같은 자연어로 다른 Code 세션 확인·메시지·이름변경·보관 요청",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "background-tasks",
+   "id": "20",
+   "term": "최근 20개 세션까지, 클라우드 세션은 제외",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cloud-sessions",
+   "id": "environment-cloud-claude-ai-code",
+   "term": "Environment에서 Cloud 선택 → 앱 종료해도 계속 실행, claude.ai/code·모바일 앱에서 확인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cloud-sessions",
+   "id": "cloud-sessions-1",
+   "term": "여러 저장소 동시 추가 가능",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cloud-sessions",
+   "id": "continue-in",
+   "term": "Continue in",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "dispatch",
+   "id": "code-dispatch",
+   "term": "휴대폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성 (Dispatch 배지 표시)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "dispatch",
+   "id": "dispatch-1",
+   "term": "완료·승인 필요 시 폰으로 푸시 알림",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "dispatch",
+   "id": "pro-max-team-enterprise",
+   "term": "Pro/Max 전용, Team/Enterprise 불가",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "connectors",
+   "id": "connectors-1",
+   "term": "+",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "connectors",
+   "id": "connectors-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "skills-plugins",
+   "id": "skills-plugins-1",
+   "term": "+",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "skills-plugins",
+   "id": "skills-plugins-2",
+   "term": "+",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "skills-plugins",
+   "id": "wsl",
+   "term": "플러그인은 클라우드·WSL 세션에서는 사용 불가",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "name-runtimeexecutable",
+   "term": "name / runtimeExecutable",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "runtimeargs-args",
+   "term": "runtimeArgs / args",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "port-3000",
+   "term": "port (기본 3000)",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "cwd-env",
+   "term": "cwd / env",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "autoport",
+   "term": "autoPort",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "program-url",
+   "term": "program / url",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "launch-json",
+   "id": "launch-json-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "environments",
+   "id": "local",
+   "term": "Local",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "environments",
+   "id": "cloud",
+   "term": "Cloud",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "environments",
+   "id": "ssh",
+   "term": "SSH",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "environments",
+   "id": "wsl-windows",
+   "term": "WSL (Windows)",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "enterprise",
+   "id": "code-remote-control-bypass",
+   "term": "관리 콘솔: Code 데스크톱 사용 여부, 웹 세션, Remote Control, Bypass 모드 비활성화 등 제어",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "enterprise",
+   "id": "managed-settings-disableautomode-sshhostal",
+   "term": "Managed settings: disableAutoMode, sshHostAllowlist, managedMcpServers 등",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "enterprise",
+   "id": "macos-mdm-jamf-kandji-windows",
+   "term": "macOS는 MDM(Jamf/Kandji), Windows는 그룹 정책/레지스트리로 배포·정책 관리",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "network-data",
+   "id": "network-data-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "network-data",
+   "id": "network-data-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "model-sonnet",
+   "term": "--model sonnet",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "resume-continue",
+   "term": "--resume, --continue",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "permission-mode",
+   "term": "--permission-mode",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "dangerously-skip-permissions",
+   "term": "--dangerously-skip-permissions",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "add-dir",
+   "term": "--add-dir",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "allowedtools-disallowedtools",
+   "term": "--allowedTools/--disallowedTools",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "verbose",
+   "term": "--verbose",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "print-output-format",
+   "term": "--print, --output-format",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "cli-mapping",
+   "id": "max-thinking-tokens",
+   "term": "MAX_THINKING_TOKENS",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-1",
+   "term": "권한 모드",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-2",
+   "term": "서드파티 프로바이더",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "mcp",
+   "term": "MCP 서버",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-3",
+   "term": "플러그인",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-4",
+   "term": "파일 첨부",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-5",
+   "term": "세션 격리",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-6",
+   "term": "반복 작업",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "computer-use",
+   "term": "Computer Use",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "ios",
+   "term": "iOS 시뮬레이터",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "dispatch",
+   "term": "Dispatch",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "feature-compare",
+   "id": "feature-compare-7",
+   "term": "스크립팅/자동화",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "shared-settings",
+   "id": "claude-md-claude-local-md",
+   "term": "CLAUDE.md, CLAUDE.local.md — 둘 다 사용",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "shared-settings",
+   "id": "mcp-claude-json-mcp-json",
+   "term": "MCP 서버(~/.claude.json, .mcp.json) — 공유",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "shared-settings",
+   "id": "hooks-skills",
+   "term": "Hooks, Skills — 공유",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "shared-settings",
+   "id": "claude-settings-json",
+   "term": "~/.claude/settings.json — 공유(권한 규칙 등)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "shared-settings",
+   "id": "desktop",
+   "term": "터미널에서 /desktop 입력 → 현재 세션을 데스크톱 앱으로 이동",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "when-which",
+   "id": "when-which-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "when-which",
+   "id": "when-which-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "trouble",
+   "id": "403",
+   "term": "403/인증 오류 → 로그아웃 후 재로그인, 유료 구독 확인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "trouble",
+   "id": "cdn",
+   "term": "화면 멈춤/빈 화면 → 재시작, 업데이트 확인, 방화벽 CDN 허용 확인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "trouble",
+   "id": "failed-to-load-session-git-lfs",
+   "term": "\"Failed to load session\" → 폴더 존재 확인, Git LFS 설치 확인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "trouble",
+   "id": "windows-git-is-required-git-for-windows",
+   "term": "Windows \"Git is required\" → Git for Windows 설치 후 재시작",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "trouble",
+   "id": "mcp-windows",
+   "term": "MCP 서버 Windows 오류 → 설정 확인, 앱 재시작, 작업관리자에서 프로세스 확인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "links",
+   "id": "code-claude-com-docs-en-desktop",
+   "term": "공식 문서: code.claude.com/docs/en/desktop",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "links",
+   "id": "cowork-claude-com-product-cowork",
+   "term": "Cowork: claude.com/product/cowork",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "links",
+   "id": "ios-docs-en-desktop-ios-simulator",
+   "term": "iOS 시뮬레이터: /docs/en/desktop-ios-simulator",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "links",
+   "id": "wsl-docs-en-desktop-wsl",
+   "term": "WSL 연동: /docs/en/desktop-wsl",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "desktop",
+   "section": "links",
+   "id": "claude-com-download",
+   "term": "다운로드: claude.com/download",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "clear-name",
+   "term": "/clear [name]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "compact",
+   "term": "/compact [지시]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "context-all",
+   "term": "/context [all]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "resume",
+   "term": "/resume",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "rename-name",
+   "term": "/rename [name]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "branch-name",
+   "term": "/branch [name]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "fork-prompt",
+   "term": "/fork [prompt]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "export-filename",
+   "term": "/export [filename]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "diff",
+   "term": "/diff",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "session-mgmt",
+   "id": "rewind-turn",
+   "term": "/rewind [turn#]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "model-runtime",
+   "id": "model-model",
+   "term": "/model [model]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "model-runtime",
+   "id": "effort-level-auto",
+   "term": "/effort [level|auto]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "model-runtime",
+   "id": "advisor-model-off",
+   "term": "/advisor [model|off]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "model-runtime",
+   "id": "autocompact-auto-tokens",
+   "term": "/autocompact [auto|tokens]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "model-runtime",
+   "id": "fast-on-off",
+   "term": "/fast [on|off]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plan-control",
+   "id": "plan-description",
+   "term": "/plan [description]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plan-control",
+   "id": "background-prompt-bg",
+   "term": "/background [prompt], /bg",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plan-control",
+   "id": "loop-interval-prompt",
+   "term": "/loop [interval] [prompt]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plan-control",
+   "id": "goal-condition-clear",
+   "term": "/goal [condition|clear]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plan-control",
+   "id": "subtask-prompt",
+   "term": "/subtask <prompt>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plan-control",
+   "id": "batch-instruction",
+   "term": "/batch <instruction>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "quality-security",
+   "id": "code-review-level-fix",
+   "term": "/code-review [level] [--fix]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "quality-security",
+   "id": "security-review",
+   "term": "/security-review",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "quality-security",
+   "id": "simplify",
+   "term": "/simplify",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "quality-security",
+   "id": "verify",
+   "term": "/verify",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "quality-security",
+   "id": "autofix-pr-prompt",
+   "term": "/autofix-pr [prompt]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "info-diagnostics",
+   "id": "status",
+   "term": "/status",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "info-diagnostics",
+   "id": "usage-cost",
+   "term": "/usage, /cost",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "info-diagnostics",
+   "id": "doctor",
+   "term": "/doctor",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "info-diagnostics",
+   "id": "insights",
+   "term": "/insights",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "info-diagnostics",
+   "id": "recap",
+   "term": "/recap",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "info-diagnostics",
+   "id": "heapdump",
+   "term": "/heapdump",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "agents",
+   "term": "/agents",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "hooks",
+   "term": "/hooks",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "mcp-subcommand",
+   "term": "/mcp [subcommand]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "sandbox-action",
+   "term": "/sandbox [action]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "memory",
+   "term": "/memory",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "permissions",
+   "term": "/permissions",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "system-extend",
+   "id": "list-agents",
+   "term": "/list-agents",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "collab-surfaces",
+   "id": "desktop",
+   "term": "/desktop",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "collab-surfaces",
+   "id": "mobile",
+   "term": "/mobile",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "collab-surfaces",
+   "id": "remote-control",
+   "term": "/remote-control",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "collab-surfaces",
+   "id": "teleport",
+   "term": "/teleport",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "collab-surfaces",
+   "id": "bug-report",
+   "term": "/bug [report]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "collab-surfaces",
+   "id": "feedback-report",
+   "term": "/feedback [report]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "settings-personal",
+   "id": "config-key-value",
+   "term": "/config [key=value]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "settings-personal",
+   "id": "color-color-default",
+   "term": "/color [color|default]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "settings-personal",
+   "id": "keybindings",
+   "term": "/keybindings",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "settings-personal",
+   "id": "privacy-settings",
+   "term": "/privacy-settings",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "settings-personal",
+   "id": "fewer-permission-prompts",
+   "term": "/fewer-permission-prompts",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "cd-path",
+   "term": "/cd <path>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "add-dir-path",
+   "term": "/add-dir <path>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "chrome",
+   "term": "/chrome",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "web",
+   "term": "/web",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "copy-n",
+   "term": "/copy [N]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "login-logout",
+   "term": "/login, /logout",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "misc-utils",
+   "id": "upgrade",
+   "term": "/upgrade",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "install-github-app",
+   "term": "/install-github-app",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "install-slack-app",
+   "term": "/install-slack-app",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "release-notes",
+   "term": "/release-notes",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "claude-api-subcommand",
+   "term": "/claude-api [subcommand]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "deep-research-question",
+   "term": "/deep-research <question>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "dataviz-request",
+   "term": "/dataviz [request]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "team-research",
+   "id": "design-sync-hint",
+   "term": "/design-sync [hint]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "extras",
+   "id": "focus",
+   "term": "/focus",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "extras",
+   "id": "radio",
+   "term": "/radio",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "extras",
+   "id": "powerup",
+   "term": "/powerup",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "extras",
+   "id": "passes",
+   "term": "/passes",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "extras",
+   "id": "design-login",
+   "term": "/design-login",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-syntax",
+   "id": "plugin-discover-installed",
+   "term": "/plugin                       # Discover/Installed/",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-scope",
+   "id": "user",
+   "term": "User",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-scope",
+   "id": "project",
+   "term": "Project",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-scope",
+   "id": "local",
+   "term": "Local",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-scope",
+   "id": "plugin-scope-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-scope",
+   "id": "plugin-scope-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-top5",
+   "id": "plugin-top5-1",
+   "term": "1. Frontend Design (공식) — 디자인 토큰·레이아웃 추론으로 UI 품질 향상, 공식 마켓 설",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-top5",
+   "id": "plugin-top5-2",
+   "term": "2. Superpowers (커뮤니티) — 브레인스토밍·서브에이전트 개발·TDD 등 워크플로우 모음 /plu",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-top5",
+   "id": "plugin-top5-3",
+   "term": "3. Context7 — 최신 라이브러리 문서를 온디맨드로 조회 /plugin marketplace add ",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-top5",
+   "id": "plugin-top5-4",
+   "term": "4. Claude Mem — 세션 간 영구 메모리 추가 npx claude-mem install (플러그인 ",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-top5",
+   "id": "plugin-top5-5",
+   "term": "5. Caveman — 토큰 절약형 축약 응답 모드 /plugin marketplace add JuliusB",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-top5",
+   "id": "plugin-top5-6",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "c-c",
+   "term": "C/C++",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "market-lsp-1",
+   "term": "C#",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "go",
+   "term": "Go",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "java",
+   "term": "Java",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "kotlin",
+   "term": "Kotlin",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "php",
+   "term": "PHP",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "python",
+   "term": "Python",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "rust",
+   "term": "Rust",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "swift",
+   "term": "Swift",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "typescript",
+   "term": "TypeScript",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-lsp",
+   "id": "market-lsp-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "market-integrations-1",
+   "term": "소스관리",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "market-integrations-2",
+   "term": "디자인",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "market-integrations-3",
+   "term": "협업",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "security-guidance",
+   "term": "security-guidance",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "commit-commands",
+   "term": "commit-commands",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "pr-review-toolkit",
+   "term": "pr-review-toolkit",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "market-integrations",
+   "id": "agent-sdk-dev-plugin-dev",
+   "term": "agent-sdk-dev, plugin-dev",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-tips",
+   "id": "anthropic",
+   "term": "설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-tips",
+   "id": "context-cost",
+   "term": "Context cost",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-tips",
+   "id": "installed",
+   "term": "Installed",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "plugin-tips",
+   "id": "claude-plugin-install-name-marketplace-sco",
+   "term": "스크립팅 설치: claude plugin install <name>@<marketplace> --scope project",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "slash-vs-plugin",
+   "id": "slash-vs-plugin-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "slash-vs-plugin",
+   "id": "slash-vs-plugin-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "custom-commands",
+   "id": "claude-commands-md",
+   "term": ".claude/commands/*.md",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "custom-commands",
+   "id": "frontmatter-name-description-aliases",
+   "term": "frontmatter: name, description, aliases",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "custom-commands",
+   "id": "arguments",
+   "term": "본문에 $ARGUMENTS 로 인자 전달",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "custom-commands",
+   "id": "claude-commands-deploy-md-deploy",
+   "term": "예: .claude/commands/deploy.md → /deploy 로 호출",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "combos",
+   "id": "plan-code-review-security-review",
+   "term": "새 기능 개발: /plan → 승인 → 구현 → /code-review → /security-review",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "combos",
+   "id": "rewind",
+   "term": "디버깅 막힐 때: /rewind 로 되돌린 뒤 원인 파악 후 재시도",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "combos",
+   "id": "pr-diff-release-notes",
+   "term": "PR 마무리: /diff 로 검토 → 커밋 → /release-notes",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "links",
+   "id": "code-claude-com-docs-en-commands",
+   "term": "명령어 전체: code.claude.com/docs/en/commands",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "links",
+   "id": "code-claude-com-docs-en-discover-plugins",
+   "term": "플러그인 설치: code.claude.com/docs/en/discover-plugins",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "links",
+   "id": "code-claude-com-docs-en-plugins",
+   "term": "플러그인 제작: code.claude.com/docs/en/plugins",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "links",
+   "id": "claude-com-plugins",
+   "term": "공식 마켓: claude.com/plugins",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "slash",
+   "section": "links",
+   "id": "claudemarketplaces-com",
+   "term": "커뮤니티 순위: claudemarketplaces.com",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "what-is",
+   "id": "what-is-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "what-is",
+   "id": "what-is-2",
+   "term": "파일은 내 컴퓨터에 유지, 코드는 샌드박스에서 실행",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "what-is",
+   "id": "what-is-3",
+   "term": "새 폴더·네트워크 호스트·원격 잡은 매번 승인 후 사용",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "what-is",
+   "id": "what-is-4",
+   "term": "리뷰어",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "what-is",
+   "id": "what-is-5",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "requirements",
+   "id": "requirements-1",
+   "term": "플랜",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "requirements",
+   "id": "macos",
+   "term": "macOS",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "requirements",
+   "id": "linux",
+   "term": "Linux",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "requirements",
+   "id": "requirements-2",
+   "term": "디스크",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "requirements",
+   "id": "linux-2",
+   "term": "Linux 필수",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "requirements",
+   "id": "requirements-3",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "install",
+   "id": "macos",
+   "term": "macOS",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "install",
+   "id": "sudo-apt-get-install-y-curl-bubblewrap-soc",
+   "term": "sudo apt-get install -y curl bubblewrap socat   # Ubuntu/Deb",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "install",
+   "id": "install-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "windows-wsl2",
+   "id": "wsl-install-d-ubuntu-24-04",
+   "term": "wsl --install -d Ubuntu-24.04",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "windows-wsl2",
+   "id": "windows-wsl2-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "windows-wsl2",
+   "id": "windows-wsl2-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "project",
+   "term": "Project",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "session",
+   "term": "Session",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "artifact",
+   "term": "Artifact",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "workspace",
+   "term": "Workspace",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "kernel",
+   "term": "Kernel",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "environment",
+   "term": "Environment",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "version",
+   "term": "Version",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "execution-log",
+   "term": "Execution log",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "glossary",
+   "id": "data-directory",
+   "term": "Data directory",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "ui-shortcuts-1",
+   "term": "@",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "ui-shortcuts-2",
+   "term": "#",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "ui-shortcuts-3",
+   "term": "/",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "cmd-ctrl-k",
+   "term": "Cmd/Ctrl+K",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "files",
+   "term": "Files",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "ui-shortcuts-4",
+   "term": "아티팩트 메뉴",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "settings",
+   "term": "Settings",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "ui-shortcuts",
+   "id": "compute",
+   "term": "Compute 탭",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "annotations",
+   "id": "annotations-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "annotations",
+   "id": "n-comments",
+   "term": "N comments",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "annotations",
+   "id": "markdown-plain-text-latex-code-pdf-figure",
+   "term": "가능: Markdown, plain text, LaTeX, code(텍스트 선택), PDF(페이지 단위), 이미지·figure(점 클릭), 렌더",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "annotations",
+   "id": "resolve-1-000",
+   "term": "불가: 테이블 · 스레드/resolve 없음 · 1,000자 제한",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "runtime-packages-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "starter-environments",
+   "term": "Starter environments (읽기 전용)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "micromamba",
+   "term": "micromamba",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "pip-install-install-packages",
+   "term": "환경 설치 = 영구 / 셀 내 인라인 pip install·install.packages() = 커널 재시작까지만",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "task-environment-single-cell-structural-bi",
+   "term": "Task environment(예: single-cell, structural-biology)는 필요 시 생성, 머신 전체 공유. 목록·삭제는 ",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "linux",
+   "term": "Linux만",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "runtime-packages",
+   "id": "runtime-packages-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "artifacts",
+   "id": "artifacts-1",
+   "term": "영구",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "artifacts",
+   "id": "version-stepper-diff",
+   "term": "같은 파일명 재저장 = 새 버전. 열면 version stepper + diff 토글",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "artifacts",
+   "id": "artifacts-2",
+   "term": "당시 버전",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "artifacts",
+   "id": "markdown-code-plain-text-edit-content-save",
+   "term": "인라인 편집 가능: Markdown, code, plain text (Edit content → Save = 새 버전) 불가: 이미지, PDF,",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "artifacts",
+   "id": "messages",
+   "term": "Messages",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "artifacts",
+   "id": "artifacts-3",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "reviewer-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "reviewer-2",
+   "term": "실행 없이 계산했다고 보고한 결과",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "reviewer-3",
+   "term": "응답 값과 원본 파일 불일치",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "doi",
+   "term": "DOI가 다른 논문으로 연결",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "plan",
+   "term": "미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "reviewer-4",
+   "term": "검증 예시",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "reviewer",
+   "id": "reviewer-5",
+   "term": "검증 예시",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "serve",
+   "term": "serve",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "open",
+   "term": "open",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "url",
+   "term": "url",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "status",
+   "term": "status",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "logs-tail",
+   "term": "logs [--tail]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "stop",
+   "term": "stop",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "update-check",
+   "term": "update [--check]",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "import-path",
+   "term": "import <path>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "version",
+   "term": "--version",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "cli-subcommands-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cli-subcommands",
+   "id": "cli-subcommands-2",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "port-n",
+   "term": "--port <n>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "no-browser",
+   "term": "--no-browser",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "detached",
+   "term": "--detached",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "no-auto-update",
+   "term": "--no-auto-update",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "host-addr",
+   "term": "--host <addr>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "base-path-prefix",
+   "term": "--base-path </prefix>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "allow-origin-url",
+   "term": "--allow-origin <url>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "sandbox-port-n",
+   "term": "--sandbox-port <n>",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "verbose",
+   "term": "--verbose",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "serve-flags",
+   "id": "serve-flags-1",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "remote-ssh",
+   "id": "ssh-l-8000-localhost-8000",
+   "term": "ssh -L 8000:localhost:8000 \\",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "remote-ssh",
+   "id": "remote-ssh-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "remote-ssh",
+   "id": "remote-ssh-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "featured-connectors-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "genomes",
+   "term": "Genomes",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "genes-ontologies",
+   "term": "Genes & Ontologies",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "variants",
+   "term": "Variants",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "human-genetics",
+   "term": "Human Genetics",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "clinical-genomics",
+   "term": "Clinical Genomics",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "expression",
+   "term": "Expression",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "regulation",
+   "term": "Regulation",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "protein-annotation",
+   "term": "Protein Annotation",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "structures",
+   "term": "Structures",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "rna",
+   "term": "RNA",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "omics-archives",
+   "term": "Omics Archives",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "cancer-models",
+   "term": "Cancer Models",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "chemistry",
+   "term": "Chemistry",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "drug-regulatory",
+   "term": "Drug Regulatory",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "literature-graph",
+   "term": "Literature Graph",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "research-resources",
+   "term": "Research Resources",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "featured-connectors-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "featured-connectors",
+   "id": "featured-connectors-3",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "directory-connectors",
+   "id": "directory-connectors-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "directory-connectors",
+   "id": "directory-connectors-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "settings-skills",
+   "term": "Settings > Skills",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-1",
+   "term": "워크플로우",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-2",
+   "term": "구조예측·폴딩",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-3",
+   "term": "단백질 설계",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-4",
+   "term": "도킹",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-5",
+   "term": "단백질 언어모델",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-6",
+   "term": "유전체·시퀀스",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "builtin-skills",
+   "id": "builtin-skills-7",
+   "term": "단일세포",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-skills",
+   "id": "add-skill",
+   "term": "Add skill",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-skills",
+   "id": "chat-with-claude",
+   "term": "Chat with Claude",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-skills",
+   "id": "write-from-scratch",
+   "term": "Write from scratch",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-skills",
+   "id": "upload-a-skill",
+   "term": "Upload a skill",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-skills",
+   "id": "import-from-github",
+   "term": "Import from GitHub",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-skills",
+   "id": "custom-skills-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "settings-compute-ssh-hosts-add-ssh-host",
+   "term": "Settings > Compute > SSH hosts > Add SSH host",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "ssh-config-alias-user-port-proxyjump",
+   "term": "~/.ssh/config의 alias 선택 (주소·user·port·ProxyJump 자동 인식)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "partition-account-code-module-load-claude",
+   "term": "호스트 메모 입력 (partition, account code, module load 등) — 첫 작업 전 Claude가 읽음",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "advanced",
+   "term": "Advanced",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "slurm-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "slurm-2",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "slurm-3",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "slurm",
+   "id": "slurm-4",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "settings-compute-cloud-providers",
+   "term": "Settings > Compute > Cloud providers",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "modal-token-new-cli-modal-toml",
+   "term": "modal token new        # CLI 로그인 → ~/.modal.toml 자동 인식",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "modal-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "h100",
+   "term": "승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "1-gib-submit-modal-volume-out-5-gib",
+   "term": "입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 ./out/ 최대 5 GiB",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "10-12-23",
+   "term": "동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "modal",
+   "id": "modal-2",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "model-endpoints",
+   "id": "settings-compute-model-endpoints",
+   "term": "Settings > Compute > Model endpoints",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "model-endpoints",
+   "id": "model-endpoints-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cloud-storage",
+   "id": "settings-credentials",
+   "term": "Settings > Credentials",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cloud-storage",
+   "id": "access-key-service-account-json-hmac-key-c",
+   "term": "access key, service-account JSON, HMAC key, connection string 등 + 버킷명(또는 Azure B",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cloud-storage",
+   "id": "cloud-storage-1",
+   "term": "버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cloud-storage",
+   "id": "boto3-azure-sdk-settings-storage-100gb",
+   "term": "코드에서 boto3, Azure SDK로 접근. Settings > Storage에서 탐색·임포트(최대 100GB)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "cloud-storage",
+   "id": "cloud-storage-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "settings-credentials-services-literature-a",
+   "term": "Settings > Credentials > Services > Literature access",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "literature-1",
+   "term": "시도 순서",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "elsevier-api-key",
+   "term": "Elsevier API key",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "springer-nature-key",
+   "term": "Springer Nature key",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "semantic-scholar-key",
+   "term": "Semantic Scholar key",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "ncbi-api-key",
+   "term": "NCBI API key",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "core-api-key",
+   "term": "CORE API key",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "ezproxy-url",
+   "term": "EZproxy URL + 쿠키",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "openalex-api-key",
+   "term": "OpenAlex API key",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "literature",
+   "id": "literature-2",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "custom-mcp",
+   "id": "settings-connectors-add-connector",
+   "term": "Settings > Connectors > Add connector",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-mcp",
+   "id": "remote",
+   "term": "Remote",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-mcp",
+   "id": "local-command",
+   "term": "Local command",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-mcp",
+   "id": "ask-each-time",
+   "term": "Ask each time",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "custom-mcp",
+   "id": "custom-mcp-1",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "approval-scope",
+   "id": "approval-scope-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "approval-scope",
+   "id": "once",
+   "term": "Once",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "approval-scope",
+   "id": "this-conversation",
+   "term": "This conversation",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "approval-scope",
+   "id": "this-project",
+   "term": "This project",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "approval-scope",
+   "id": "global",
+   "term": "Global",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "config-toml",
+   "id": "claude-science-config-toml",
+   "term": "~/.claude-science/config.toml",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "config-toml",
+   "id": "network",
+   "term": "[network]",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "config-toml",
+   "id": "config-toml-1",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "env-vars",
+   "id": "do-not-track",
+   "term": "DO_NOT_TRACK",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "env-vars",
+   "id": "github-token",
+   "term": "GITHUB_TOKEN",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "env-vars",
+   "id": "https-proxy-http-proxy",
+   "term": "HTTPS_PROXY / HTTP_PROXY",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "env-vars",
+   "id": "no-proxy-all-proxy",
+   "term": "NO_PROXY / ALL_PROXY",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "data-handling",
+   "id": "data-handling-1",
+   "term": "내 기기에만",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "data-handling",
+   "id": "data-handling-2",
+   "term": "프롬프트·응답",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "data-handling",
+   "id": "anthropic",
+   "term": "원격 컴퓨트 트래픽은 Anthropic 경유하지 않음",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "data-handling",
+   "id": "directory-anthropic",
+   "term": "Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "data-handling",
+   "id": "data-handling-3",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "plans-org",
+   "id": "free",
+   "term": "Free",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "plans-org",
+   "id": "pro-max",
+   "term": "Pro / Max",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "plans-org",
+   "id": "team-enterprise",
+   "term": "Team / Enterprise",
+   "tier": "core",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "plans-org",
+   "id": "plans-org-1",
+   "term": "설명",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "plans-org",
+   "id": "plans-org-2",
+   "term": "위험",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "beta-gaps",
+   "id": "compliance-api",
+   "term": "감사 로그 미기록, Compliance API 내보내기/삭제 불가",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "beta-gaps",
+   "id": "custom-data-retention",
+   "term": "조직 데이터 내보내기 제외, Custom Data Retention 무효",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "beta-gaps",
+   "id": "beta-gaps-1",
+   "term": "로컬/커스텀 커넥터엔 미적용",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "beta-gaps",
+   "id": "beta-gaps-2",
+   "term": "관리자가 원격 컴퓨트 연결을 제한할 수 없음",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "beta-gaps",
+   "id": "windows",
+   "term": "오프보딩 시 로컬 데이터 미삭제 · 네이티브 Windows 빌드 없음",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "firewall-domains",
+   "id": "claude-ai",
+   "term": "claude.ai",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "firewall-domains",
+   "id": "mcp-claude-com",
+   "term": "*.mcp.claude.com",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "firewall-domains",
+   "id": "firewall-domains-1",
+   "term": "문헌",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "firewall-domains",
+   "id": "firewall-domains-2",
+   "term": "패키지 (항상 허용·차단 불가)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "firewall-domains",
+   "id": "firewall-domains-3",
+   "term": "영구 차단 (해제 불가)",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "firewall-domains",
+   "id": "firewall-domains-4",
+   "term": "주의",
+   "tier": "core",
+   "pin": true
+  },
+  {
+   "surface": "science",
+   "section": "links",
+   "id": "claude-com-docs-claude-science-overview",
+   "term": "공식 문서: claude.com/docs/claude-science/overview",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "links",
+   "id": "docs-claude-science-get-started",
+   "term": "시작 가이드: /docs/claude-science/get-started",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "links",
+   "id": "docs-claude-science-connectors-and-skills",
+   "term": "커넥터·스킬: /docs/claude-science/connectors-and-skills",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "links",
+   "id": "cli-docs-claude-science-command-line-setti",
+   "term": "CLI 설정: /docs/claude-science/command-line-settings",
+   "tier": "full",
+   "pin": false
+  },
+  {
+   "surface": "science",
+   "section": "links",
+   "id": "claude-com-product-claude-science",
+   "term": "다운로드: claude.com/product/claude-science",
+   "tier": "full",
+   "pin": false
+  }
+ ]
+}

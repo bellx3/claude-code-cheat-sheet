@@ -1,0 +1,40 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: custom-mcp
+title: 커스텀 MCP 커넥터
+icon: 🔌
+group: connect
+order: 230
+sheet: science
+summary: >-
+  직접 만든 MCP 커넥터를 붙인다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: settings-connectors-add-connector
+    term: Settings > Connectors > Add connector
+    kind: value
+    tier: full
+    desc: Settings > Connectors > Add connector → Remote(HTTPS) 또는 Local command. Name은 소문자·숫자·하이픈만
+  - id: remote
+    term: Remote
+    kind: value
+    tier: full
+    desc: ": 서버 URL + Advanced(transport SSE/Streamable HTTP, OAuth, Headers helper)"
+  - id: local-command
+    term: Local command
+    kind: value
+    tier: full
+    desc: ": 실행 명령 + Advanced(인자, 환경변수)"
+  - id: ask-each-time
+    term: Ask each time
+    kind: value
+    tier: full
+    desc: 툴 기본값 → Tools 탭에서 Always allow/Block
+  - id: custom-mcp-1
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: Local 커넥터 환경변수는 암호화 없이 설정 파일 저장 — 고가치 시크릿 금지. Skip approvals는 신뢰하는 개발자만

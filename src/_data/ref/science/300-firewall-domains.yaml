@@ -1,0 +1,57 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: firewall-domains
+title: 방화벽 허용 도메인 (443)
+icon: 🌐
+group: trouble
+order: 300
+sheet: science
+summary: >-
+  방화벽에서 열어야 하는 도메인 목록.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: claude-ai
+    term: claude.ai
+    kind: command
+    tier: full
+    desc: claude.ai, platform.claude.com, api.anthropic.com
+    subhead: 앱 필수
+  - id: mcp-claude-com
+    term: "*.mcp.claude.com"
+    kind: value
+    tier: full
+    desc: "*.mcp.claude.com(커넥터), storage.googleapis.com(자동 업데이트), api.github.com·codeload.github.com(스킬)"
+    subhead: 선택
+  - id: firewall-domains-1
+    term: 문헌
+    kind: note
+    tier: full
+    desc: >-
+      api.unpaywall.org, doi.org, eutils.ncbi.nlm.nih.gov, api.semanticscholar.org,
+      api.crossref.org, api.openalex.org, api.elsevier.com, api.springernature.com
+    subhead: 문헌
+  - id: firewall-domains-2
+    term: 패키지 (항상 허용·차단 불가)
+    kind: note
+    tier: full
+    desc: >-
+      pypi.org, files.pythonhosted.org, conda.anaconda.org, repo.anaconda.com, cran.r-project.org,
+      bioconductor.org, registry.npmjs.org, github.com, *.githubusercontent.com
+    subhead: 패키지 (항상 허용·차단 불가)
+  - id: firewall-domains-3
+    term: 영구 차단 (해제 불가)
+    kind: note
+    tier: full
+    desc: >-
+      익명 파일 업로드·웹훅·리버스 터널·path-style 오브젝트 스토리지(s3.amazonaws.com 등) → 버킷은
+      <bucket>.s3.<region>.amazonaws.com 호스트명 형식으로 사용
+    subhead: 영구 차단 (해제 불가)
+  - id: firewall-domains-4
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 미러 트래픽은 프록시를 거치지 않고 직접 연결 — 프록시 허용목록만으로는 환경 빌드가 안 되고 로그에도 안 남음
+    subhead: 영구 차단 (해제 불가)

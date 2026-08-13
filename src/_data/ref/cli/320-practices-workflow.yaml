@@ -1,0 +1,38 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: practices-workflow
+title: 실무 모범 사례 — 워크플로우
+icon: 💡
+group: practice
+order: 320
+sheet: cli
+summary: >-
+  반복이 보이면 명령어로 굳히고, 자동화할 거면 출력 형식부터 정한다.
+source:
+  url: https://code.claude.com/docs/en/quickstart
+  checked_at: "2026-08-13"
+items:
+  - id: claude-commands
+    term: 반복 작업 → .claude/commands/ 커스텀 명령어화
+    kind: note
+    tier: full
+    desc: 반복 작업 → .claude/commands/ 커스텀 명령어화
+  - id: output-format-json
+    term: 자동화 스크립트 → --output-format json
+    kind: note
+    tier: full
+    desc: 자동화 스크립트 → --output-format json
+  - id: practices-workflow-1
+    term: 복합 작업 → 파이프로 단계별 연결
+    kind: note
+    tier: full
+    desc: 복합 작업 → 파이프로 단계별 연결
+  - id: id
+    term: 장시간 작업 → 세션 ID로 관리, 에러 처리 구현
+    kind: note
+    tier: full
+    desc: 장시간 작업 → 세션 ID로 관리, 에러 처리 구현
+  - id: practices-workflow-2
+    term: 팀 공유용 워크플로우는 문서화
+    kind: note
+    tier: full
+    desc: 팀 공유용 워크플로우는 문서화

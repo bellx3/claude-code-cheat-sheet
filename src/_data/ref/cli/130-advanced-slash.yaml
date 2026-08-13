@@ -1,0 +1,83 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: advanced-slash
+title: 신규/고급 슬래시 명령어
+icon: ⌨
+group: start
+order: 130
+sheet: cli
+summary: >-
+  되돌리기·검토·백그라운드처럼 상태를 크게 바꾸는 명령들. /rewind 는 커밋하지 않은 변경도 되돌린다.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: rewind-turn
+    term: /rewind [turn#]
+    kind: command
+    tier: core
+    desc: 코드+대화 체크포인트 롤백
+  - id: agents
+    term: /agents
+    kind: command
+    tier: core
+    desc: 서브에이전트 관리
+  - id: sandbox
+    term: /sandbox
+    kind: command
+    tier: core
+    desc: 격리 환경에서 실행
+  - id: permissions
+    term: /permissions
+    kind: command
+    tier: core
+    desc: 도구 권한 규칙 관리
+  - id: plan
+    term: /plan
+    kind: command
+    tier: core
+    desc: 계획 모드 진입
+  - id: code-review-review
+    term: /code-review, /review
+    kind: command
+    tier: core
+    desc: 현재 diff·PR 검토
+  - id: security-review
+    term: /security-review
+    kind: command
+    tier: core
+    desc: diff 보안 취약점 검사
+  - id: background-bg
+    term: /background, /bg
+    kind: command
+    tier: core
+    desc: 세션을 백그라운드로 분리
+  - id: tasks
+    term: /tasks
+    kind: command
+    tier: core
+    desc: 백그라운드 작업 목록
+  - id: fork
+    term: /fork
+    kind: command
+    tier: core
+    desc: 대화를 새 백그라운드 세션으로 복사
+  - id: loop
+    term: /loop
+    kind: command
+    tier: core
+    desc: 프롬프트 반복 실행
+  - id: goal
+    term: /goal
+    kind: command
+    tier: core
+    desc: 완료 조건 설정 후 자동 진행
+  - id: recap
+    term: /recap
+    kind: command
+    tier: core
+    desc: 세션 한 줄 요약
+  - id: insights
+    term: /insights
+    kind: command
+    tier: core
+    desc: 세션 사용 패턴 분석

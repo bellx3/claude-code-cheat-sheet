@@ -1,0 +1,28 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: skills-plugins
+title: 스킬 & 플러그인
+icon: 🧰
+group: extend
+order: 230
+sheet: desktop
+summary: >-
+  앱에서 스킬·플러그인을 관리한다. CLI 와 같은 파일 체계를 쓴다.
+source:
+  url: https://code.claude.com/docs/en/skills
+  checked_at: "2026-08-13"
+items:
+  - id: skills-plugins-1
+    term: +
+    kind: value
+    tier: full
+    desc: / 입력 또는 →Slash commands 로 내장 명령어·커스텀 스킬·플러그인 스킬 탐색
+  - id: skills-plugins-2
+    term: +
+    kind: value
+    tier: full
+    desc: "→Plugins: 설치된 플러그인 확인, \"Add plugin\"으로 마켓플레이스 설치"
+  - id: wsl
+    term: 플러그인은 클라우드·WSL 세션에서는 사용 불가
+    kind: note
+    tier: full
+    desc: 플러그인은 클라우드·WSL 세션에서는 사용 불가

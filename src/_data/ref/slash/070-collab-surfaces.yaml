@@ -1,0 +1,43 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: collab-surfaces
+title: 협업 & 다른 서피스로
+icon: 🔀
+group: extend
+order: 70
+sheet: slash
+summary: >-
+  다른 서피스(웹·데스크톱)로 작업을 넘기거나 가져온다.
+source:
+  url: https://code.claude.com/docs/en/commands
+  checked_at: "2026-08-13"
+items:
+  - id: desktop
+    term: /desktop
+    kind: command
+    tier: core
+    desc: 세션을 데스크톱 앱으로 이동
+  - id: mobile
+    term: /mobile
+    kind: command
+    tier: core
+    desc: 모바일 앱 다운로드 QR
+  - id: remote-control
+    term: /remote-control
+    kind: command
+    tier: core
+    desc: 다른 기기에서 세션 계속
+  - id: teleport
+    term: /teleport
+    kind: command
+    tier: core
+    desc: 웹 세션을 터미널로 가져오기
+  - id: bug-report
+    term: /bug [report]
+    kind: command
+    tier: core
+    desc: 버그 보고·대화 공유
+  - id: feedback-report
+    term: /feedback [report]
+    kind: command
+    tier: core
+    desc: 제품 피드백 전송

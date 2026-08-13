@@ -1,0 +1,58 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: glossary
+title: 핵심 개념 (용어집)
+icon: 📚
+group: start
+order: 50
+sheet: science
+summary: >-
+  이 제품 고유의 용어들. 다른 Claude 제품과 이름이 겹쳐도 뜻이 다를 수 있다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: project
+    term: Project
+    kind: value
+    tier: core
+    desc: 관련 세션·산출물 묶음. custom instructions와 폴더 권한이 세션 간 유지
+  - id: session
+    term: Session
+    kind: value
+    tier: core
+    desc: 프로젝트 내 대화 스레드 1개. 자체 kernel·workspace 보유
+  - id: artifact
+    term: Artifact
+    kind: value
+    tier: core
+    desc: Claude가 저장한 파일. Files view에 표시, 영구 보존
+  - id: workspace
+    term: Workspace
+    kind: value
+    tier: core
+    desc: 아티팩트 저장 전 코드가 읽고 쓰는 세션별 폴더
+  - id: kernel
+    term: Kernel
+    kind: value
+    tier: core
+    desc: 변수를 메모리에 유지하는 살아있는 Python·R 프로세스
+  - id: environment
+    term: Environment
+    kind: value
+    tier: core
+    desc: conda 기반 명명된 패키지 세트, 세션 간 재사용
+  - id: version
+    term: Version
+    kind: value
+    tier: core
+    desc: 아티팩트의 불변 저장본 — 덮어쓰지 않고 위에 쌓임
+  - id: execution-log
+    term: Execution log
+    kind: value
+    tier: core
+    desc: 해당 아티팩트 버전을 만든 노트북 셀 구간
+  - id: data-directory
+    term: Data directory
+    kind: value
+    tier: core
+    desc: ~/.claude-science — DB·아티팩트·워크스페이스·로그

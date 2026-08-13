@@ -1,0 +1,23 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: team
+title: 팀 협업 & 프로덕션
+icon: 🔘
+group: enterprise
+order: 290
+sheet: cli
+summary: >-
+  설정 파일을 공유해 같은 기준으로 돌린다. CI·락다운 환경은 dontAsk 가 기본이다.
+source:
+  url: https://code.claude.com/docs/en/admin-setup
+  checked_at: "2026-08-13"
+items:
+  - id: claude-settings-team-config-json
+    term: claude --settings team-config.json "표준 분석"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      claude --settings team-config.json "표준 분석"
+      claude -r "team-session-id" "팀 논의 이어가기"
+
+      claude --permission-mode dontAsk   # CI·락다운 환경

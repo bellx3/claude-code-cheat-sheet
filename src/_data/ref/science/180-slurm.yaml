@@ -1,0 +1,58 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: slurm
+title: SSH / Slurm 클러스터
+icon: 🖥
+group: compute
+order: 180
+sheet: science
+aliases: [슬럼, 슬럼클러스터, slurm, 클러스터, 배치잡, sbatch]
+summary: >-
+  클러스터에 작업을 던진다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: settings-compute-ssh-hosts-add-ssh-host
+    term: Settings > Compute > SSH hosts > Add SSH host
+    kind: value
+    tier: full
+    desc: Settings > Compute > SSH hosts > Add SSH host
+  - id: ssh-config-alias-user-port-proxyjump
+    term: ~/.ssh/config의 alias 선택 (주소·user·port·ProxyJump 자동 인식)
+    kind: note
+    tier: full
+    desc: ~/.ssh/config의 alias 선택 (주소·user·port·ProxyJump 자동 인식)
+  - id: partition-account-code-module-load-claude
+    term: 호스트 메모 입력 (partition, account code, module load 등) — 첫 작업 전 Claude가 읽음
+    kind: note
+    tier: full
+    desc: 호스트 메모 입력 (partition, account code, module load 등) — 첫 작업 전 Claude가 읽음
+  - id: advanced
+    term: Advanced
+    kind: value
+    tier: full
+    desc: 에서 User/Port/Identity file 재정의 → Add
+  - id: slurm-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: >-
+      추가 시 read-only 프로브로 CPU/GPU/CUDA, conda·modules·Apptainer, scratch, sbatch 존재 여부 자동 탐지 (Probe로
+      재실행)
+  - id: slurm-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: "실행: 워크스테이션=detached 프로세스, SLURM=sbatch. 연결 끊겨도 잡 유지"
+  - id: slurm-3
+    term: 설명
+    kind: note
+    tier: full
+    desc: 기본 잡 타임아웃 30분, 동시 잡 100. 약 100MB 초과 출력은 호스트에 남고 경로만 기록
+  - id: slurm-4
+    term: 위험
+    kind: note
+    tier: core
+    pin: true
+    tone: danger
+    desc: 원격 잡은 샌드박스 밖 — 내 계정 권한 전체로 실행됨. 호스트엔 아무것도 설치하지 않음

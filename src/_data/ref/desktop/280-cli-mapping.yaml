@@ -1,0 +1,58 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: cli-mapping
+title: CLI → 데스크톱 대응표
+icon: 📊
+group: practice
+order: 280
+sheet: desktop
+summary: >-
+  CLI 명령이 데스크톱에서 무엇에 해당하는지 대조표.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: model-sonnet
+    term: "--model sonnet"
+    kind: flag
+    tier: core
+    desc: 모델 드롭다운
+  - id: resume-continue
+    term: "--resume, --continue"
+    kind: flag
+    tier: core
+    desc: 사이드바에서 세션 클릭
+  - id: permission-mode
+    term: "--permission-mode"
+    kind: flag
+    tier: core
+    desc: 모드 선택기
+  - id: dangerously-skip-permissions
+    term: "--dangerously-skip-permissions"
+    kind: flag
+    tier: core
+    desc: Bypass permissions 모드
+  - id: add-dir
+    term: "--add-dir"
+    kind: flag
+    tier: core
+    desc: 클라우드 세션의 + 버튼(저장소 추가)
+  - id: allowedtools-disallowedtools
+    term: "--allowedTools/--disallowedTools"
+    kind: flag
+    tier: core
+    desc: 세션별 대응 없음(설정파일 규칙은 적용)
+  - id: verbose
+    term: "--verbose"
+    kind: flag
+    tier: core
+    desc: Verbose 뷰 모드
+  - id: print-output-format
+    term: "--print, --output-format"
+    kind: flag
+    tier: core
+    desc: 미지원 (대화형 전용)
+  - id: max-thinking-tokens
+    term: MAX_THINKING_TOKENS
+    kind: value
+    tier: core
+    desc: 로컬 환경변수 에디터

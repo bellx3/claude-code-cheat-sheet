@@ -1,0 +1,28 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: three-tabs
+title: 세 가지 탭
+icon: 🟣
+group: start
+order: 20
+sheet: desktop
+summary: >-
+  탭마다 다루는 대상이 다르다. 지금 어느 탭에 있는지가 쓸 수 있는 기능을 결정한다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: chat
+    term: Chat
+    kind: value
+    tier: core
+    desc: 일반 대화
+  - id: cowork
+    term: Cowork
+    kind: value
+    tier: core
+    desc: Dispatch·장기 에이전틱 작업
+  - id: code
+    term: Code
+    kind: value
+    tier: core
+    desc: 소프트웨어 개발 (이 치트시트 범위)

@@ -1,0 +1,46 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: config-toml
+title: config.toml
+icon: 📄
+group: control
+order: 250
+sheet: science
+summary: >-
+  설정 파일. 앱 설정보다 우선한다.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: claude-science-config-toml
+    term: ~/.claude-science/config.toml
+    kind: file
+    tier: full
+    desc: ~/.claude-science/config.toml — 시작 시 1회 읽음, 변경은 재시작 후 적용
+  - id: network
+    term: "[network]"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      [network]
+      proxy = "http://proxy.example.corp:8080"
+      no_proxy = ".example.corp,registry.example.corp"
+      ca_bundle = "/etc/claude-science/corporate-ca.pem"
+      mcp_x509_strict = "auto"   # relaxed | strict
+
+      [conda]
+      channel_mirror = "https://..."   # 내부 미러
+      pip_index_url  = "https://..."
+      allow_insecure_mirror = false
+
+      [sandbox.network]
+      enabled = true
+      allowed_domains = ["*.example.org"]
+      denied_domains = []          # 거부 우선
+  - id: config-toml-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 미러 값이 잘못되면 앱이 시작되지 않음. 파일 값이 Settings보다 우선(“조직 관리” 표시)

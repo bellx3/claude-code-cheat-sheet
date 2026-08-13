@@ -1,0 +1,33 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: plugin-tips
+title: 플러그인 실무 팁
+icon: 💡
+group: plugin
+order: 170
+sheet: slash
+summary: >-
+  설치·관리에서 겪는 실무 문제들.
+source:
+  url: https://code.claude.com/docs/en/plugins
+  checked_at: "2026-08-13"
+items:
+  - id: anthropic
+    term: 설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음
+    kind: note
+    tier: full
+    desc: 설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음
+  - id: context-cost
+    term: Context cost
+    kind: value
+    tier: full
+    desc: 설치 화면의 로 매 턴 추가되는 토큰 비용 확인
+  - id: installed
+    term: Installed
+    kind: value
+    tier: full
+    desc: 2주·10세션 이상 미사용 플러그인은 탭에서 정리
+  - id: claude-plugin-install-name-marketplace-sco
+    term: "스크립팅 설치: claude plugin install <name>@<marketplace> --scope project"
+    kind: note
+    tier: full
+    desc: "스크립팅 설치: claude plugin install <name>@<marketplace> --scope project"

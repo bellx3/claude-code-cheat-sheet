@@ -1,0 +1,48 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: system-extend
+title: 시스템 확장
+icon: 🧩
+group: extend
+order: 60
+sheet: slash
+summary: >-
+  스킬·플러그인·MCP 처럼 기능을 늘리는 축.
+source:
+  url: https://code.claude.com/docs/en/skills
+  checked_at: "2026-08-13"
+items:
+  - id: agents
+    term: /agents
+    kind: command
+    tier: core
+    desc: 서브에이전트 생성·관리
+  - id: hooks
+    term: /hooks
+    kind: command
+    tier: core
+    desc: 이벤트 훅 설정 보기
+  - id: mcp-subcommand
+    term: /mcp [subcommand]
+    kind: command
+    tier: core
+    desc: MCP 서버 연결 관리
+  - id: sandbox-action
+    term: /sandbox [action]
+    kind: command
+    tier: core
+    desc: 격리 환경에서 실행
+  - id: memory
+    term: /memory
+    kind: command
+    tier: core
+    desc: CLAUDE.md 편집·자동 메모리
+  - id: permissions
+    term: /permissions
+    kind: command
+    tier: core
+    desc: 도구 권한 규칙 관리
+  - id: list-agents
+    term: /list-agents
+    kind: command
+    tier: core
+    desc: 메시지 가능한 서브에이전트 목록

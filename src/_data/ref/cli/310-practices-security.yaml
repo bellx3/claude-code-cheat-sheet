@@ -1,0 +1,43 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: practices-security
+title: 실무 모범 사례 — 성능·보안
+icon: 💡
+group: practice
+order: 310
+sheet: cli
+summary: >-
+  권한을 넓히기 전에 피해 범위를 좁히는 쪽을 먼저 본다.
+source:
+  url: https://code.claude.com/docs/en/security
+  checked_at: "2026-08-13"
+items:
+  - id: clear
+    term: 작업 전환마다 /clear로 컨텍스트 초기화
+    kind: note
+    tier: full
+    desc: 작업 전환마다 /clear로 컨텍스트 초기화
+  - id: max-turns
+    term: "--max-turns로 무한 반복 방지"
+    kind: note
+    tier: full
+    desc: "--max-turns로 무한 반복 방지"
+  - id: compact
+    term: 장기 대화는 /compact로 압축
+    kind: note
+    tier: full
+    desc: 장기 대화는 /compact로 압축
+  - id: dangerously-skip-permissions
+    term: "--dangerously-skip-permissions 사용 지양"
+    kind: note
+    tier: full
+    desc: "--dangerously-skip-permissions 사용 지양"
+  - id: disallowedtools
+    term: 위험 명령은 --disallowedTools로 상시 차단
+    kind: note
+    tier: full
+    desc: 위험 명령은 --disallowedTools로 상시 차단
+  - id: practices-security-1
+    term: 도구 권한 주기적 점검, 항상 최신 버전 유지
+    kind: note
+    tier: full
+    desc: 도구 권한 주기적 점검, 항상 최신 버전 유지

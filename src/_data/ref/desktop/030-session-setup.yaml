@@ -1,0 +1,33 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: session-setup
+title: 세션 시작 설정 (4가지)
+icon: 🟣
+group: start
+order: 30
+sheet: desktop
+summary: >-
+  세션을 어디서 시작하느냐가 접근 가능한 파일 범위를 정한다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: environment
+    term: Environment
+    kind: value
+    tier: core
+    desc: Local/Cloud/SSH/WSL(Win) 선택
+  - id: project-folder
+    term: Project folder
+    kind: value
+    tier: core
+    desc: 작업할 폴더·저장소 선택
+  - id: model
+    term: Model
+    kind: value
+    tier: core
+    desc: 전송 버튼 옆 드롭다운(세션 중 변경 가능)
+  - id: permission-mode
+    term: Permission mode
+    kind: value
+    tier: core
+    desc: 모드 선택기(세션 중 변경 가능)

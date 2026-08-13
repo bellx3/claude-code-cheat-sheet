@@ -1,0 +1,23 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: trouble-install
+title: 트러블슈팅 — 설치
+icon: 🛠
+group: trouble
+order: 340
+sheet: cli
+summary: >-
+  설치·인증 문제는 doctor 로 상태를 먼저 읽고, 그래도 안 되면 네이티브 재설치.
+source:
+  url: https://code.claude.com/docs/en/troubleshoot-install
+  checked_at: "2026-08-13"
+items:
+  - id: claude-version-claude-auth-status-claude-d
+    term: claude --version && claude auth status && claude doctor
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      claude --version && claude auth status && claude doctor
+      claude install stable         # 네이티브 재설치
+      npm uninstall -g @anthropic-ai/claude-code
+      npm install -g @anthropic-ai/claude-code   # npm 재설치

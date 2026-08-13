@@ -1,0 +1,23 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: slash-vs-plugin
+title: 언제 슬래시 vs 플러그인
+icon: 🧭
+group: practice
+order: 180
+sheet: slash
+summary: >-
+  한 번 쓰고 말 것과 배포할 것의 구분.
+source:
+  url: https://code.claude.com/docs/en/plugins
+  checked_at: "2026-08-13"
+items:
+  - id: slash-vs-plugin-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 내장 슬래시 명령어 → 세션·모델·진단 등 Claude Code 자체 기능 제어
+  - id: slash-vs-plugin-2
+    term: 설명
+    kind: note
+    tier: full
+    desc: 플러그인 → 스킬·에이전트·MCP·Hooks를 패키지로 확장, 설치 후 plugin:command 형태로 사용

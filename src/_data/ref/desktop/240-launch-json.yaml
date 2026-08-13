@@ -1,0 +1,48 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: launch-json
+title: 프리뷰 서버 설정 (.claude/launch.json)
+icon: ⚙
+group: extend
+order: 240
+sheet: desktop
+summary: >-
+  미리보기로 띄울 서버를 프로젝트에 정의해둔다.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: name-runtimeexecutable
+    term: name / runtimeExecutable
+    kind: value
+    tier: core
+    desc: 식별자 / 실행 명령
+  - id: runtimeargs-args
+    term: runtimeArgs / args
+    kind: value
+    tier: core
+    desc: 명령 인자
+  - id: port-3000
+    term: port (기본 3000)
+    kind: value
+    tier: core
+    desc: 서버 포트
+  - id: cwd-env
+    term: cwd / env
+    kind: value
+    tier: core
+    desc: 작업 디렉토리 / 환경변수
+  - id: autoport
+    term: autoPort
+    kind: value
+    tier: core
+    desc: 포트 충돌 시 자동 재할당 여부
+  - id: program-url
+    term: program / url
+    kind: value
+    tier: core
+    desc: node 스크립트 직접 실행 / 접속 주소
+  - id: launch-json-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: "autoVerify: 기본 켜짐(수정마다 자동 검증), false로 끌 수 있음"

@@ -1,0 +1,22 @@
+# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: auto-review
+title: 자동화된 코드 리뷰
+icon: 🟤
+group: automate
+order: 230
+sheet: cli
+summary: >-
+  관점을 하나로 고정해 따로 돌리는 편이 한 번에 다 시키는 것보다 깊이 들어간다.
+source:
+  url: https://code.claude.com/docs/en/security-guidance
+  checked_at: "2026-08-13"
+items:
+  - id: git-diff-head-1-claude-p-security-md
+    term: git diff HEAD~1 | claude -p "보안 이슈 리뷰" > security.md
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      git diff HEAD~1 | claude -p "보안 이슈 리뷰" > security.md
+      git diff HEAD~1 | claude -p "성능 이슈 확인" > perf.md
+      git diff HEAD~1 | claude -p "개선안 제안" > improve.md

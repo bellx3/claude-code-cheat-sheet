@@ -1,0 +1,33 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: workspace-layout
+title: 워크스페이스 배치
+icon: 🧩
+group: start
+order: 110
+sheet: desktop
+summary: >-
+  여러 세션·패널을 동시에 두는 배치.
+source:
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-13"
+items:
+  - id: workspace-layout-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: "패널: chat·diff·browser·terminal·file·plan·tasks·subagent (+macOS는 iOS 시뮬레이터)"
+  - id: workspace-layout-2
+    term: 헤더 드래그로 위치 변경, 가장자리 드래그로 크기 조절
+    kind: note
+    tier: full
+    desc: 헤더 드래그로 위치 변경, 가장자리 드래그로 크기 조절
+  - id: views
+    term: Views
+    kind: value
+    tier: full
+    desc: 메뉴에서 패널 추가
+  - id: cmd-ctrl
+    term: Cmd/Ctrl+\ 포커스된 패널 닫기
+    kind: note
+    tier: full
+    desc: Cmd/Ctrl+\ 포커스된 패널 닫기

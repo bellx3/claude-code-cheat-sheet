@@ -1,0 +1,56 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: reviewer
+title: 리뷰어 (Reviewer)
+icon: 🔍
+group: use
+order: 100
+sheet: science
+summary: >-
+  결과를 검토하는 기능.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: reviewer-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 응답·승인된 plan·아티팩트·실행 기록을 독립적으로 재독해 주장과 실제 실행을 대조 (재실행은 하지 않음)
+  - id: reviewer-2
+    term: 실행 없이 계산했다고 보고한 결과
+    kind: note
+    tier: full
+    desc: 실행 없이 계산했다고 보고한 결과
+    subhead: 검증 예시
+  - id: reviewer-3
+    term: 응답 값과 원본 파일 불일치
+    kind: note
+    tier: full
+    desc: 응답 값과 원본 파일 불일치
+    subhead: 검증 예시
+  - id: doi
+    term: DOI가 다른 논문으로 연결
+    kind: value
+    tier: full
+    desc: 인용이 주장을 뒷받침하지 않음 /
+    subhead: 검증 예시
+  - id: plan
+    term: 미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론
+    kind: note
+    tier: full
+    desc: 미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론
+    subhead: 검증 예시
+  - id: reviewer-4
+    term: 검증 예시
+    kind: note
+    tier: full
+    desc: 응답 후 자동 실행 + Request review 수동 트리거. 결과는 Reviewer · N findings 카드(claim·evidence·transcript 링크)
+    subhead: 검증 예시
+  - id: reviewer-5
+    term: 검증 예시
+    kind: note
+    tier: full
+    desc: >-
+      기본값: Max/Team/Enterprise ON, Pro OFF. 커스텀 기준은 Settings > Specialists > Reviewer >
+      Instructions(추가만 가능, 내장 체크 제거 불가)
+    subhead: 검증 예시

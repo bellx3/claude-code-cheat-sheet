@@ -1,0 +1,115 @@
+id: permission-modes
+title: 권한 모드 (Shift+Tab)
+icon: 🔐
+group: control
+order: 70
+sheet: cli
+aliases: [권한모드, 권한 모드, permission mode, 승인, 자동승인]
+summary: >-
+  세션 도중 Shift+Tab 으로 순환 전환한다. 시작할 때 고정하려면 --permission-mode.
+  모드는 "무엇을 물어보는가"만 정하고, "무엇을 할 수 있는가"는 allow/deny 규칙과 샌드박스가 따로 정한다.
+source:
+  url: https://code.claude.com/docs/en/permission-modes
+  checked_at: "2026-08-13"
+items:
+  - id: default-manual
+    term: default (Manual)
+    kind: value
+    tier: core
+    desc: 읽기만 자동 승인. 쓰기·실행은 매번 물어본다.
+    detail: |
+      가장 보수적인 값이다. Read/Glob/Grep 계열은 확인 없이 돌고 Edit/Write/Bash 는
+      호출마다 승인 카드가 뜬다.
+
+      카드에서 "이 명령은 다시 묻지 않기"를 고르면 그 패턴이 `.claude/settings.local.json` 의
+      `permissions.allow` 에 누적된다. 즉 default 로 며칠 쓰면 내 작업 패턴에 맞는 allow 목록이
+      저절로 만들어지고, 그 목록을 그대로 들고 상위 모드로 옮길 수 있다.
+      **처음엔 default 로 며칠 → 쌓인 allow 확인 → 모드 상향**이 실무 순서다.
+    example: |
+      claude --permission-mode default
+    caveat: |
+      누적된 allow 규칙은 `.claude/settings.local.json` 에 남고 여기엔 내 로컬 경로가 섞인다.
+      리포를 공개할 거면 이 파일이 `.gitignore` 에 있는지 먼저 볼 것.
+    see_also: [cli/permission-modes#dontask, cli/advanced-slash#permissions]
+    tasks: [reduce-permission-prompts, first-setup]
+  - id: acceptedits
+    term: acceptEdits
+    kind: value
+    tier: core
+    desc: 파일 편집·기본 파일시스템 명령을 자동 승인한다.
+    detail: |
+      Edit/Write 와 mkdir·mv 같은 기본 파일시스템 명령이 확인 없이 돈다.
+      네트워크 호출이나 패키지 설치처럼 바깥에 영향을 주는 동작은 여전히 물어본다.
+
+      "코드를 계속 고치는 중이라 편집 승인만 귀찮다"는 상황에 정확히 맞는 값이다.
+      auto 로 한 번에 올리는 것보다 여기서 멈추는 편이 통제 범위를 이해하기 쉽다.
+    see_also: [cli/permission-modes#auto]
+    tasks: [reduce-permission-prompts]
+  - id: plan
+    term: plan
+    kind: value
+    tier: core
+    desc: 읽기 전용 탐색만 하고, 편집 전에 계획을 먼저 내놓는다.
+    detail: |
+      탐색 단계에서 파일이 고쳐지는 사고를 구조적으로 막는다. 낯선 코드베이스를 파악할 때,
+      또는 "일단 어떻게 할 건지 보고 결정하겠다"일 때 쓴다.
+
+      `Ctrl+G` 로 계획 결과를 편집기에서 열 수 있다. 계획에 동의하면 모드를 내려서 실행한다.
+    see_also: [cli/advanced-slash#plan, cli/keybindings#ctrl-g]
+    tasks: [onboard-unknown-repo]
+  - id: auto
+    term: auto
+    kind: value
+    tier: core
+    desc: 분류기가 위험도를 판정해 대부분의 도구 호출을 자동 승인한다.
+    detail: |
+      분류기의 기준은 **되돌릴 수 있는가**다. `rm -rf`, force push, 프로덕션 배포,
+      시크릿이 나갈 수 있는 동작은 auto 에서도 카드가 뜬다.
+
+      2026-08-14 부터 Pro/Max/Team 의 **신규 세션** 기본값이 이 모드로 바뀐다.
+      기존 세션은 재개해도 이전 모드를 유지하므로, 어느 날 갑자기 승인 카드가 덜 뜨기 시작하면
+      이 전환을 먼저 의심할 것.
+    caveat: |
+      "대부분 자동 승인"이지 "전부"가 아니다. CI 처럼 사람이 없는 환경에서 쓰면
+      카드가 뜨는 순간 그 자리에서 사람을 기다리며 멈춘다. 무인 실행은 `dontAsk` 다.
+    see_also: [cli/permission-modes#dontask, cli/sandbox#sandbox]
+    tasks: [ci-headless-run, reduce-permission-prompts]
+  - id: dontask
+    term: dontAsk
+    kind: value
+    tier: core
+    desc: 사전 승인된 도구만 실행하고 나머지는 그냥 실패시킨다. CI용.
+    detail: |
+      auto 와의 차이가 핵심이다 — auto 는 판단이 안 서면 **묻고 멈추지만**,
+      dontAsk 는 **묻지 않고 실패**한다. 무인 실행에서는 멈춤보다 실패가 낫다.
+      로그에 남고, 재시도할지 사람이 정할 수 있기 때문이다.
+
+      default 로 며칠 쓰며 쌓아둔 `permissions.allow` 목록이 여기서 그대로 재사용된다.
+    example: |
+      claude -p "커버리지 분석" --permission-mode dontAsk --max-turns 3
+    see_also: [cli/permission-modes#auto, cli/new-flags#permission-mode-mode]
+    tasks: [ci-headless-run]
+  - id: bypasspermissions
+    term: bypassPermissions
+    kind: value
+    tier: core
+    desc: 모든 검사를 생략한다. 격리 환경 전용.
+    detail: |
+      `--dangerously-skip-permissions` 와 같은 자리다. 이름에 dangerously 가 들어간 이유가 있다 —
+      되돌릴 수 없는 동작이 확인 없이 지나간다.
+
+      쓸 만한 자리는 하나뿐이다: **버려도 되는 컨테이너 안**. 로컬 작업 디렉터리에서
+      "귀찮아서" 켜는 용도가 아니다. 승인 창이 잦은 게 문제라면 allow 규칙을 쌓거나
+      샌드박스를 켜는 쪽이 맞다.
+    caveat: |
+      이 모드를 쓰기 전에 되돌릴 수 있는 상태인지 먼저 볼 것 — 커밋했는지, 브랜치를 팠는지.
+      `/rewind` 는 Claude 가 추적하는 변경만 되돌린다.
+    see_also: [cli/tool-permissions#allowedtools-bash-git-log, cli/sandbox#sandbox]
+    tasks: [stop-touching-wrong-files]
+  - id: permission-modes-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 2026-08-14부터 Pro/Max/Team 신규 세션 기본값이 auto 모드로 전환

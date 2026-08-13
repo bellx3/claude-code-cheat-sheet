@@ -1,0 +1,35 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: annotations
+title: 어노테이션 (주석)
+icon: ✏️
+group: use
+order: 70
+sheet: science
+summary: >-
+  셀·결과에 주석을 남기는 기능.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: annotations-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 영역 선택 → Annotate pill 클릭 → 코멘트 입력 → Cmd/Ctrl+Enter 또는 Save
+  - id: n-comments
+    term: N comments
+    kind: value
+    tier: full
+    desc: 저장만으로는 전송 안 됨 — 컴포저의 chip에 모였다가 다음 메시지와 함께 전송
+  - id: markdown-plain-text-latex-code-pdf-figure
+    term: "가능: Markdown, plain text, LaTeX, code(텍스트 선택), PDF(페이지 단위), 이미지·figure(점 클릭), 렌더"
+    kind: note
+    tier: full
+    desc: >-
+      가능: Markdown, plain text, LaTeX, code(텍스트 선택), PDF(페이지 단위), 이미지·figure(점 클릭), 렌더된 HTML, 세션
+      transcript
+  - id: resolve-1-000
+    term: "불가: 테이블 · 스레드/resolve 없음 · 1,000자 제한"
+    kind: note
+    tier: full
+    desc: "불가: 테이블 · 스레드/resolve 없음 · 1,000자 제한"

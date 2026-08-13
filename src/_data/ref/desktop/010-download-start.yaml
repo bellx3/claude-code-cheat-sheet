@@ -1,0 +1,40 @@
+# legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: download-start
+title: 다운로드 & 시작
+icon: 🟣
+group: start
+order: 10
+sheet: desktop
+summary: >-
+  데스크톱 앱은 CLI 와 설정을 공유하지만 조작 체계가 다르다. 같은 기능이라도 이름이 다를 수 있다.
+source:
+  url: https://code.claude.com/docs/en/desktop-quickstart
+  checked_at: "2026-08-13"
+items:
+  - id: macos-dmg-intel-apple-silicon
+    term: "macOS: 유니버설 dmg (Intel/Apple Silicon)"
+    kind: note
+    tier: full
+    desc: "macOS: 유니버설 dmg (Intel/Apple Silicon)"
+  - id: windows-x64-arm64
+    term: "Windows: x64 설치 / ARM64는 별도 설치파일"
+    kind: note
+    tier: full
+    desc: "Windows: x64 설치 / ARM64는 별도 설치파일"
+  - id: linux-apt-deb
+    term: "Linux(베타): apt 또는 .deb"
+    kind: note
+    tier: full
+    desc: "Linux(베타): apt 또는 .deb"
+  - id: code
+    term: Code
+    kind: value
+    tier: full
+    desc: 설치 후 로그인 → 탭 클릭
+  - id: download-start-1
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: Windows는 Git for Windows 필요 (설치 후 앱 재시작)

@@ -1,0 +1,38 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: settings-personal
+title: 설정 & 개인화
+icon: ⚙
+group: session
+order: 80
+sheet: slash
+summary: >-
+  설정과 개인화. 대부분 설정 파일에도 같은 항목이 있다.
+source:
+  url: https://code.claude.com/docs/en/settings
+  checked_at: "2026-08-13"
+items:
+  - id: config-key-value
+    term: /config [key=value]
+    kind: command
+    tier: core
+    desc: 설정 열기/직접 지정
+  - id: color-color-default
+    term: /color [color|default]
+    kind: command
+    tier: core
+    desc: 프롬프트 바 색상
+  - id: keybindings
+    term: /keybindings
+    kind: command
+    tier: core
+    desc: 단축키 파일 열기
+  - id: privacy-settings
+    term: /privacy-settings
+    kind: command
+    tier: core
+    desc: 개인정보보호 설정
+  - id: fewer-permission-prompts
+    term: /fewer-permission-prompts
+    kind: command
+    tier: core
+    desc: 권한 프롬프트 감소

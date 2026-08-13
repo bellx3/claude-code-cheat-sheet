@@ -1,0 +1,30 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: plugin-syntax
+title: 플러그인 명령어 문법
+icon: 🧩
+group: plugin
+order: 120
+sheet: slash
+summary: >-
+  플러그인이 제공하는 명령의 호출 문법.
+source:
+  url: https://code.claude.com/docs/en/plugins-reference
+  checked_at: "2026-08-13"
+items:
+  - id: plugin-discover-installed
+    term: "/plugin                       # Discover/Installed/"
+    kind: snippet
+    tier: full
+    desc: 예시
+    code: |-
+      /plugin                       # Discover/Installed/
+                                     # Marketplaces/Errors 탭
+
+      /plugin marketplace add owner/repo | url | 경로
+      /plugin marketplace list / update <name> / remove <name>
+
+      /plugin install <name>@<marketplace>
+      /plugin uninstall / enable / disable <name>@<marketplace>
+      /plugin list [--enabled|--disabled]
+
+      /reload-plugins [--force]     # 변경사항 즉시 적용

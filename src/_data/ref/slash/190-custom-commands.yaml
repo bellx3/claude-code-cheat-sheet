@@ -1,0 +1,33 @@
+# legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: custom-commands
+title: 커스텀 슬래시 명령어 만들기
+icon: 🛠
+group: practice
+order: 190
+sheet: slash
+summary: >-
+  파일 한 장이면 명령 하나가 생긴다. 커스텀 명령은 스킬로 통합됐고 문법이 같다.
+source:
+  url: https://code.claude.com/docs/en/skills
+  checked_at: "2026-08-13"
+items:
+  - id: claude-commands-md
+    term: .claude/commands/*.md
+    kind: file
+    tier: full
+    desc: .claude/commands/*.md 에 정의
+  - id: frontmatter-name-description-aliases
+    term: "frontmatter: name, description, aliases"
+    kind: note
+    tier: full
+    desc: "frontmatter: name, description, aliases"
+  - id: arguments
+    term: 본문에 $ARGUMENTS 로 인자 전달
+    kind: note
+    tier: full
+    desc: 본문에 $ARGUMENTS 로 인자 전달
+  - id: claude-commands-deploy-md-deploy
+    term: "예: .claude/commands/deploy.md → /deploy 로 호출"
+    kind: note
+    tier: full
+    desc: "예: .claude/commands/deploy.md → /deploy 로 호출"

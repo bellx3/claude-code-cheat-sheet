@@ -1,0 +1,43 @@
+# legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+id: custom-skills
+title: 커스텀 스킬 만들기
+icon: 🛠
+group: extend
+order: 170
+sheet: science
+summary: >-
+  직접 만드는 스킬.
+source:
+  url: ""
+  checked_at: "2026-08-13"
+items:
+  - id: add-skill
+    term: Add skill
+    kind: value
+    tier: full
+    desc: 버튼 → 4가지 방식
+  - id: chat-with-claude
+    term: Chat with Claude
+    kind: value
+    tier: full
+    desc: 대화로 생성
+  - id: write-from-scratch
+    term: Write from scratch
+    kind: value
+    tier: full
+    desc: 직접 작성
+  - id: upload-a-skill
+    term: Upload a skill
+    kind: value
+    tier: full
+    desc: 파일 업로드
+  - id: import-from-github
+    term: Import from GitHub
+    kind: value
+    tier: full
+    desc: private repo 가능(Settings > Credentials에 GitHub 토큰 추가 후)
+  - id: custom-skills-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: 기존 세션의 워크플로를 스킬로 증류(distill)해 달라고 요청 가능

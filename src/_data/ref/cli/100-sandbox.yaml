@@ -1,0 +1,53 @@
+id: sandbox
+title: 샌드박싱
+icon: 📦
+group: control
+order: 100
+sheet: cli
+aliases: [샌드박스, sandbox, 격리, 샌드박싱]
+summary: >-
+  권한을 넓히는 대신 피해 범위를 좁히는 층. 파일시스템과 나가는 네트워크를 제한한다.
+  네이티브 Windows 는 지원하지 않는다.
+source:
+  url: https://code.claude.com/docs/en/sandboxing
+  checked_at: "2026-08-13"
+items:
+  - id: sandbox
+    term: /sandbox
+    kind: command
+    tier: full
+    desc: /sandbox, settings.json의 sandbox.enabled / filesystem.* / network.allowedDomains
+    detail: |
+      권한 모드가 "무엇을 물어보는가"를 정한다면, 샌드박스는 **"물어보지 않고 실행돼도 어디까지
+      망가질 수 있는가"** 를 정한다. 두 축이 독립이라 같이 쓸 때 의미가 있다 —
+      allow 규칙을 넓히더라도 샌드박스가 반경을 잡아준다.
+
+      `network.allowedDomains` 가 특히 값을 한다. MCP 커넥터나 스크립트가 예상 밖의 곳으로
+      데이터를 보내는 경로를 도메인 화이트리스트로 막는다.
+    example: |
+      // .claude/settings.json
+      {
+        "sandbox": {
+          "enabled": true,
+          "network": { "allowedDomains": ["registry.npmjs.org", "github.com"] }
+        }
+      }
+    see_also: [cli/permission-modes#bypasspermissions, cli/enterprise#sandbox-network-alloweddomains]
+    tasks: [stop-touching-wrong-files]
+  - id: sandbox-1
+    term: 설명
+    kind: note
+    tier: full
+    desc: macOS=Seatbelt, Linux/WSL2=bubblewrap
+    detail: |
+      OS 기본 격리 기술을 그대로 쓴다 — macOS 는 Seatbelt, Linux/WSL2 는 bubblewrap.
+      별도 컨테이너 런타임을 깔지 않아도 되는 대신, **그 기술이 없는 플랫폼에서는 동작하지 않는다.**
+      Windows 에 구현이 없는 이유가 이것이다.
+    tasks: [windows-gotchas]
+  - id: sandbox-2
+    term: 주의
+    kind: note
+    tier: core
+    pin: true
+    tone: warn
+    desc: 네이티브 Windows 미지원 — WSL2 필요
