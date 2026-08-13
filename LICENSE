@@ -1,6 +1,7 @@
 MIT License
 
-Copyright (c) 2025 Joe Njenga
+Copyright (c) 2025 Joe Njenga        (original: Njengah/claude-code-cheat-sheet)
+Copyright (c) 2026 bellx3            (Korean rewrite, data model, tooling)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Third-party content
+-------------------
+Prompts under src/_data/prompts/ carry their own `origin` and license fields.
+Items marked `origin: verbatim` are redistributed under the license named in
+their `source_license` field (see /about/ on the built site for the full table
+of sources reviewed, including those deliberately excluded).
+Items marked `origin: link_only` are NOT redistributed — only title, summary
+and link are included.
+
+This project is not affiliated with or endorsed by Anthropic.
+Claude and Claude Code are trademarks of Anthropic PBC.
