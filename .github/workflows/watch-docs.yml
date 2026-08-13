@@ -1,0 +1,59 @@
+name: watch-docs
+
+# 공식 문서 감시. 콘텐츠는 절대 자동 수정하지 않는다 — 변경 사실만 PR로 알린다.
+on:
+  schedule:
+    # 정각을 피한다. GitHub이 정각 피크에 스케줄 잡을 지연·드롭한다고 공식 문서에 명시돼 있다.
+    - cron: "17 21 * * 0"
+  # schedule 과 같은 파일에 둔다. public 리포는 60일 무활동이면 cron 이 꺼지는데,
+  # 수동 실행이 그 타이머를 되살린다.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+
+      - name: 공식 문서 색인·본문 해시 비교
+        id: watch
+        run: |
+          node tools/fetch-llms-txt.mjs
+          node tools/watch-docs.mjs | tee /tmp/watch.log
+          if git diff --quiet -- sources src/_data/officialdocs.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      # 변경이 있을 때만 PR을 연다. 매주 "변경 없음" PR이 쌓이면 5주차 진짜 변경도 안 읽는다.
+      - name: 변경분 PR
+        if: steps.watch.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: docs-watch
+          title: "공식 문서 변경 감지"
+          commit-message: "chore: 공식 문서 스냅샷 갱신"
+          body-path: sources/watch-report.md
+          labels: docs-watch
+          delete-branch: true
+
+      # 변경이 없어도 하트비트는 갱신한다. 이게 없으면 봇이 죽은 것과 조용한 것을 구분할 수 없고,
+      # 커밋이 없으면 60일 뒤 cron 자체가 비활성화된다.
+      - name: 하트비트 커밋
+        if: steps.watch.outputs.changed == 'false'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sources/watch-meta.json
+          git diff --cached --quiet || git commit -m "chore: 문서 감시 하트비트 $(date -u +%F)"
+          git push
