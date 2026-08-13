@@ -1,0 +1,45 @@
+id: onboard-unknown-repo
+title: 처음 보는 코드베이스를 파악해야 한다
+group: start
+order: 70
+phrasings:
+  - 새 프로젝트 파악
+  - 코드 구조 이해
+  - 어디서부터 봐야 할지
+  - 낯선 코드
+  - 인수인계
+  - 이 프로젝트 뭐하는 건지
+  - 코드 읽기
+summary: 통독시키지 말고 질문을 좁혀라. plan 모드로 시작하면 읽기만 하고 고치지 않는다.
+intro: |
+  "이 코드베이스 설명해줘"는 컨텍스트만 태우고 뻔한 요약을 낸다.
+  탐색 단계에서 파일이 고쳐지는 사고도 흔하다. 읽기 전용으로 묶고 질문을 좁히는 게 순서다.
+steps:
+  - what: plan 모드로 시작한다
+    how: |
+      `Shift+Tab` 으로 plan 모드에 들어가거나 `--permission-mode plan` 으로 시작한다.
+      읽기 전용 탐색만 하고 편집 전에 계획을 먼저 내놓는다.
+    refs:
+      - cli/permission-modes#plan
+      - cli/advanced-slash#plan
+  - what: 관련 디렉터리를 먼저 붙인다
+    how: |
+      모노레포거나 코드가 여러 곳에 흩어져 있으면 `--add-dir` 로 미리 등록한다.
+      나중에 붙이면 이미 잘못된 전제로 탐색이 진행된 뒤다.
+    refs:
+      - cli/directories#add-dir-apps-lib
+  - what: 통독이 아니라 경로를 묻는다
+    how: |
+      "요약해줘" 대신 "사용자 로그인 요청이 들어와서 DB에 닿기까지 거치는 파일을 순서대로,
+      각 파일에서 무슨 일이 일어나는지" 처럼 흐름을 물으면 모델이 실제로 코드를 따라가야 한다.
+  - what: 파악한 것을 CLAUDE.md에 남긴다
+    how: |
+      `/memory` 로 편집한다. 다음 세션에서 같은 탐색을 반복하지 않는 유일한 방법이다.
+      로드 순서는 managed policy → `~/.claude/CLAUDE.md` → `./CLAUDE.md` → `CLAUDE.local.md`.
+    refs:
+      - cli/memory#memory
+caveat: |
+  탐색이 끝나면 `/clear` 로 자르고 실제 작업을 새 대화에서 시작할 것.
+  탐색 과정에서 읽은 파일 전문이 컨텍스트에 남아 있으면 이후 작업이 계속 무거워진다.
+prompts:
+  - explain-data-flow

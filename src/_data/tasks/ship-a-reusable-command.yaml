@@ -1,0 +1,55 @@
+id: ship-a-reusable-command
+title: 같은 지시를 매번 치기 싫다
+group: extend
+order: 60
+phrasings:
+  - 반복 작업 자동화
+  - 나만의 명령어
+  - 커스텀 슬래시
+  - 명령어 만들기
+  - 프롬프트 저장
+  - 재사용
+  - 매번 같은 말
+  - 단축 명령
+summary: 파일 한 장이면 /명령 하나가 생긴다. 커스텀 명령은 스킬로 통합됐다.
+intro: |
+  `.claude/commands/deploy.md` 와 `.claude/skills/deploy/SKILL.md` 는
+  **둘 다 `/deploy` 를 만들고 동작이 같다.** 전자는 파일명이, 후자는 디렉터리명이 호출 이름이 된다.
+  개인·프로젝트 스킬에서 frontmatter의 `name` 은 표시 라벨일 뿐 호출 이름이 아니다.
+steps:
+  - what: 파일 한 장을 만든다
+    how: |
+      프로젝트 전용이면 `.claude/commands/`, 어디서나 쓰려면 `~/.claude/commands/`.
+      본문에 지시를 쓰고 인자 자리에 `$ARGUMENTS` 를 둔다.
+    code: |
+      ---
+      description: 스테이징된 변경의 회귀 위험을 정리한다
+      argument-hint: "[diff 범위]"
+      ---
+      $ARGUMENTS 범위의 변경만 보고 되돌릴 확률이 높은 순서로 정리해줘.
+      항목마다 (1) 어떤 입력에서 깨지는가 (2) 재현 명령 한 줄 (3) 넘어가도 되는 근거를 적어.
+      파일은 고치지 말고 목록만 내놔.
+    refs:
+      - cli/custom-commands#claude-commands-md
+      - slash/custom-commands#claude-commands-deploy-md-deploy
+  - what: 인자를 여러 개 받는다
+    how: |
+      `$ARGUMENTS` 는 전체, `$1`·`$2` 는 위치 인자, frontmatter에 `arguments: [issue, branch]` 를
+      선언하면 `$issue`·`$branch` 로 이름을 붙여 쓴다. 리터럴 달러는 `\$` 로 이스케이프한다.
+  - what: 잘 도는지 확인한다
+    how: |
+      세션에서 `/help` 를 치면 목록에 뜬다. 안 뜨면 파일 위치나 frontmatter 문법 문제다.
+    refs:
+      - cli/slash-commands#help
+  - what: 팀이나 다른 기기와 공유한다
+    how: |
+      프로젝트 디렉터리째 커밋하면 그대로 공유된다. 더 넓게 배포하려면 플러그인으로 묶는다.
+    refs:
+      - cli/hooks-plugins#hooks
+      - slash/plugin-scope#project
+caveat: |
+  Claude Code는 frontmatter 키 20개를 받지만 claude.ai 업로드·Skills API 경로는
+  `name, description, license, compatibility, metadata, allowed-tools` **6개만** 받고
+  그 외 키가 있으면 무시가 아니라 **실패**한다. 밖으로 내보낼 파일이면 6개로 제한할 것.
+prompts:
+  - pre-commit-risk-scan

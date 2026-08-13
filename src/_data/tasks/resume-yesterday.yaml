@@ -1,0 +1,50 @@
+id: resume-yesterday
+title: 어제 하던 걸 이어서 하고 싶다
+group: start
+order: 120
+phrasings:
+  - 이어서 하기
+  - 어제 대화
+  - 세션 복구
+  - 이전 작업 찾기
+  - 대화 다시 열기
+  - 세션 목록
+  - 어디까지 했는지
+summary: -c는 가장 최근, /resume은 골라서, -r은 ID로. 세션에 이름을 붙여두면 이게 다 쉬워진다.
+intro: |
+  세션은 자동으로 저장된다. 문제는 "어느 세션이었는지"를 찾는 것이라,
+  이름을 붙여두는 습관이 나중 비용을 줄인다.
+steps:
+  - what: 방금 하던 걸 그냥 이어간다
+    how: |
+      `claude -c` (= `--continue`) 는 가장 최근 대화를 연다. 대부분 이걸로 충분하다.
+    refs:
+      - cli/cli-commands#claude-c-continue
+  - what: 여러 개 중에서 고른다
+    how: |
+      `/resume` 은 세션 안에서 다른 대화로 전환한다. 터미널에서는 `claude -r "<세션>" "질의"` 로
+      ID나 이름을 지정해 재개한다.
+    refs:
+      - cli/slash-commands#resume
+      - cli/cli-commands#claude-r-s-query
+  - what: 이름을 붙여둔다
+    how: |
+      시작할 때 `claude -n <name>`, 진행 중이면 `/rename [name]`.
+      며칠 뒤 찾을 때 ID 목록을 뒤지는 것과 차이가 크다.
+    refs:
+      - cli/cli-commands#claude-n-name
+      - cli/slash-commands#rename-name
+  - what: PR 작업이면 PR로 찾는다
+    how: |
+      `claude --from-pr <PR>` 이 그 PR에 연결된 세션을 재개한다.
+    refs:
+      - cli/cli-commands#claude-from-pr-pr
+  - what: 무슨 얘기를 했는지 빨리 훑는다
+    how: |
+      `/recap` 은 세션을 한 줄로 요약한다. `Ctrl+O` 로 트랜스크립트 뷰어를 열면 전체를 볼 수 있다.
+    refs:
+      - cli/advanced-slash#recap
+      - cli/keybindings#ctrl-o
+caveat: |
+  이어가기는 편하지만 컨텍스트를 그대로 물려받는다. 작업이 바뀌었는데 어제 세션을 이어가면
+  이전 파일 내용이 판단에 섞인다. **작업이 다르면 이어가지 말고 `/clear` 로 새로 시작할 것.**

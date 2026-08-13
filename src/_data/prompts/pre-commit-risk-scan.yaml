@@ -1,0 +1,37 @@
+id: pre-commit-risk-scan
+title: 커밋 직전 회귀 위험 스캔
+summary: 스테이징된 변경만 보고 되돌릴 확률이 높은 순서로 정리시킨다.
+stage: review
+tags: [git, review, regression]
+tasks: [pre-commit-gate, review-before-merge]
+
+origin: own
+redistribute: allow
+verified: tested
+tested_on: "2026-08-13 · Claude Code · 이 리포에서 실행"
+
+slots:
+  diff_range: "--staged"
+
+body: |
+  {diff_range} 범위의 변경만 보고, 배포 후 되돌려야 할 확률이 높은 순서로 정리해줘.
+
+  각 항목마다 이 셋을 적어:
+  (1) 어떤 입력·상태에서 깨지는가
+  (2) 그걸 재현하는 최소 명령 한 줄
+  (3) 안 고치고 넘어가도 되는 근거 — 없으면 "없음"
+
+  재현 명령을 못 쓰겠으면 그 항목은 "추측"이라고 표시해.
+  파일은 고치지 말고 목록만 내놔.
+
+teaches: |
+  "위험한 곳 알려줘"는 파일 나열로 끝난다. **재현 명령을 같이 요구하면**
+  모델이 실제로 코드 경로를 따라가야 해서 추측과 확인이 분리된다.
+  마지막 "고치지 말고 목록만"이 없으면 검토 중에 편집이 섞여 들어와서
+  무엇이 원래 문제였는지 사라진다.
+
+next: |
+  쓸 만하면 `.claude/commands/pre-commit-risk-scan.md` 로 저장해 `/pre-commit-risk-scan` 으로 굳힌다.
+  `$ARGUMENTS` 로 diff 범위를 받게 하면 그대로 재사용된다.
+
+export_command: true

@@ -1,0 +1,52 @@
+id: reduce-permission-prompts
+title: 승인 창이 너무 자주 떠서 흐름이 끊긴다
+group: control
+order: 20
+phrasings:
+  - 승인 안 물어보게
+  - 권한 확인 창 그만
+  - 매번 물어봐서 귀찮다
+  - 확인 없이 실행
+  - 자동 승인
+  - 허락 계속 눌러야 함
+  - yes 계속 누르기
+  - 권한 설정
+summary: 권한 모드를 올리기 전에 allow 규칙을 먼저 쌓는다. 순서를 뒤집으면 되돌릴 수 없는 일이 생긴다.
+intro: |
+  `--dangerously-skip-permissions` 로 한 번에 끄고 싶어지는 지점인데, 그건 마지막 수단이다.
+  실제로 효과가 큰 순서는 **allow 규칙 축적 → 모드 상향 → 샌드박스** 셋이다.
+steps:
+  - what: 승인 카드에서 "이 명령은 다시 묻지 않기"를 고른다
+    how: |
+      고를 때마다 그 패턴이 `.claude/settings.local.json` 의 `permissions.allow` 에 누적된다.
+      며칠 쓰면 본인 작업 패턴에 맞는 allow 목록이 저절로 만들어진다. 이게 가장 안전한 축적 방법이다.
+    refs:
+      - cli/permission-modes#default-manual
+  - what: 쌓인 목록을 확인하고 정리한다
+    how: |
+      `/permissions` 로 현재 규칙을 본다. 너무 넓게 잡힌 규칙(`Bash(*)` 같은)이 있으면 좁힌다.
+    refs:
+      - cli/advanced-slash#permissions
+  - what: 모드를 한 단계 올린다
+    how: |
+      `Shift+Tab` 으로 순환한다. 편집만 자동 승인하려면 `acceptEdits`,
+      분류기에 맡기려면 `auto`. auto는 되돌릴 수 없는 동작(force push, rm -rf, 시크릿 유출)은
+      여전히 카드를 띄운다.
+    refs:
+      - cli/permission-modes#acceptedits
+      - cli/permission-modes#auto
+  - what: CI처럼 사람이 없는 환경이면 dontAsk
+    how: |
+      auto는 카드가 뜨는 순간 사람을 기다리며 **멈춘다**. 무인 실행이 목적이면 auto가 아니라
+      `dontAsk` 다 — 사전 승인된 도구만 돌고 나머지는 그냥 실패한다.
+    refs:
+      - cli/permission-modes#dontask
+  - what: 그래도 불안하면 샌드박스를 켠다
+    how: |
+      권한을 넓히는 대신 피해 범위를 좁히는 방향이다. 파일시스템·네트워크를 격리한다.
+      단 네이티브 Windows는 미지원이라 WSL2가 필요하다.
+    refs:
+      - cli/sandbox#sandbox
+caveat: |
+  `.claude/settings.local.json` 에는 내 로컬 경로가 섞인 allow 규칙이 쌓인다.
+  리포를 공개할 거면 이 파일이 `.gitignore` 에 있는지 먼저 확인할 것.

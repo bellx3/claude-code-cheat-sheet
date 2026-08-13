@@ -1,0 +1,59 @@
+id: pre-commit-gate
+title: 커밋 전에 자동으로 뭔가 돌리고 싶다
+group: automate
+order: 10
+# 검색은 사용자가 정답 단어를 알 때만 동작한다. "훅"이라는 단어를 모르는 사람의 어휘가 여기 들어간다.
+phrasings:
+  - 커밋 전에 테스트 돌리기
+  - 커밋 전에 린트
+  - 커밋 직전에 검사
+  - 커밋 막기
+  - 실수로 커밋하는 것 방지
+  - pre-commit
+  - 자동으로 포맷팅
+  - 저장할 때마다 실행
+  - 파일 고칠 때마다 검사
+summary: 답은 Hooks다. 다만 "누구의 커밋을 막을 것인가"를 먼저 정해야 도구가 갈린다.
+intro: |
+  Claude Code의 Hooks는 **Claude가 도구를 쓰는 시점**에 끼어든다.
+  내가 터미널에서 직접 치는 `git commit` 은 막지 못한다 — 그건 git 훅(husky·lefthook)의 몫이다.
+  둘은 배타적이지 않고 층이 다르다.
+steps:
+  - what: Claude가 하는 동작만 막을 거라면 Hooks
+    how: |
+      `settings.json` 의 `hooks.PreToolUse` 에 matcher를 걸고, 스크립트가 **exit code 2**로
+      끝나면 그 도구 호출이 차단된다. stdout이 Claude에게 사유로 전달되므로
+      "왜 막혔는지"를 사람이 아니라 Claude가 읽고 스스로 고친다.
+    code: |
+      // .claude/settings.json
+      {
+        "hooks": {
+          "PreToolUse": [{
+            "matcher": "Bash(git commit:*)",
+            "hooks": [{ "type": "command", "command": "npm test --silent" }]
+          }]
+        }
+      }
+    refs:
+      - cli/hooks-plugins#hooks
+  - what: 편집이 끝날 때마다 포맷을 맞추고 싶다면 PostToolUse
+    how: |
+      `PostToolUse` 는 도구가 성공한 **뒤에** 돈다. 차단이 목적이 아니라 뒷정리가 목적일 때 쓴다.
+      prettier·ruff 같은 포매터를 여기 걸면 Claude가 고친 파일이 항상 정리된 상태로 남는다.
+    refs:
+      - cli/hooks-plugins#hooks
+  - what: 내가 직접 치는 커밋도 막고 싶다면 git 훅
+    how: |
+      Hooks는 Claude의 도구 호출에만 걸린다. 터미널에서 손으로 치는 커밋은 husky·lefthook 같은
+      git 훅으로 따로 막아야 한다. 두 개를 다 걸어두면 경로가 어느 쪽이든 같은 검사를 통과한다.
+  - what: 훅이 실제로 걸렸는지 확인
+    how: |
+      `/hooks` 로 현재 세션에 로드된 훅 목록을 본다. 설정 파일에 썼는데 여기 안 보이면
+      JSON 문법 오류이거나 파일 위치가 틀린 것이다.
+    refs:
+      - cli/hooks-plugins#hooks
+caveat: |
+  훅은 **매 도구 호출마다** 돈다. 전체 테스트 스위트를 PreToolUse에 걸면 Claude가 파일 하나 고칠 때마다
+  몇 분씩 멈춘다. matcher를 좁히거나(`Bash(git commit:*)`) 빠른 검사만 걸 것.
+prompts:
+  - pre-commit-risk-scan

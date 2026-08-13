@@ -1,0 +1,58 @@
+id: first-setup
+title: 처음 깔았다, 무엇부터 해야 하나
+group: start
+order: 5
+phrasings:
+  - 설치
+  - 처음 시작
+  - 로그인
+  - 뭐부터
+  - 초기 설정
+  - 시작하기
+  - 어떻게 쓰는지
+summary: 설치 → 로그인 → 프로젝트 루트에서 실행 → CLAUDE.md 한 장. 여기까지가 1일차다.
+intro: |
+  설치 자체는 한 줄이다. 실제로 체감이 갈리는 건 그 다음 두 가지 —
+  **어느 디렉터리에서 실행하는가**와 **CLAUDE.md를 쓰는가**다.
+steps:
+  - what: 설치하고 로그인한다
+    how: |
+      Windows는 PowerShell 또는 WinGet. macOS/Linux/WSL은 install.sh 또는 Homebrew.
+      npm 설치는 레거시 경로라 권장되지 않는다.
+    code: |
+      # Windows PowerShell
+      irm https://claude.ai/install.ps1 | iex
+      # macOS / Linux / WSL
+      curl -fsSL https://claude.ai/install.sh | bash
+
+      claude auth login
+      claude auth status
+    refs:
+      - cli/install#curl-fssl-https-claude-ai-install-sh-bash
+      - cli/install#claude-auth-login
+  - what: 작업할 프로젝트 루트에서 실행한다
+    how: |
+      `claude` 는 실행한 디렉터리를 작업 범위로 잡는다. 상위에서 실행하면 관계없는 파일까지 훑고,
+      너무 아래서 실행하면 필요한 파일에 접근을 못 한다. 코드가 여러 곳이면 `--add-dir` 로 붙인다.
+    refs:
+      - cli/directories#add-dir-apps-lib
+  - what: 문제가 있으면 진단부터
+    how: |
+      `claude doctor` 가 설정·경로·인증을 한 번에 점검한다. 증상을 추측하기 전에 이걸 먼저 돌린다.
+    refs:
+      - cli/install#claude-doctor
+  - what: CLAUDE.md를 한 장 쓴다
+    how: |
+      프로젝트 규칙·빌드 명령·하지 말아야 할 것을 적는다. 이게 없으면 매 세션 같은 설명을 반복하게 된다.
+      `/memory` 로 편집하고, 로드 순서는 managed policy → `~/.claude/CLAUDE.md` → `./CLAUDE.md` → `CLAUDE.local.md`.
+    refs:
+      - cli/memory#memory
+  - what: 모르는 게 생기면
+    how: |
+      `/help` 로 명령 목록, `/status` 로 현재 세션 상태를 본다.
+    refs:
+      - cli/slash-commands#help
+      - cli/slash-commands#status
+caveat: |
+  `--dangerously-skip-permissions` 를 처음부터 쓰지 말 것. 무엇이 자동 승인되는지 감이 없는 상태에서
+  전부 끄면 되돌릴 수 없는 동작이 조용히 지나간다. 며칠 default로 쓰면서 allow를 쌓는 편이 빠르다.

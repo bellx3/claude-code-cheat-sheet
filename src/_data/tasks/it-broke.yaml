@@ -1,0 +1,54 @@
+id: it-broke
+title: 안 된다, 뭐가 문제인지 모르겠다
+group: quality
+order: 130
+phrasings:
+  - 안 돼요
+  - 에러
+  - 실행이 안 됨
+  - 명령어를 못 찾음
+  - 느림
+  - 응답이 없음
+  - 설치 실패
+  - 로그인 안 됨
+  - 문제 해결
+summary: doctor → status → context 순으로 확인한다. 재현하지 못하면 원인을 모르는 것이다.
+intro: |
+  증상별로 고치기 전에 상태를 먼저 읽는다. 세 명령이 대부분의 원인을 짚어준다.
+steps:
+  - what: 설정·인증·경로를 한 번에 점검한다
+    how: |
+      `claude doctor` 또는 세션 안에서 `/doctor`. 버전과 인증 상태도 같이 본다.
+    code: |
+      claude --version && claude auth status && claude doctor
+    refs:
+      - cli/install#claude-doctor
+      - cli/trouble-install#claude-version-claude-auth-status-claude-d
+  - what: 느리다면 컨텍스트를 의심한다
+    how: |
+      `/context` 로 사용량을 보고 찼으면 `/clear` 또는 `/compact`.
+      "느려졌다"의 가장 흔한 원인이다.
+    refs:
+      - cli/slash-commands#context-all
+      - cli/trouble-runtime#clear
+  - what: 동작이 이상하면 커스터마이제이션을 배제한다
+    how: |
+      `--safe-mode` 는 커스터마이제이션을 전부 끄고, `--bare` 는 훅·스킬·플러그인·MCP를 건너뛴다.
+      이걸로 정상 동작하면 원인은 내 설정에 있다. 이분법으로 범위를 반씩 줄이는 게 가장 빠르다.
+    refs:
+      - cli/new-flags#safe-mode
+      - cli/new-flags#bare
+  - what: 설치 자체가 의심되면 재설치
+    how: |
+      `claude install stable` 로 네이티브 바이너리를 다시 깐다.
+      npm으로 깔았던 흔적이 남아 충돌하는 경우가 있다.
+    refs:
+      - cli/trouble-install#claude-version-claude-auth-status-claude-d
+  - what: 무슨 일이 일어나는지 보고 싶으면
+    how: |
+      `--verbose` 로 상세 로그를 켠다. 추측 대신 실제 호출을 본다.
+    refs:
+      - cli/cli-flags#verbose
+caveat: |
+  고쳤다고 선언하기 전에 **양방향으로 확인할 것** — 고친 상태에서 되는지, 일부러 되돌리면
+  다시 깨지는지. 되돌려도 잘 돌아가면 원인을 잘못 짚은 것이고 진짜 원인은 아직 남아 있다.

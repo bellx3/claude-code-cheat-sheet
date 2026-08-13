@@ -1,0 +1,47 @@
+id: undo-mistake
+title: 잘못 고쳤다, 되돌리고 싶다
+group: quality
+order: 40
+phrasings:
+  - 되돌리기
+  - 실행 취소
+  - 원상복구
+  - 이전 상태로
+  - 실수했다
+  - 파일 망가짐
+  - 체크포인트
+  - 롤백
+  - 방금 한 거 취소
+summary: 코드와 대화를 함께 되돌리는 /rewind가 먼저다. git보다 앞선 층이다.
+intro: |
+  Claude Code는 턴마다 체크포인트를 남긴다. 커밋하지 않은 변경도 되돌릴 수 있어서
+  `git checkout` 보다 촘촘하다. 다만 되돌리는 대상이 "코드만/대화만/둘 다"로 갈리므로
+  무엇을 되돌릴지 먼저 정한다.
+steps:
+  - what: 실행 중인 동작을 멈춘다
+    how: |
+      `Esc` 로 응답·도구 호출을 중단한다. 이미 파일이 고쳐졌다면 멈추는 것만으로는 안 되고
+      아래 rewind로 넘어간다.
+    refs:
+      - cli/keybindings#esc
+  - what: 체크포인트로 되돌린다
+    how: |
+      `/rewind [turn#]` 으로 특정 턴 시점으로 돌아간다. 코드 변경·대화·둘 다 중에서 고를 수 있다.
+      "코드만" 을 고르면 대화 맥락은 유지한 채 파일만 원복된다.
+    refs:
+      - cli/advanced-slash#rewind-turn
+  - what: 되돌리기 전에 무엇이 바뀌었는지 본다
+    how: |
+      `/diff` 로 변경사항을 대화형으로 확인한다. 전부 되돌릴 필요가 없는 경우가 많다.
+    refs:
+      - cli/slash-commands#diff
+  - what: 대화를 버리지 않고 다른 길을 시도하고 싶다면 분기
+    how: |
+      `/branch [name]` 으로 현재 지점에서 대화를 갈라낸다. 원래 줄기는 그대로 남는다.
+      `--fork-session` 은 세션 자체를 복사해 분기한다.
+    refs:
+      - cli/slash-commands#branch-name
+      - cli/cli-flags#fork-session
+caveat: |
+  `/rewind` 는 Claude Code가 추적하는 변경만 되돌린다. 훅이나 외부 스크립트가 만든 파일,
+  이미 push한 커밋, 실행된 마이그레이션은 되돌리지 못한다.

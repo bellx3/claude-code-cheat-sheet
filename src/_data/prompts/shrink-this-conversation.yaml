@@ -1,0 +1,38 @@
+id: shrink-this-conversation
+title: 압축하기 전에 잃으면 안 되는 것 남기기
+summary: /compact 로 날아가면 곤란한 실측 수치·결정을 파일로 먼저 뽑아낸다.
+stage: build
+tags: [context, cost, memory]
+tasks: [shrink-context-cost]
+
+origin: own
+redistribute: allow
+verified: tested
+tested_on: "2026-08-13 · Claude Code"
+
+slots:
+  path: "notes/session-state.md"
+
+body: |
+  이 대화를 곧 압축할 거야. 압축에 날아가면 다시 알아내야 하는 것만 {path} 에 정리해줘.
+
+  넣을 것:
+  - 실제로 실행해서 확인한 수치·출력 (추측은 제외)
+  - 내린 결정과 그 근거
+  - 시도했다가 안 됐던 것과 왜 안 됐는지
+  - 아직 확인 안 한 것 목록
+
+  빼도 되는 것: 코드 전문, 파일 내용, 일반론, 다시 물어보면 되는 것.
+
+  각 항목에 근거(파일:줄 또는 명령)를 붙여. 근거 없는 항목은 "근거 없음"으로 표시해.
+
+teaches: |
+  `/compact` 는 요약이라 정보가 준다. 무엇을 잃는지 모르는 채 압축하면
+  방금 실측한 수치가 사라지고, 다음 판단이 근거 없이 이뤄진다.
+  "안 됐던 것"을 남기는 게 특히 중요하다 — 압축 후에 같은 시도를 반복하기 때문이다.
+
+next: |
+  파일이 생기면 `/compact "핵심만 유지"` 로 압축하고, 필요할 때 `@notes/session-state.md` 로 다시 붙인다.
+  이 패턴을 반복하게 되면 `/clear` 후 파일을 붙이는 쪽이 더 깨끗하다.
+
+export_command: true

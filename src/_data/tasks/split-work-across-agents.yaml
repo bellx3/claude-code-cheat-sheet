@@ -1,0 +1,48 @@
+id: split-work-across-agents
+title: 작업이 커서 하나의 대화로는 안 될 것 같다
+group: extend
+order: 150
+phrasings:
+  - 서브에이전트
+  - 여러 에이전트
+  - 작업 나누기
+  - 병렬 처리
+  - 큰 작업
+  - 역할 분담
+  - 전문가에게 맡기기
+summary: 서브에이전트는 컨텍스트를 따로 쓴다. 본 대화를 오염시키지 않고 넓게 훑을 때 쓴다.
+intro: |
+  서브에이전트의 실질적 이점은 "전문성"이 아니라 **컨텍스트 격리**다.
+  탐색으로 파일 50개를 훑어야 하는데 그 내용이 본 대화에 다 쌓이면 이후 작업이 무거워진다.
+  서브에이전트에 맡기면 결론만 돌아온다.
+steps:
+  - what: 정의한다
+    how: |
+      `.claude/agents/*.md` 에 frontmatter(name·description·tools·model)와 본문을 쓴다.
+      `/agents` 로 관리하고, 세션 시작 시 `--agent` / `--agents` 로도 지정할 수 있다.
+    refs:
+      - cli/subagents#subagents-1
+      - cli/advanced-slash#agents
+      - cli/new-flags#agent-agents
+  - what: 언제 쓸지 고른다
+    how: |
+      - 넓게 훑어야 하는데 결론만 필요할 때 (탐색·조사)
+      - 같은 일을 여러 관점으로 각각 돌리고 싶을 때 (보안·성능·회귀를 따로)
+      - 실패해도 본 대화가 안 다쳐야 할 때
+      반대로 이어지는 맥락이 계속 필요한 작업은 쪼개면 오히려 나빠진다.
+  - what: 셸에서 병렬로 돌린다
+    how: |
+      서브에이전트가 아니라 프로세스를 나누는 방법도 있다. 결과 파일을 따로 받아 합친다.
+    code: |
+      claude -p "보안 관점 리뷰" > sec.md &
+      claude -p "성능 관점 리뷰" > perf.md &
+      wait
+    refs:
+      - cli/caching-fallback#claude-c-p
+  - what: 결과를 믿기 전에 확인한다
+    how: |
+      서브에이전트 결과는 요약이라 근거가 잘려 있다. 중요한 판정은 파일 경로와 재현 명령을
+      같이 요구하고, 받은 뒤 직접 확인한다.
+caveat: |
+  리포에 들어 있던 `subagents/` 17종은 원본 프로젝트(Njengah)에서 온 개발직군 롤 템플릿이다.
+  본인 작업과 맞는지 확인되지 않았으므로 그대로 쓰기보다 필요한 것만 골라 다시 쓸 것.

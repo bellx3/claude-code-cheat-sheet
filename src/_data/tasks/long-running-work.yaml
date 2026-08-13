@@ -1,0 +1,53 @@
+id: long-running-work
+title: 오래 걸리는 작업을 걸어두고 다른 걸 하고 싶다
+group: automate
+order: 90
+phrasings:
+  - 백그라운드 실행
+  - 걸어두고 다른 일
+  - 오래 걸리는 작업
+  - 병렬로 돌리기
+  - 여러 개 동시에
+  - 나중에 결과 확인
+  - 다른 기기에서 이어서
+summary: 백그라운드 에이전트로 분리하거나, 클라우드 세션으로 올려 기기를 옮긴다.
+intro: |
+  세션을 붙잡고 기다릴 필요가 없는 작업이 있다. 분리하는 방법이 셋이고
+  "지금 이 대화를 떼어낼 것인가 / 새로 띄울 것인가 / 기기를 옮길 것인가"로 갈린다.
+steps:
+  - what: 처음부터 백그라운드로 띄운다
+    how: |
+      `claude --bg "작업 지시"` 로 시작하면 세션에 묶이지 않는다.
+      `claude agents` 로 목록을, `claude logs <id>` 로 진행을 본다.
+    refs:
+      - cli/background-cloud#claude-bg
+  - what: 진행 중인 대화를 떼어낸다
+    how: |
+      `/background`(`/bg`) 로 현재 세션을 백그라운드로 분리한다.
+      `/tasks` 로 돌고 있는 작업 목록을 보고 `Ctrl+T` 로 토글한다.
+    refs:
+      - cli/advanced-slash#background-bg
+      - cli/advanced-slash#tasks
+      - cli/keybindings#ctrl-t
+  - what: 대화를 복사해 갈래를 나눈다
+    how: |
+      `/fork` 는 지금 대화를 새 백그라운드 세션으로 복사한다. 원본은 그대로 두고
+      다른 접근을 병렬로 시험할 때 쓴다.
+    refs:
+      - cli/advanced-slash#fork
+  - what: 기기를 옮긴다
+    how: |
+      `claude --cloud "작업"` 으로 웹 세션을 만들고, 나중에 `claude --teleport` 로
+      로컬로 가져온다. 노트북을 닫아도 계속 돈다.
+    refs:
+      - cli/background-cloud#claude-bg
+  - what: 완료 조건을 정해놓고 맡긴다
+    how: |
+      `/goal` 로 완료 조건을 걸면 그 조건이 충족될 때까지 스스로 진행한다.
+      `/loop` 는 같은 프롬프트를 주기적으로 반복한다.
+    refs:
+      - cli/advanced-slash#goal
+      - cli/advanced-slash#loop
+caveat: |
+  백그라운드 작업도 토큰을 쓴다. 여러 개를 동시에 걸어두면 사용량이 눈에 안 보이는 채로 늘어난다.
+  `/usage` 로 주기적으로 확인하고, 일회성 작업에는 `--max-turns` 를 걸어둘 것.

@@ -1,0 +1,55 @@
+id: shrink-context-cost
+title: 토큰이 빨리 닳고 대화가 무거워진다
+group: control
+order: 30
+phrasings:
+  - 토큰 아끼기
+  - 비용 줄이기
+  - 컨텍스트 꽉 참
+  - 대화가 느려짐
+  - 요금 확인
+  - 얼마나 썼는지
+  - 컨텍스트 초기화
+  - 대화 정리
+summary: 먼저 무엇이 컨텍스트를 먹는지 보고, 그 다음에 자르거나 압축한다.
+intro: |
+  "느려졌다"의 원인은 대개 셋 중 하나다 — 컨텍스트가 찼거나, 작업이 바뀌었는데 이전 대화가 남아 있거나,
+  모델·추론 강도가 과한 것. 순서대로 확인한다.
+steps:
+  - what: 무엇이 컨텍스트를 먹는지 먼저 본다
+    how: |
+      `/context` 로 사용량 분포를 본다. `/usage` 와 `/cost` 로 실제 토큰·비용을 확인한다.
+      감으로 자르지 말고 숫자를 보고 자를 것.
+    refs:
+      - cli/slash-commands#context-all
+      - cli/slash-commands#usage-cost
+  - what: 작업이 바뀌었으면 자른다
+    how: |
+      `/clear` 로 새 대화를 시작한다. 이전 작업의 파일 내용이 남아 있으면
+      다음 작업에서 잘못된 파일을 고칠 위험도 같이 생긴다. 작업 전환마다 거는 게 맞다.
+    refs:
+      - cli/slash-commands#clear-name
+  - what: 이어가야 하는 대화면 압축한다
+    how: |
+      `/compact "핵심만 유지"` 처럼 지시를 붙이면 무엇을 남길지 지정할 수 있다.
+      자동으로 맡기려면 `--autocompact` 로 기준을 정한다.
+    refs:
+      - cli/slash-commands#compact
+      - cli/new-flags#autocompact-auto-tokens
+  - what: 작업 난이도에 맞게 모델·추론 강도를 내린다
+    how: |
+      단순 반복 작업에 최고 강도를 쓸 이유가 없다. `/model` 로 모델을,
+      `/effort` 로 추론 강도를 세션 안에서 바꾼다.
+    refs:
+      - cli/model-effort#model-sonnet-opus-haiku-fable
+      - cli/model-effort#effort-level
+  - what: 일회성 작업이면 애초에 상한을 건다
+    how: |
+      프린트 모드에서 `--max-turns` 로 턴 수를, `--max-budget-usd` 로 지출을 막는다.
+      무한 반복으로 새어나가는 비용을 구조적으로 차단한다.
+    refs:
+      - cli/session-cost#p-max-turns-3
+      - cli/session-cost#max-budget-usd-5-00
+caveat: |
+  `/compact` 는 요약이라 정보가 준다. 방금 확인한 파일 내용이나 실측 수치가 압축에 날아가면
+  그 다음 판단이 근거 없이 이뤄진다. 중요한 수치는 압축 전에 파일로 남길 것.

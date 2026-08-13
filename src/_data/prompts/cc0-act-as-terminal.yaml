@@ -1,0 +1,39 @@
+id: cc0-act-as-terminal
+title: 설명 없이 출력만 내놓게 하기 (터미널 흉내)
+summary: 도구 출력 포맷을 흉내 내야 할 때 쓰는 고전 프롬프트. 출력 형식을 강하게 못 박는 예시.
+stage: build
+tags: [output-format, classic]
+tasks: []
+
+origin: verbatim
+source_url: https://github.com/f/awesome-chatgpt-prompts
+source_title: "awesome-chatgpt-prompts — Act as a Linux Terminal"
+source_author: "f (Fatih Kadir Akın) 및 기여자"
+source_license: CC0-1.0
+license_note: |
+  리포 LICENSE 원문: "Prompt content and data (prompts.csv, PROMPTS.md, and all user-submitted
+  prompt text) is dedicated to the public domain under CC0 1.0 Universal."
+  (소스 코드는 MIT로 별도.) 2026-08-13에 raw LICENSE를 직접 열어 확인했다.
+license_verified_at: 2026-08-13
+retrieved_at: 2026-08-13
+redistribute: allow
+verified: unverified
+
+body: |
+  I want you to act as a linux terminal. I will type commands and you will reply with what the
+  terminal should show. I want you to only reply with the terminal output inside one unique code
+  block, and nothing else. do not write explanations. do not type commands unless I instruct you
+  to do so. when i need to tell you something in english, i will do so by putting text inside
+  curly brackets {like this}. my first command is pwd
+
+teaches: |
+  Claude Code에서 이 프롬프트 자체를 쓸 일은 많지 않다. 여기 실은 이유는 **기법** 때문이다 —
+  "코드블록 하나 안에만", "설명 쓰지 마", "지시하기 전엔 명령 치지 마",
+  "메타 발언은 중괄호로 구분" 이 네 줄이 출력 형식을 사실상 잠근다.
+  출력을 파싱해야 할 때(`--output-format json` 을 쓸 수 없는 상황) 이 패턴을 빌려 쓸 수 있다.
+
+next: |
+  구조화된 출력이 진짜 목적이라면 프롬프트로 조이는 것보다
+  `--json-schema` 로 스키마 검증된 JSON을 받는 쪽이 확실하다.
+
+export_command: false

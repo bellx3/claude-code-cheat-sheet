@@ -1,0 +1,32 @@
+id: link-official-prompt-library
+title: 공식 프롬프트 라이브러리 (원문 링크)
+summary: Anthropic이 직접 정리한 프롬프트 모음. 단계·역할별로 분류돼 있고 각 항목에 "왜 통하는지" 설명이 붙는다.
+stage: discover
+tags: [official, reference]
+tasks: []
+
+# body 키가 없어야 한다. origin이 link_only인데 body가 있으면 게이트가 빌드를 실패시킨다.
+origin: link_only
+source_url: https://code.claude.com/docs/en/prompt-library
+source_title: "Claude Code Prompt Library"
+source_author: Anthropic
+source_license: proprietary
+license_note: |
+  Anthropic 문서·공식 스킬에는 오픈 라이선스 표기가 없다. anthropics/skills 리포는
+  GitHub API license=null 이고 공식 스킬 frontmatter가 "license: Proprietary" 다.
+  따라서 본문 전재는 하지 않고 제목·내 요약·링크만 싣는다.
+license_verified_at: 2026-08-13
+retrieved_at: 2026-08-13
+redistribute: link_only
+verified: unverified
+
+teaches: |
+  구조를 참고할 가치가 있다. 항목마다 (본문 / 채울 슬롯과 기본값 / 왜 통하는지 / 다음 단계 / 출처)
+  다섯 요소로 쪼개져 있는데, 이 저장소의 필드 구성도 같은 축을 따랐다.
+  구버전 경로 `docs.claude.com/en/resources/prompt-library` 는 폐지돼 리다이렉트만 남았다.
+
+next: |
+  거기서 쓸 만한 걸 찾으면 그대로 복사하지 말고 **내 상황에 맞게 다시 써서**
+  `origin: adapted` 로 이 저장소에 넣는다. 그래야 라이선스도 깨끗하고 실제로 쓰게 된다.
+
+export_command: false

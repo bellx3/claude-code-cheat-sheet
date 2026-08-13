@@ -1,0 +1,48 @@
+id: windows-gotchas
+title: Windows에서 쓰는데 문서대로 안 된다
+group: start
+order: 140
+phrasings:
+  - 윈도우
+  - Windows
+  - WSL
+  - 경로 문제
+  - Git Bash
+  - 파워셸
+  - 백슬래시
+  - 한글 깨짐
+summary: 샌드박스 미지원, 경로 변환, CRLF 세 가지가 대부분의 원인이다.
+intro: |
+  공식 문서는 macOS/Linux를 전제로 쓰인 부분이 많다. Windows에서 갈리는 지점만 모았다.
+steps:
+  - what: 샌드박스는 네이티브 Windows에서 안 된다
+    how: |
+      `sandbox.enabled` 를 켜도 동작하지 않는다. macOS는 Seatbelt, Linux/WSL2는 bubblewrap을 쓰는데
+      Windows용 구현이 없다. 격리가 필요하면 WSL2 안에서 실행할 것.
+    refs:
+      - cli/sandbox#sandbox-2
+  - what: Git Bash에서 Windows 경로를 그대로 넘기지 않는다
+    how: |
+      `file:///tmp/...` 같은 POSIX 경로를 Chrome이나 Windows 네이티브 프로그램에 넘기면
+      **조용히 실패하지 않는다** — 에러 페이지를 정상 산출물로 만들어낸다.
+      `cygpath -m` 으로 변환해서 넘길 것.
+    code: |
+      P=$(cygpath -m "$PWD")
+      chrome.exe --headless --print-to-pdf="$P/out.pdf" "file:///$P/in.html"
+  - what: 줄바꿈을 고정한다
+    how: |
+      `.gitattributes` 에 `* text=auto eol=lf` 를 넣지 않으면 CRLF가 섞여
+      diff가 통째로 바뀐 것처럼 보인다. 데이터 파일이 많은 리포에서 특히 심하다.
+  - what: 글롭 패턴에 역슬래시를 섞지 않는다
+    how: |
+      경로를 코드로 조립할 때 역슬래시가 들어가면 fast-glob/picomatch가 **에러 없이 0건**을 반환한다.
+      `path.posix` 를 쓰거나 `.split(path.sep).join("/")` 로 정규화할 것.
+  - what: 한글 폰트를 고정한다
+    how: |
+      로컬 Windows에서는 Malgun Gothic이 잡히지만 CI(Ubuntu)에는 CJK 폰트가 없다.
+      `fonts-noto-cjk` 를 설치하지 않으면 한글이 전부 □로 나오는데, PDF는 정상 생성되고
+      페이지 수·크기 검사도 통과하므로 **자동 검사로는 절대 안 잡힌다.**
+caveat: |
+  "로컬에선 되는데 CI에서 다르다"의 원인 대부분이 이 목록에 있다.
+  로컬에서만 통과하는 검사는 검사가 아니다 — 산출물을 만드는 환경을 옮길 계획이면
+  폰트와 경로부터 고정할 것.

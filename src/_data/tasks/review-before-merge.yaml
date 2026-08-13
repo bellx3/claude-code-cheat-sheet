@@ -1,0 +1,47 @@
+id: review-before-merge
+title: 머지 전에 변경사항을 검토받고 싶다
+group: quality
+order: 80
+phrasings:
+  - 코드 리뷰
+  - 머지 전 확인
+  - PR 검토
+  - 보안 취약점 검사
+  - diff 리뷰
+  - 실수 없는지
+  - 리뷰해줘
+summary: 전용 슬래시 명령이 이미 있다. 관점을 나눠 여러 번 돌리는 게 한 번에 다 시키는 것보다 낫다.
+intro: |
+  "리뷰해줘"는 지적 몇 개를 나열하고 끝난다. 관점을 하나로 고정하면 훨씬 깊이 들어간다 —
+  보안·성능·회귀를 따로 돌리고 결과를 합치는 편이 실제로 잡히는 게 많다.
+steps:
+  - what: 기본 리뷰를 돌린다
+    how: |
+      `/code-review` 또는 `/review` 로 현재 diff나 PR을 검토한다.
+      보안만 볼 거면 `/security-review` 가 따로 있다.
+    refs:
+      - cli/advanced-slash#code-review-review
+      - cli/advanced-slash#security-review
+  - what: 관점을 나눠 각각 돌린다
+    how: |
+      한 번에 다 시키면 각 관점이 얕아진다. 파이프로 나눠 돌리고 결과를 따로 받는다.
+    code: |
+      git diff HEAD~1 | claude -p "보안 이슈만. 재현 조건을 반드시 붙여" > sec.md
+      git diff HEAD~1 | claude -p "성능 회귀만. N+1과 불필요한 순회 위주로" > perf.md
+    refs:
+      - cli/auto-review#git-diff-head-1-claude-p-security-md
+  - what: PR 단위로 이어서 본다
+    how: |
+      `claude --from-pr <PR>` 로 PR에 연결된 세션을 재개한다. 리뷰 맥락이 유지된다.
+    refs:
+      - cli/cli-commands#claude-from-pr-pr
+  - what: 데스크톱이면 diff 뷰어를 쓴다
+    how: |
+      변경을 시각적으로 훑고 그 자리에서 코멘트를 남길 수 있다.
+    refs:
+      - desktop/diff-review#review-code
+caveat: |
+  리뷰 결과를 그대로 믿지 말 것. 지적된 항목마다 **재현 명령**을 요구하고,
+  재현되지 않으면 추측으로 취급한다. 실패를 재현하지 못하면 원인을 모르는 것이다.
+prompts:
+  - pre-commit-risk-scan

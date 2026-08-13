@@ -1,0 +1,44 @@
+id: explain-data-flow
+title: 낯선 코드베이스의 흐름 하나만 따라가게 하기
+summary: 통독시키지 말고 요청 하나가 지나가는 경로를 순서대로 짚게 한다.
+stage: discover
+tags: [onboarding, codebase, plan]
+tasks: [onboard-unknown-repo]
+
+origin: adapted
+inspired_by:
+  - url: https://code.claude.com/docs/en/prompt-library
+    title: Claude Code Prompt Library — Explain unfamiliar code
+    note: |
+      "파일 경로와 원하는 출력 형식을 같이 지정한다"는 구조만 차용했다.
+      문장은 전부 새로 썼고 원문 전재는 없다. 해당 문서는 오픈 라이선스 표기가 없다.
+redistribute: allow
+verified: tested
+tested_on: "2026-08-13 · Claude Code"
+
+slots:
+  entry: "사용자 로그인 요청"
+  sink: "DB 쓰기"
+  format: "표 하나 — 순서 / 파일:줄 / 그 파일이 하는 일 / 다음으로 넘기는 값"
+
+body: |
+  이 저장소에서 {entry} 가 들어와서 {sink} 에 닿기까지 거치는 파일을 순서대로 짚어줘.
+
+  출력 형식: {format}
+
+  규칙:
+  - 실제로 파일을 열어서 확인한 것만 적어. 이름만 보고 추측한 건 "미확인"이라고 표시해.
+  - 분기가 있으면 어느 조건에서 어느 쪽으로 가는지 적어.
+  - 파일은 고치지 마.
+
+teaches: |
+  "이 코드베이스 설명해줘"는 README를 바꿔 쓴 수준의 요약을 내고 컨텍스트만 태운다.
+  **입구와 출구를 지정하면** 모델이 실제로 호출 경로를 따라가야 하고,
+  출력 형식을 표로 못 박으면 뭉뚱그린 산문으로 도망갈 수 없다.
+  "미확인 표시" 규칙이 이름만 보고 지어낸 파일을 걸러낸다.
+
+next: |
+  plan 모드(`Shift+Tab`)에서 돌리면 탐색 중 파일이 고쳐지는 사고가 원천 차단된다.
+  결과가 쓸 만하면 CLAUDE.md에 붙여 다음 세션에서 같은 탐색을 반복하지 않게 한다.
+
+export_command: true

@@ -1,0 +1,59 @@
+id: ci-headless-run
+title: CI나 스크립트에서 사람 없이 돌리고 싶다
+group: automate
+order: 50
+phrasings:
+  - CI에 붙이기
+  - 깃허브 액션에서 실행
+  - 자동으로 실행
+  - 헤드리스
+  - 스크립트로 돌리기
+  - 무인 실행
+  - 배치 처리
+  - JSON으로 받기
+  - 파이프로 넘기기
+summary: -p(프린트 모드) + dontAsk + --output-format json 이 기본형이다. auto 모드는 CI에서 멈춘다.
+intro: |
+  대화형 세션이 아니라 "한 번 돌고 끝나는" 실행이다. 세 가지를 반드시 정한다 —
+  권한 모드(멈추지 않게), 출력 형식(파싱 가능하게), 상한(무한 반복 방지).
+steps:
+  - what: 프린트 모드로 실행한다
+    how: |
+      `claude -p "질의"` 는 실행 후 종료한다. 표준입력을 파이프로 받을 수도 있다.
+    code: |
+      claude -p "이 diff의 보안 이슈를 정리해줘" --output-format json > review.json
+      git log --oneline -20 | claude -p "릴리스 노트 초안 작성"
+    refs:
+      - cli/cli-commands#claude-p-query
+      - cli/io-format#output-format-json
+  - what: 권한 모드는 dontAsk로 고정한다
+    how: |
+      `auto` 를 쓰면 안 된다 — 분류기가 카드를 띄우는 순간 CI가 사람을 기다리며 멈춘다.
+      `dontAsk` 는 사전 승인된 도구만 돌리고 나머지는 실패시킨다. 실패가 침묵보다 낫다.
+    refs:
+      - cli/permission-modes#dontask
+      - cli/new-flags#permission-mode-mode
+  - what: 상한을 건다
+    how: |
+      `--max-turns` 로 턴 수를, `--max-budget-usd` 로 지출을 막는다. 둘 다 없으면
+      한 번의 오작동이 예산을 통째로 태울 수 있다.
+    refs:
+      - cli/session-cost#p-max-turns-3
+      - cli/session-cost#max-budget-usd-5-00
+  - what: 출력이 구조화돼야 하면 스키마를 준다
+    how: |
+      `--json-schema` 로 검증된 JSON을 받는다. jq로 바로 파싱할 수 있다.
+      스트리밍 처리가 필요하면 `--output-format stream-json`.
+    refs:
+      - cli/io-format#json-schema-schema
+      - cli/io-format#output-format-stream-json
+  - what: 인증은 환경변수로 넘긴다
+    how: |
+      CI 러너에는 로그인 세션이 없다. `claude setup-token` 으로 장기 OAuth 토큰을 만들어
+      시크릿에 넣는다.
+    refs:
+      - cli/cli-commands#claude-setup-token
+caveat: |
+  `ANTHROPIC_API_KEY` 가 환경에 남아 있으면 구독이 아니라 **API로 과금**된다.
+  헤드리스에서는 확인 프롬프트 없이 키가 무조건 우선한다. 구독 토큰으로 돌릴 거면
+  워크플로 env와 로컬 셸 양쪽에서 키를 비울 것.
