@@ -1,0 +1,11 @@
+<div class="searchbox">
+  <label class="visually-hidden" for="q" hidden>검색</label>
+  <input id="q" type="search" autocomplete="off" spellcheck="false"
+         placeholder="{{ placeholder or '하고 싶은 일이나 명령어를 입력하세요 — 예: 커밋 전에 자동으로, --resume, 권한' }}">
+  <p class="hint"><kbd>/</kbd> 로 검색창 이동 · <kbd>↑</kbd><kbd>↓</kbd> 선택 · <kbd>Enter</kbd> 이동 · <kbd>Esc</kbd> 닫기</p>
+</div>
+<div class="results" id="results" aria-live="polite"></div>
+<noscript>
+  <p class="lede">JavaScript가 꺼져 있어 검색을 쓸 수 없습니다. 탭과 목차는 그대로 동작합니다 —
+    <a href="/ref/">레퍼런스 전체 목차</a> 또는 <a href="/task/">작업 목록</a>에서 찾으세요.</p>
+</noscript>

@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+tab: task
+pagination:
+  data: taskIndex.all
+  size: 1
+  alias: t
+permalink: "/task/{{ t.id }}/index.html"
+eleventyComputed:
+  title: "{{ t.title }}"
+  lede: "{{ t.summary }}"
+---
+<p class="lede"><a href="/task/">← 작업 목록</a></p>
+<h1>{{ t.title }}</h1>
+<p class="lede">{{ t.summary }}</p>
+
+{%- if t.intro %}
+<div class="prose">{{ t.intro | md | safe }}</div>
+{%- endif %}
+
+{%- for s in t.steps %}
+<section class="section" id="step-{{ loop.index }}">
+  <h2>{{ loop.index }}. {{ s.what }}</h2>
+  {%- if s.how %}
+  <div class="prose">{{ s.how | md | safe }}</div>
+  {%- endif %}
+  {%- if s.code %}
+  <pre><code>{{ s.code }}</code></pre>
+  {%- endif %}
+  {%- if s.refs.length %}
+  <p class="seealso">
+    {%- for r in s.refs %}{% set target = refIndex.byRef[r] %}
+    {%- if target %}<a href="{{ target.url }}"><code>{{ target.term }}</code> — {{ target.sectionTitle }} · {{ target.surfaceLabel }}</a>{% if not loop.last %}<br>{% endif %}{% endif %}
+    {%- endfor %}
+  </p>
+  {%- endif %}
+</section>
+{%- endfor %}
+
+{%- if t.caveat %}
+<section class="section">
+  <h2>주의</h2>
+  <p class="caveat">{{ t.caveat | mdInline | safe }}</p>
+</section>
+{%- endif %}
+
+{%- set linked = [] %}
+{%- for pid in t.prompts %}{% for p in promptIndex.all %}{% if p.id == pid %}{% set linked = (linked.push(p), linked) %}{% endif %}{% endfor %}{% endfor %}
+{%- if linked.length %}
+<section class="section">
+  <h2>관련 프롬프트</h2>
+  <ul class="cards">
+    {%- for p in linked %}
+    <li><a class="card" href="{{ p.url }}"><span class="t">{{ p.title }}</span><span class="s">{{ p.summary }}</span></a></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+<p class="lede" style="margin-top:32px">
+  <span class="badge">데이터 <code>{{ t._file }}</code></span>
+  틀린 게 있으면 이 파일을 고치면 사이트·검색·치트시트가 같이 바뀐다.
+</p>

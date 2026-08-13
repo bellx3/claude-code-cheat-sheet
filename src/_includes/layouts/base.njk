@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ lede or site.tagline }}">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>⚡</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><b>⚡ Claude</b> 참고자료</a>
+    <span class="tagline">{{ site.tagline }}</span>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="주요 영역">
+  <div class="wrap">
+    <ul>
+      {%- for t in nav %}
+      <li><a href="{{ t.url }}"{% if t.id == tab %} aria-current="page"{% endif %}>{{ t.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+{{ content | safe }}
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      비공식 참고자료입니다. 공식 문서는
+      <a href="https://code.claude.com/docs">code.claude.com/docs</a>.
+      원본 치트시트 <a href="https://github.com/Njengah/claude-code-cheat-sheet">Njengah/claude-code-cheat-sheet</a> (MIT)에서 갈라져 나왔습니다.
+      <a href="/about/">출처·라이선스</a>
+    </p>
+    <p class="meta">
+      빌드 {{ site.buildDate }} · <a href="{{ site.repo }}/commit/{{ site.sha }}">{{ site.shortSha }}</a>
+      · 항목 {{ stats.itemCount }}개 / 세부 채움 {{ stats.detailCount }}개
+      {%- if docwatch.last_run %} · 문서 감시 {{ docwatch.last_run | ymd }}
+        {%- set age = docwatch.last_run | staleness(site.buildDate) -%}
+        {% if docwatch.stale %} <span class="stale">({{ age }} — 멈춤 의심)</span>{% else %} ({{ age }}){% endif %}
+      {%- endif %}
+    </p>
+  </div>
+</footer>
+
+<script src="/search-index.js"></script>
+<script src="/assets/search.js" defer></script>
+{%- if tab == "prompts" %}
+<script src="/assets/prompt.js" defer></script>
+{%- endif %}
+</body>
+</html>

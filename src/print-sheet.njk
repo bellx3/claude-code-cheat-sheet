@@ -1,0 +1,57 @@
+---
+pagination:
+  data: refIndex.surfaces
+  size: 1
+  alias: surface
+permalink: "/print/sheet/{{ surface.id }}/index.html"
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ surface.label }} 치트시트 (A3)</title>
+<!-- 상대경로여야 한다. file:// 에서 절대경로는 드라이브 루트로 해석된다. -->
+<link rel="stylesheet" href="../../../assets/sheet-a3.css">
+<style>:root{--sheet-fs:{{ surface.print.fontPx }}px;--sheet-cols:{{ surface.print.columns }}}</style>
+</head>
+<body>
+<div class="header-bar">
+  <div>
+    <h1>⚡ {{ surface.label }} 치트시트</h1>
+    <div class="subtitle">{{ surface.blurb }} · 전체 내용은 {{ site.repo }} 배포본 /ref/{{ surface.id }}/</div>
+  </div>
+  <div class="stamp">
+    생성 {{ site.buildDate }} · {{ site.shortSha }}<br>
+    항목 {{ surface.coreCount }} / {{ surface.itemCount }}<br>
+    출력: A3 가로 · 여백 최소 · 배경 그래픽 켜기
+  </div>
+</div>
+
+<div class="columns">
+{%- for sec in surface.sections %}
+  {%- set core = [] %}
+  {%- for it in sec.items %}{% if it.tier == "core" %}{% set core = (core.push(it), core) %}{% endif %}{% endfor %}
+  {%- if core.length %}
+<section>
+<h2>{{ sec.icon }} {{ sec.title }}</h2>
+<table>
+  {%- for it in core %}{% if not it.tone %}
+  <tr><td class="k">{{ it.term }}</td><td class="v">{{ it.desc }}</td></tr>
+  {%- endif %}{% endfor %}
+</table>
+  {%- for it in core %}{% if it.tone %}
+<span class="warn{{ ' danger' if it.tone == 'danger' }}">{{ "⚠" }} {{ it.desc }}</span>
+  {%- endif %}{% endfor %}
+</section>
+  {%- endif %}
+{%- endfor %}
+</div>
+
+<footer>
+  Claude 참고자료 · 비공식 · MIT · 공식 문서 code.claude.com/docs ·
+  이 인쇄본은 core 항목만 담습니다. 세부·예시·주의는 웹 /ref/{{ surface.id }}/ 에 있습니다.
+</footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* A3 치트시트 전용. site.css 는 이 페이지에 붙지 않는다 —
+   화면용 16px과 인쇄용 8.5px를 @media print 로 한 파일에 섞으면 둘 다 망가진다.
+   기존 legacy/cheatsheet.html 의 조판 값을 그대로 승계했다. */
+@page { size: A3 landscape; margin: 5mm; }
+
+/* 조판 값은 서피스마다 다르다. print-sheet.njk 가 :root 에 인라인으로 주입한다.
+   기본값은 항목이 가장 많은 시트 기준. */
+:root { --sheet-fs: 10.5px; --sheet-cols: 4; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Malgun Gothic", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+  font-size: var(--sheet-fs);
+  line-height: 1.34;
+  color: #1a1a1a;
+  background: #fff;
+  margin: 0;
+  padding: 4px;
+  /* 브라우저 인쇄 대화상자에서 뽑아도 어두운 pre 블록이 살아 있게 한다.
+     이게 없으면 흰 배경에 밝은 회색 글자가 나온다. */
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.header-bar {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 3px solid #b45309; padding-bottom: 3px; margin-bottom: 5px;
+}
+h1 { font-size: 16px; margin: 0 0 2px 0; color: #b45309; }
+.subtitle { font-size: 8.6px; color: #555; }
+.stamp { font-size: 7.2px; color: #888; text-align: right; line-height: 1.35; }
+
+.columns { column-count: var(--sheet-cols); column-gap: 8px; orphans: 1; widows: 1; }
+
+section {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 6px;
+  background: #fafafa;
+}
+h2 {
+  font-size: 1.16em; margin: 0 0 3px 0; padding-bottom: 2px;
+  border-bottom: 2px solid #b45309; color: #92400e;
+}
+table { table-layout: fixed; width: 100%; border-collapse: collapse; margin: 2px 0; }
+td { padding: 1.5px 3px; text-align: left; vertical-align: top; font-size: 0.92em; }
+td.k { width: 44%; word-break: break-word; font-family: "Consolas", "Cascadia Code", monospace; }
+td.v { color: #555; }
+tr:nth-child(even) { background: #f0f0f0; }
+
+.warn {
+  display: block; margin-top: 3px; padding: 2px 4px; border-radius: 3px;
+  /* 굵은꼴을 쓰지 않는다. Malgun Gothic Bold 서브셋에서 한글 ToUnicode 매핑이 깨져
+     PDF 텍스트 추출·복사·검색이 안 된다(실측: "2026-08-14부터…" 중 한글만 사라짐).
+     강조는 색·테두리로 낸다. */
+  background: #fef3c7; color: #7c2d12; font-size: 0.9em;
+  border-left: 3px solid #d97706;
+}
+.danger { background: #fee2e2; color: #991b1b; }
+
+footer { margin-top: 6px; font-size: 0.86em; color: #999; text-align: center; }
+
+@media print {
+  body { padding: 0; }
+  section { background: #fff; }
+}

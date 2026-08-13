@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+tab: prompts
+pagination:
+  data: promptIndex.all
+  size: 1
+  alias: p
+permalink: "/prompts/{{ p.id }}/index.html"
+eleventyComputed:
+  title: "{{ p.title }}"
+  lede: "{{ p.summary }}"
+---
+<p class="lede"><a href="/prompts/">← 프롬프트 목록</a></p>
+<h1>{{ p.title }}</h1>
+<p class="lede">{{ p.summary }}</p>
+
+<p>
+  {%- if p.origin == "own" %}<span class="badge ok">직접 작성</span>
+  {%- elif p.origin == "adapted" %}<span class="badge">재작성</span>
+  {%- elif p.origin == "verbatim" %}<span class="badge">{{ p.source_license }} 전재</span>
+  {%- else %}<span class="badge">링크만 — 전재 불가</span>{% endif %}
+  {%- if p.verified == "tested" %} <span class="badge ok">실행 확인 {{ p.tested_on }}</span>
+  {%- else %} <span class="badge warn">미검증</span>{% endif %}
+  {%- for t in p.tags %} <span class="badge">{{ t }}</span>{% endfor %}
+</p>
+
+{%- if p.body %}
+<h2 id="body">프롬프트</h2>
+{%- if p.slotKeys.length %}
+<div class="slots" id="slots">
+  {%- for k, v in p.slots %}
+  <label>{{ "{" }}{{ k }}{{ "}" }}
+    <input type="text" data-slot="{{ k }}" value="{{ v }}">
+  </label>
+  {%- endfor %}
+</div>
+{%- endif %}
+<div class="prompt-body">
+  <pre id="ptext" data-raw="{{ p.body | trim }}"><code>{{ p.body | trim }}</code></pre>
+  <div class="btnrow">
+    <button class="btn" data-copy="ptext">복사</button>
+    {%- if p.export_command %}
+    <button class="btn" data-download="{{ p.id }}">.claude/commands/{{ p.id }}.md 로 저장</button>
+    {%- endif %}
+  </div>
+</div>
+{%- else %}
+<div class="attribution">
+  <strong>본문은 여기 싣지 않는다.</strong> {{ p.license_note | trim }}
+  <br><a href="{{ p.source_url }}">{{ p.source_title }} ↗</a>
+</div>
+{%- endif %}
+
+{%- if p.teaches %}
+<h2 id="why">왜 통하나</h2>
+<div class="prose">{{ p.teaches | md | safe }}</div>
+{%- endif %}
+
+{%- if p.next %}
+<h2 id="next">다음 단계</h2>
+<div class="prose">{{ p.next | md | safe }}</div>
+{%- endif %}
+
+{%- if p.origin != "own" %}
+<h2 id="source">출처</h2>
+<div class="attribution">
+  {%- if p.inspired_by %}
+  참고한 것:
+  {%- for s in p.inspired_by %}
+  <br><a href="{{ s.url }}">{{ s.title }} ↗</a> — {{ s.note | trim }}
+  {%- endfor %}
+  {%- else %}
+  <a href="{{ p.source_url }}">{{ p.source_title }} ↗</a> · {{ p.source_author }} · {{ p.source_license }}
+  <br>{{ p.license_note | trim }}
+  <br>라이선스 확인 {{ p.license_verified_at | ymd }} · 가져온 날짜 {{ p.retrieved_at | ymd }}
+  {%- endif %}
+</div>
+{%- endif %}
+
+{%- set linked = taskIndex.all | tasksOf(p.tasks) %}
+{%- if linked.length %}
+<h2 id="tasks">관련 작업</h2>
+<ul class="cards">
+  {%- for t in linked %}
+  <li><a class="card" href="{{ t.url }}"><span class="t">{{ t.title }}</span><span class="s">{{ t.summary }}</span></a></li>
+  {%- endfor %}
+</ul>
+{%- endif %}

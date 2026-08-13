@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+tab: ref
+title: 레퍼런스
+permalink: /ref/index.html
+---
+<h1>레퍼런스</h1>
+<p class="lede">
+  네 개 서피스, 섹션 {{ refIndex.sectionCount }}개, 항목 {{ refIndex.itemCount }}개.
+  치트시트에서 지면 때문에 잘렸던 세부까지 여기 싣는다.
+</p>
+
+{% include "partials/searchbox.njk" %}
+
+<ul class="cards">
+  {%- for s in refIndex.surfaces %}
+  <li><a class="card" href="/ref/{{ s.id }}/">
+    <span class="t">{{ s.label }}</span>
+    <span class="s">{{ s.blurb }}</span>
+    <span class="n">섹션 {{ s.sections | count }}개 · 항목 {{ s.itemCount }}개 · 세부 {{ s.detailCount }}개</span>
+  </a></li>
+  {%- endfor %}
+</ul>
+
+<h2 id="all">전체 목차</h2>
+<p class="lede">검색이 안 잡히는 것도 여기서는 눈으로 훑을 수 있다.</p>
+{%- for s in refIndex.surfaces %}
+<h3>{{ s.label }}</h3>
+<ul class="cards">
+  {%- for sec in s.sections %}
+  <li><a class="card" href="/ref/{{ s.id }}/#sec-{{ sec.id }}">
+    <span class="t">{{ sec.icon }} {{ sec.title }}</span>
+    <span class="n">{{ sec.items | count }}개</span>
+  </a></li>
+  {%- endfor %}
+</ul>
+{%- endfor %}

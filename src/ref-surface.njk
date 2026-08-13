@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+tab: ref
+pagination:
+  data: refIndex.surfaces
+  size: 1
+  alias: surface
+permalink: "/ref/{{ surface.id }}/index.html"
+eleventyComputed:
+  title: "{{ surface.label }}"
+  lede: "{{ surface.blurb }}"
+---
+<nav class="subnav" aria-label="레퍼런스 서피스">
+  <ul>
+    {%- for s in refIndex.surfaces %}
+    <li><a href="/ref/{{ s.id }}/"{% if s.id == surface.id %} aria-current="page"{% endif %}>{{ s.label }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>
+
+<h1>{{ surface.label }}</h1>
+<p class="lede">{{ surface.blurb }}</p>
+<p class="lede">
+  섹션 {{ surface.sections | count }}개 · 항목 {{ surface.itemCount }}개
+  (A3 치트시트에 실리는 core {{ surface.coreCount }}개 · 세부 채움 {{ surface.detailCount }}개)
+</p>
+
+{% include "partials/searchbox.njk" %}
+
+<div class="layout">
+  <!-- 목차는 본문 중복이라 모바일에서만 접는다. 이 사이트에서 접기가 허용되는 유일한 자리. -->
+  <details class="toc" open>
+    <summary>목차 ({{ surface.sections | count }})</summary>
+    <ol>
+      {%- for sec in surface.sections %}
+      <li><a href="#sec-{{ sec.id }}">{{ sec.icon }} {{ sec.title }}</a></li>
+      {%- endfor %}
+    </ol>
+  </details>
+
+  <div>
+    {%- for sec in surface.sections %}
+    <section class="section" id="sec-{{ sec.id }}">
+      <h2>{{ sec.icon }} {{ sec.title }}</h2>
+      {%- if sec.summary %}<p class="summary">{{ sec.summary }}</p>{% endif %}
+      {%- for it in sec.items %}
+        {%- set it = it %}
+        {% include "partials/item.njk" %}
+      {%- endfor %}
+      {%- if sec.source.url %}
+      <p class="seealso">
+        <a href="{{ sec.source.url }}">공식 문서 ↗</a>
+        <span class="badge">확인 {{ sec.source.checked_at | ymd }} ({{ sec.source.checked_at | staleness(site.buildDate) }})</span>
+      </p>
+      {%- endif %}
+    </section>
+    {%- endfor %}
+  </div>
+</div>

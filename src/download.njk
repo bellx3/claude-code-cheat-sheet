@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+tab: download
+title: 다운로드
+permalink: /download/index.html
+---
+<h1>다운로드</h1>
+<p class="lede">
+  전부 사이트와 같은 데이터에서 생성된다. 따로 관리하는 원본이 없으므로 내용이 갈라지지 않는다.
+</p>
+
+<h2 id="a3">A3 치트시트</h2>
+<p class="lede">
+  <code>tier: core</code> 인 항목 {{ stats.coreCount }}개만 추려 한 장에 담는다.
+  세부·예시·주의는 빠지지만 <strong>안전 경고 {{ stats.pinCount }}개는 절대 빠지지 않는다</strong> —
+  빠지면 빌드가 실패한다.
+</p>
+<ul class="cards">
+  {%- for s in refIndex.surfaces %}
+  <li><a class="card" href="/print/sheet/{{ s.id }}/">
+    <span class="t">{{ s.label }}</span>
+    <span class="s">인쇄용 페이지를 열어 <kbd>Ctrl+P</kbd> → 용지 A3 가로 → 배경 그래픽 켜기</span>
+    <span class="n">core {{ s.coreCount }}개 / 전체 {{ s.itemCount }}개</span>
+  </a></li>
+  {%- endfor %}
+</ul>
+<p class="lede">
+  PDF 파일은 git에 넣지 않는다. 6번 재생성했더니 pack이 4.56MiB로 불었고 PDF는 델타 압축이 안 돼
+  되돌릴 방법이 없었다. 생성은 <code>npm run pdf</code> 로 로컬에서 하고, 배포본은 GitHub Release 자산으로 올린다.
+</p>
+<p class="lede">
+  <strong>A4는 만들지 않는다.</strong> 예전에 A4판을 따로 손으로 축약해 관리했는데, 그 결과
+  A3에는 있는 안전 경고 2개가 A4판에서 사라져 있었다(실측). 판을 하나로 줄이는 편이
+  스키마로 드리프트를 관리하는 것보다 싸다. A4 용지에 뽑아야 하면 인쇄 대화상자에서 배율을 줄이면 되지만,
+  본문이 8.5px이라 <span class="badge warn">가독성은 육안 미확인</span>이다.
+</p>
+
+<h2 id="print-all">전체 인쇄 뷰</h2>
+<p class="lede">
+  <a href="/print/">/print/</a> — 네 서피스를 한 문서로 결합한다. 세부까지 전부 들어가므로 길다.
+  치트시트가 아니라 통째로 보관하거나 검색할 때 쓴다.
+</p>
+
+<h2 id="commands">커스텀 명령 파일</h2>
+<p class="lede">
+  프롬프트 페이지에서 「<code>.claude/commands/…</code> 로 저장」 버튼을 누르면 그 파일이 바로 받아진다.
+  받은 파일을 프로젝트의 <code>.claude/commands/</code> 에 두면 슬래시 명령이 된다.
+</p>
+<ul class="cards">
+  {%- for p in promptIndex.all %}{% if p.export_command %}
+  <li><a class="card" href="{{ p.url }}">
+    <span class="t">/{{ p.id }}</span>
+    <span class="s">{{ p.summary }}</span>
+  </a></li>
+  {%- endif %}{% endfor %}
+</ul>
+<p class="lede">
+  밖으로 내보낼 때 주의 — Claude Code는 frontmatter 키 20개를 받지만
+  claude.ai 업로드·Skills API 경로는 <code>name, description, license, compatibility, metadata, allowed-tools</code>
+  6개만 받고 <strong>그 외 키가 있으면 무시가 아니라 실패</strong>한다.
+</p>
+
+<h2 id="legacy">예전 치트시트</h2>
+<p class="lede">
+  이관 전 HTML·PDF 16개는 <a href="{{ site.repo }}/tree/main/legacy">legacy/</a> 에 읽기 전용으로 남겨뒀다.
+  이 사이트와 내용이 갈라질 수 있으니 대조용으로만 볼 것.
+</p>

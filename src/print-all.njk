@@ -1,0 +1,48 @@
+---
+permalink: /print/index.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전체 인쇄 뷰 · {{ site.title }}</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* 탭 분리(URL 분리) 방식의 유일한 손해가 "전체 인쇄"인데, 이 결합 페이지 하나로 해결한다.
+     숨긴 탭 패널을 인쇄에서 되살리는 땜질(@media print { [hidden]{display:block} })이 필요 없다. */
+  body { padding: 0 0 40px; }
+  .section { content-visibility: visible; }
+  h1.doc { font-size: 1.75rem; margin: 24px 0 4px; }
+  .surface-head { border-top: 4px solid var(--accent); margin-top: 48px; padding-top: 16px; }
+  @media print { .surface-head { break-before: page; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 class="doc">{{ site.title }} — 전체</h1>
+<p class="lede">
+  네 서피스를 한 문서로 결합했다. 항목 {{ stats.itemCount }}개 전부 — core만 추리는 A3 치트시트와 달리 세부까지 들어간다.
+  생성 {{ site.buildDate }} · {{ site.shortSha }}
+</p>
+
+{%- for s in refIndex.surfaces %}
+<div class="surface-head">
+  <h1 class="doc" id="s-{{ s.id }}">{{ s.label }}</h1>
+  <p class="lede">{{ s.blurb }} · 섹션 {{ s.sections | count }}개 · 항목 {{ s.itemCount }}개</p>
+</div>
+  {%- for sec in s.sections %}
+<section class="section" id="p-{{ s.id }}-{{ sec.id }}">
+  <h2>{{ sec.icon }} {{ sec.title }}</h2>
+  {%- if sec.summary %}<p class="summary">{{ sec.summary }}</p>{% endif %}
+  {%- for it in sec.items %}
+    {%- set it = it %}
+    {% include "partials/item.njk" %}
+  {%- endfor %}
+</section>
+  {%- endfor %}
+{%- endfor %}
+</div>
+</body>
+</html>

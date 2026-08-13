@@ -1,0 +1,32 @@
+<article class="item" id="{{ it.anchor }}">
+  <a class="anchor" href="#{{ it.anchor }}" aria-label="이 항목 링크">#</a>
+  {%- if it.tone %}
+  <span class="badge warn">{{ "위험" if it.tone == "danger" else "주의" }}</span>
+  {%- endif %}
+  {%- if it.term and not it.tone %}
+  <code class="term">{{ it.term }}</code>
+  {%- endif %}
+  {%- if it.desc %}
+  <p class="{{ 'caveat' if it.tone else 'desc' }}">{{ it.desc }}</p>
+  {%- endif %}
+  {%- if it.detail %}
+  <div class="detail">{{ it.detail | md | safe }}</div>
+  {%- endif %}
+  {%- if it.code %}
+  <pre><code>{{ it.code }}</code></pre>
+  {%- endif %}
+  {%- if it.example %}
+  <pre><code>{{ it.example }}</code></pre>
+  {%- endif %}
+  {%- if it.caveat and not it.tone %}
+  <p class="caveat">{{ it.caveat | mdInline | safe }}</p>
+  {%- endif %}
+  {%- set linkedTasks = taskIndex.all | tasksOf(it.tasks) %}
+  {%- if linkedTasks.length or it.see_also.length %}
+  <p class="seealso">
+    {%- for t in linkedTasks %}<a href="{{ t.url }}">→ {{ t.title }}</a>{% if not loop.last %} · {% endif %}{% endfor %}
+    {%- if linkedTasks.length and it.see_also.length %} · {% endif %}
+    {%- for r in it.see_also %}{% set target = refIndex.byRef[r] %}{% if target %}<a href="{{ target.url }}">{{ target.term }}</a>{% if not loop.last %} · {% endif %}{% endif %}{% endfor %}
+  </p>
+  {%- endif %}
+</article>

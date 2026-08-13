@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: 출처·라이선스·한계
+permalink: /about/index.html
+---
+<h1>출처 · 라이선스 · 한계</h1>
+
+<h2 id="what">이게 뭔가</h2>
+<p class="prose">
+  Claude를 쓰다가 "그 기능 이름이 뭐였지"를 찾는 개인 참고자료다.
+  <strong>Anthropic 공식 자료가 아니다.</strong> 공식 문서는
+  <a href="https://code.claude.com/docs">code.claude.com/docs</a>.
+  내용이 어긋나면 공식 문서가 맞다.
+</p>
+
+<h2 id="state">지금 상태 (자동 집계)</h2>
+<table class="tbl">
+  <tr><th>지표</th><th>값</th><th>뜻</th></tr>
+  <tr><td>레퍼런스 항목</td><td>{{ stats.itemCount }}</td><td>섹션 {{ stats.sectionCount }}개</td></tr>
+  <tr><td>세부 채움</td><td>{{ stats.detailCount }} / {{ stats.itemCount }} ({{ stats.detailPct }}%)</td>
+      <td>{% if stats.detailPct < 20 %}<span class="badge warn">대부분 아직 한 줄 설명 상태</span>{% else %}진행 중{% endif %}</td></tr>
+  <tr><td>A3 인쇄 대상</td><td>{{ stats.coreCount }}</td><td><code>tier: core</code></td></tr>
+  <tr><td>고정 안전 경고</td><td>{{ stats.pinCount }}</td><td><code>pin</code> — 인쇄에서 빠지면 빌드 실패</td></tr>
+  <tr><td>작업축</td><td>{{ stats.taskCount }}</td><td>자연어 진입점</td></tr>
+  <tr><td>프롬프트</td><td>{{ stats.promptCount }}</td><td>직접 작성 {{ stats.promptOwnCount }} · 실행 확인 {{ stats.promptTestedCount }}</td></tr>
+  <tr><td>공식 문서 색인</td><td>{{ officialdocs.pages | count }}</td><td>{{ officialdocs.fetchedAt | ymd }} 기준</td></tr>
+</table>
+<p class="prose">
+  이 표를 자동 집계로 두는 이유는 하나다 — "세부까지 실었다"고 글로 쓰면 확인할 방법이 없지만
+  숫자가 화면에 있으면 스스로 속일 수 없다.
+</p>
+
+<h2 id="limits">알려진 한계</h2>
+<ul class="prose">
+  <li><strong>세부가 아직 얇다.</strong> 초기 데이터를 A3 치트시트에서 이관했는데, 그건 이미 지면 때문에
+      잘려나간 결과물이다. 위 「세부 채움」 비율이 그 실태다.</li>
+  <li><strong>검색은 부분문자열이다.</strong> 오타와 동의어를 못 잡는다.
+      「훅」과 「hook」은 다른 문자열이라 작업축의 <code>phrasings</code> 에 적어둔 표현만 걸린다.</li>
+  <li><strong>문서 감시는 알람이지 갱신이 아니다.</strong> 공식 문서 페이지 목록의 추가·삭제·제목 변경은 잡지만,
+      기존 페이지 안에서 플래그 기본값이 바뀌는 건 못 잡는다. 실제 갱신은 사람이 한다.</li>
+  <li><strong>「확인」 날짜는 손 입력이다.</strong> 항목 옆 날짜가 오래됐으면 그만큼 낡았다고 보면 된다.</li>
+  <li><strong>인쇄 결과와 모바일 렌더링은 기기마다 다를 수 있다.</strong> A3 조판은 Chrome/Edge 기준이다.
+      Firefox는 <code>@page size</code> 를 무시하고 인쇄 대화상자 설정을 쓴다.</li>
+</ul>
+
+<h2 id="license">라이선스</h2>
+<p class="prose">
+  이 저장소는 MIT다. 원본 <a href="https://github.com/Njengah/claude-code-cheat-sheet">Njengah/claude-code-cheat-sheet</a>(MIT,
+  Copyright © 2025 Joe Njenga)에서 갈라져 나왔고, 현재 콘텐츠는 대부분 새로 작성한 한국어다.
+</p>
+
+<h3>프롬프트 저장소의 재배포 규칙</h3>
+<table class="tbl">
+  <tr><th>origin</th><th>본문</th><th>조건</th></tr>
+  <tr><td><code>own</code></td><td>수록</td><td>내가 쓴 것</td></tr>
+  <tr><td><code>adapted</code></td><td>수록</td><td>아이디어만 차용하고 문장은 새로 씀. <code>inspired_by</code> 로 출처 표기</td></tr>
+  <tr><td><code>verbatim</code></td><td>수록</td><td>재배포 허용 라이선스만 — CC0-1.0 / MIT / Apache-2.0 / CC-BY-4.0 등. 빌드가 검사</td></tr>
+  <tr><td><code>link_only</code></td><td>없음</td><td>제목·요약·링크만. <code>body</code> 키가 있으면 빌드 실패</td></tr>
+</table>
+<p class="prose">
+  검토했지만 <strong>싣지 않기로 한 출처</strong>도 적어둔다 — 판단을 나중에 다시 하지 않기 위해서다.
+</p>
+<table class="tbl">
+  <tr><th>출처</th><th>라이선스</th><th>판정</th></tr>
+  <tr><td>Anthropic 문서 · 공식 스킬</td><td>표기 없음 / Proprietary</td><td>본문 전재 안 함. 링크·요약만</td></tr>
+  <tr><td>hesreallyhim/awesome-claude-code</td><td>CC BY-NC-ND 4.0</td><td>NC·ND 양쪽으로 막힘. 링크만</td></tr>
+  <tr><td>langgptai/awesome-claude-prompts</td><td>없음 (README의 MIT 배지는 다른 리포를 가리킴)</td><td>배제</td></tr>
+  <tr><td>f/awesome-chatgpt-prompts</td><td>프롬프트 본문 CC0-1.0 (코드는 MIT)</td><td>전재 가능</td></tr>
+</table>
+
+<h2 id="update">갱신 방법</h2>
+<pre><code>node tools/fetch-llms-txt.mjs   # 공식 문서 색인 갱신
+node tools/gate-all.mjs          # 데이터 검사 (양방향 테스트 포함)
+npm run build                    # 게이트 → 빌드 → 산출물 검사
+npm run pdf                      # A3 PDF 생성 (Chrome headless)</code></pre>
+<p class="prose">
+  데이터는 전부 <code>src/_data/</code> 아래 YAML이다. 항목 하나를 고치면 웹·검색·인쇄가 같이 바뀐다 —
+  예전처럼 HTML 8개를 손으로 맞출 일이 없다.
+</p>
+
+<h2 id="deploy">배포본 확인</h2>
+<p class="prose">
+  Netlify는 빌드가 실패해도 사이트를 내리지 않고 직전 성공본을 계속 서빙한다.
+  즉 진짜 실패는 "사이트가 죽음"이 아니라 <strong>"고쳤다고 믿는데 방문자는 옛날 걸 보는 것"</strong>이다.
+  그래서 커밋 SHA를 푸터와 <a href="/build.json">/build.json</a> 에 박아뒀다.
+</p>
+<pre><code>curl -s https://&lt;사이트&gt;/build.json | jq -r .sha   # 방금 push한 SHA와 같아야 한다</code></pre>
+<p class="prose">현재 배포본: <code>{{ site.sha }}</code> · {{ site.builtAt }}</p>
