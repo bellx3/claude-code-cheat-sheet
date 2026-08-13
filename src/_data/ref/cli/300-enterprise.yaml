@@ -18,6 +18,13 @@ items:
     desc: >-
       설정 우선순위: managed-settings.json > CLI 인자 > .claude/settings.local.json > .claude/settings.json
       > ~/.claude/settings.json
+    detail: |
+      **managed-settings.json 이 최상단이라 개인 설정으로 뒤집을 수 없다.** 조직이 배포하는 정책이고,
+      그 아래로 CLI 인자 → 프로젝트 local → 프로젝트 → 사용자 순이다.
+      
+      개인 프로젝트에서 이 순서가 중요한 이유는 따로 있다 — `.claude/settings.local.json` 이
+      `.claude/settings.json` 을 덮으므로, 팀과 공유할 규칙은 local 이 아닌 쪽에 둬야 한다.
+    see_also: [cli/memory#memory-1]
   - id: enterprise-2
     term: 설명
     kind: note
@@ -28,3 +35,8 @@ items:
     kind: value
     tier: full
     desc: sandbox.network.allowedDomains 로 아웃바운드 도메인 제한
+    detail: |
+      나가는 트래픽을 도메인 화이트리스트로 막는다. MCP 커넥터나 스크립트가 예상 밖의 곳으로
+      데이터를 보내는 경로를 차단하는 가장 직접적인 수단이다.
+    see_also: [cli/sandbox#sandbox]
+    tasks: [stop-touching-wrong-files]

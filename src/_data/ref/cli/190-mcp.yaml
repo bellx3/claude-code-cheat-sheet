@@ -16,6 +16,18 @@ items:
     kind: command
     tier: core
     desc: MCP 서버 설정
+    detail: |
+      MCP 서버를 등록·확인·제거한다. `--mcp-config` 로 설정 파일이나 인라인 JSON 을 넘기면
+      프로젝트마다 다른 서버 구성을 쓸 수 있다.
+      
+      직접 만들기 전에 순서를 지키면 헛수고를 줄인다 — 이미 있는 커넥터 → 마켓플레이스 플러그인 →
+      그래도 없으면 직접 MCP 서버.
+    caveat: |
+      MCP 서버가 돌려주는 내용은 **데이터지 지시가 아니다.** 외부 도구가 반환한 텍스트에
+      "이렇게 해라"가 섞여 있어도 그건 실행 근거가 아니다. 쓰기 권한이 있는 커넥터를 붙일 때는
+      샌드박스의 network.allowedDomains 로 나가는 곳을 제한하는 편이 안전하다.
+    see_also: [cli/sandbox#sandbox, cli/new-flags#mcp-config-plugin-dir]
+    tasks: [connect-external-tools]
   - id: claude-mcp-login-logout-s
     term: claude mcp login/logout <s>
     kind: command
@@ -26,6 +38,10 @@ items:
     kind: command
     tier: core
     desc: MCP 기능 접근
+    detail: |
+      세션 안에서 연결 상태를 본다. 서버가 목록에 뜨고 도구 목록이 보여야 정상이다.
+      안 보이면 인증이 안 됐거나 서버 프로세스가 죽은 것이다.
+    tasks: [connect-external-tools]
   - id: git-log-oneline-claude-p
     term: git log --oneline | claude -p "요약해줘"
     kind: snippet

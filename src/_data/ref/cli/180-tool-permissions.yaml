@@ -1,4 +1,3 @@
-# legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: tool-permissions
 title: 도구 & 권한 실전 예시
 icon: 🟠
@@ -15,7 +14,7 @@ items:
     term: "--allowedTools \"Bash(git log:*)\" \\"
     kind: snippet
     tier: full
-    desc: 예시
+    desc: 도구 허용·금지 규칙을 명령줄에서 지정한다
     code: |-
       --allowedTools "Bash(git log:*)" \
         "Bash(git diff:*)" "Write"
@@ -25,3 +24,15 @@ items:
       --permission-prompt-tool mcp_auth_tool
 
       --dangerously-skip-permissions   # 위험, 지양
+    detail: |
+      권한 모드보다 강한 층이다. 모드는 "무엇을 물어보는가"를 정하지만 이 규칙은
+      **무엇이 아예 불가능한가**를 정한다.
+
+      `--disallowedTools` 가 특히 값을 한다. allow 목록은 승인 카드를 누르다 보면 실수로
+      넓어질 수 있지만 disallow 는 우회되지 않으므로, 되돌릴 수 없는 명령은 여기서 상시 차단한다.
+    caveat: |
+      `--dangerously-skip-permissions` 는 마지막 수단이다. 승인 창이 잦은 게 문제라면
+      allow 규칙을 쌓거나 샌드박스를 켜는 쪽이 맞다. 쓰기 전에 되돌릴 수 있는 상태인지
+      — 커밋했는지, 브랜치를 팠는지 — 먼저 볼 것.
+    see_also: [cli/permission-modes#bypasspermissions, cli/sandbox#sandbox]
+    tasks: [stop-touching-wrong-files, reduce-permission-prompts]
