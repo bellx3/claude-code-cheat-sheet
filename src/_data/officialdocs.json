@@ -1,12 +1,12 @@
 {
- "fetchedAt": "2026-08-13",
+ "fetchedAt": "2026-08-16",
  "sources": [
   {
    "key": "code",
    "url": "https://code.claude.com/docs/llms.txt",
    "label": "Claude Code",
-   "bytes": 41964,
-   "sha256": "01a759824826997aa465457cab8081e67c9bead2fc16f7e91eaa579939098389"
+   "bytes": 41985,
+   "sha256": "26b25a0dd0bdefe07afd9c7a5d414eaa8746d5587cbd4329019de64f66a079d4"
   }
  ],
  "pages": [
@@ -464,7 +464,7 @@
    "title": "Keep Claude working toward a goal",
    "url": "https://code.claude.com/docs/en/goal",
    "mdUrl": "https://code.claude.com/docs/en/goal.md",
-   "blurb": "Set a completion condition with /goal and Claude keeps working across turns until the condition is met."
+   "blurb": "Set a completion condition with /goal and Claude keeps working across turns until the condition is met or judged impossible."
   },
   {
    "source": "code",
@@ -1965,7 +1965,7 @@
      "title": "Keep Claude working toward a goal",
      "url": "https://code.claude.com/docs/en/goal",
      "mdUrl": "https://code.claude.com/docs/en/goal.md",
-     "blurb": "Set a completion condition with /goal and Claude keeps working across turns until the condition is met."
+     "blurb": "Set a completion condition with /goal and Claude keeps working across turns until the condition is met or judged impossible."
     },
     {
      "source": "code",
