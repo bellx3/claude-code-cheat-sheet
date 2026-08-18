@@ -5,6 +5,13 @@ export default function (ec) {
   ec.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 
   ec.addPassthroughCopy({ "src/assets": "assets" });
+  // 스크롤 모션(gsap-scrolltrigger 스킬)은 CDN이 아니라 벤더링한다 — 이 사이트는 지금
+  // 외부 런타임 의존성이 0개고, Netlify가 빌드 실패 시 직전 성공본을 계속 서빙하는 구조상
+  // CDN 장애가 "조용히 구버전 노출"로 이어질 수 있다.
+  ec.addPassthroughCopy({
+    "node_modules/gsap/dist/gsap.min.js": "assets/vendor/gsap/gsap.min.js",
+    "node_modules/gsap/dist/ScrollTrigger.min.js": "assets/vendor/gsap/ScrollTrigger.min.js",
+  });
 
   // 한국어 제목을 slugify에 넣으면 빈 문자열이 나와 DuplicatePermalinkOutputError로 빌드가 죽는다.
   // 모든 데이터는 사람이 정한 ascii id를 갖고, 이 필터는 그 id가 규칙을 지키는지만 본다.
