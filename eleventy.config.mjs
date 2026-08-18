@@ -24,6 +24,11 @@ export default function (ec) {
 
   ec.addFilter("count", (v) => (Array.isArray(v) ? v.length : 0));
 
+  // term 639개 중 248개(39%)가 한글이다 — 「설명」·「주의」처럼 명령이 아니라 라벨인 것들.
+  // 이걸 코드 칩으로 렌더하면 잘못된 신호를 주고, 한글이 모노스페이스 폴백 페이스로 떨어져
+  // 본문과 다른 글꼴로 보인다(실측: 같은 문자열이 192.9px vs 204.1px).
+  ec.addFilter("hasHangul", (v) => /[가-힣]/.test(String(v ?? "")));
+
   // 항목이 참조하는 작업축을 역방향으로 뒤집어 "이 항목이 쓰이는 작업"을 만든다.
   ec.addFilter("tasksOf", (tasks, ids) => {
     if (!ids?.length) return [];

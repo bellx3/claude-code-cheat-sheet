@@ -4,7 +4,11 @@
   <span class="badge warn">{{ "위험" if it.tone == "danger" else "주의" }}</span>
   {%- endif %}
   {%- if it.term and not it.tone %}
+    {%- if it.term | hasHangul %}
+  <span class="term term-label">{{ it.term }}</span>
+    {%- else %}
   <code class="term">{{ it.term }}</code>
+    {%- endif %}
   {%- endif %}
   {%- if it.desc %}
   <p class="{{ 'caveat' if it.tone else 'desc' }}">{{ it.desc }}</p>

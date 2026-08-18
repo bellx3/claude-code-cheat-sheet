@@ -93,7 +93,7 @@ const CASES = [
     gate: "G12",
     what: "존재하지 않는 내부 링크를 넣는다",
     file: "src/index.njk",
-    edit: (t) => t.replace('<a href="/task/">', '<a href="/task-does-not-exist/">'),
+    edit: (t) => t.replace('<a href="/about/">', '<a href="/about-does-not-exist/">'),
     pre: false,
   },
 ];

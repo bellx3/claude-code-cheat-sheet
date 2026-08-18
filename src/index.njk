@@ -3,63 +3,21 @@ layout: layouts/base.njk
 title: false
 permalink: /index.html
 ---
-<h1>{{ site.title }}</h1>
-<p class="lede">
-  기능 이름이 기억나지 않아도 찾을 수 있게 만든 페이지다.
-  하고 싶은 일을 그대로 치면 된다 — 「커밋 전에 자동으로」, 「승인 창 그만」, 「되돌리기」.
-</p>
+<div class="landing">
+  <div class="hero">
+    {# 프롬프트 줄은 ASCII만 둔다 — 한글을 넣으면 모노스페이스 폴백으로 글꼴이 깨진다. #}
+    <p class="promptline"><b>❯</b> <span class="typed">claude</span><span class="caret" aria-hidden="true"></span></p>
+    <h1>{{ site.title }}</h1>
+    <p class="lede">
+      기능 이름이 기억나지 않아도 된다. 하고 싶은 일을 그대로 치면 된다 —
+      「커밋 전에 자동으로」, 「승인 창 그만」, 「되돌리기」.
+    </p>
+  </div>
 
-{% include "partials/searchbox.njk" %}
+  {% include "partials/searchbox.njk" %}
 
-<h2 id="tasks">자주 찾는 일</h2>
-<ul class="cards">
-  {%- for t in taskIndex.all | slice(8) | first %}
-  <li><a class="card" href="{{ t.url }}">
-    <span class="t">{{ t.title }}</span>
-    <span class="s">{{ t.summary }}</span>
-  </a></li>
-  {%- endfor %}
-</ul>
-<p class="lede"><a href="/task/">작업 {{ taskIndex.all | count }}개 전체 보기 →</a></p>
-
-<h2 id="areas">영역별로 훑기</h2>
-<ul class="cards">
-  {%- for s in refIndex.surfaces %}
-  <li><a class="card" href="/ref/{{ s.id }}/">
-    <span class="t">{{ s.label }}</span>
-    <span class="s">{{ s.blurb }}</span>
-    <span class="n">항목 {{ s.itemCount }}개</span>
-  </a></li>
-  {%- endfor %}
-  <li><a class="card" href="/prompts/">
-    <span class="t">프롬프트 저장소</span>
-    <span class="s">출처·라이선스를 붙여 정리한 프롬프트.</span>
-    <span class="n">{{ promptIndex.all | count }}개</span>
-  </a></li>
-  <li><a class="card" href="/docs/">
-    <span class="t">공식 문서 색인</span>
-    <span class="s">여기 없는 건 원문으로 바로.</span>
-    <span class="n">{{ officialdocs.pages | count }}페이지</span>
-  </a></li>
-</ul>
-
-<h2 id="honest">이 사이트가 지금 어느 정도인가</h2>
-<p class="lede">
-  말로 "충실하다"고 쓰는 대신 숫자를 박아둔다. 세부가 안 채워졌으면 아래 숫자가 그걸 드러낸다.
-</p>
-<table class="tbl">
-  <tr><th>항목</th><th>수</th><th>비고</th></tr>
-  <tr><td>레퍼런스 항목</td><td>{{ stats.itemCount }}</td><td>섹션 {{ stats.sectionCount }}개 · 서피스 4장에서 이관</td></tr>
-  <tr><td>섹션 설명(<code>summary</code>)</td><td>{{ stats.summaryCount }} / {{ stats.sectionCount }} ({{ stats.summaryPct }}%)</td>
-      <td>{% if stats.summaryPct < 100 %}<span class="badge warn">모든 섹션에 필요하다 — 미완</span>{% else %}<span class="badge ok">완료</span> A3가 담지 못한 맥락{% endif %}</td></tr>
-  <tr><td>항목 세부(<code>detail</code>)</td><td>{{ stats.detailCount }}</td>
-      <td>100%가 목표가 아니다. 단축키·플래그는 한 줄이 맞는 밀도이고, 뉘앙스가 필요한 항목에만 붙인다</td></tr>
-  <tr><td>A3 치트시트에 실리는 항목</td><td>{{ stats.coreCount }}</td><td><code>tier: core</code></td></tr>
-  <tr><td>인쇄에서 뺄 수 없는 안전 경고</td><td>{{ stats.pinCount }}</td><td><code>pin</code> — 빠지면 빌드 실패</td></tr>
-  <tr><td>작업축</td><td>{{ stats.taskCount }}</td><td>자연어 진입점</td></tr>
-  <tr><td>프롬프트</td><td>{{ stats.promptCount }}</td><td>직접 작성 {{ stats.promptOwnCount }} · 실행 확인 {{ stats.promptTestedCount }}</td></tr>
-</table>
-<p class="lede">
-  비공식 자료다. 항목마다 붙은 「확인」 날짜가 오래됐으면 그만큼 낡았다고 보면 된다 —
-  <a href="/about/">갱신 정책과 한계</a>.
-</p>
+  <p class="meta-line">
+    레퍼런스 {{ stats.itemCount }}개 · 작업 {{ taskIndex.all | count }}개 · 프롬프트 {{ stats.promptCount }}개 —
+    <a href="/about/">이 사이트가 지금 어느 정도인가</a>
+  </p>
+</div>
