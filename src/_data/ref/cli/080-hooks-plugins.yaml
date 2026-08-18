@@ -1,6 +1,6 @@
 id: hooks-plugins
 title: Hooks & 플러그인
-icon: 🪝
+icon: 🧩
 group: extend
 order: 80
 sheet: cli
