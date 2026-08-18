@@ -5,6 +5,13 @@ export default function (ec) {
   ec.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 
   ec.addPassthroughCopy({ "src/assets": "assets" });
+  // 스크롤 모션(gsap-scrolltrigger 스킬)은 CDN이 아니라 벤더링한다 — 이 사이트는 지금
+  // 외부 런타임 의존성이 0개고, Netlify가 빌드 실패 시 직전 성공본을 계속 서빙하는 구조상
+  // CDN 장애가 "조용히 구버전 노출"로 이어질 수 있다.
+  ec.addPassthroughCopy({
+    "node_modules/gsap/dist/gsap.min.js": "assets/vendor/gsap/gsap.min.js",
+    "node_modules/gsap/dist/ScrollTrigger.min.js": "assets/vendor/gsap/ScrollTrigger.min.js",
+  });
 
   // 한국어 제목을 slugify에 넣으면 빈 문자열이 나와 DuplicatePermalinkOutputError로 빌드가 죽는다.
   // 모든 데이터는 사람이 정한 ascii id를 갖고, 이 필터는 그 id가 규칙을 지키는지만 본다.
@@ -16,6 +23,11 @@ export default function (ec) {
   });
 
   ec.addFilter("count", (v) => (Array.isArray(v) ? v.length : 0));
+
+  // term 639개 중 248개(39%)가 한글이다 — 「설명」·「주의」처럼 명령이 아니라 라벨인 것들.
+  // 이걸 코드 칩으로 렌더하면 잘못된 신호를 주고, 한글이 모노스페이스 폴백 페이스로 떨어져
+  // 본문과 다른 글꼴로 보인다(실측: 같은 문자열이 192.9px vs 204.1px).
+  ec.addFilter("hasHangul", (v) => /[가-힣]/.test(String(v ?? "")));
 
   // 항목이 참조하는 작업축을 역방향으로 뒤집어 "이 항목이 쓰이는 작업"을 만든다.
   ec.addFilter("tasksOf", (tasks, ids) => {

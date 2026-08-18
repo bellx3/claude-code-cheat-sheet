@@ -111,9 +111,13 @@
       for (var i = 0; i < Math.min(group.length, LIMIT); i++) {
         var r = group[i];
         var ext = /^https?:/.test(r.u);
+        // 레퍼런스 항목의 39%는 「설명」·「주의」 같은 한글 라벨이라 명령이 아니다.
+        // 항목 페이지(item.njk)의 hasHangul 분기와 같은 기준으로 맞춘다 — 한글을 <code>로
+        // 감싸면 모노스페이스 폴백 때문에 본문과 다른 글꼴로 나온다.
+        var asCode = kind === "ref" && !/[가-힣]/.test(r.ti);
         html +=
           '<a class="hit" href="' + esc(r.u) + '"' + (ext ? ' rel="noopener"' : "") + ">" +
-          '<span class="t">' + (kind === "ref" ? "<code>" + esc(r.ti) + "</code>" : esc(r.ti)) + (ext ? " ↗" : "") + "</span>" +
+          '<span class="t">' + (asCode ? "<code>" + esc(r.ti) + "</code>" : esc(r.ti)) + (ext ? " ↗" : "") + "</span>" +
           (r.c ? '<span class="c">' + esc(r.c) + "</span>" : "") +
           (r.s ? '<span class="s">' + esc(r.s.slice(0, 120)) + "</span>" : "") +
           "</a>";

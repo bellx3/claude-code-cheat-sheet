@@ -326,8 +326,10 @@ if (runPost && fs.existsSync("_site")) {
     const b = JSON.parse(read("_site/build.json"));
     if (!b.sha || b.sha === "unknown") warn("G13", "build.json 의 sha 가 unknown — 배포본 대조가 불가능하다");
     if (!b.items) fail("G13", "build.json 에 항목 수가 없다");
-    const idxCount = (read("_site/index.html").match(/레퍼런스 항목/g) || []).length;
-    if (!idxCount) warn("G13", "홈에 집계 표가 안 보인다");
+    // 집계 표는 홈이 아니라 /about/ 에 산다(홈은 검색+한 줄 요약만 남기기로 했다) — 표 자체가
+    // 사라지진 않았는지만 확인한다.
+    const aboutCount = (read("_site/about/index.html").match(/레퍼런스 항목/g) || []).length;
+    if (!aboutCount) warn("G13", "/about/ 에 집계 표가 안 보인다");
   });
 }
 

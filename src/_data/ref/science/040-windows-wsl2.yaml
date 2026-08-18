@@ -1,7 +1,7 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: windows-wsl2
 title: Windows (WSL2)
-icon: 🪟
+icon: 💻
 group: start
 order: 40
 sheet: science
