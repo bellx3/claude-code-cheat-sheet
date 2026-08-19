@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='4' y='25' font-size='26' font-family='monospace' font-weight='bold' fill='%23b45309'>❯</text></svg>">
 </head>
-<body{% if wide %} class="wide"{% endif %}>
+<body{% if wide or bodyClass %} class="{% if wide %}wide {% endif %}{{ bodyClass }}"{% endif %}>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 
 <header class="masthead">
@@ -52,13 +52,17 @@
   </div>
 </footer>
 
-<script src="/search-index.js"></script>
+{% include "partials/palette.njk" %}
+
+{# search-index.js(251KB)를 여기서 직접 부르지 않는다. 예전에는 blocking <script> 로 모든
+   페이지가 받았는데, 검색창이 없는 페이지 29개에서는 받아놓고 한 줄도 쓰지 않았다.
+   지금은 search.js 가 필요한 순간(검색창 포커스·/ ·Ctrl+K·?q=)에 주입하고,
+   허브 페이지에서만 requestIdleCallback 으로 미리 당겨온다. #}
 <script src="/assets/search.js" defer></script>
 {%- if tab == "prompts" %}
 <script src="/assets/prompt.js" defer></script>
 {%- endif %}
-<script src="/assets/vendor/gsap/gsap.min.js" defer></script>
-<script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/tocspy.js" defer></script>
 </body>
 </html>

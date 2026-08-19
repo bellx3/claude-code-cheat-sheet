@@ -19,14 +19,15 @@ permalink: /docs/index.html
 
 {%- for s in officialdocs.sections %}
 <h2 id="docsec-{{ loop.index }}">{{ s.name }} <span class="badge">{{ s.pages | count }}</span></h2>
-<table class="tbl">
-  <tr><th class="c-name">페이지</th><th>설명</th><th class="c-md">원문</th></tr>
+<ul class="cards">
   {%- for p in s.pages %}
-  <tr>
-    <td><a href="{{ p.url }}">{{ p.title }} ↗</a></td>
-    <td>{{ p.blurb }}</td>
-    <td><a href="{{ p.mdUrl }}" title="마크다운 원문">.md</a></td>
-  </tr>
+  <li class="card-wrap">
+    <a class="card" href="{{ p.url }}">
+      <span class="t">{{ p.title }} ↗</span>
+      <span class="s">{{ p.blurb }}</span>
+    </a>
+    <a class="mdlink" href="{{ p.mdUrl }}" title="마크다운 원문">.md</a>
+  </li>
   {%- endfor %}
-</table>
+</ul>
 {%- endfor %}

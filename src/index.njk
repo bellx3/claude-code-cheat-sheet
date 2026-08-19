@@ -2,22 +2,187 @@
 layout: layouts/base.njk
 title: false
 permalink: /index.html
+# devdocs.io 의 2단 구조를 그대로 옮긴다 — 좌: 검색 + 전체 목차, 우: 오리엔테이션.
+# 히어로를 걷어낸 이유는 취향이 아니라 이 장르의 동작이다. 조회하러 온 사람이 랜딩에서
+# 처음 보는 것은 "이 사이트에 뭐가 있는가" 여야 하고, DevDocs 는 그걸 사이드바 하나로 답한다.
+bodyClass: app
 ---
-<div class="landing">
-  <div class="hero">
-    {# 프롬프트 줄은 ASCII만 둔다 — 한글을 넣으면 모노스페이스 폴백으로 글꼴이 깨진다. #}
-    <p class="promptline"><b>❯</b> <span class="typed">claude</span><span class="caret" aria-hidden="true"></span></p>
-    <h1>{{ site.title }}</h1>
-    <p class="lede">
-      기능 이름이 기억나지 않아도 된다. 하고 싶은 일을 그대로 치면 된다 —
-      「커밋 전에 자동으로」, 「승인 창 그만」, 「되돌리기」.
-    </p>
-  </div>
+<div class="devlayout">
 
+<aside class="sidebar" data-search-host>
+  {%- set placeholder = "검색 — 예: --resume, 권한, 커밋 전에" %}
+  {%- set hint %}<kbd>/</kbd> <kbd>Ctrl</kbd>+<kbd>K</kbd> 검색 · <kbd>?</kbd> 단축키{% endset %}
   {% include "partials/searchbox.njk" %}
 
-  <p class="meta-line">
-    레퍼런스 {{ stats.itemCount }}개 · 작업 {{ taskIndex.all | count }}개 · 프롬프트 {{ stats.promptCount }}개 —
-    <a href="/about/">이 사이트가 지금 어느 정도인가</a>
+  {# 사이드바 맨 위의 짧은 목록. DevDocs 사이드바가 "쓰는 문서 5개"를 먼저 보여주고
+     그 아래에 전체 819개를 두는 것과 같은 분할이다 — 스크롤 없이 닿는 층이 하나 필요하다.
+     아래 트리와 겹치지만, 겹침이 문제가 아니라 149개 중 첫 화면에 뭐가 오느냐가 문제다. #}
+  <nav class="areas" aria-label="영역">
+    <h2>영역</h2>
+    <ul>
+      {%- for t in nav %}
+      <li>
+        <a href="{{ t.url }}">{{ t.label }}
+          {%- if t.id == "task" %} <span class="n">{{ taskIndex.all | count }}</span>
+          {%- elif t.id == "ref" %} <span class="n">{{ stats.itemCount }}</span>
+          {%- elif t.id == "prompts" %} <span class="n">{{ stats.promptCount }}</span>
+          {%- elif t.id == "docs" %} <span class="n">{{ officialdocs.pages | count }}</span>
+          {%- elif t.id == "download" %} <span class="n">{{ refIndex.surfaces | count }}</span>
+          {%- endif %}
+        </a>
+        <span class="blurb">{{ t.blurb }}</span>
+      </li>
+      {%- endfor %}
+      <li>
+        <a href="/about/">출처·라이선스·한계</a>
+        <span class="blurb">무엇을 못 하는지 적어둔 곳</span>
+      </li>
+    </ul>
+  </nav>
+
+  {# 질의가 들어오면 이 트리는 접히고 결과가 그 자리에 온다(search.js 가 data-q 를 세운다).
+     DevDocs 의 사이드바가 검색 중에 문서 목록 대신 결과를 보여주는 것과 같은 동작이다.
+     모바일에서만 접을 수 있게 두는 것은 ref-surface 의 .toc 와 같은 규칙이다 —
+     목차는 본문 중복이라 이 사이트에서 접기가 허용되는 유일한 자리다. #}
+  <details class="tree" data-toc open>
+    <summary>전체 목차 ({{ stats.taskCount + stats.sectionCount + stats.promptCount }})</summary>
+    <h2 class="tree-head">전체 목차 <span class="n">{{ stats.taskCount + stats.sectionCount + stats.promptCount }}</span></h2>
+
+    <section class="tree-sec">
+      <h2><a href="/task/">작업</a> <span class="n">{{ taskIndex.all | count }}</span></h2>
+      <p class="blurb">하고 싶은 일에서 출발</p>
+      {%- for g in taskIndex.groups %}
+      <h3>{{ g.label }}</h3>
+      <ul>
+        {%- for t in g.tasks %}
+        <li><a href="{{ t.url }}">{{ t.title }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </section>
+
+    <section class="tree-sec">
+      <h2><a href="/ref/">레퍼런스</a> <span class="n">{{ stats.itemCount }}</span></h2>
+      <p class="blurb">서피스 {{ refIndex.surfaces | count }}개 · 섹션 {{ stats.sectionCount }}개</p>
+      {%- for s in refIndex.surfaces %}
+      <h3><a href="/ref/{{ s.id }}/">{{ s.label }}</a> <span class="n">{{ s.itemCount }}</span></h3>
+      <ul>
+        {%- for sec in s.sections %}
+        <li><a href="/ref/{{ s.id }}/#sec-{{ sec.id }}">{{ sec.title }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </section>
+
+    <section class="tree-sec">
+      <h2><a href="/prompts/">프롬프트</a> <span class="n">{{ stats.promptCount }}</span></h2>
+      <p class="blurb">직접 작성 {{ stats.promptOwnCount }} · 실행 확인 {{ stats.promptTestedCount }}</p>
+      {%- for st in promptIndex.stages %}
+      <h3>{{ st.label }}</h3>
+      <ul>
+        {%- for p in st.prompts %}
+        <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </section>
+
+    <p class="tree-note">
+      공식 문서 색인 {{ officialdocs.pages | count }}개는 여기 펼치지 않는다 — 남의 사이트 목차라
+      <a href="/docs/">한 페이지</a>에서 보거나 검색으로 닿는 편이 빠르다.
+    </p>
+
+  </details>
+</aside>
+
+<div class="pane">
+  <h1>{{ site.title }}</h1>
+  <p class="lede">
+    Claude Code · Desktop · Science 를 쓰다가 <strong>"그 기능 이름이 뭐였지"</strong>를 찾는
+    개인 참고자료다. 왼쪽에 이 사이트가 가진 전부가 있다.
   </p>
+
+  <h2 id="howto">시작하기 전에 알아둘 네 가지</h2>
+  <ol class="know">
+    <li>
+      <b>기능 이름을 몰라도 된다.</b>
+      하고 싶은 일을 그대로 치면 된다 — 「커밋 전에 자동으로」, 「승인 창 그만」, 「되돌리기」.
+      작업축 {{ taskIndex.all | count }}개가 그 표현을 기능 이름으로 이어준다.
+    </li>
+    <li>
+      <b>검색은 부분일치고 띄어쓰기를 흡수한다.</b>
+      「권한모드」와 「권한 모드」가 같은 결과를 낸다. 대신 <strong>오타와 동의어는 못 잡는다</strong> —
+      「훅」과 「hook」은 다른 문자열이다.
+    </li>
+    <li>
+      <b>검색은 어느 페이지에서나 키 하나 거리다.</b>
+      <kbd>/</kbd> 또는 <kbd>Ctrl</kbd>+<kbd>K</kbd> 로 열고, <kbd>↑</kbd><kbd>↓</kbd> 로 고르고,
+      <kbd>Enter</kbd> 로 이동한다. <kbd>?</kbd> 를 누르면 단축키 전체가 나온다.
+    </li>
+    <li>
+      <b>모든 항목에 확인 날짜가 붙어 있다.</b>
+      날짜는 손으로 넣는다. 오래된 날짜는 오래됐다고 화면에 표시되지, 조용히 최신인 척하지 않는다.
+    </li>
+  </ol>
+
+  <h2 id="where">어디서 시작하나</h2>
+  <ul class="cards">
+    <li><a class="card" href="/task/">
+      <span class="t">하고 싶은 일이 있다</span>
+      <span class="s">「작업」에서 자연어로 출발한다. {{ taskIndex.all | count }}개의 진입점이 기능·플래그·프롬프트로 갈라진다.</span>
+    </a></li>
+    <li><a class="card" href="/ref/">
+      <span class="t">이름을 알거나, 전체를 훑고 싶다</span>
+      <span class="s">「레퍼런스」에 {{ stats.itemCount }}개가 서피스 {{ refIndex.surfaces | count }}개로 나뉘어 있다. 페이지 안 검색(Ctrl+F)도 그대로 된다.</span>
+    </a></li>
+    <li><a class="card" href="/prompts/">
+      <span class="t">뭐라고 시킬지가 문제다</span>
+      <span class="s">「프롬프트」는 {{ stats.promptCount }}개짜리 작은 저장소다. 출처와 재배포 조건을 항목마다 달아뒀다.</span>
+    </a></li>
+    <li><a class="card" href="/download/">
+      <span class="t">종이로 옆에 두고 싶다</span>
+      <span class="s">서피스마다 A3 한 장. 인쇄 대상은 <code>tier: core</code> {{ stats.coreCount }}개이고, 안전 경고 {{ stats.pinCount }}개는 빠지면 빌드가 실패한다.</span>
+    </a></li>
+  </ul>
+
+  <h2 id="scope">여기 없는 것</h2>
+  <p class="prose">
+    DevDocs 가 "프로그래밍 안내서도 검색엔진도 아니다"라고 못 박아 두는 것과 같은 이유로,
+    이 사이트도 범위를 좁혀 둔다. 넓히면 조회 속도가 죽는다.
+  </p>
+  <ul class="prose">
+    <li><strong>Anthropic 공식 자료가 아니다.</strong> 내용이 어긋나면
+        <a href="https://code.claude.com/docs">공식 문서</a>가 맞다.</li>
+    <li><strong>튜토리얼이 아니다.</strong> 이미 알고 있던 것을 다시 찾는 자리다.
+        처음 배우는 순서는 <a href="/ref/cli/#sec-learning-path">「레벨별 학습 가이드」</a> 섹션 하나로 갈음한다.</li>
+    <li><strong>공식 문서 본문을 옮겨오지 않는다.</strong> 색인 {{ officialdocs.pages | count }}개는
+        제목·한 줄 설명·원문 링크까지다.</li>
+    <li><strong>API·요금제·모델 성능 비교는 다루지 않는다.</strong> 도구 사용법만 본다.</li>
+  </ul>
+
+  <h2 id="state">지금 상태</h2>
+  <p class="prose">
+    아래 숫자는 전부 빌드가 세는 것이다. "충실히 채웠다"고 글로 쓰면 확인할 방법이 없지만,
+    숫자가 화면에 있으면 스스로 속일 수 없다.
+  </p>
+  <table class="tbl">
+    <tr><th>지표</th><th>값</th><th>뜻</th></tr>
+    <tr><td>레퍼런스 항목</td><td>{{ stats.itemCount }}</td><td>섹션 {{ stats.sectionCount }}개 · 서피스 {{ refIndex.surfaces | count }}개</td></tr>
+    <tr><td>섹션 설명</td><td>{{ stats.summaryCount }} / {{ stats.sectionCount }} ({{ stats.summaryPct }}%)</td><td>모든 섹션에 필요하다</td></tr>
+    <tr><td>항목 세부</td><td>{{ stats.detailCount }}</td><td>100%가 목표가 아니다 — <a href="/about/#fill-policy">이유</a></td></tr>
+    <tr><td>작업축 / 프롬프트</td><td>{{ stats.taskCount }} / {{ stats.promptCount }}</td><td>자연어 진입점 · 실행 확인 {{ stats.promptTestedCount }}</td></tr>
+    <tr><td>검색 대상</td><td>{{ stats.itemCount + stats.taskCount + stats.promptCount + (officialdocs.pages | count) }}</td><td>레퍼런스 + 작업 + 프롬프트 + 공식문서 색인</td></tr>
+    <tr><td>공식 문서 감시</td><td>
+      {%- if docwatch.last_run %}{{ docwatch.last_run | ymd }}
+        {%- set age = docwatch.last_run | staleness(site.buildDate) -%}
+        {% if docwatch.stale %} <span class="stale">({{ age }} — 멈춤 의심)</span>{% else %} ({{ age }}){% endif %}
+      {%- else %}미실행{% endif %}</td>
+      <td>페이지 추가·삭제·제목 변경만 잡는다. 갱신은 사람이 한다</td></tr>
+  </table>
+  <p class="prose">
+    한계를 더 자세히 적어둔 곳은 <a href="/about/">출처·라이선스·한계</a>다.
+    배포본이 방금 커밋을 반영했는지는 <a href="/build.json">/build.json</a> 으로 확인한다.
+  </p>
+</div>
+
 </div>

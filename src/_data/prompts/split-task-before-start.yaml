@@ -1,0 +1,40 @@
+id: split-task-before-start
+title: 작업을 시작하기 전에 쪼개게 만들기
+summary: 큰 작업을 실행하기 전에 단계별 계획을 세워 중간 실패 지점을 명확히 한다.
+stage: planning
+tags: [planning, breakdown, workflow]
+tasks: [onboard-unknown-repo, ship-a-reusable-command]
+
+origin: own
+redistribute: allow
+verified: tested
+tested_on: "2026-08-18 · Claude Code"
+
+slots:
+  task: "새로운 기능 구현"
+
+body: |
+  {task} — 이 작업을 바로 시작하지 말고 먼저 작업 단계로 쪼개줘.
+
+  기준:
+  1. 각 단계는 독립적으로 검증 가능해야 한다
+  2. 실패하면 어디서 실패했는지 바로 알 수 있어야 한다
+  3. 중간 산출물이 있어야 다음 단계로 갈 수 있는지 판단할 수 있다
+
+  쪼갠 뒤 각 단계별로:
+  - 무엇을 하는지 (한 문장)
+  - 어떻게 검증할지 (구체적인 명령이나 확인 방법)
+  - 실패하면 어떻게 복구할지
+
+  이 형식으로 정리해줘.
+
+teaches: |
+  큰 작업을 한 번에 실행하면 중간에 실패해도 어디서 실패했는지 모른다.
+  쪼개지 않으면 "아니 뭔가 안 되는데"로 끝나고, 쪼개면 "3단계에서 API 호출이 실패함"까지
+  구체적으로 나온다. 실패 지점이 명확하면 복구도 빠르다.
+
+next: |
+  계획이 세워지면 각 단계를 순서대로 실행한다. 한 단계가 완전히 끝나야 다음으로 넘어간다.
+  중간에 문제가 생기면 그 단계만 다시 실행하면 된다.
+
+export_command: true

@@ -5,36 +5,71 @@
      Fuse 기본값 '-p' 검색에 503개 중 224개
      FlexSearch  Charset.CJK 소스가 {split:""} 한 줄 — 문자 단위 분해라 정밀도 붕괴
      MiniSearch  복합명사 중간 일치를 놓침 ('서브에이전트'에서 '에이전트' → 3건, 정답 8건)
-   부분문자열은 조사·대시·점·중간일치를 전부 맞히고 5,030건에서도 질의당 0.21ms였다. */
+   부분문자열은 조사·대시·점·중간일치를 전부 맞히고 5,030건에서도 질의당 0.21ms였다.
+
+   구조는 랭커 1개 + 마운트 2개다. 인라인 검색창(#q, 허브 페이지)과 전역 팔레트(#pq, 모든
+   페이지)가 같은 search()/render()를 쓴다 — 검색 UI를 둘로 갈라 두면 랭킹이 조용히 갈라진다.
+   인덱스(251KB)는 파싱 시점이 아니라 필요한 순간에 주입한다. */
 (function () {
   "use strict";
-  var input = document.getElementById("q");
-  var out = document.getElementById("results");
-  if (!input || !out || !window.SEARCH_INDEX) return;
 
-  var IDX = window.SEARCH_INDEX;
-  // 한국어 띄어쓰기 흔들림을 흡수한다 ("권한 모드" ↔ "권한모드")
-  function norm(s) { return s.toLowerCase().replace(/\s+/g, ""); }
+  // ── 인덱스 지연 로드 ─────────────────────────────────────
+  // 예전에는 base.njk 가 blocking <script> 로 모든 페이지에 251KB를 걸었다. 검색창이 없는
+  // 리프 페이지 29개는 그걸 받아놓고 쓰지 않았다. 지금은 아래 3개 경로로만 들어온다:
+  //   (1) 검색창 포커스/입력  (2) / · Ctrl+K · ? 로 팔레트 열기  (3) ?q= 로 진입
+  var IDX = null;
+  var PRE = null;
+  var loading = 0; // 0 미시작 · 1 로딩중 · 2 끝(성공/실패 모두)
+  var waiting = [];
 
   // 필드를 미리 소문자로 만들어둔다. 매 질의마다 다시 만들지 않는다.
-  var PRE = IDX.map(function (r) {
-    var ti = (r.ti || "").toLowerCase();
-    var k = (r.k || "").toLowerCase();
-    var s = (r.s || "").toLowerCase();
-    var c = (r.c || "").toLowerCase();
-    var b = (r.b || "").toLowerCase();
-    return {
-      ti: ti, k: k, s: s, c: c, b: b,
-      nti: norm(ti), nk: norm(k), ns: norm(s), nc: norm(c),
-      nall: norm(ti + k + s + c + b),
-      all: ti + " " + k + " " + s + " " + c + " " + b,
-    };
-  });
+  function prep() {
+    if (PRE) return true;
+    if (!window.SEARCH_INDEX) return false;
+    IDX = window.SEARCH_INDEX;
+    PRE = IDX.map(function (r) {
+      var ti = (r.ti || "").toLowerCase();
+      var k = (r.k || "").toLowerCase();
+      var s = (r.s || "").toLowerCase();
+      var c = (r.c || "").toLowerCase();
+      var b = (r.b || "").toLowerCase();
+      return {
+        ti: ti, k: k, s: s, c: c, b: b,
+        nti: norm(ti), nk: norm(k), ns: norm(s), nc: norm(c),
+        nall: norm(ti + k + s + c + b),
+        all: ti + " " + k + " " + s + " " + c + " " + b,
+      };
+    });
+    return true;
+  }
+
+  function ensureIndex(cb) {
+    if (prep()) { if (cb) cb(true); return; }
+    if (cb) waiting.push(cb);
+    if (loading) return;
+    loading = 1;
+    var s = document.createElement("script");
+    s.src = "/search-index.js";
+    s.onload = function () { loading = 2; done(prep()); };
+    // 인덱스만 못 받은 상태에서 검색창이 조용히 0건을 뱉으면 "없는 항목"과 구분이 안 된다.
+    s.onerror = function () { loading = 2; done(false); };
+    (document.head || document.body).appendChild(s);
+  }
+
+  function done(ok) {
+    var q = waiting;
+    waiting = [];
+    for (var i = 0; i < q.length; i++) q[i](ok);
+  }
+
+  // 한국어 띄어쓰기 흔들림을 흡수한다 ("권한 모드" ↔ "권한모드")
+  function norm(s) { return s.toLowerCase().replace(/\s+/g, ""); }
 
   var LABEL = { task: "작업", hub: "이 사이트", prompt: "프롬프트", ref: "레퍼런스", doc: "공식문서" };
   var ORDER = ["task", "hub", "prompt", "ref", "doc"];
 
   function search(q) {
+    if (!prep()) return [];
     var toks = q.toLowerCase().trim().split(/\s+/).filter(Boolean);
     if (!toks.length) return [];
     var nq = norm(q);
@@ -90,7 +125,7 @@
   }
 
   var LIMIT = 6;
-  function render(q, rows) {
+  function render(out, q, rows) {
     if (!q.trim()) { out.innerHTML = ""; return; }
     if (!rows.length) {
       // 0건에서 끝내면 막다른 길이다. 30초 안에 못 찾았을 때의 탈출구가 검색 UX의 절반이다.
@@ -99,7 +134,7 @@
         ' <a href="/ref/">레퍼런스 목차</a>를 훑거나' +
         ' <a href="https://code.claude.com/docs" rel="noopener">공식 문서에서 검색 ↗</a>' +
         '<br><span class="s">치트시트에 없는 주제일 수 있습니다. 이 사이트가 다루는 범위는 ' +
-        IDX.length + '개 항목입니다.</span></div>';
+        (IDX ? IDX.length : 0) + '개 항목입니다.</span></div>';
       return;
     }
     var html = "";
@@ -128,36 +163,156 @@
     out.innerHTML = html;
   }
 
-  var timer;
-  input.addEventListener("input", function () {
-    clearTimeout(timer);
-    timer = setTimeout(function () { render(input.value, search(input.value)); }, 60);
-  });
-
-  // 키보드: / 로 포커스, ↑↓ 이동, Enter 이동, Esc 초기화.
+  // ── 마운트 ───────────────────────────────────────────────
+  // 인라인(#q)과 팔레트(#pq)가 같은 코드를 돌린다. 키보드 규약도 같다.
   // combobox ARIA 풀세트는 넣지 않는다 — 반쯤 구현한 ARIA는 없는 것보다 나쁘다.
-  var sel = -1;
-  function items() { return Array.prototype.slice.call(out.querySelectorAll("a.hit")); }
-  function mark(list) {
-    list.forEach(function (a, i) { a.classList.toggle("sel", i === sel); });
-    if (sel >= 0 && list[sel]) list[sel].scrollIntoView({ block: "nearest" });
+  function mount(input, out, host) {
+    if (!input || !out) return null;
+    var sel = -1;
+    var timer;
+
+    function items() { return Array.prototype.slice.call(out.querySelectorAll("a.hit")); }
+    function mark(list) {
+      list.forEach(function (a, i) { a.classList.toggle("sel", i === sel); });
+      if (sel >= 0 && list[sel]) list[sel].scrollIntoView({ block: "nearest" });
+    }
+    function reset() {
+      input.value = "";
+      out.innerHTML = "";
+      sel = -1;
+      if (host && host.dataset) host.dataset.q = "";
+    }
+    function draw() {
+      var q = input.value;
+      // 질의 유무를 host 에 표시해 둔다 — 팔레트의 "영역 바로가기" 를 CSS로만 숨기고 켠다.
+      if (host && host.dataset) host.dataset.q = q.trim() ? "1" : "";
+      render(out, q, search(q));
+      sel = -1;
+    }
+    function run() {
+      // 인덱스가 아직이면 먼저 받아온다. 받는 동안 0건을 그리면 "없다"는 거짓말이 된다.
+      if (prep()) { draw(); return; }
+      if (!input.value.trim()) { draw(); return; }
+      out.innerHTML = '<div class="empty">검색 인덱스를 불러오는 중…</div>';
+      ensureIndex(function (ok) {
+        if (!ok) {
+          out.innerHTML = '<div class="empty">검색 인덱스를 불러오지 못했습니다. ' +
+            '<a href="/ref/">레퍼런스 목차</a>로 찾으세요.</div>';
+          return;
+        }
+        draw();
+      });
+    }
+
+    input.addEventListener("input", function () {
+      clearTimeout(timer);
+      timer = setTimeout(run, 60);
+    });
+    // 포커스만 해도 인덱스를 당겨온다 — 첫 글자 입력이 대기 없이 걸리도록.
+    input.addEventListener("focus", function () { ensureIndex(null); });
+
+    input.addEventListener("keydown", function (e) {
+      var list = items();
+      if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, list.length - 1); mark(list); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(sel - 1, -1); mark(list); }
+      else if (e.key === "Enter" && sel >= 0 && list[sel]) { e.preventDefault(); list[sel].click(); }
+      else if (e.key === "Escape") {
+        // 팔레트는 <dialog> 가 Esc 로 알아서 닫힌다 — 여기서 값까지 건드리면 두 주체가
+        // 같은 상태를 만지게 된다. 비우기는 "열 때" 한 번만 한다(reset).
+        if (host && host.id === "palette") return;
+        reset();
+        input.blur();
+      }
+      else { sel = -1; }
+    });
+
+    return { input: input, out: out, run: run, reset: reset };
   }
-  input.addEventListener("keydown", function (e) {
-    var list = items();
-    if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, list.length - 1); mark(list); }
-    else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(sel - 1, -1); mark(list); }
-    else if (e.key === "Enter" && sel >= 0 && list[sel]) { e.preventDefault(); list[sel].click(); }
-    else if (e.key === "Escape") { input.value = ""; out.innerHTML = ""; sel = -1; input.blur(); }
-    else { sel = -1; }
-  });
+
+  // 인라인 검색창의 host — 랜딩의 사이드바처럼 "질의가 있으면 목차를 접고 결과를 보이는"
+  // 컨테이너가 있으면 그것을 넘긴다(data-search-host). 없으면 null 이고 동작은 예전 그대로다.
+  var qBox = document.getElementById("q");
+  var inlineHost = qBox && qBox.closest ? qBox.closest("[data-search-host]") : null;
+  var inline = mount(qBox, document.getElementById("results"), inlineHost);
+  var palette = document.getElementById("palette");
+  var pal = mount(document.getElementById("pq"), document.getElementById("presults"), palette);
+  var keyhelp = document.getElementById("keyhelp");
+
+  function openDialog(d) {
+    if (!d || typeof d.showModal !== "function" || d.open) return false;
+    d.showModal();
+    return true;
+  }
+
+  // ── 전역 키보드 ──────────────────────────────────────────
+  // 규칙 하나: "검색 키는 이 페이지에서 쓸 수 있는 검색 입력으로 데려간다."
+  // 허브 페이지엔 인라인 검색창이 있으니 그리로, 나머지 29개 페이지에선 팔레트를 연다.
+  // 한 페이지에 검색 UI가 두 개 열리는 상황을 만들지 않는다.
+  function focusSearch() {
+    if (inline) {
+      inline.input.focus();
+      if (inline.input.select) inline.input.select();
+      return;
+    }
+    if (!pal) return;
+    // 지난 질의를 남겨두면 다시 열었을 때 낡은 결과가 한 프레임 스친다.
+    // 닫힘(close 이벤트)이 아니라 열림에서 비운다 — close 는 브라우저마다 타이밍이 다르고,
+    // 실제로 이 리포의 검증 브라우저에서는 dialog.close() 로 발화하지 않았다.
+    pal.reset();
+    if (openDialog(palette)) { ensureIndex(null); pal.input.focus(); }
+  }
+
+  function typing(el) {
+    return !!el && (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) || el.isContentEditable);
+  }
+
+  // 탭 바로가기 숫자는 팔레트의 "영역 바로가기" 목록에서 읽는다 — nav.yaml 을 JS에 복사하지 않는다.
+  var TABS = palette
+    ? Array.prototype.map.call(palette.querySelectorAll(".palette-empty a"), function (a) { return a.getAttribute("href"); })
+    : [];
+
   document.addEventListener("keydown", function (e) {
-    if (e.key === "/" && document.activeElement !== input && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+    if (e.altKey) return;
+    var act = document.activeElement;
+
+    // Ctrl+K / Cmd+K — 브라우저 기본(주소창 검색)을 가로채는 대신 사이트 검색으로 쓴다.
+    if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
       e.preventDefault();
-      input.focus();
+      focusSearch();
+      return;
+    }
+    if (e.ctrlKey || e.metaKey) return;
+    if (typing(act)) return;
+
+    if (e.key === "/") { e.preventDefault(); focusSearch(); return; }
+    if (e.key === "?") { e.preventDefault(); if (palette && palette.open) palette.close(); openDialog(keyhelp); return; }
+    // 숫자 1..n — 상위 탭 이동. 검색 입력에 포커스가 있을 때는 위에서 걸러진다.
+    if (e.key >= "1" && e.key <= "9") {
+      var i = Number(e.key) - 1;
+      if (TABS[i]) { e.preventDefault(); location.href = TABS[i]; }
     }
   });
 
+  // backdrop(패널 바깥) 클릭으로 닫기. <dialog> 는 이걸 기본으로 주지 않는다.
+  if (palette && palette.addEventListener) {
+    palette.addEventListener("click", function (e) { if (e.target === palette) palette.close(); });
+  }
+  if (keyhelp && keyhelp.addEventListener) {
+    keyhelp.addEventListener("click", function (e) { if (e.target === keyhelp) keyhelp.close(); });
+  }
+
   // ?q=... 로 들어오면 바로 검색한다
   var pq = new URLSearchParams(location.search).get("q");
-  if (pq) { input.value = pq; render(pq, search(pq)); }
+  if (pq && inline) {
+    inline.input.value = pq;
+    inline.run();
+  } else if (inline && window.requestIdleCallback && window.addEventListener) {
+    // 인라인 검색창이 있는 페이지 = 검색이 주 동작인 허브 페이지. 미리 받아둔다.
+    // load 이후로 미루는 이유: requestIdleCallback 만 걸면 DOMContentLoaded 이전의 유휴
+    // 구간에서도 발화해 251KB가 첫 렌더와 대역폭을 다툰다(실측: indexStart 320ms < DCL 331ms).
+    // 리프 페이지에는 이 줄 자체가 걸리지 않으므로 251KB를 아예 받지 않는다.
+    window.addEventListener("load", function () {
+      window.requestIdleCallback(function () { ensureIndex(null); }, { timeout: 3000 });
+    });
+  }
 })();

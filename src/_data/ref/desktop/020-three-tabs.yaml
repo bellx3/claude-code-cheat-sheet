@@ -15,13 +15,22 @@ items:
     kind: value
     tier: core
     desc: 일반 대화
+    detail: |
+      일반적인 텍스트 대화를 위한 탭. 코드 작성 없이 아이디어를 브레인스토밍하거나
+      설명을 요청할 때 사용한다.
   - id: cowork
     term: Cowork
     kind: value
     tier: core
     desc: Dispatch·장기 에이전틱 작업
+    detail: |
+      장기 실행 작업과 에이전트 협업을 위한 탭. 백그라운드 작업을 관리하고
+      여러 에이전트가 같은 작업에 협력할 수 있다.
   - id: code
     term: Code
     kind: value
     tier: core
     desc: 소프트웨어 개발 (이 치트시트 범위)
+    detail: |
+      소프트웨어 개발을 위한 전용 탭. 파일 읽기·쓰기, 명령 실행, Git 작업 등 개발에 필요한
+      모든 기능이 여기에 있다. 이 치트시트는 주로 이 탭을 기준으로 작성되었다.

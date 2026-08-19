@@ -83,6 +83,13 @@ const CASES = [
     pre: false,
   },
   {
+    gate: "G10",
+    what: "목차 표시(data-toc) 없이 본문을 <details> 로 접는다",
+    file: "src/index.njk",
+    edit: (t) => t.replace('<details class="tree" data-toc open>', '<details class="tree" open>'),
+    pre: false,
+  },
+  {
     gate: "G11",
     what: "A3 인쇄 템플릿에서 경고 렌더를 삭제한다",
     file: "src/print-sheet.njk",

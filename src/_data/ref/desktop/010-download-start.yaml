@@ -30,6 +30,9 @@ items:
     kind: value
     tier: full
     desc: 설치 후 로그인 → 탭 클릭
+    detail: |
+      설치 후 앱을 실행하고 Anthropic 계정으로 로그인한다. 세 탭 중 Code 탭을 클릭해서
+      소프트웨어 개발 기능을 사용한다. CLI와 세션과 설정을 공유한다.
   - id: download-start-1
     term: 주의
     kind: note

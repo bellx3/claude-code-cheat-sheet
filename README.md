@@ -54,6 +54,7 @@ npm run serve     # 로컬 미리보기
 | `python tools/verify-pdf.py` | PDF 4단 검증 |
 | `node tools/measure-print.mjs` | A3 지면 채움률 측정 |
 | `node tools/shots-cdp.mjs` | 육안 확인용 스크린샷 (375px / 1280px / A3) |
+| `node tools/motion-check.mjs` | 스크롤 등장 모션이 본문을 영구히 숨기지 않는지 확인 |
 
 ## 검증
 

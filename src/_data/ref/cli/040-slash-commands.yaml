@@ -15,6 +15,8 @@ items:
     kind: command
     tier: core
     desc: 도움말 표시
+    detail: |
+      사용 가능한 슬래시 명령어 전체 목록과 간단한 설명을 보여준다. 명령어 이름을 까먹었을 때 빠르게 찾을 수 있다.
   - id: exit
     term: /exit
     kind: command
@@ -30,11 +32,17 @@ items:
     kind: command
     tier: core
     desc: 대화 요약, 컨텍스트 확보
+    detail: |
+      지금까지의 대화를 요약해서 컨텍스트를 줄인다. 선택적으로 계속할 지시를 입력하면
+      요약된 상태에서 이어서 작업한다. 긴 대화가 느려졌을 때 유용하다.
   - id: context-all
     term: /context [all]
     kind: command
     tier: core
     desc: 컨텍스트 사용량 표시
+    detail: |
+      현재 세션의 토큰 사용량과 비용을 보여준다. `all` 을 추가하면 세션 전체 사용량을,
+      없으면 마지막 응답만 보여준다. 느려졌을 때 원인을 파악하는 데 유용하다.
   - id: config
     term: /config
     kind: command

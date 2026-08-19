@@ -11,40 +11,62 @@
   --measure: 70ch;
 
   --bg: #ffffff;
-  --bg-soft: #f7f8fa;
-  --fg: #16181d;
-  --muted: #5b6270;
-  --line: #e2e5ea;
-  --code-bg: #f2f4f7;
-  --accent: #b45309;
-  --accent-soft: #fef3c7;
-  --accent2: #0e7490;       /* 보조 액센트 — 단일 색 근흑 배경 클리셰를 피하려고 둔 두 번째 톤 */
-  --accent2-soft: #cffafe;
-  --hl: #fff3cd;
-  --danger: #b91c1c;
+  --bg-soft: #f8fafc;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --accent: #6366f1;       /* 현대적인 인디고 톤 */
+  --accent-soft: #e0e7ff;
+  --accent2: #0ea5e9;      /* 스카이 블루 보조 액센트 */
+  --accent2-soft: #e0f2fe;
+  --hl: #fef3c7;
+  --danger: #ef4444;
   --danger-soft: #fee2e2;
-  --ok: #15803d;
+  --ok: #10b981;
 
   --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
-  --ease: 180ms ease;
+  --ease: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* 그라디언트 추가 */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #101215;
-    --bg-soft: #171a1f;
-    --fg: #e6e8ec;
-    --muted: #9aa2b1;
-    --line: #262a31;
-    --code-bg: #1b1e24;
-    --accent: #f0b429;
-    --accent-soft: #3a3212;
-    --accent2: #22d3ee;
-    --accent2-soft: #0b2b31;
-    --hl: #3a3212;
+    --bg: #0f172a;
+    --bg-soft: #1e293b;
+    --fg: #f1f5f9;
+    --muted: #94a3b8;
+    --line: #334155;
+    --code-bg: #1e293b;
+    --accent: #818cf8;
+    --accent-soft: #312e81;
+    --accent2: #38bdf8;
+    --accent2-soft: #0c4a6e;
+    --hl: #312e81;
     --danger: #f87171;
-    --danger-soft: #3b1a1a;
-    --ok: #4ade80;
+    --danger-soft: #7f1d1d;
+    --ok: #34d399;
+    
+    /* 다크 모드 그라디언트 */
+    --gradient-primary: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+    --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
+    --gradient-warm: linear-gradient(135deg, #fbbf24 0%, #fb923c 100%);
+    
+    /* 다크 모드 그림자 */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.4);
   }
 }
 
@@ -71,6 +93,36 @@ button:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+/* 버튼 스타일 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap); padding: 0 16px;
+  border: none; border-radius: 8px;
+  font-size: var(--fs-sm); font-weight: 600; text-decoration: none;
+  cursor: pointer;
+  transition: all var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--line);
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
 }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
@@ -86,12 +138,13 @@ input:focus-visible {
 
 /* ── 헤더 / 상위 탭 ─────────────────────────────────────── */
 .masthead {
-  border-bottom: 2px solid var(--line);
+  border-bottom: 1px solid var(--line);
   background: var(--bg);
+  box-shadow: var(--shadow-sm);
 }
 .masthead .wrap {
   display: flex; align-items: baseline; gap: 12px;
-  padding-top: 12px; padding-bottom: 10px; flex-wrap: wrap;
+  padding-top: 16px; padding-bottom: 14px; flex-wrap: wrap;
 }
 /* 타입 규칙: 모노스페이스는 영문·기호만 든 문자열에만 쓴다. 한글이 한 글자라도 섞이면
    본문 폰트 — 한글은 모노 스택에서 본문과 다른 폴백 페이스로 떨어진다(실측 192.9 vs 204.1px).
@@ -107,6 +160,14 @@ input:focus-visible {
   position: sticky; top: 0; z-index: 20;
   background: var(--bg);
   border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95);
+}
+@media (prefers-color-scheme: dark) {
+  .topnav {
+    background: rgba(15, 23, 42, 0.95);
+  }
 }
 .topnav ul {
   display: flex; gap: 2px; margin: 0; padding: 0; list-style: none;
@@ -132,16 +193,24 @@ input:focus-visible {
 }
 .subnav a {
   display: inline-flex; align-items: center; min-height: 40px;
-  padding: 0 12px; border: 1px solid var(--line); border-radius: 999px;
+  padding: 0 14px; border: 1px solid var(--line); border-radius: 999px;
   font-size: var(--fs-sm); text-decoration: none; color: var(--muted); background: var(--bg);
   white-space: nowrap;
-  transition: border-color var(--ease), background var(--ease), color var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--ease), background var(--ease), color var(--ease), box-shadow var(--ease), transform var(--ease);
+}
+.subnav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 .subnav a[aria-current="page"] {
-  background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600;
+  background: var(--gradient-primary); border-color: transparent; color: #fff; font-weight: 600;
+  box-shadow: var(--shadow-md);
 }
 @media (prefers-color-scheme: dark) {
-  .subnav a[aria-current="page"] { color: #14161a; }
+  .subnav a[aria-current="page"] { color: #fff; }
 }
 
 /* ── 페이지 골격 ─────────────────────────────────────────── */
@@ -152,7 +221,15 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
 /* 섹션 헤딩은 좌측 보더 바 하나로만 구분한다 — 텍스트 반복(❯ 등)은 121개 섹션에서
    시그니처가 아니라 소음이 됐다. 구조 신호는 한 번의 시각 장치로 충분하다. */
 .section > h2 {
-  border-left: 3px solid var(--accent); padding-left: 10px; margin-left: -13px;
+  border-left: 4px solid var(--accent); padding-left: 12px; margin-left: -16px;
+  background: linear-gradient(90deg, var(--accent-soft) 0%, transparent 100%);
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
+  transition: all var(--ease);
+}
+.section > h2:hover {
+  background: linear-gradient(90deg, var(--accent-soft) 0%, var(--bg-soft) 100%);
+  padding-left: 16px;
 }
 /* 페이지 머리는 어느 페이지에서나 같은 순서다:
    [.backlink 또는 .subnav] → h1 → .lede(한 개) → .pagemeta(선택) → 검색창 → 본문(.prose).
@@ -184,8 +261,16 @@ ul.prose li { margin: 0 0 6px; }
   color: var(--muted); text-decoration: none;
 }
 .toc a:hover { background: var(--bg-soft); color: var(--fg); }
+/* 스크롤에 맞춰 tocspy.js 가 붙이는 "지금 보는 섹션" 표시. 공식 문서 사이트의
+   우측 "이 페이지에서" 활성 표시와 같은 역할을 좌측 목차 위에서 한다. */
+.toc a[aria-current="location"] {
+  background: var(--accent-soft); color: var(--fg); font-weight: 700;
+}
 .toc summary { min-height: var(--tap); display: flex; align-items: center; font-weight: 600; cursor: pointer; }
-@media (min-width: 900px) { .toc summary { display: none; } .toc[open] > *, .toc > * { display: revert; } }
+@media (min-width: 900px) {
+  .toc > summary { display: none; }
+  .toc[open] > *:not(summary), .toc > *:not(summary) { display: revert; }
+}
 
 /* ── 섹션 / 항목 ─────────────────────────────────────────── */
 .section {
@@ -236,13 +321,27 @@ ul.prose li { margin: 0 0 6px; }
 .item:hover .anchor, .anchor:focus { opacity: 1; }
 
 .badge {
-  display: inline-block; padding: 1px 7px; border-radius: 999px;
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
   font-size: 0.75rem; font-weight: 600; vertical-align: middle;
   border: 1px solid var(--line); color: var(--muted); background: var(--bg-soft);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--ease), color var(--ease), border-color var(--ease);
 }
-.badge.core { border-color: var(--accent); color: var(--accent); }
-.badge.warn { border-color: var(--danger); color: var(--danger); background: var(--danger-soft); }
-.badge.ok { border-color: var(--ok); color: var(--ok); }
+.badge.core { 
+  border-color: var(--accent); 
+  color: var(--accent); 
+  background: var(--accent-soft);
+}
+.badge.warn { 
+  border-color: var(--danger); 
+  color: var(--danger); 
+  background: var(--danger-soft);
+}
+.badge.ok { 
+  border-color: var(--ok); 
+  color: var(--ok);
+  background: #d1fae5;
+}
 
 pre {
   margin: 8px 0; padding: 12px; border-radius: 8px;
@@ -283,8 +382,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
 
 .cardgrid .section {
   margin: 0 0 18px;
-  border: 1px solid var(--line); border-radius: 10px;
+  border: 1px solid var(--line); border-radius: 12px;
   background: var(--bg);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   /* 다단 배치는 지연 렌더와 궁합이 나쁘다 */
   content-visibility: visible;
@@ -293,6 +393,11 @@ pre code { background: none; padding: 0; font-size: inherit; }
   display: inline-block;
   width: 100%;
   break-inside: avoid;
+  transition: box-shadow var(--ease), border-color var(--ease);
+}
+.cardgrid .section:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
 }
 
 /* 카드 머리 — 크기로 위계를 주되 무게로 누르지 않는다 */
@@ -351,26 +456,29 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* 1148px 짜리 한 줄 입력창은 어느 페이지에서도 읽기 나쁘다. 전역으로 묶는다. */
 .searchbox { margin: 18px 0 8px; position: relative; max-width: 640px; }
 .searchbox input {
-  width: 100%; min-height: var(--tap); padding: 0 14px 0 34px;
+  width: 100%; min-height: var(--tap); padding: 0 14px 0 44px;
   font-size: 16px;              /* iOS가 16px 미만 입력에서 자동 확대한다 */
-  border: 1px solid var(--line); border-radius: 10px;
+  border: 2px solid var(--line); border-radius: 12px;
   background: var(--bg); color: var(--fg);
-  transition: border-color var(--ease), box-shadow var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
 }
 .searchbox::before {
-  content: "❯"; position: absolute; left: 13px; top: 0;
+  content: "❯"; position: absolute; left: 16px; top: 0;
   height: var(--tap); display: flex; align-items: center;
   color: var(--accent); font: 700 1rem/1 var(--font-mono); pointer-events: none;
 }
 .searchbox input:focus-visible {
   outline: none; border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  box-shadow: 0 0 0 4px var(--accent-soft), var(--shadow-md);
+  transform: translateY(-1px);
 }
 .searchbox .hint { font-size: 0.8125rem; color: var(--muted); margin-top: 8px; }
 /* 힌트는 안내지 주인공이 아니다 — 테두리를 걷어내고 글자 자체로만 구분한다. */
 .searchbox kbd {
   font-family: var(--font-mono); font-size: 0.8125rem; color: var(--fg);
-  background: var(--code-bg); border-radius: 4px; padding: 1px 5px;
+  background: var(--code-bg); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px;
+  box-shadow: var(--shadow-sm);
 }
 
 .results { margin: 12px 0 0; }
@@ -380,11 +488,17 @@ pre code { background: none; padding: 0; font-size: inherit; }
   letter-spacing: .04em; color: var(--muted);
 }
 .results a.hit {
-  display: block; padding: 9px 10px; border-radius: 8px;
+  display: block; padding: 10px 12px; border-radius: 8px;
   text-decoration: none; border: 1px solid transparent;
-  transition: border-color var(--ease), background var(--ease);
+  transition: all var(--ease);
+  position: relative;
 }
-.results a.hit:hover, .results a.hit.sel { background: var(--bg-soft); border-color: var(--line); }
+.results a.hit:hover, .results a.hit.sel { 
+  background: var(--bg-soft); 
+  border-color: var(--line);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
 .results .hit .t { display: block; font-weight: 600; }
 .results .hit .t code { background: none; padding: 0; color: var(--accent); }
 .results .hit .c { display: block; font-size: var(--fs-sm); color: var(--muted); }
@@ -392,21 +506,134 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .results .empty { padding: 16px 0; color: var(--muted); }
 .results .empty a { color: var(--accent); }
 
+/* ── 전역 검색 팔레트 · 단축키 도움말 ────────────────────── */
+/* <dialog> 를 쓰니 포커스 트랩·Esc·스크롤 잠금·backdrop 은 브라우저가 준다.
+   위치만 잡는다 — 화면 정중앙이 아니라 위쪽 10vh. 팔레트는 결과가 아래로 자라는 물건이라
+   가운데 정렬하면 입력창이 타이핑 중에 위아래로 흔들린다. */
+.palette, .keyhelp {
+  margin: 10vh auto auto; padding: 16px 20px 20px; width: min(680px, calc(100vw - 32px));
+  max-height: 78vh; overflow-y: auto;
+  border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 16px;
+  background: var(--bg); color: var(--fg);
+  box-shadow: var(--shadow-xl);
+}
+.palette::backdrop, .keyhelp::backdrop { background: rgb(10 12 16 / 0.45); }
+@media (prefers-color-scheme: dark) {
+  .palette::backdrop, .keyhelp::backdrop { background: rgb(0 0 0 / 0.62); }
+}
+/* 스크롤 컨테이너는 팔레트 하나뿐이다. 결과에도 max-height 를 주면 스크롤 영역이 둘로
+   중첩돼 휠이 어디에 먹는지 예측할 수 없어진다. 대신 입력창을 sticky 로 붙여둔다. */
+.palette .searchbox {
+  margin: 0; max-width: none;
+  position: sticky; top: -14px; z-index: 1;
+  padding: 14px 0 8px; margin-top: -14px; background: var(--bg);
+}
+/* ::before(❯)는 .searchbox 기준 top:0 이라, 위에서 준 padding-top 만큼 같이 내려줘야 한다. */
+.palette .searchbox::before { top: 14px; }
+/* 결과가 있으면 영역 목록을 접는다. 질의 유무는 search.js 가 data-q 로 표시한다. */
+.palette[data-q="1"] .palette-empty { display: none; }
+.palette-empty { margin: 14px 0 0; }
+.palette-empty h3 {
+  margin: 0 0 4px; font-size: var(--fs-sm); text-transform: uppercase;
+  letter-spacing: .04em; color: var(--muted);
+}
+.palette-empty ul { list-style: none; margin: 0; padding: 0; }
+.palette-empty a {
+  display: flex; align-items: baseline; gap: 8px;
+  min-height: var(--tap); padding: 4px 10px; border-radius: 8px;
+  text-decoration: none; color: var(--fg); font-weight: 600;
+}
+.palette-empty a:hover { background: var(--bg-soft); }
+.palette-empty a b {
+  font: 700 0.75rem/1 var(--font-mono); color: var(--muted);
+  background: var(--code-bg); border-radius: 4px; padding: 4px 6px;
+}
+.palette-empty a span { font-weight: 400; font-size: var(--fs-sm); color: var(--muted); }
+.palette-foot { margin: 12px 0 0; font-size: 0.8125rem; color: var(--muted); }
+.palette-foot kbd, .keyhelp kbd {
+  font-family: var(--font-mono); font-size: 0.8125rem; color: var(--fg);
+  background: var(--code-bg); border-radius: 4px; padding: 1px 5px;
+}
+.keyhelp h2 { margin: 0 0 12px; font-size: 1.0625rem; }
+.keyhelp dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0; }
+.keyhelp dt { white-space: nowrap; }
+.keyhelp dt .or { color: var(--muted); font-size: var(--fs-sm); }
+.keyhelp dd { margin: 0; color: var(--muted); font-size: var(--fs-sm); }
+@media (max-width: 560px) {
+  .palette, .keyhelp { margin-top: 4vh; }
+  .keyhelp dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .keyhelp dd { margin: 0 0 10px; }
+}
+
+/* ── 스크롤 등장 모션 ────────────────────────────────────── */
+/* .rv 는 motion.js 가 붙일 때만 걸린다. CSS 에 시작 상태를 기본값으로 적어두면
+   JS 한 줄 오류가 백지 페이지가 된다 — GSAP 을 쓸 때도 지켰던 규칙이다.
+   이징은 GSAP power2.out(= quad out) 대응치. */
+.rv { opacity: 0; transform: translateY(var(--rv-y, 10px)); }
+.rv-card { --rv-y: 10px; --rv-dur: .5s; }
+.rv-sec  { --rv-y: 14px; --rv-dur: .6s; }
+.rv.in {
+  opacity: 1; transform: none;
+  transition:
+    opacity var(--rv-dur, .5s) cubic-bezier(.25, .46, .45, .94) var(--rv-del, 0s),
+    transform var(--rv-dur, .5s) cubic-bezier(.25, .46, .45, .94) var(--rv-del, 0s);
+}
+/* 관측 전에 인쇄하면 통째로 빈 종이가 나온다. 인쇄에서는 모션 상태를 무시한다. */
+@media print { .rv { opacity: 1 !important; transform: none !important; } }
+
+/* 추가 애니메이션 효과 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* 로딩 상태 표시 */
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
 /* ── 카드 그리드 ─────────────────────────────────────────── */
 .cards {
   display: grid; gap: 12px; margin: 16px 0 0; padding: 0; list-style: none;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
 }
 .card {
-  display: block; padding: 14px; border: 1px solid var(--line); border-radius: 10px;
+  display: block; padding: 14px; border: 1px solid var(--line); border-radius: 12px;
   text-decoration: none; background: var(--bg);
-  /* transform은 여기서 트랜지션 안 함 — motion.js가 스크롤 등장 시 transform으로 직접
-     애니메이션하는데, CSS transition과 겹치면 이중 이징으로 버벅인다. hover 전용 규칙에서만 건다. */
-  transition: border-color var(--ease), background var(--ease);
+  box-shadow: var(--shadow-sm);
+  /* transform은 여기서 트랜지션 안 함 — 등장 모션은 바깥 li(.rv)가 transform 으로 하는데,
+     안쪽 .card 까지 상시 transform 트랜지션을 걸면 이중 이징으로 버벅인다. hover 에서만 건다. */
+  transition: border-color var(--ease), background var(--ease), box-shadow var(--ease);
 }
 .card:hover {
-  border-color: var(--accent); background: var(--bg-soft); transform: translateY(-2px);
-  transition: border-color var(--ease), background var(--ease), transform var(--ease);
+  border-color: var(--accent); background: var(--bg-soft); 
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  transition: border-color var(--ease), background var(--ease), transform var(--ease), box-shadow var(--ease);
 }
 @media (prefers-reduced-motion: reduce) { .card:hover { transform: none; } }
 /* span 에 margin 은 안 먹는다 — display:block 이 없으면 제목과 설명이 한 줄로 붙어 나온다. */
@@ -417,6 +644,18 @@ pre code { background: none; padding: 0; font-size: inherit; }
   display: block; margin-top: 10px;
   font-size: 0.8125rem; color: var(--muted);
 }
+
+/* 카드 우상단에 보조 링크 하나를 얹을 때(공식문서 색인의 .md 원문 등).
+   <a class="card"> 안에 또 <a>를 넣으면 앵커 중첩이라 무효라, li 를 기준으로 절대배치한다. */
+.card-wrap { position: relative; }
+.card-wrap .card { padding-right: 42px; }
+.card-wrap .mdlink {
+  position: absolute; top: 10px; right: 10px;
+  padding: 2px 7px; border-radius: 5px;
+  font-size: 0.75rem; color: var(--muted); text-decoration: none;
+  background: var(--bg-soft); border: 1px solid var(--line);
+}
+.card-wrap .mdlink:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ── 프롬프트 ────────────────────────────────────────────── */
 .prompt-body {
@@ -453,38 +692,109 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .tbl th.c-name { width: 30%; }
 .tbl th.c-md { width: 52px; }
 
-/* ── 홈 랜딩 ──────────────────────────────────────────────
-   이 사이트의 단 하나의 일은 "기능 이름이 기억 안 나도 찾게 하는 것"이다.
-   그래서 홈은 검색창을 화면 중앙에 놓고 나머지를 전부 비운다. 센터 정렬은 홈에만
-   스코프한다 — 나머지 페이지는 읽는 문서라 좌측 정렬이 맞다. */
-.landing {
-  min-height: 60vh;
-  display: grid; align-content: center; justify-items: center;
-  text-align: center;
+/* ── 홈 랜딩 (devdocs.io 2단 구조) ─────────────────────────
+   예전 홈은 가운데 정렬 히어로 + 검색창 하나였다. 조회하러 온 사람이 랜딩에서 처음
+   알아야 하는 건 "이 사이트에 뭐가 있는가"인데, 히어로는 그걸 한 글자도 안 알려줬다.
+   DevDocs 는 그 답을 사이드바 하나로 낸다 — 좌측에 전체 목록, 우측에 짧은 안내,
+   검색창은 목록 위. 그 구조를 그대로 가져왔다.
+   본문 폭 제한은 여기서만 푼다(body.app). 나머지 페이지는 읽는 문서라 .wrap 이 맞다. */
+body.app main.wrap { max-width: none; padding: 0; }
+.devlayout { display: grid; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) {
+  .devlayout { grid-template-columns: 320px minmax(0, 1fr); }
+  /* .toc 와 같은 방식 — 문서 스크롤은 그대로 두고 사이드바만 따로 스크롤한다.
+     뷰포트 고정 앱 셸로 만들면 모바일 주소창 높이 변화에 계속 얻어맞는다. */
+  .sidebar {
+    position: sticky; top: calc(var(--tap) + 8px);
+    max-height: calc(100vh - var(--tap) - 24px); overflow-y: auto;
+    padding: 8px 18px 24px 16px;
+  }
+  /* 구분선은 sticky 인 사이드바가 아니라 본문 쪽에 건다 — 사이드바에 걸면 선이
+     100vh 에서 끊기고 그 아래로는 두 단 사이가 허공이 된다. */
+  .pane { padding: 8px 20px 56px 28px; min-width: 0; border-left: 1px solid var(--line); }
 }
-.landing > * { width: 100%; }
-.landing .lede { max-width: 46ch; margin-left: auto; margin-right: auto; }
-.landing .searchbox { margin: 22px auto 8px; }
-/* 결과는 읽는 목록이라 가운데 정렬을 물려받으면 안 된다. */
-.landing .results { text-align: left; max-width: 640px; margin: 12px auto 0; }
-.landing .meta-line { font-size: var(--fs-sm); color: var(--muted); margin: 18px 0 0; }
-.landing .meta-line a { color: var(--accent2); }
+@media (max-width: 899px) {
+  .sidebar { padding: 0 16px; border-bottom: 2px solid var(--line); }
+  .pane { padding: 8px 16px 40px; }
+  /* 한 단으로 쌓이면 목차 149개가 본문 앞을 통째로 막는다(실측: 랜딩 높이 17,832px).
+     접어서 숨기지 않고 스크롤 박스에 가둔다 — 숨긴 내용은 Ctrl+F 에서 빠지지만
+     스크롤 컨테이너 안의 내용은 브라우저 찾기가 그대로 찾아준다. */
+  .tree[open] {
+    max-height: 45vh; overflow-y: auto;
+    border: 1px solid var(--line); border-radius: 8px; padding: 0 10px 10px;
+  }
+  .tree > summary { margin: 0 -10px; padding: 0 10px; position: sticky; top: 0; background: var(--bg); z-index: 1; }
+}
+.sidebar .searchbox { margin: 8px 0 6px; max-width: none; }
+.sidebar .hint { font-size: 0.75rem; line-height: 1.6; }
+.sidebar .results { margin: 8px 0 0; }
+/* 질의가 있으면 목차 대신 결과가 이 자리를 쓴다 — DevDocs 사이드바와 같은 교체 동작. */
+.sidebar[data-q="1"] .tree { display: none; }
 
-.hero { margin: 0 0 4px; }
-.hero .promptline {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  margin: 0 0 14px;
-  font: 600 var(--fs-code)/1 var(--font-mono); color: var(--muted);
+/* 스크롤 없이 닿는 층. DevDocs 사이드바 상단의 "쓰는 문서" 묶음 자리. */
+.areas { margin: 10px 0 0; font-size: var(--fs-sm); }
+.areas h2 {
+  margin: 0 0 2px; font-size: 0.75rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .04em;
 }
-.hero .promptline b { color: var(--accent); font-weight: 700; }
-.hero .caret {
-  display: inline-block; width: 0.55em; height: 1.05em; background: var(--accent);
-  transform: translateY(2px);
+.areas ul { list-style: none; margin: 0; padding: 0; }
+.areas li { padding: 4px 0; border-bottom: 1px solid var(--line); }
+.areas li:last-child { border-bottom: 0; }
+.areas a { display: block; font-weight: 700; color: var(--fg); text-decoration: none; }
+.areas a:hover { color: var(--accent); }
+.areas .blurb { display: block; font-size: 0.75rem; color: var(--muted); }
+.areas .n {
+  font: 600 0.6875rem/1 var(--font-mono); color: var(--muted);
+  background: var(--code-bg); border-radius: 4px; padding: 3px 5px; vertical-align: 2px;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .hero .caret { animation: caret-blink 1.1s steps(1) infinite; }
+
+.tree { margin: 14px 0 0; font-size: var(--fs-sm); border-top: 2px solid var(--line); }
+.tree-head {
+  margin: 12px 0 0 !important; font-size: 0.75rem !important; font-weight: 700 !important;
+  color: var(--muted); text-transform: uppercase; letter-spacing: .04em;
 }
-@keyframes caret-blink { 50% { opacity: 0; } }
+.tree-note { margin: 16px 0 0; font-size: 0.75rem; color: var(--muted); }
+@media (max-width: 899px) { .tree-head { display: none; } }
+.tree summary { min-height: var(--tap); display: flex; align-items: center; font-weight: 600; cursor: pointer; }
+/* `.tree > *` 로 뭉뚱그리면 summary 도 되살아난다 — `.tree[open] > *`(0,2,0)가
+   `.tree summary`(0,1,1)를 특이도로 이기기 때문. summary 는 명시적으로 빼야 한다. */
+@media (min-width: 900px) {
+  .tree > summary { display: none; }
+  .tree[open] > *:not(summary), .tree > *:not(summary) { display: revert; }
+}
+.tree-sec { margin: 0 0 20px; }
+.tree h2 { margin: 14px 0 2px; font-size: 0.9375rem; font-weight: 800; }
+.tree h2 a { color: var(--fg); text-decoration: none; }
+.tree h2 a:hover { color: var(--accent); }
+.tree h3 {
+  margin: 12px 0 2px; font-size: 0.75rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.tree h3 a { color: inherit; text-decoration: none; }
+.tree h3 a:hover { color: var(--accent); }
+.tree .n {
+  font: 600 0.6875rem/1 var(--font-mono); color: var(--muted);
+  background: var(--code-bg); border-radius: 4px; padding: 3px 5px; vertical-align: 2px;
+}
+.tree .blurb { margin: 0 0 4px; font-size: 0.75rem; color: var(--muted); }
+.tree ul { list-style: none; margin: 0; padding: 0; }
+.tree li a {
+  display: block; padding: 5px 8px; border-radius: 6px;
+  color: var(--muted); text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tree li a:hover { background: var(--bg-soft); color: var(--fg); }
+
+/* 오리엔테이션 본문. 「알아둘 네 가지」는 DevDocs Welcome 의 4줄에 대응하는 자리다. */
+.pane > h1 { margin-top: 12px; }
+.pane .lede { font-size: 1.0625rem; }
+.know { margin: 10px 0 0; padding-left: 22px; max-width: var(--measure); }
+.know li { margin: 0 0 12px; color: var(--muted); }
+.know li b { color: var(--fg); }
+.know kbd {
+  font-family: var(--font-mono); font-size: 0.8125rem; color: var(--fg);
+  background: var(--code-bg); border-radius: 4px; padding: 1px 5px;
+}
 
 /* ── 착지 하이라이트 ──────────────────────────────────────── */
 :target { background: var(--hl); }

@@ -62,7 +62,7 @@ const { sessionId } = await send("Target.attachToTarget", { targetId, flatten: t
 await send("Page.enable", {}, sessionId);
 await send("Runtime.enable", {}, sessionId);
 
-async function capture(urlPath, out, { width, height, mobile, full = true }) {
+async function capture(urlPath, out, { width, height, mobile, full = true, run = null }) {
   await send("Emulation.setDeviceMetricsOverride", {
     width, height, deviceScaleFactor: mobile ? 2 : 1, mobile,
     screenWidth: width, screenHeight: height,
@@ -73,10 +73,22 @@ async function capture(urlPath, out, { width, height, mobile, full = true }) {
   // content-visibility: auto 는 화면 밖을 페인트하지 않는다. 전체 페이지 캡처에서는
   // 아래쪽 섹션이 통째로 빈칸으로 찍힌다(실측: 6개 섹션 중 2개만 보였다).
   // 성능 최적화를 잠깐 끄고 찍는다.
+  // .rv 도 같이 푼다 — 스크롤 등장 모션은 정의상 화면에 들어와야 풀리므로, 스크롤하지 않는
+  // 전면 캡처에서는 접힘 아래가 통째로 백지가 된다(실측: /ref/cli/ 14,165px 중 상단 2섹션만 나옴).
+  // 모션이 실제로 풀리는지는 tools/motion-check.mjs 가 스크롤하며 따로 본다.
   await send("Runtime.evaluate", {
-    expression: `(()=>{const s=document.createElement('style');s.textContent='*{content-visibility:visible !important}';document.head.appendChild(s);})()`,
+    expression: `(()=>{const s=document.createElement('style');s.textContent=
+      '*{content-visibility:visible !important}.rv{opacity:1 !important;transform:none !important}';
+      document.head.appendChild(s);})()`,
   }, sessionId);
   await new Promise((r) => setTimeout(r, 400));
+  // 전역 팔레트·단축키 도움말은 <dialog> 라 URL 로 도달할 수 없다. 열어놓고 찍는다.
+  // captureBeyondViewport 는 top layer 를 잘라먹으므로 이때는 뷰포트 캡처로 떨어뜨린다.
+  if (run) {
+    await send("Runtime.evaluate", { expression: run, awaitPromise: true }, sessionId);
+    await new Promise((r) => setTimeout(r, 500));
+    full = false;
+  }
   const shot = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: full }, sessionId);
   fs.writeFileSync(out, Buffer.from(shot.data, "base64"));
   const metrics = await send("Runtime.evaluate", {
@@ -102,6 +114,29 @@ try {
     overflow += (await capture(u, `${OUT}/${n}.png`, MOBILE)) ? 1 : 0;
   for (const [u, n] of [["/", "d-home"], ["/ref/cli/", "d-ref-cli"], ["/task/pre-commit-gate/", "d-task"]])
     overflow += (await capture(u, `${OUT}/${n}.png`, DESK)) ? 1 : 0;
+
+  // 전역 팔레트 — 검색창이 없는 리프 페이지에서 / 를 눌렀을 때의 화면
+  const OPEN_PALETTE = `new Promise((res)=>{
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'/',bubbles:true,cancelable:true}));
+    const i=document.getElementById('pq'); i.value='권한';
+    i.dispatchEvent(new Event('input',{bubbles:true}));
+    setTimeout(res,700);
+  })`;
+  const OPEN_PALETTE_EMPTY = `new Promise((res)=>{
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'/',bubbles:true,cancelable:true}));
+    setTimeout(res,300);
+  })`;
+  const OPEN_KEYHELP = `new Promise((res)=>{
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'?',bubbles:true,cancelable:true}));
+    setTimeout(res,300);
+  })`;
+  for (const [u, n, run, dev] of [
+    ["/task/pre-commit-gate/", "d-palette", OPEN_PALETTE, DESK],
+    ["/task/pre-commit-gate/", "d-palette-empty", OPEN_PALETTE_EMPTY, DESK],
+    ["/task/pre-commit-gate/", "d-keyhelp", OPEN_KEYHELP, DESK],
+    ["/task/pre-commit-gate/", "m-palette", OPEN_PALETTE, MOBILE],
+  ])
+    overflow += (await capture(u, `${OUT}/${n}.png`, { ...dev, run })) ? 1 : 0;
 } finally {
   ws.close();
   chrome.kill();

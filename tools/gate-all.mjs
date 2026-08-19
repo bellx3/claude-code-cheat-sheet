@@ -276,10 +276,13 @@ if (runPost && fs.existsSync("_site")) {
       if (!/<html lang="ko"/i.test(h)) fail("G10", `${f}: lang="ko" 없음`);
       // URL이 바뀌는 탭에 role=tab 을 붙이면 스크린리더에 잘못 알리게 된다.
       if (/role="tab(list|panel)?"/i.test(h)) fail("G10", `${f}: role=tab 계열 사용 — URL 이동형 탭은 nav+a+aria-current 여야 한다`);
-      // 본문을 숨기면 Ctrl+F 에서 빠진다. 접기는 목차(details.toc)에만 허용한다.
+      // 본문을 숨기면 Ctrl+F 에서 빠진다. 접기는 목차에만 허용한다 — 목차는 본문 중복이라
+      // 접어도 잃는 정보가 없는 유일한 자리다. 허용 표시는 클래스가 아니라 data-toc 다:
+      // 클래스로 묶어두면 스타일 이름을 바꾸는 순간 규칙이 조용히 풀리고, 반대로 새 목차마다
+      // 게이트를 고쳐야 한다. data-toc 는 "이건 목차다"라는 주장이고, 그게 이 규칙의 조건이다.
       const main = (h.match(/<main[\s\S]*?<\/main>/i) || [""])[0];
       const dets = main.match(/<details[^>]*>/gi) || [];
-      for (const d of dets) if (!/class="toc"/.test(d)) fail("G10", `${f}: 본문에 <details> — 숨긴 내용은 Ctrl+F 에서 빠진다`);
+      for (const d of dets) if (!/\sdata-toc[\s>]/.test(d)) fail("G10", `${f}: 본문에 <details> — 숨긴 내용은 Ctrl+F 에서 빠진다 (목차라면 data-toc 를 붙일 것)`);
       if (/\shidden(\s|>|=)/i.test(main.replace(/<label[^>]*hidden[^>]*>/gi, ""))) warn("G10", `${f}: main 안에 hidden 속성`);
     }
   });

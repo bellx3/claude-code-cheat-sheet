@@ -26,6 +26,7 @@ node tools/build-pdf.mjs              # generate A3 PDFs via headless Chrome
 python tools/verify-pdf.py            # 4-part PDF verification
 node tools/measure-print.mjs          # measure A3 page fill ratio
 node tools/shots-cdp.mjs              # screenshots for visual verification (375px / 1280px / A3)
+node tools/motion-check.mjs           # scroll every page in Chrome, assert no element is left invisible
 ```
 
 There is no unit test runner in the usual sense — correctness is enforced by the gates above, which read
@@ -70,6 +71,63 @@ violations and asserts each gate actually catches them — a gate that always pa
 When editing `src/_data/ref/**/*.yaml`, expect the gate to fail loudly on id collisions, broken
 `tasksOf`-style cross references, or missing `confirmed`/date fields — read the failing gate's `[Gx ...]`
 label in the output, it names which check failed and why.
+
+### The landing page (src/index.njk)
+
+Two panes, copied from devdocs.io: left is the search field over the whole index, right is a short
+orientation page. There is no hero — a visitor who came to look something up needs to know *what is in
+here*, and a centred tagline answers none of that. The landing sets `bodyClass: app`, which is the only
+place `main.wrap`'s max-width is removed; every other page is a document and keeps `.wrap`.
+
+The sidebar has two layers on purpose, same split as DevDocs' "enabled docs" over the full list: a short
+`.areas` jump list that is reachable without scrolling, then the full `.tree` (~150 entries — tasks,
+every ref section, every prompt). Typing in the field swaps the tree out for results in place;
+`search.js` sets `data-q` on the nearest `[data-search-host]` and CSS does the rest. On mobile the tree
+becomes a 45vh scroll box rather than collapsing — a scroll container still answers Ctrl+F, a closed
+`<details>` does not (it was pushing the landing to 17,832px before).
+
+G10 allows `<details>` inside `<main>` only when it carries `data-toc`. That attribute is the claim
+"this is a table of contents, so collapsing it hides nothing that isn't elsewhere on the page" — it is
+not a style hook, which is why the gate stopped keying on `class="toc"`.
+
+### Search (src/assets/search.js)
+
+One ranker, two mounts. The inline box (`#q`, on hub pages) and the global palette (`#pq`, in
+`partials/palette.njk`, on every page) share the same `search()`/`render()` — splitting them would let
+the two rankings drift apart silently, and `tools/search-test.mjs` only executes one of them.
+
+`search-index.js` (251 KB raw / 64 KB gzip) is **not** referenced from `base.njk`. It used to be a
+blocking `<script>` on every page, which meant the 29 leaf pages that have no search box downloaded it
+and never used a byte of it. It is now injected on demand — search-box focus, `/`, `Ctrl+K`, or `?q=` —
+and prefetched on `load` + `requestIdleCallback` only on pages that render an inline box. Don't put the
+tag back; the leaf-page measurement was 405 KB → 163 KB.
+
+`tools/search-test.mjs` runs the built `search.js` in a VM against a stub DOM, so the file must keep
+ending in `})();` and must not touch anything beyond `getElementById`/`addEventListener` at parse time.
+`tools/shots-cdp.mjs` captures the palette by dispatching the key event (`run:` option) — a `<dialog>`
+has no URL to screenshot.
+
+### Scroll motion (src/assets/motion.js)
+
+IntersectionObserver + CSS transitions, no library. GSAP + ScrollTrigger used to be vendored for this
+(116 KB, 71% of what was left on a leaf page after the search-index fix) and did nothing but tween
+`opacity`/`translateY` once per element. There are now **zero runtime dependencies**; everything shipped
+is the four files in `src/assets`.
+
+Two rules that are not style preferences:
+
+- The hidden start state (`.rv`) is applied by JS, never as a CSS default. `.section { opacity: 0 }` in
+  the stylesheet turns one JS error into a blank page.
+- Motion classes are **removed** a beat after the element is revealed. `content-visibility: auto` skips
+  rendering for offscreen subtrees, so a CSS transition on such an element does not progress while it is
+  offscreen — scrolling past quickly left `.in` applied but `opacity` frozen near 0 (measured: 23 of 36
+  sections on `/ref/cli/`). Stripping the classes falls back to the stylesheet default, which is visible,
+  so "stuck invisible" becomes structurally impossible.
+
+`node tools/motion-check.mjs` is the check for exactly this: it drives real Chrome, scrolls each page to
+the bottom, and asserts that no `.section` / `.cards > li` is left below `opacity: 0.99` — while also
+asserting that *some* were hidden at load, so a motion that silently stopped working still fails. Gates
+can't catch this (they don't scroll) and neither can `shots-cdp.mjs` (it force-reveals to capture).
 
 ### Filters worth knowing (eleventy.config.mjs)
 
