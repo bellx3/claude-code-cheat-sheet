@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: what-is
 title: Claude Science란
-icon: 🔬
 group: start
 order: 10
 sheet: science
 summary: >-
-  연구용 노트북 워크벤치. 로컬 우선이라 데이터가 내 컴퓨터에 남는다.
+  연구용 노트북 워크벤치. 로컬 우선이라 데이터가 내 컴퓨터에 보존.
 source:
   url: ""
   checked_at: "2026-08-13"

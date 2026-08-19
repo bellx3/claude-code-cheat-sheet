@@ -1,7 +1,6 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: plugin-syntax
 title: 플러그인 명령어 문법
-icon: 🧩
 group: plugin
 order: 120
 sheet: slash

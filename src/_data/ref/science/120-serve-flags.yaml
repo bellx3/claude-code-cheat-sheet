@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: serve-flags
 title: serve 플래그
-icon: 🚩
 group: cli
 order: 120
 sheet: science
 summary: >-
-  serve 실행 시 정하는 값들. 네트워크 노출 범위를 여기서 정한다.
+  serve 실행 시 정하는 값들. 네트워크 노출 범위를 여기서 결정.
 source:
   url: ""
   checked_at: "2026-08-13"
@@ -62,4 +61,4 @@ items:
     tier: core
     pin: true
     tone: danger
-    desc: ☠️ --dangerously-no-sandbox(홈 전체 접근+무제한 네트워크) · --dangerously-skip-approvals(모든 승인 자동)
+    desc: --dangerously-no-sandbox(홈 전체 접근+무제한 네트워크) · --dangerously-skip-approvals(모든 승인 자동)

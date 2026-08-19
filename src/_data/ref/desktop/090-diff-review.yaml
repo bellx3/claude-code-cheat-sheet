@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: diff-review
 title: Diff 리뷰 & 코드 리뷰
-icon: 📝
 group: run
 order: 90
 sheet: desktop
 summary: >-
-  변경을 시각적으로 훑고 그 자리에서 코멘트를 남긴다.
+  변경을 시각적으로 훑고 그 자리에서 코멘트 작성.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

@@ -1,13 +1,12 @@
 id: hooks-plugins
 title: Hooks & 플러그인
-icon: 🧩
 group: extend
 order: 80
 sheet: cli
 aliases: [훅, hook, 후크, 자동실행, 플러그인, plugin]
 summary: >-
-  Hooks 는 Claude가 도구를 쓰는 시점에 끼어들고, 플러그인은 명령·스킬·훅·MCP를 한 묶음으로 배포한다.
-  둘 다 "내 워크플로를 Claude 쪽에 심는" 장치다.
+  Hooks 는 Claude가 도구를 쓰는 시점에 개입, 플러그인은 명령·스킬·훅·MCP를 한 묶음으로 배포.
+  둘 다 "내 워크플로를 Claude 쪽에 심는" 장치.
 source:
   url: https://code.claude.com/docs/en/hooks
   checked_at: "2026-08-13"

@@ -10,7 +10,7 @@ permalink: /docs/index.html
   여기 요약을 옮겨 적지 않는다 — 원문으로 바로 보낸다.
   이 색인은 검색에도 들어가서, 치트시트에 없는 주제를 쳐도 공식 문서로 착지한다.
 </p>
-<p class="lede">
+<p class="pagemeta">
   <span class="badge">받은 날짜 {{ officialdocs.fetchedAt | ymd }} ({{ officialdocs.fetchedAt | staleness(site.buildDate) }})</span>
   갱신은 <code>node tools/fetch-llms-txt.mjs</code>.
 </p>
@@ -20,7 +20,7 @@ permalink: /docs/index.html
 {%- for s in officialdocs.sections %}
 <h2 id="docsec-{{ loop.index }}">{{ s.name }} <span class="badge">{{ s.pages | count }}</span></h2>
 <table class="tbl">
-  <tr><th style="width:30%">페이지</th><th>설명</th><th style="width:52px">원문</th></tr>
+  <tr><th class="c-name">페이지</th><th>설명</th><th class="c-md">원문</th></tr>
   {%- for p in s.pages %}
   <tr>
     <td><a href="{{ p.url }}">{{ p.title }} ↗</a></td>

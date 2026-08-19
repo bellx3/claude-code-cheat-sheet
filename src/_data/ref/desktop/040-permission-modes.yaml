@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: permission-modes
 title: 권한 모드
-icon: 🔐
 group: control
 order: 40
 sheet: desktop
 summary: >-
-  CLI 와 같은 개념이지만 UI 라벨로 표기된다. API 식별자와 대조가 필요하면 CLI 시트를 볼 것.
+  CLI 와 같은 개념, UI 라벨 표기만 차이. API 식별자 대조 필요 시 CLI 시트 참고.
 source:
   url: https://code.claude.com/docs/en/permission-modes
   checked_at: "2026-08-13"

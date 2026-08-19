@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: trouble-runtime
 title: 트러블슈팅 — 성능·권한
-icon: 🛠
 group: trouble
 order: 350
 sheet: cli
 summary: >-
-  동작이 이상하면 커스터마이제이션을 배제해 범위를 반씩 줄이는 게 가장 빠르다.
+  동작 이상 시 커스터마이제이션 배제로 범위를 반씩 줄이는 게 가장 빠름.
 source:
   url: https://code.claude.com/docs/en/troubleshooting
   checked_at: "2026-08-13"

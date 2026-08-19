@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: caching-fallback
 title: 캐싱 & 폴백
-icon: ⚪
 group: control
 order: 280
 sheet: cli
 summary: >-
-  이어가기로 컨텍스트를 재사용하거나, 과부하 시 폴백 모델로 넘긴다.
+  이어가기로 컨텍스트 재사용, 과부하 시 폴백 모델로 전환.
 source:
   url: https://code.claude.com/docs/en/model-config
   checked_at: "2026-08-13"

@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: new-flags
 title: 신규 플래그 확장판
-icon: 🚩
 group: start
 order: 120
 sheet: cli
 summary: >-
-  비교적 최근에 붙은 플래그들. 문제가 생겼을 때 원인을 좁히는 --safe-mode·--bare 가 특히 실전에서 값을 한다.
+  비교적 최근에 붙은 플래그들. 문제 발생 시 원인을 좁히는 --safe-mode·--bare 가 특히 실전에서 유용.
 source:
   url: https://code.claude.com/docs/en/cli-reference
   checked_at: "2026-08-13"

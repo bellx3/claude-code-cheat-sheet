@@ -1,12 +1,11 @@
 id: memory
 title: 메모리 & CLAUDE.md
-icon: 🧠
 group: control
 order: 90
 sheet: cli
 aliases: [메모리, CLAUDE.md, 기억, 프로젝트 규칙, memory]
 summary: >-
-  프로젝트 규칙·빌드 명령·하지 말 것을 적어두는 자리. 이게 없으면 매 세션 같은 설명을 반복하게 된다.
+  프로젝트 규칙·빌드 명령·하지 말 것을 적어두는 자리. 이게 없으면 매 세션 같은 설명 반복.
 source:
   url: https://code.claude.com/docs/en/memory
   checked_at: "2026-08-13"

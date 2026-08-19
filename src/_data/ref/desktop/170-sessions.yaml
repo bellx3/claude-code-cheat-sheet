@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: sessions
 title: 세션 관리
-icon: 🗂
 group: control
 order: 170
 sheet: desktop
 summary: >-
-  세션 목록·이름·재개. 이름을 붙여두면 며칠 뒤 찾기가 훨씬 쉽다.
+  세션 목록·이름·재개. 이름을 붙여두면 며칠 뒤 찾기가 훨씬 수월.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

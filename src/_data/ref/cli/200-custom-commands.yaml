@@ -1,11 +1,10 @@
 id: custom-commands
 title: 커스텀 슬래시 명령어
-icon: 🔵
 group: extend
 order: 200
 sheet: cli
 summary: >-
-  반복하는 지시를 파일 한 장으로 굳힌다. 커스텀 명령은 스킬로 통합됐고 문법이 같다.
+  반복하는 지시를 파일 한 장으로 고정. 커스텀 명령은 스킬로 통합, 문법 동일.
 source:
   url: https://code.claude.com/docs/en/skills
   checked_at: "2026-08-13"

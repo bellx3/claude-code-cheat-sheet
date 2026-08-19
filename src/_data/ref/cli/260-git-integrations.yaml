@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: git-integrations
 title: Git & 서드파티 연동
-icon: ⚫
 group: run
 order: 260
 sheet: cli
 summary: >-
-  표준 입력으로 무엇이든 넘길 수 있다. git·docker·DB 출력이 그대로 입력이 된다.
+  표준 입력으로 무엇이든 전달 가능. git·docker·DB 출력이 그대로 입력.
 source:
   url: https://code.claude.com/docs/en/headless
   checked_at: "2026-08-13"

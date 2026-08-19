@@ -1,13 +1,12 @@
 id: background-cloud
 title: 백그라운드 에이전트 & 클라우드
-icon: 🖥
 group: run
 order: 110
 sheet: cli
 aliases: [백그라운드, background, 클라우드, cloud, 병렬, 텔레포트]
 summary: >-
-  세션을 붙잡고 기다릴 필요가 없는 작업을 떼어내는 층. 떼어내는 방식이 셋이고,
-  "지금 대화를 분리할 것인가 / 새로 띄울 것인가 / 기기를 옮길 것인가"로 갈린다.
+  세션을 붙잡고 기다릴 필요가 없는 작업을 떼어내는 층. 떼어내는 방식은 셋,
+  "지금 대화를 분리할 것인가 / 새로 띄울 것인가 / 기기를 옮길 것인가"로 구분.
 source:
   url: https://code.claude.com/docs/en/agents
   checked_at: "2026-08-13"

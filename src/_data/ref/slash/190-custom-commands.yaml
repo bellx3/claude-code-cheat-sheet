@@ -1,12 +1,11 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: custom-commands
 title: 커스텀 슬래시 명령어 만들기
-icon: 🛠
 group: practice
 order: 190
 sheet: slash
 summary: >-
-  파일 한 장이면 명령 하나가 생긴다. 커스텀 명령은 스킬로 통합됐고 문법이 같다.
+  파일 한 장이면 명령 하나 생성. 커스텀 명령은 스킬로 통합, 문법은 동일.
 source:
   url: https://code.claude.com/docs/en/skills
   checked_at: "2026-08-13"

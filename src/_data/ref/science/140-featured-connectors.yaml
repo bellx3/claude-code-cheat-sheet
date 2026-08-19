@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: featured-connectors
 title: Featured 커넥터 (기본 ON·읽기전용)
-icon: 🧬
 group: connect
 order: 140
 sheet: science
 summary: >-
-  기본으로 켜져 있는 읽기 전용 커넥터들. 대부분 공개 연구 DB 다.
+  기본으로 켜져 있는 읽기 전용 커넥터들. 대부분 공개 연구 DB.
 source:
   url: ""
   checked_at: "2026-08-13"

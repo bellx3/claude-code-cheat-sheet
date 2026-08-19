@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: practices-workflow
 title: 실무 모범 사례 — 워크플로우
-icon: 💡
 group: practice
 order: 320
 sheet: cli
 summary: >-
-  반복이 보이면 명령어로 굳히고, 자동화할 거면 출력 형식부터 정한다.
+  반복이 보이면 명령어로 고정, 자동화할 거면 출력 형식부터 결정.
 source:
   url: https://code.claude.com/docs/en/quickstart
   checked_at: "2026-08-13"

@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: subagents
 title: 서브에이전트 한눈에 보기
-icon: 🤖
 group: extend
 order: 60
 sheet: cli
 summary: >-
-  컨텍스트를 따로 쓰는 별도 에이전트. 실질 이점은 전문성이 아니라 격리다 — 넓게 훑어야 하는데 결론만 필요할 때 본 대화가 안 무거워진다.
+  컨텍스트를 따로 쓰는 별도 에이전트. 실질 이점은 전문성이 아니라 격리 — 넓게 훑어야 하는데 결론만 필요할 때 본 대화가 무거워지지 않음.
 source:
   url: https://code.claude.com/docs/en/sub-agents
   checked_at: "2026-08-13"

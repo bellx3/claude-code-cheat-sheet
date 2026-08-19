@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: learning-path
 title: 레벨별 학습 가이드
-icon: 🧭
 group: practice
 order: 330
 sheet: cli
 summary: >-
-  무엇부터 익힐지 순서. 권한 모드와 컨텍스트 관리가 초반 체감이 가장 크다.
+  무엇부터 익힐지 순서. 권한 모드와 컨텍스트 관리가 초반 체감 가장 큼.
 source:
   url: https://code.claude.com/docs/en/quickstart
   checked_at: "2026-08-13"

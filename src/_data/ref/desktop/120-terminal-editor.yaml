@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: terminal-editor
 title: 터미널 & 파일 편집기
-icon: 💻
 group: run
 order: 120
 sheet: desktop
 summary: >-
-  앱 안의 터미널과 편집기. 별도 창을 오갈 필요를 줄인다.
+  앱 안의 터미널과 편집기. 별도 창을 오갈 필요 감소.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: approval-scope
 title: 승인 범위 (권한 카드)
-icon: ✅
 group: control
 order: 240
 sheet: science
 summary: >-
-  승인 카드의 범위. 한 번인지 세션인지 프로젝트인지가 다르다.
+  승인 카드의 범위. 한 번·세션·프로젝트 단위로 구분.
 source:
   url: ""
   checked_at: "2026-08-13"

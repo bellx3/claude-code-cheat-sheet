@@ -10,11 +10,11 @@ eleventyComputed:
   title: "{{ p.title }}"
   lede: "{{ p.summary }}"
 ---
-<p class="lede"><a href="/prompts/">← 프롬프트 목록</a></p>
+<p class="backlink"><a href="/prompts/">← 프롬프트 목록</a></p>
 <h1>{{ p.title }}</h1>
 <p class="lede">{{ p.summary }}</p>
 
-<p>
+<p class="pagemeta">
   {%- if p.origin == "own" %}<span class="badge ok">직접 작성</span>
   {%- elif p.origin == "adapted" %}<span class="badge">재작성</span>
   {%- elif p.origin == "verbatim" %}<span class="badge">{{ p.source_license }} 전재</span>
@@ -86,3 +86,8 @@ eleventyComputed:
   {%- endfor %}
 </ul>
 {%- endif %}
+
+<p class="datanote">
+  <span class="badge">데이터 <code>{{ p._file }}</code></span>
+  틀린 게 있으면 이 파일을 고치면 사이트·검색·치트시트가 같이 바뀐다.
+</p>

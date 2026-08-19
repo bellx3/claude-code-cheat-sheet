@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: model-endpoints
 title: 모델 엔드포인트 (HTTP)
-icon: 🧠
 group: compute
 order: 200
 sheet: science
 summary: >-
-  HTTP 모델 엔드포인트를 붙인다.
+  HTTP 모델 엔드포인트 연결.
 source:
   url: ""
   checked_at: "2026-08-13"

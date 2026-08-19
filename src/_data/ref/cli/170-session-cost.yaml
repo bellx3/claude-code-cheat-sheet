@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: session-cost
 title: 세션 제어 & 비용
-icon: 🟡
 group: control
 order: 170
 sheet: cli
 summary: >-
-  무한 반복으로 새어나가는 비용을 구조적으로 막는 장치들. 일회성 작업에는 상한을 거는 편이 안전하다.
+  무한 반복으로 새어나가는 비용을 구조적으로 막는 장치들. 일회성 작업에는 상한 설정이 안전.
 source:
   url: https://code.claude.com/docs/en/costs
   checked_at: "2026-08-13"

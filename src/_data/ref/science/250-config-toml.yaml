@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: config-toml
 title: config.toml
-icon: 📄
 group: control
 order: 250
 sheet: science
 summary: >-
-  설정 파일. 앱 설정보다 우선한다.
+  설정 파일. 앱 설정보다 우선.
 source:
   url: ""
   checked_at: "2026-08-13"

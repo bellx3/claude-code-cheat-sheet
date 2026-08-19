@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
 <body>
 <div class="header-bar">
   <div>
-    <h1>⚡ {{ surface.label }} 치트시트</h1>
+    <h1>{{ surface.label }} 치트시트</h1>
     <div class="subtitle">{{ surface.blurb }} · 전체 내용은 {{ site.repo }} 배포본 /ref/{{ surface.id }}/</div>
   </div>
   <div class="stamp">
@@ -35,14 +35,15 @@ eleventyExcludeFromCollections: true
   {%- for it in sec.items %}{% if it.tier == "core" %}{% set core = (core.push(it), core) %}{% endif %}{% endfor %}
   {%- if core.length %}
 <section>
-<h2>{{ sec.icon }} {{ sec.title }}</h2>
+<h2>{{ sec.title }}</h2>
 <table>
   {%- for it in core %}{% if not it.tone %}
   <tr><td class="k">{{ it.term }}</td><td class="v">{{ it.desc }}</td></tr>
   {%- endif %}{% endfor %}
 </table>
   {%- for it in core %}{% if it.tone %}
-<span class="warn{{ ' danger' if it.tone == 'danger' }}">{{ "⚠" }} {{ it.desc }}</span>
+<!-- 웹의 .badge.warn 과 같은 한글 라벨을 쓴다. 굵은꼴은 금지(위 sheet-a3.css .warn 주석 참조). -->
+<span class="warn{{ ' danger' if it.tone == 'danger' }}">[{{ "위험" if it.tone == "danger" else "주의" }}] {{ it.desc }}</span>
   {%- endif %}{% endfor %}
 </section>
   {%- endif %}

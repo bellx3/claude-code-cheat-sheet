@@ -2,7 +2,7 @@
 - id: task
   url: /task/
   label: 작업
-  blurb: 하고 싶은 일에서 출발한다
+  blurb: 하고 싶은 일에서 출발
 - id: ref
   url: /ref/
   label: 레퍼런스

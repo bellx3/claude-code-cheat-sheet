@@ -46,11 +46,6 @@ function titleText(raw) {
     .replace(/^[\p{Extended_Pictographic}\u{FE0F}\u{20E3}\u{2190}-\u{21FF}\u{2300}-\u{27BF}\s]+/u, "")
     .trim();
 }
-function leadingIcon(raw) {
-  const t = stripTags(raw);
-  const m = t.match(/^([\p{Extended_Pictographic}\u{FE0F}\u{2300}-\u{27BF}]+)/u);
-  return m ? m[1].trim() : "";
-}
 
 // term → ascii id. 한국어만 있는 항목은 호출부에서 순번 폴백을 준다.
 function slugFromTerm(term) {
@@ -241,7 +236,6 @@ for (const { surface, file } of SHEETS) {
     const h2 = body.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i);
     if (!h2) continue;
     const title = titleText(h2[1]);
-    const icon = leadingIcon(h2[1]);
     const entry = map[title];
     if (!entry) { totals.unmapped.push(`${surface}: ${title}`); continue; }
     const [id, group, order] = entry;
@@ -253,7 +247,6 @@ for (const { surface, file } of SHEETS) {
     const doc = {
       id,
       title,
-      icon,
       group,
       order,
       sheet: surface,

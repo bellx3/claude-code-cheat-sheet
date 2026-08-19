@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: background-tasks
 title: 백그라운드 작업 & 세션 간 작업
-icon: 📋
 group: run
 order: 190
 sheet: desktop
 summary: >-
-  오래 걸리는 작업을 떼어내고 다른 일을 한다.
+  오래 걸리는 작업을 떼어내고 다른 일 병행.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

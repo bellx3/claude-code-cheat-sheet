@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: beta-gaps
 title: 베타 미지원 항목
-icon: 🚧
 group: trouble
 order: 290
 sheet: science
 summary: >-
-  베타라서 아직 안 되는 것들. 기대치를 여기서 맞춘다.
+  베타라서 아직 안 되는 것들. 기대치 조정용.
 source:
   url: ""
   checked_at: "2026-08-13"

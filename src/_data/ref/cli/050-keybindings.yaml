@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: keybindings
 title: 키보드 단축키
-icon: ⌨️
 group: start
 order: 50
 sheet: cli
 summary: >-
-  손이 기억하면 가장 빨라지는 것들. Shift+Tab(권한 모드)과 Esc(중단) 둘만 익혀도 체감이 크다.
+  손이 기억하면 가장 빨라지는 것들. Shift+Tab(권한 모드)과 Esc(중단) 둘만 익혀도 체감 큼.
 source:
   url: https://code.claude.com/docs/en/interactive-mode
   checked_at: "2026-08-13"

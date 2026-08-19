@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: directories
 title: 디렉토리 관리
-icon: 🟡
 group: control
 order: 150
 sheet: cli
 summary: >-
-  실행한 디렉터리가 기본 작업 범위다. 코드가 여러 곳에 흩어져 있으면 탐색을 시작하기 전에 붙여야 한다.
+  실행한 디렉터리가 기본 작업 범위. 코드가 여러 곳에 흩어져 있으면 탐색 시작 전에 추가 필요.
 source:
   url: https://code.claude.com/docs/en/cli-reference
   checked_at: "2026-08-13"

@@ -1,7 +1,6 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: feature-compare
 title: "기능 비교: CLI vs 데스크톱"
-icon: 📋
 group: practice
 order: 290
 sheet: desktop

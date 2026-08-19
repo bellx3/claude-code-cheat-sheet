@@ -74,6 +74,9 @@ input:focus-visible {
 }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+/* 카드 그리드 페이지(레퍼런스 서피스)만 판을 넓힌다. 한글 설명이 좁은 열에서 2~3줄로
+   깨지는 걸 줄이려면 카드 폭이 필요하다. 머리말·푸터까지 같이 넓혀야 축이 맞는다. */
+@media (min-width: 1240px) { body.wide .wrap { max-width: 1340px; } }
 .prose { max-width: var(--measure); }
 .skip {
   position: absolute; left: -9999px; top: 0; z-index: 100;
@@ -92,7 +95,7 @@ input:focus-visible {
 }
 /* 타입 규칙: 모노스페이스는 영문·기호만 든 문자열에만 쓴다. 한글이 한 글자라도 섞이면
    본문 폰트 — 한글은 모노 스택에서 본문과 다른 폴백 페이스로 떨어진다(실측 192.9 vs 204.1px).
-   그래서 브랜드도 "⚡ Claude"(b)만 모노고 "참고자료"는 본문 폰트다. */
+   그래서 브랜드도 "❯ Claude"(b)만 모노고 "참고자료"는 본문 폰트다. */
 .brand {
   font-size: 1.0625rem; font-weight: 700; line-height: 1;
   text-decoration: none; color: var(--fg);
@@ -151,7 +154,19 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
 .section > h2 {
   border-left: 3px solid var(--accent); padding-left: 10px; margin-left: -13px;
 }
+/* 페이지 머리는 어느 페이지에서나 같은 순서다:
+   [.backlink 또는 .subnav] → h1 → .lede(한 개) → .pagemeta(선택) → 검색창 → 본문(.prose).
+   .lede 를 본문 문단에도 쓰면 "제목 바로 아래 한 줄"이라는 신호가 사라진다. 본문은 .prose 다. */
 .lede { color: var(--muted); margin: 0 0 4px; max-width: var(--measure); }
+.pagemeta { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
+.backlink { margin: 0 0 12px; font-size: var(--fs-sm); }
+.backlink a { color: var(--accent2); text-decoration: none; }
+.backlink a:hover { text-decoration: underline; }
+p.prose { margin: 0 0 12px; }
+ul.prose { margin: 0 0 12px; padding-left: 20px; }
+ul.prose li { margin: 0 0 6px; }
+/* 페이지 맨 아래 "이 데이터는 어느 파일" 줄 — 상세 페이지 공통 */
+.datanote { margin: 32px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
 
 .layout { display: block; }
 @media (min-width: 900px) {
@@ -241,6 +256,96 @@ code {
   padding: 1px 5px; border-radius: 4px;
 }
 pre code { background: none; padding: 0; font-size: inherit; }
+
+/* ── 카드 그리드 (레퍼런스 서피스) ────────────────────────────
+   quickref.me 의 배치를 이 데이터에 맞춘 것. 섹션 하나가 카드 하나이고,
+   카드 안에서 항목은 「이름 | 설명」 2열로 눕는다. 이 리포의 항목 639개 중
+   세부 15%·코드 12%뿐이고 나머지는 전부 한 줄짜리라, 세로로 쌓으면 가로가 논다.
+
+   행 단위 그리드였다가 실측으로 폐기했다: cli 서피스 36카드 중 "권한 모드"(2521px,
+   항목 7개)와 같은 행의 "Hooks & 플러그인"(1371px, 항목 2개)이 짝지어지며 1150px
+   빈 공백이 남았다 — 항목 수 편차가 큰 이 데이터에서는 행 고정이 안 맞았다.
+   그렇다고 항목을 접어 숨기는 방식(<details>)도 못 쓴다 — G10 게이트가 본문의
+   <details>를 막는다(닫힌 상태는 Ctrl+F에서 빠진다는 게 이 리포가 실제로 겪은 문제).
+   그래서 진짜 마소너리(CSS columns)로 간다 — 아무것도 숨기지 않고 짧은 열부터
+   채운다. 트레이드오프: 읽는 순서가 좌→우가 아니라 위→아래(열 우선)로 바뀐다.
+
+   이 규칙은 .cardgrid 안에서만 적용된다 — /print/ 는 같은 item.njk 를 쓰지만
+   .cardgrid 가 없어 기존의 선형 배치 그대로다. */
+.cardgrid {
+  /* 440px 하한은 실측으로 정했다 — 340px 일 때 설명이 평균 1.84줄로 깨졌다.
+     열을 늘리기보다 열을 넓히는 쪽이 한글에서 유리하다. column-width는 힌트값이라
+     컨테이너가 440px보다 좁으면 브라우저가 알아서 1열로 접는다 — 그리드의
+     minmax(440px, 100%) 클램프와 달리 별도 미디어쿼리 없이 같은 효과를 낸다. */
+  column-width: 440px;
+  column-gap: 18px;
+}
+
+.cardgrid .section {
+  margin: 0 0 18px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--bg);
+  overflow: hidden;
+  /* 다단 배치는 지연 렌더와 궁합이 나쁘다 */
+  content-visibility: visible;
+  /* 컬럼 안에서 카드가 쪼개지지 않게. inline-block이 없으면 Safari에서 break-inside가
+     block 요소에 무시된다(실측). */
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+}
+
+/* 카드 머리 — 크기로 위계를 주되 무게로 누르지 않는다 */
+.cardgrid .section > h2 {
+  margin: 0; padding: 9px 14px;
+  border-left: none;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9375rem; font-weight: 700; line-height: 1.4;
+}
+.cardgrid .section .summary {
+  margin: 0; padding: 10px 14px 2px;
+  font-size: var(--fs-sm); max-width: none;
+}
+
+.cardgrid .item {
+  padding: 7px 14px;
+  border-top: 1px solid var(--line);
+  position: relative;      /* float 은 그리드에서 무시되므로 앵커를 절대배치로 */
+}
+.cardgrid .section .summary + .item { border-top: none; }
+.cardgrid .item .anchor { position: absolute; right: 6px; top: 7px; float: none; }
+
+/* 이름 열은 그 카드에서 가장 긴 이름에 맞춰진다(max-content). 40% 를 넘지 못하게 막아
+   긴 이름 하나가 설명 열을 짓누르는 걸 방지한다. */
+@media (min-width: 560px) {
+  .cardgrid .item {
+    display: grid;
+    grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+    column-gap: 12px;
+  }
+  .cardgrid .item > * { grid-column: 2; }
+  .cardgrid .item .term,
+  .cardgrid .item .term-label,
+  .cardgrid .item .badge {
+    grid-column: 1; grid-row: 1;
+    margin-bottom: 0; align-self: start; max-width: 15ch;
+  }
+}
+
+.cardgrid .item .desc,
+.cardgrid .item .detail { max-width: none; }
+.cardgrid .item .desc { margin-bottom: 0; }
+.cardgrid .item .detail { margin: 4px 0 0; }
+.cardgrid .item pre { margin: 6px 0 0; }
+.cardgrid .item .caveat { margin: 6px 0 0; }
+.cardgrid .item .seealso { margin: 4px 0 0; }
+/* 카드 맨 아래 출처 줄 */
+.cardgrid .section > .seealso {
+  margin: 0; padding: 9px 14px;
+  border-top: 1px solid var(--line); background: var(--bg-soft);
+  font-size: 0.8125rem;
+}
 
 /* ── 검색 ────────────────────────────────────────────────── */
 /* 1148px 짜리 한 줄 입력창은 어느 페이지에서도 읽기 나쁘다. 전역으로 묶는다. */
@@ -344,6 +449,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .tbl { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: var(--fs-sm); }
 .tbl th, .tbl td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .tbl th { color: var(--muted); font-weight: 600; }
+/* 공식문서 색인 표의 열 폭. 인라인 style 대신 여기에 둔다 — 표 규칙은 한군데 모은다. */
+.tbl th.c-name { width: 30%; }
+.tbl th.c-md { width: 52px; }
 
 /* ── 홈 랜딩 ──────────────────────────────────────────────
    이 사이트의 단 하나의 일은 "기능 이름이 기억 안 나도 찾게 하는 것"이다.

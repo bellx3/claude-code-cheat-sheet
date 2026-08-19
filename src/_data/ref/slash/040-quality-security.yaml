@@ -1,12 +1,11 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: quality-security
 title: 코드 품질 & 보안
-icon: 🛡
 group: quality
 order: 40
 sheet: slash
 summary: >-
-  변경을 검토받는 명령들. 관점을 나눠 여러 번 돌리는 편이 깊이 들어간다.
+  변경을 검토받는 명령들. 관점을 나눠 여러 번 돌리는 편이 더 깊이 들어감.
 source:
   url: https://code.claude.com/docs/en/security-guidance
   checked_at: "2026-08-13"

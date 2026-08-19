@@ -1,13 +1,12 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: slurm
 title: SSH / Slurm 클러스터
-icon: 🖥
 group: compute
 order: 180
 sheet: science
 aliases: [슬럼, 슬럼클러스터, slurm, 클러스터, 배치잡, sbatch]
 summary: >-
-  클러스터에 작업을 던진다.
+  클러스터에 작업 제출.
 source:
   url: ""
   checked_at: "2026-08-13"

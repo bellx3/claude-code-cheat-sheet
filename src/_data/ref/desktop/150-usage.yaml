@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: usage
 title: 사용량 확인
-icon: 📊
 group: control
 order: 150
 sheet: desktop
 summary: >-
-  사용량과 한도를 앱 안에서 확인한다.
+  사용량과 한도를 앱 안에서 확인.
 source:
   url: https://code.claude.com/docs/en/costs
   checked_at: "2026-08-13"

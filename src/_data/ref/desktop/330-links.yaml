@@ -1,7 +1,6 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: links
 title: 참고 링크
-icon: 🔗
 group: trouble
 order: 330
 sheet: desktop

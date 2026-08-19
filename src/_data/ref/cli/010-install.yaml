@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: install
 title: 설치
-icon: 🟢
 group: start
 order: 10
 sheet: cli
 summary: >-
-  네이티브 설치가 권장 경로다. npm 설치는 레거시라 새로 깔 때 쓰지 않는다. 설치 후 문제가 생기면 추측하기 전에 claude doctor 를 먼저 돌린다.
+  네이티브 설치가 권장 경로. npm 설치는 새로 깔 때 비권장 레거시. 문제 발생 시 추측 전에 claude doctor 먼저.
 source:
   url: https://code.claude.com/docs/en/setup
   checked_at: "2026-08-13"

@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: modal
 title: 외부 컴퓨트 (Modal)
-icon: ☁
 group: compute
 order: 190
 sheet: science
 summary: >-
-  외부 컴퓨트로 실행을 넘긴다. 과금이 붙는 경로다.
+  외부 컴퓨트로 실행 위임. 과금이 붙는 경로.
 source:
   url: ""
   checked_at: "2026-08-13"

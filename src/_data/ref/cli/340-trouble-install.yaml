@@ -1,7 +1,6 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: trouble-install
 title: 트러블슈팅 — 설치
-icon: 🛠
 group: trouble
 order: 340
 sheet: cli

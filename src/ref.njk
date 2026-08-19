@@ -23,13 +23,13 @@ permalink: /ref/index.html
 </ul>
 
 <h2 id="all">전체 목차</h2>
-<p class="lede">검색이 안 잡히는 것도 여기서는 눈으로 훑을 수 있다.</p>
+<p class="prose">검색이 안 잡히는 것도 여기서는 눈으로 훑을 수 있다.</p>
 {%- for s in refIndex.surfaces %}
 <h3>{{ s.label }}</h3>
 <ul class="cards">
   {%- for sec in s.sections %}
   <li><a class="card" href="/ref/{{ s.id }}/#sec-{{ sec.id }}">
-    <span class="t">{{ sec.icon }} {{ sec.title }}</span>
+    <span class="t">{{ sec.title }}</span>
     <span class="n">{{ sec.items | count }}개</span>
   </a></li>
   {%- endfor %}

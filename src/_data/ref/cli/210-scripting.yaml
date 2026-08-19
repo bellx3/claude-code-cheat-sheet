@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: scripting
 title: 자동화 스크립팅
-icon: 🟣
 group: automate
 order: 210
 sheet: cli
 summary: >-
-  대화형이 아니라 한 번 돌고 끝나는 실행. 권한 모드·출력 형식·상한 셋을 반드시 같이 정한다.
+  대화형이 아니라 한 번 돌고 끝나는 실행. 권한 모드·출력 형식·상한 셋을 반드시 함께 설정.
 source:
   url: https://code.claude.com/docs/en/headless
   checked_at: "2026-08-13"

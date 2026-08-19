@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: three-tabs
 title: 세 가지 탭
-icon: 🟣
 group: start
 order: 20
 sheet: desktop
 summary: >-
-  탭마다 다루는 대상이 다르다. 지금 어느 탭에 있는지가 쓸 수 있는 기능을 결정한다.
+  탭마다 다루는 대상이 별개. 현재 탭 위치가 사용 가능 기능을 결정.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

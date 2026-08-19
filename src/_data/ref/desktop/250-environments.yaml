@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: environments
 title: 환경 종류
-icon: 🖧
 group: control
 order: 250
 sheet: desktop
 summary: >-
-  로컬·클라우드·자체 호스팅 중 어디서 도는지가 접근 가능한 자원을 정한다.
+  로컬·클라우드·자체 호스팅 중 실행 위치가 접근 가능 자원 결정.
 source:
   url: https://code.claude.com/docs/en/cloud-environments
   checked_at: "2026-08-13"

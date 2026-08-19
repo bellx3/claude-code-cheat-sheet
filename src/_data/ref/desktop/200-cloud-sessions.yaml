@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: cloud-sessions
 title: 클라우드 세션 & 이어가기
-icon: ☁
 group: run
 order: 200
 sheet: desktop
 summary: >-
-  실행을 웹으로 올려 기기를 닫아도 계속 돌린다.
+  실행을 웹으로 올려 기기를 닫아도 계속 진행.
 source:
   url: https://code.claude.com/docs/en/cloud-environments
   checked_at: "2026-08-13"

@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: slash-commands
 title: 슬래시 명령어 전체 참조
-icon: ⌨
 group: start
 order: 40
 sheet: cli
 summary: >-
-  세션 안에서 치는 명령. 대화 흐름을 끊지 않고 상태를 바꾸거나 확인할 때 쓴다.
+  세션 안에서 치는 명령. 대화 흐름을 끊지 않고 상태를 바꾸거나 확인할 때 사용.
 source:
   url: https://code.claude.com/docs/en/commands
   checked_at: "2026-08-13"

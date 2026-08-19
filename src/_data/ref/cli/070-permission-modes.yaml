@@ -1,13 +1,12 @@
 id: permission-modes
 title: 권한 모드 (Shift+Tab)
-icon: 🔐
 group: control
 order: 70
 sheet: cli
 aliases: [권한모드, 권한 모드, permission mode, 승인, 자동승인]
 summary: >-
-  세션 도중 Shift+Tab 으로 순환 전환한다. 시작할 때 고정하려면 --permission-mode.
-  모드는 "무엇을 물어보는가"만 정하고, "무엇을 할 수 있는가"는 allow/deny 규칙과 샌드박스가 따로 정한다.
+  세션 도중 Shift+Tab 으로 순환 전환. 시작할 때 고정하려면 --permission-mode.
+  모드는 "무엇을 물어보는가"만 결정, "무엇을 할 수 있는가"는 allow/deny 규칙과 샌드박스가 별도 결정.
 source:
   url: https://code.claude.com/docs/en/permission-modes
   checked_at: "2026-08-13"

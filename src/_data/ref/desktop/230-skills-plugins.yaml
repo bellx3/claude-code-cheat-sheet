@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: skills-plugins
 title: 스킬 & 플러그인
-icon: 🧰
 group: extend
 order: 230
 sheet: desktop
 summary: >-
-  앱에서 스킬·플러그인을 관리한다. CLI 와 같은 파일 체계를 쓴다.
+  앱에서 스킬·플러그인 관리. CLI 와 같은 파일 체계 사용.
 source:
   url: https://code.claude.com/docs/en/skills
   checked_at: "2026-08-13"

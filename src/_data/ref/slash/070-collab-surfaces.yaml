@@ -1,12 +1,11 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: collab-surfaces
 title: 협업 & 다른 서피스로
-icon: 🔀
 group: extend
 order: 70
 sheet: slash
 summary: >-
-  다른 서피스(웹·데스크톱)로 작업을 넘기거나 가져온다.
+  다른 서피스(웹·데스크톱)로 작업을 넘기거나 가져오는 축.
 source:
   url: https://code.claude.com/docs/en/commands
   checked_at: "2026-08-13"

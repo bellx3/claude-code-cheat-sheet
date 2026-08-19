@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: cloud-storage
 title: 클라우드 스토리지 (S3/GCS/Azure)
-icon: 🗄
 group: connect
 order: 210
 sheet: science
 summary: >-
-  S3·GCS·Azure 버킷을 붙인다.
+  S3·GCS·Azure 버킷 연결.
 source:
   url: ""
   checked_at: "2026-08-13"

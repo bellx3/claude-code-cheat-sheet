@@ -34,7 +34,7 @@ eleventyExcludeFromCollections: true
 </div>
   {%- for sec in s.sections %}
 <section class="section" id="p-{{ s.id }}-{{ sec.id }}">
-  <h2>{{ sec.icon }} {{ sec.title }}</h2>
+  <h2>{{ sec.title }}</h2>
   {%- if sec.summary %}<p class="summary">{{ sec.summary }}</p>{% endif %}
   {%- for it in sec.items %}
     {%- set it = it %}

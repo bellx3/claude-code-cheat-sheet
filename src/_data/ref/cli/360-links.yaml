@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: links
 title: 참고 링크
-icon: 🔗
 group: trouble
 order: 360
 sheet: cli
 summary: >-
-  판정 근거가 되는 1차 출처. 이 사이트 내용과 어긋나면 이쪽이 맞다.
+  판정 근거가 되는 1차 출처. 이 사이트 내용과 어긋나면 이쪽이 맞음.
 source:
   url: https://code.claude.com/docs/en/overview
   checked_at: "2026-08-13"

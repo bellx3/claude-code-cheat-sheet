@@ -1,12 +1,11 @@
 # legacy/cheatsheet-science.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: glossary
 title: 핵심 개념 (용어집)
-icon: 📚
 group: start
 order: 50
 sheet: science
 summary: >-
-  이 제품 고유의 용어들. 다른 Claude 제품과 이름이 겹쳐도 뜻이 다를 수 있다.
+  이 제품 고유의 용어들. 다른 Claude 제품과 이름이 겹쳐도 뜻은 다를 수 있음.
 source:
   url: ""
   checked_at: "2026-08-13"

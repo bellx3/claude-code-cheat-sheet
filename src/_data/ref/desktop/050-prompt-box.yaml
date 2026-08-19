@@ -1,7 +1,6 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: prompt-box
 title: 프롬프트 박스
-icon: 🖊
 group: start
 order: 50
 sheet: desktop

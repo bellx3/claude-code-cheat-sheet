@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: mcp
 title: MCP & 고급 파이프라인
-icon: 🔴
 group: extend
 order: 190
 sheet: cli
 summary: >-
-  외부 서비스와 내 도구를 붙이는 표준 통로. 직접 만들기 전에 커넥터·플러그인부터 찾는 편이 빠르다.
+  외부 서비스와 내 도구를 붙이는 표준 통로. 직접 만들기 전에 커넥터·플러그인부터 찾는 편이 빠름.
 source:
   url: https://code.claude.com/docs/en/mcp
   checked_at: "2026-08-13"

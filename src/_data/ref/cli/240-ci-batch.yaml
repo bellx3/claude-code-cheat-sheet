@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: ci-batch
 title: CI 연동 & 배치 처리
-icon: 🟤
 group: automate
 order: 240
 sheet: cli
 summary: >-
-  CI 에서 돌릴 때는 결과를 파싱 가능한 형식으로 받고, 실패가 조용히 지나가지 않게 한다.
+  CI 에서 돌릴 때는 결과를 파싱 가능한 형식으로, 실패는 조용히 지나가지 않게.
 source:
   url: https://code.claude.com/docs/en/github-actions
   checked_at: "2026-08-13"

@@ -1,7 +1,6 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: network-data
 title: 네트워크 & 데이터 처리
-icon: 🔒
 group: enterprise
 order: 270
 sheet: desktop

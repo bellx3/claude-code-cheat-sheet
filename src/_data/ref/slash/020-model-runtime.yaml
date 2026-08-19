@@ -1,12 +1,11 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: model-runtime
 title: 모델 & 실행 설정
-icon: 🎛
 group: session
 order: 20
 sheet: slash
 summary: >-
-  모델·추론 강도를 세션 안에서 바꾼다.
+  모델·추론 강도를 세션 안에서 변경.
 source:
   url: https://code.claude.com/docs/en/model-config
   checked_at: "2026-08-13"

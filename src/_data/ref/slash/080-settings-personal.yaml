@@ -1,12 +1,11 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: settings-personal
 title: 설정 & 개인화
-icon: ⚙
 group: session
 order: 80
 sheet: slash
 summary: >-
-  설정과 개인화. 대부분 설정 파일에도 같은 항목이 있다.
+  설정과 개인화. 대부분 설정 파일에도 같은 항목 존재.
 source:
   url: https://code.claude.com/docs/en/settings
   checked_at: "2026-08-13"

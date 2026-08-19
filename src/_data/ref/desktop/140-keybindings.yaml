@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: keybindings
 title: 키보드 단축키 전체
-icon: ⌨️
 group: start
 order: 140
 sheet: desktop
 summary: >-
-  데스크톱 전용 단축키. 터미널 CLI 와 같은 키가 다른 동작일 수 있다.
+  데스크톱 전용 단축키. 터미널 CLI 와 같은 키라도 동작이 다를 수 있음.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

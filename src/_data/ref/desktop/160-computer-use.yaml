@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: computer-use
 title: Computer Use
-icon: 🖱
 group: extend
 order: 160
 sheet: desktop
 summary: >-
-  실제 데스크톱을 조작한다. 샌드박스 안의 Bash 와는 신뢰 경계가 다르다.
+  실제 데스크톱 조작. 샌드박스 안의 Bash 와는 신뢰 경계가 별개.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

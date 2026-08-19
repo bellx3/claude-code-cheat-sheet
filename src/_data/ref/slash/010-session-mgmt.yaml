@@ -1,12 +1,11 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: session-mgmt
 title: 세션 & 대화 관리
-icon: 💬
 group: session
 order: 10
 sheet: slash
 summary: >-
-  대화 자체를 다루는 명령들. 작업이 바뀌면 이어가지 말고 자르는 편이 낫다.
+  대화 자체를 다루는 명령들. 작업이 바뀌면 이어가지 말고 자르는 편이 나음.
 source:
   url: https://code.claude.com/docs/en/commands
   checked_at: "2026-08-13"

@@ -1,12 +1,11 @@
 # legacy/cheatsheet-desktop.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: pr-monitor
 title: PR 모니터링
-icon: 🔀
 group: run
 order: 100
 sheet: desktop
 summary: >-
-  PR 상태를 앱 안에서 추적한다.
+  PR 상태를 앱 안에서 추적.
 source:
   url: https://code.claude.com/docs/en/desktop
   checked_at: "2026-08-13"

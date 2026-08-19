@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: advanced-slash
 title: 신규/고급 슬래시 명령어
-icon: ⌨
 group: start
 order: 130
 sheet: cli
 summary: >-
-  되돌리기·검토·백그라운드처럼 상태를 크게 바꾸는 명령들. /rewind 는 커밋하지 않은 변경도 되돌린다.
+  되돌리기·검토·백그라운드처럼 상태를 크게 바꾸는 명령들. /rewind 는 커밋하지 않은 변경도 되돌림.
 source:
   url: https://code.claude.com/docs/en/commands
   checked_at: "2026-08-13"

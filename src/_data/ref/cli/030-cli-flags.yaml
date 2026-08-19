@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: cli-flags
 title: CLI 플래그 전체 참조
-icon: 🚩
 group: start
 order: 30
 sheet: cli
 summary: >-
-  세션 시작 시 한 번 정하는 값들. 세션 안에서 바꿀 수 있는 것은 같은 이름의 슬래시 명령으로도 있다(--model ↔ /model).
+  세션 시작 시 한 번 정하는 값들. 세션 안에서 바꿀 수 있는 것은 같은 이름의 슬래시 명령으로도 존재(--model ↔ /model).
 source:
   url: https://code.claude.com/docs/en/cli-reference
   checked_at: "2026-08-13"

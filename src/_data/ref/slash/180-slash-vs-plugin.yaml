@@ -1,7 +1,6 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: slash-vs-plugin
 title: 언제 슬래시 vs 플러그인
-icon: 🧭
 group: practice
 order: 180
 sheet: slash

@@ -1,12 +1,11 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
 id: performance
 title: 성능 & 리소스 관리
-icon: ⚪
 group: control
 order: 270
 sheet: cli
 summary: >-
-  느려졌다의 원인은 대개 컨텍스트가 찼거나, 작업이 바뀌었는데 이전 대화가 남아 있는 것이다.
+  속도 저하의 원인은 대개 컨텍스트 과다, 또는 작업 전환 후 이전 대화 잔존.
 source:
   url: https://code.claude.com/docs/en/costs
   checked_at: "2026-08-13"
