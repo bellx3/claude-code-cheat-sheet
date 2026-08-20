@@ -406,9 +406,17 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .cardgrid .section .summary + .item { border-top: none; }
 .cardgrid .item .anchor { position: absolute; right: 6px; top: 7px; float: none; }
 
-/* 이름 열은 그 카드에서 가장 긴 이름에 맞춰진다(max-content). 40% 를 넘지 못하게 막아
-   긴 이름 하나가 설명 열을 짓누르는 걸 방지한다. */
+/* 이름 열은 "카드 전체"가 한 열을 공유해야 설명 시작점이 행마다 흔들리지 않는다.
+   예전에는 .item 마다 그리드를 따로 만들어 열 폭이 행마다 달랐고(실측: 한 카드 안에서
+   50~149px 단차), 상한 15ch 는 `claude auth login` 같은 평범한 이름까지 두 줄로 꺾었다.
+   그래서 열의 정의를 카드(.section)에 두고 .item 이 subgrid 로 물려받는다 —
+   열 폭 = 그 카드의 가장 긴 이름, 상한 fit-content(35ch).
+   35ch 인 이유: ch 는 트랙이 정의된 요소(본문 폰트)의 0 폭 기준이라 칩의 모노 폰트
+   30자보다 좁게 잡힌다(실측: 32ch 에서 --dangerously-skip-permissions 30자가 꺾였다).
+   35ch 가 그 30자 + 칩 패딩(16px)을 덮는 실측치. 이걸 넘는 건 설치 curl 전문과
+   슬래시 복합 키 정도고 그건 꺾여도 정렬(단차 0)은 유지된다. */
 @media (min-width: 560px) {
+  /* subgrid 미지원 브라우저 폴백: 항목별 열(단차는 남지만 배치는 유지) */
   .cardgrid .item {
     display: grid;
     grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
@@ -419,7 +427,15 @@ pre code { background: none; padding: 0; font-size: inherit; }
   .cardgrid .item .term-label,
   .cardgrid .item .badge {
     grid-column: 1; grid-row: 1;
-    margin-bottom: 0; align-self: start; max-width: 15ch;
+    margin-bottom: 0; align-self: start; max-width: 30ch;
+  }
+  @supports (grid-template-columns: subgrid) {
+    .cardgrid .section { display: grid; grid-template-columns: fit-content(35ch) minmax(0, 1fr); }
+    .cardgrid .section > * { grid-column: 1 / -1; }
+    .cardgrid .item { grid-template-columns: subgrid; }
+    .cardgrid .item .term,
+    .cardgrid .item .term-label,
+    .cardgrid .item .badge { max-width: none; }
   }
 }
 
