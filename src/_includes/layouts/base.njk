@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='4' y='25' font-size='26' font-family='monospace' font-weight='bold' fill='%23b45309'>❯</text></svg>">
 </head>
-<body{% if wide or bodyClass %} class="{% if wide %}wide {% endif %}{{ bodyClass }}"{% endif %}>
+<body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 
 <header class="masthead">
   <div class="wrap">
-    <a class="brand" href="/ref/cli/"><b>❯ Claude</b> 참고자료</a>
+    <a class="brand" href="/ref/{{ refIndex.surfaces[0].id }}/"><b>❯ Claude</b> 참고자료</a>
     <span class="tagline">{{ site.tagline }}</span>
   </div>
 </header>

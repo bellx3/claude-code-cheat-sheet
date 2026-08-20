@@ -128,7 +128,6 @@ input:focus-visible {
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
 /* 카드 그리드 페이지(레퍼런스 서피스)만 판을 넓힌다. 한글 설명이 좁은 열에서 2~3줄로
    깨지는 걸 줄이려면 카드 폭이 필요하다. 머리말·푸터까지 같이 넓혀야 축이 맞는다. */
-@media (min-width: 1240px) { body.wide .wrap { max-width: 1340px; } }
 .prose { max-width: var(--measure); }
 .skip {
   position: absolute; left: -9999px; top: 0; z-index: 100;
@@ -204,32 +203,6 @@ input:focus-visible {
 .navsearch .pfx { color: var(--accent); font: 700 0.875rem/1 var(--font-mono); }
 @media (max-width: 640px) { .navsearch .ex { display: none; } }
 
-/* 하위 탭 (레퍼런스 서피스 등) */
-.subnav ul {
-  display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none;
-}
-.subnav a {
-  display: inline-flex; align-items: center; min-height: 40px;
-  padding: 0 14px; border: 1px solid var(--line); border-radius: 999px;
-  font-size: var(--fs-sm); text-decoration: none; color: var(--muted); background: var(--bg);
-  white-space: nowrap;
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--ease), background var(--ease), color var(--ease), box-shadow var(--ease), transform var(--ease);
-}
-.subnav a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
-.subnav a[aria-current="page"] {
-  background: var(--gradient-primary); border-color: transparent; color: #fff; font-weight: 600;
-  box-shadow: var(--shadow-md);
-}
-@media (prefers-color-scheme: dark) {
-  .subnav a[aria-current="page"] { color: #fff; }
-}
-
 /* ── 페이지 골격 ─────────────────────────────────────────── */
 main { padding: 20px 0 64px; }
 h1 { font-size: 1.5rem; margin: 0 0 6px; line-height: 1.3; font-weight: 800; }
@@ -249,19 +222,16 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
   padding-left: 16px;
 }
 /* 페이지 머리는 어느 페이지에서나 같은 순서다:
-   [.backlink 또는 .subnav] → h1 → .lede(한 개) → .pagemeta(선택) → 검색창 → 본문(.prose).
+   [.pagehead 또는 h1] → .lede(상세 페이지, 한 개) → .pagemeta(선택) → 본문(.prose).
    .lede 를 본문 문단에도 쓰면 "제목 바로 아래 한 줄"이라는 신호가 사라진다. 본문은 .prose 다. */
 .lede { color: var(--muted); margin: 0 0 4px; max-width: var(--measure); }
 .pagemeta { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
-.backlink { margin: 0 0 12px; font-size: var(--fs-sm); }
 
 /* 서피스 페이지 머리: 제목 좌측 · 치트시트 버튼 우측 (다운로드 허브의 이관처) */
 .pagehead { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 12px; }
 .pagehead h1 { margin: 0; }
 a.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
 .sheetbtn .n { font-size: 0.8125rem; color: var(--muted); font-weight: 400; }
-.backlink a { color: var(--accent2); text-decoration: none; }
-.backlink a:hover { text-decoration: underline; }
 p.prose { margin: 0 0 12px; }
 ul.prose { margin: 0 0 12px; padding-left: 20px; }
 ul.prose li { margin: 0 0 6px; }
@@ -488,14 +458,6 @@ pre code { background: none; padding: 0; font-size: inherit; }
   box-shadow: 0 0 0 4px var(--accent-soft), var(--shadow-md);
   transform: translateY(-1px);
 }
-.searchbox .hint { font-size: 0.8125rem; color: var(--muted); margin-top: 8px; }
-/* 힌트는 안내지 주인공이 아니다 — 테두리를 걷어내고 글자 자체로만 구분한다. */
-.searchbox kbd {
-  font-family: var(--font-mono); font-size: 0.8125rem; color: var(--fg);
-  background: var(--code-bg); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px;
-  box-shadow: var(--shadow-sm);
-}
-
 .results { margin: 12px 0 0; }
 .results .group { margin-bottom: 18px; }
 .results .group > h3 {
@@ -660,18 +622,6 @@ pre code { background: none; padding: 0; font-size: inherit; }
   font-size: 0.8125rem; color: var(--muted);
 }
 
-/* 카드 우상단에 보조 링크 하나를 얹을 때(공식문서 색인의 .md 원문 등).
-   <a class="card"> 안에 또 <a>를 넣으면 앵커 중첩이라 무효라, li 를 기준으로 절대배치한다. */
-.card-wrap { position: relative; }
-.card-wrap .card { padding-right: 42px; }
-.card-wrap .mdlink {
-  position: absolute; top: 10px; right: 10px;
-  padding: 2px 7px; border-radius: 5px;
-  font-size: 0.75rem; color: var(--muted); text-decoration: none;
-  background: var(--bg-soft); border: 1px solid var(--line);
-}
-.card-wrap .mdlink:hover { color: var(--accent); border-color: var(--accent); }
-
 /* ── 프롬프트 ────────────────────────────────────────────── */
 .prompt-body {
   position: relative; margin: 10px 0;
@@ -707,110 +657,6 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .tbl th.c-name { width: 30%; }
 .tbl th.c-md { width: 52px; }
 
-/* ── 홈 랜딩 (devdocs.io 2단 구조) ─────────────────────────
-   예전 홈은 가운데 정렬 히어로 + 검색창 하나였다. 조회하러 온 사람이 랜딩에서 처음
-   알아야 하는 건 "이 사이트에 뭐가 있는가"인데, 히어로는 그걸 한 글자도 안 알려줬다.
-   DevDocs 는 그 답을 사이드바 하나로 낸다 — 좌측에 전체 목록, 우측에 짧은 안내,
-   검색창은 목록 위. 그 구조를 그대로 가져왔다.
-   본문 폭 제한은 여기서만 푼다(body.app). 나머지 페이지는 읽는 문서라 .wrap 이 맞다. */
-body.app main.wrap { max-width: none; padding: 0; }
-.devlayout { display: grid; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 900px) {
-  .devlayout { grid-template-columns: 320px minmax(0, 1fr); }
-  /* .toc 와 같은 방식 — 문서 스크롤은 그대로 두고 사이드바만 따로 스크롤한다.
-     뷰포트 고정 앱 셸로 만들면 모바일 주소창 높이 변화에 계속 얻어맞는다. */
-  .sidebar {
-    position: sticky; top: calc(var(--tap) + 8px);
-    max-height: calc(100vh - var(--tap) - 24px); overflow-y: auto;
-    padding: 8px 18px 24px 16px;
-  }
-  /* 구분선은 sticky 인 사이드바가 아니라 본문 쪽에 건다 — 사이드바에 걸면 선이
-     100vh 에서 끊기고 그 아래로는 두 단 사이가 허공이 된다. */
-  .pane { padding: 8px 20px 56px 28px; min-width: 0; border-left: 1px solid var(--line); }
-}
-@media (max-width: 899px) {
-  .sidebar { padding: 0 16px; border-bottom: 2px solid var(--line); }
-  .pane { padding: 8px 16px 40px; }
-  /* 한 단으로 쌓이면 목차 149개가 본문 앞을 통째로 막는다(실측: 랜딩 높이 17,832px).
-     접어서 숨기지 않고 스크롤 박스에 가둔다 — 숨긴 내용은 Ctrl+F 에서 빠지지만
-     스크롤 컨테이너 안의 내용은 브라우저 찾기가 그대로 찾아준다. */
-  .tree[open] {
-    max-height: 45vh; overflow-y: auto;
-    border: 1px solid var(--line); border-radius: 8px; padding: 0 10px 10px;
-  }
-  .tree > summary { margin: 0 -10px; padding: 0 10px; position: sticky; top: 0; background: var(--bg); z-index: 1; }
-}
-.sidebar .searchbox { margin: 8px 0 6px; max-width: none; }
-.sidebar .hint { font-size: 0.75rem; line-height: 1.6; }
-.sidebar .results { margin: 8px 0 0; }
-/* 질의가 있으면 목차 대신 결과가 이 자리를 쓴다 — DevDocs 사이드바와 같은 교체 동작. */
-.sidebar[data-q="1"] .tree { display: none; }
-
-/* 스크롤 없이 닿는 층. DevDocs 사이드바 상단의 "쓰는 문서" 묶음 자리. */
-.areas { margin: 10px 0 0; font-size: var(--fs-sm); }
-.areas h2 {
-  margin: 0 0 2px; font-size: 0.75rem; font-weight: 700; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .04em;
-}
-.areas ul { list-style: none; margin: 0; padding: 0; }
-.areas li { padding: 4px 0; border-bottom: 1px solid var(--line); }
-.areas li:last-child { border-bottom: 0; }
-.areas a { display: block; font-weight: 700; color: var(--fg); text-decoration: none; }
-.areas a:hover { color: var(--accent); }
-.areas .blurb { display: block; font-size: 0.75rem; color: var(--muted); }
-.areas .n {
-  font: 600 0.6875rem/1 var(--font-mono); color: var(--muted);
-  background: var(--code-bg); border-radius: 4px; padding: 3px 5px; vertical-align: 2px;
-}
-
-.tree { margin: 14px 0 0; font-size: var(--fs-sm); border-top: 2px solid var(--line); }
-.tree-head {
-  margin: 12px 0 0 !important; font-size: 0.75rem !important; font-weight: 700 !important;
-  color: var(--muted); text-transform: uppercase; letter-spacing: .04em;
-}
-.tree-note { margin: 16px 0 0; font-size: 0.75rem; color: var(--muted); }
-@media (max-width: 899px) { .tree-head { display: none; } }
-.tree summary { min-height: var(--tap); display: flex; align-items: center; font-weight: 600; cursor: pointer; }
-/* `.tree > *` 로 뭉뚱그리면 summary 도 되살아난다 — `.tree[open] > *`(0,2,0)가
-   `.tree summary`(0,1,1)를 특이도로 이기기 때문. summary 는 명시적으로 빼야 한다. */
-@media (min-width: 900px) {
-  .tree > summary { display: none; }
-  .tree[open] > *:not(summary), .tree > *:not(summary) { display: revert; }
-}
-.tree-sec { margin: 0 0 20px; }
-.tree h2 { margin: 14px 0 2px; font-size: 0.9375rem; font-weight: 800; }
-.tree h2 a { color: var(--fg); text-decoration: none; }
-.tree h2 a:hover { color: var(--accent); }
-.tree h3 {
-  margin: 12px 0 2px; font-size: 0.75rem; font-weight: 700; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .04em;
-}
-.tree h3 a { color: inherit; text-decoration: none; }
-.tree h3 a:hover { color: var(--accent); }
-.tree .n {
-  font: 600 0.6875rem/1 var(--font-mono); color: var(--muted);
-  background: var(--code-bg); border-radius: 4px; padding: 3px 5px; vertical-align: 2px;
-}
-.tree .blurb { margin: 0 0 4px; font-size: 0.75rem; color: var(--muted); }
-.tree ul { list-style: none; margin: 0; padding: 0; }
-.tree li a {
-  display: block; padding: 5px 8px; border-radius: 6px;
-  color: var(--muted); text-decoration: none;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.tree li a:hover { background: var(--bg-soft); color: var(--fg); }
-
-/* 오리엔테이션 본문. 「알아둘 네 가지」는 DevDocs Welcome 의 4줄에 대응하는 자리다. */
-.pane > h1 { margin-top: 12px; }
-.pane .lede { font-size: 1.0625rem; }
-.know { margin: 10px 0 0; padding-left: 22px; max-width: var(--measure); }
-.know li { margin: 0 0 12px; color: var(--muted); }
-.know li b { color: var(--fg); }
-.know kbd {
-  font-family: var(--font-mono); font-size: 0.8125rem; color: var(--fg);
-  background: var(--code-bg); border-radius: 4px; padding: 1px 5px;
-}
-
 /* ── 착지 하이라이트 ──────────────────────────────────────── */
 :target { background: var(--hl); }
 :target .term { text-decoration: underline; }
@@ -828,7 +674,7 @@ footer.site .stale { color: var(--danger); font-weight: 600; }
 
 /* 화면용 페이지를 인쇄하면 nav류는 뺀다. A3 시트는 별도 경로(/print/)다. */
 @media print {
-  .topnav, .subnav, .searchbox, .results, .skip, footer.site { display: none; }
+  .topnav, .searchbox, .results, .skip, footer.site { display: none; }
   .section { content-visibility: visible; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.75em; color: #666; }
 }

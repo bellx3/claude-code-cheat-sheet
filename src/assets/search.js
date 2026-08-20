@@ -7,8 +7,9 @@
      MiniSearch  복합명사 중간 일치를 놓침 ('서브에이전트'에서 '에이전트' → 3건, 정답 8건)
    부분문자열은 조사·대시·점·중간일치를 전부 맞히고 5,030건에서도 질의당 0.21ms였다.
 
-   구조는 랭커 1개 + 마운트 2개다. 인라인 검색창(#q, 허브 페이지)과 전역 팔레트(#pq, 모든
-   페이지)가 같은 search()/render()를 쓴다 — 검색 UI를 둘로 갈라 두면 랭킹이 조용히 갈라진다.
+   구조는 랭커 1개 + 마운트 1개다. 2026-08-20 개편으로 인라인 검색창이 사라져 전역
+   팔레트(#pq)만 남았다 — 검색 UI를 다시 늘리게 되면 반드시 같은 search()/render()를
+   쓸 것. 갈라 두면 랭킹이 조용히 갈라진다.
    인덱스(251KB)는 파싱 시점이 아니라 필요한 순간에 주입한다. */
 (function () {
   "use strict";
@@ -134,7 +135,7 @@
       // 0건에서 끝내면 막다른 길이다. 30초 안에 못 찾았을 때의 탈출구가 검색 UX의 절반이다.
       out.innerHTML =
         '<div class="empty">「' + esc(q) + '」 일치 없음.' +
-        ' <a href="/ref/cli/">레퍼런스 목차</a>를 훑거나' +
+        ' <a href="/">레퍼런스 목차</a>를 훑거나' +
         ' <a href="https://code.claude.com/docs" rel="noopener">공식 문서에서 검색 ↗</a>' +
         '<br><span class="s">치트시트에 없는 주제일 수 있습니다. 이 사이트가 다루는 범위는 ' +
         (IDX ? IDX.length : 0) + '개 항목입니다.</span></div>';
@@ -200,7 +201,7 @@
       ensureIndex(function (ok) {
         if (!ok) {
           out.innerHTML = '<div class="empty">검색 인덱스를 불러오지 못했습니다. ' +
-            '<a href="/ref/cli/">레퍼런스 목차</a>로 찾으세요.</div>';
+            '<a href="/">레퍼런스 목차</a>로 찾으세요.</div>';
           return;
         }
         draw();
@@ -232,11 +233,6 @@
     return { input: input, out: out, run: run, reset: reset };
   }
 
-  // 인라인 검색창의 host — 랜딩의 사이드바처럼 "질의가 있으면 목차를 접고 결과를 보이는"
-  // 컨테이너가 있으면 그것을 넘긴다(data-search-host). 없으면 null 이고 동작은 예전 그대로다.
-  var qBox = document.getElementById("q");
-  var inlineHost = qBox && qBox.closest ? qBox.closest("[data-search-host]") : null;
-  var inline = mount(qBox, document.getElementById("results"), inlineHost);
   var palette = document.getElementById("palette");
   var pal = mount(document.getElementById("pq"), document.getElementById("presults"), palette);
   var keyhelp = document.getElementById("keyhelp");
@@ -248,15 +244,8 @@
   }
 
   // ── 전역 키보드 ──────────────────────────────────────────
-  // 규칙 하나: "검색 키는 이 페이지에서 쓸 수 있는 검색 입력으로 데려간다."
-  // 허브 페이지엔 인라인 검색창이 있으니 그리로, 나머지 29개 페이지에선 팔레트를 연다.
-  // 한 페이지에 검색 UI가 두 개 열리는 상황을 만들지 않는다.
+  // 검색 진입점(/, Ctrl+K, #navsearch)은 전부 팔레트 하나로 모인다.
   function focusSearch() {
-    if (inline) {
-      inline.input.focus();
-      if (inline.input.select) inline.input.select();
-      return;
-    }
     if (!pal) return;
     // 지난 질의를 남겨두면 다시 열었을 때 낡은 결과가 한 프레임 스친다.
     // 닫힘(close 이벤트)이 아니라 열림에서 비운다 — close 는 브라우저마다 타이밍이 다르고,
@@ -310,20 +299,5 @@
   }
   if (keyhelp && keyhelp.addEventListener) {
     keyhelp.addEventListener("click", function (e) { if (e.target === keyhelp) keyhelp.close(); });
-  }
-
-  // ?q=... 로 들어오면 바로 검색한다
-  var pq = new URLSearchParams(location.search).get("q");
-  if (pq && inline) {
-    inline.input.value = pq;
-    inline.run();
-  } else if (inline && window.requestIdleCallback && window.addEventListener) {
-    // 인라인 검색창이 있는 페이지 = 검색이 주 동작인 허브 페이지. 미리 받아둔다.
-    // load 이후로 미루는 이유: requestIdleCallback 만 걸면 DOMContentLoaded 이전의 유휴
-    // 구간에서도 발화해 251KB가 첫 렌더와 대역폭을 다툰다(실측: indexStart 320ms < DCL 331ms).
-    // 리프 페이지에는 이 줄 자체가 걸리지 않으므로 251KB를 아예 받지 않는다.
-    window.addEventListener("load", function () {
-      window.requestIdleCallback(function () { ensureIndex(null); }, { timeout: 3000 });
-    });
   }
 })();
