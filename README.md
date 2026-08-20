@@ -31,8 +31,9 @@ tools/                           추출·게이트·PDF·감시봇
 legacy/                          이관 전 HTML·PDF·README (읽기 전용, 대조용)
 ```
 
-사이트 탭: `/ref/cli/` `/ref/desktop/` `/ref/slash/` `/ref/science/` — 상위 탭이 곧 레퍼런스
-서피스다(2026-08-20 개편. `/`는 첫 탭으로 리다이렉트). 작업·프롬프트 상세와 `/about/`은 검색으로,
+사이트 탭: `/ref/desktop/` `/ref/science/` `/ref/cli/` `/ref/slash/` — 상위 탭이 곧 레퍼런스
+서피스이고 순서는 `tools/constants.mjs` 의 `SURFACES` 가 정한다(2026-08-20 개편.
+`/`는 첫 탭으로 리다이렉트). 작업·프롬프트 상세와 `/about/`은 검색으로,
 A3 치트시트는 각 탭의 버튼(`/print/sheet/<id>/`)으로 닿는다. 옛 허브 페이지(작업·레퍼런스·프롬프트·
 공식문서·다운로드)는 삭제했다. 탭은 JS 토글이 아니라 **각각 별도 URL**이다 — 숨긴 콘텐츠는
 브라우저 Ctrl+F에서 빠지기 때문.

@@ -47,11 +47,12 @@ tools/                           extraction, gates, PDF pipeline, doc-watch bot
 legacy/                          pre-migration HTML/PDF/README, read-only, kept for diffing against
 ```
 
-Site tabs are the four ref surfaces (`/ref/cli/` `/ref/desktop/` `/ref/slash/` `/ref/science/`), rendered
-straight from `refIndex.surfaces` — there is no nav data file to keep in sync. They are separate URLs, not
+Site tabs are the four ref surfaces (`/ref/desktop/` `/ref/science/` `/ref/cli/` `/ref/slash/` — the
+order of `SURFACES` in tools/constants.mjs is the tab order), rendered straight from `refIndex.surfaces` —
+there is no nav data file to keep in sync. They are separate URLs, not
 JS-toggled panels — hidden content breaks browser Ctrl+F, which is the whole point of a reference site.
 The 2026-08-20 restructure deleted the landing and the five hub pages (`/task/` `/ref/` `/prompts/`
-`/docs/` `/download/`): `/` is now a layout-less redirect to `/ref/cli/`, task/prompt detail pages and
+`/docs/` `/download/`): `/` is a layout-less redirect to the first tab, task/prompt detail pages and
 `/about/` are reached through search, official docs land on their external URLs, and the A3 sheets moved
 to a per-surface button (`/print/sheet/<id>/`) plus a `/print/` link in the footer. Don't reintroduce a
 hub link without also restoring its page — G12 catches the broken href, and stale rows in
@@ -102,17 +103,17 @@ on `class="toc"`.
 
 ### Search (src/assets/search.js)
 
-One ranker, one visible mount since 2026-08-20: the palette (`#pq`, in `partials/palette.njk`, on every
-page), opened by `/`, `Ctrl+K`, or the header `#navsearch` trigger. The inline-box mount (`#q`) still
-exists in search.js but no page renders one — if you add one back, it shares `search()`/`render()` with
-the palette by construction; never fork the ranker, `tools/search-test.mjs` only executes one of them.
-Result lists group by type (task → hub → prompt → ref → doc), so the flat DOM order of `.hit` links is
-NOT the raw ranking — the corpus in `tools/search-cases.json` tests raw `search()` order.
+One ranker, one mount since 2026-08-20: the palette (`#pq`, in `partials/palette.njk`, on every page),
+opened by `/`, `Ctrl+K`, or the header `#navsearch` trigger. The old inline-box mount (`#q`) and the
+`?q=` deep-link path were removed with the hub pages — if you ever add a second search UI, it must share
+`search()`/`render()` with the palette; never fork the ranker, `tools/search-test.mjs` only executes one
+of them. Result lists group by type (task → hub → prompt → ref → doc), so the flat DOM order of `.hit`
+links is NOT the raw ranking — the corpus in `tools/search-cases.json` tests raw `search()` order.
 
 `search-index.js` (251 KB raw / 64 KB gzip) is **not** referenced from `base.njk`. It used to be a
 blocking `<script>` on every page. It is now injected on demand — palette open or `#navsearch`
 hover/click — so leaf pages never download it at rest. Don't put the tag back; the leaf-page measurement
-was 405 KB → 163 KB. (`?q=` deep links stopped doing anything when the inline boxes went away.)
+was 405 KB → 163 KB.
 
 `tools/search-test.mjs` runs the built `search.js` in a VM against a stub DOM, so the file must keep
 ending in `})();` and must not touch anything beyond `getElementById`/`addEventListener` at parse time.
