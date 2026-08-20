@@ -25,6 +25,18 @@ items:
     kind: value
     tier: full
     desc: "slack 모니터링: sentry"
+  - id: explanatory-output-style
+    term: explanatory-output-style
+    kind: value
+    tier: full
+    desc: 구현 선택의 이유를 설명해주는 출력 스타일
+    subhead: 출력 스타일
+  - id: learning-output-style
+    term: learning-output-style
+    kind: value
+    tier: full
+    desc: 대화형 학습 모드 출력 스타일
+    subhead: 출력 스타일
   - id: security-guidance
     term: security-guidance
     kind: value

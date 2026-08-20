@@ -8,7 +8,7 @@ summary: >-
   손이 기억하면 가장 빨라지는 것들. Shift+Tab(권한 모드)과 Esc(중단) 둘만 익혀도 체감 큼.
 source:
   url: https://code.claude.com/docs/en/interactive-mode
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-20"
 items:
   - id: ctrl-c
     term: Ctrl+C
@@ -35,16 +35,49 @@ items:
     kind: shortcut
     tier: core
     desc: 작업(task) 목록 토글
+  - id: ctrl-b
+    term: Ctrl+B
+    kind: shortcut
+    tier: core
+    desc: 실행 중 작업을 백그라운드로 (tmux는 2회)
+  - id: ctrl-x-ctrl-k
+    term: Ctrl+X Ctrl+K
+    kind: shortcut
+    tier: core
+    desc: 백그라운드 서브에이전트 전부 중단 (3초 내 2회)
+  - id: ctrl-s
+    term: Ctrl+S
+    kind: shortcut
+    tier: core
+    desc: 프롬프트 보관 · 빈 입력에서 다시 누르면 복원
+  - id: ctrl-v-alt-v
+    term: Ctrl+V / Alt+V
+    kind: shortcut
+    tier: core
+    desc: 클립보드 이미지 붙여넣기
+  - id: ctrl-l
+    term: Ctrl+L
+    kind: shortcut
+    tier: core
+    desc: 화면 다시 그리기 (풀스크린에서 2회=/clear)
+  - id: ctrl-z
+    term: Ctrl+Z
+    kind: shortcut
+    tier: core
+    desc: 프로세스 일시 중지 (Unix, fg 로 복귀)
   - id: ctrl-g
     term: Ctrl+G
     kind: shortcut
     tier: core
-    desc: plan 모드 결과를 편집기로 열기
+    desc: 프롬프트/응답을 기본 편집기로 열기
+    detail: |
+      readline 식 `Ctrl+X Ctrl+E` 도 같은 동작이다. `/config` 에서
+      **Show last response in external editor** 를 켜면 직전 응답이 `#` 주석으로 함께 열린다.
   - id: esc
     term: Esc
     kind: shortcut
     tier: core
-    desc: 응답/도구 호출 중단
+    desc: 응답·도구 호출 중단, 대화상자 닫기
   - id: esc-esc
     term: Esc Esc
     kind: shortcut
@@ -55,6 +88,9 @@ items:
     kind: shortcut
     tier: core
     desc: 권한 모드 순환 전환
+    detail: |
+      Windows 에서 런타임이 VT 입력 모드를 못 켜면 `Alt+M` 이 같은 역할을 한다.
+      순환 순서는 Manual(default) → acceptEdits → plan → (가능하면) bypassPermissions → auto.
   - id: alt-p-option-p
     term: Alt+P / Option+P
     kind: shortcut

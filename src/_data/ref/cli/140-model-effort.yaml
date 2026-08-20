@@ -8,13 +8,17 @@ summary: >-
   작업 난이도에 맞춰 비용을 조절하는 축. 단순 반복에 최고 강도 불필요.
 source:
   url: https://code.claude.com/docs/en/model-config
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-20"
 items:
   - id: model-sonnet-opus-haiku-fable
     term: "--model sonnet/opus/haiku/fable"
     kind: flag
     tier: core
-    desc: 모델 별칭 지정
+    desc: 별칭 전체 — default·best·fable·sonnet·opus·haiku·sonnet[1m]·opus[1m]·opusplan
+    detail: |
+      `default` 는 오버라이드 해제(계정 기본으로 복귀), `best` 는 조직에 Fable 5 가 있으면
+      Fable, 없으면 최신 Opus. `[1m]` 접미사는 100만 토큰 컨텍스트 창,
+      `opusplan` 은 plan 모드에서 opus·실행에서 sonnet 을 쓰는 혼합 모드다.
   - id: model-claude-sonnet-5
     term: "--model claude-sonnet-5"
     kind: flag
@@ -24,7 +28,12 @@ items:
     term: "--effort <level>"
     kind: flag
     tier: core
-    desc: low~max, ultracode 중 설정
+    desc: low·medium·high·xhigh·max — 기본 high, max 는 세션 한정
+    detail: |
+      모델이 지원 안 하는 레벨을 주면 그 아래 최고 지원 레벨로 폴백한다.
+      low~xhigh 는 대화형 세션에서 설정하면 세션 간 유지되고, `max` 는
+      `CLAUDE_CODE_EFFORT_LEVEL` 환경변수로 주지 않는 한 현재 세션에만 적용된다.
+      (ultracode 는 effort 레벨이 아니라 워크플로 오케스트레이션 키워드다 — 2026-08-20 정정)
   - id: advisor-opus
     term: "--advisor opus"
     kind: flag

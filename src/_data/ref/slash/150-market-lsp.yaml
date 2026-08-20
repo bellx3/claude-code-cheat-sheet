@@ -8,7 +8,7 @@ summary: >-
   언어 서버를 붙여 코드 인텔리전스를 얹는 계열.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-20"
 items:
   - id: c-c
     term: C/C++
@@ -35,6 +35,11 @@ items:
     kind: value
     tier: core
     desc: kotlin-lsp
+  - id: lua
+    term: Lua
+    kind: value
+    tier: core
+    desc: lua-lsp
   - id: php
     term: PHP
     kind: value

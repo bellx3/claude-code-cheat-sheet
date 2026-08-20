@@ -14,7 +14,7 @@ items:
     term: /desktop
     kind: command
     tier: core
-    desc: 세션을 데스크톱 앱으로 이동
+    desc: 세션을 데스크톱 앱으로 이동 (별칭 /app)
   - id: mobile
     term: /mobile
     kind: command
