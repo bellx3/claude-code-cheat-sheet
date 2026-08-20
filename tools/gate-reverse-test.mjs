@@ -85,8 +85,9 @@ const CASES = [
   {
     gate: "G10",
     what: "목차 표시(data-toc) 없이 본문을 <details> 로 접는다",
-    file: "src/index.njk",
-    edit: (t) => t.replace('<details class="tree" data-toc open>', '<details class="tree" open>'),
+    // 2026-08-20 개편으로 랜딩의 .tree 가 사라졌다 — 남은 접기 목차는 서피스 페이지의 .toc 다.
+    file: "src/ref-surface.njk",
+    edit: (t) => t.replace('<details class="toc" data-toc open>', '<details class="toc" open>'),
     pre: false,
   },
   {
@@ -99,8 +100,9 @@ const CASES = [
   {
     gate: "G12",
     what: "존재하지 않는 내부 링크를 넣는다",
-    file: "src/index.njk",
-    edit: (t) => t.replace('<a href="/about/">', '<a href="/about-does-not-exist/">'),
+    // 2026-08-20 개편으로 랜딩이 리다이렉트 페이지가 됐다 — 모든 페이지가 지나는 푸터에 심는다.
+    file: "src/_includes/layouts/base.njk",
+    edit: (t) => t.replace('<a href="/about/">출처·라이선스</a>', '<a href="/about-does-not-exist/">출처·라이선스</a>'),
     pre: false,
   },
 ];

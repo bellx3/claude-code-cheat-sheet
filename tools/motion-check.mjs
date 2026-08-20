@@ -46,7 +46,8 @@ const evalx = async (expression) => {
 };
 
 let bad = 0;
-for (const [path, sel] of [["/ref/cli/", ".section"], ["/ref/science/", ".section"], ["/ref/desktop/", ".section"], ["/task/", ".cards > li"], ["/ref/", ".cards > li"], ["/docs/", ".cards > li"]]) {
+// 허브 페이지(.cards 다량)는 2026-08-20 개편으로 사라졌다 — 카드가 많은 남은 페이지는 서피스 4개다.
+for (const [path, sel] of [["/ref/cli/", ".section"], ["/ref/science/", ".section"], ["/ref/desktop/", ".section"], ["/ref/slash/", ".section"]]) {
   await send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false }, sessionId);
   await send("Page.navigate", { url: `http://127.0.0.1:${port}${path}` }, sessionId);
   await new Promise((r) => setTimeout(r, 1200));

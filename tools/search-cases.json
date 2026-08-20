@@ -107,8 +107,8 @@
    "want": "/prompts/pre-commit-risk-scan/"
   },
   {
-   "q": "프롬프트 복사",
-   "want": "/prompts/"
+   "q": "프롬프트",
+   "wantPrefix": "/prompts/"
   },
   {
    "q": "hooks",
@@ -152,7 +152,7 @@
   },
   {
    "q": "a3 인쇄",
-   "want": "/download/",
+   "wantPrefix": "/print/sheet/",
    "holdout": true
   },
   {
@@ -167,5 +167,6 @@
   }
  ],
  "_holdout_note": "holdout=true 인 케이스는 랭커 튜닝을 끝낸 뒤 추가했다. 이쪽 통과율이 진짜 성능에 가깝다.",
+ "_restructure_note": "2026-08-20 탭 개편으로 허브 페이지(/prompts/, /download/ 등)가 삭제됐다. 착지가 사라진 2건을 재지정: 「프롬프트 복사」→「프롬프트」 wantPrefix /prompts/ (「복사」 어휘는 삭제된 허브 행에만 있었다 — 프롬프트 상세로 착지), 「a3 인쇄」 want /download/ → wantPrefix /print/sheet/ (치트시트 인쇄 페이지가 다운로드 기능의 이관처). 같은 날 「샌드박스」 실패는 개편과 무관 — 직전 커밋(d0833ad)의 신규 작업 summary 가 순위를 밀어낸 것으로, 랭커의 한글 설명 보너스를 복수 토큰 질의로 한정해 고쳤다(단일 명사는 조회다).",
  "_first_holdout_run": "2026-08-13 최초 holdout 7/10 (70%). 기록: tools/search-report-first-holdout.json. 이후 실패 3건 중 2건은 기대값 오류(같은 섹션 인접 항목이 맞는 착지)로 wantPrefix로 정정, 1건(슬럼)은 진짜 실패라 데이터에 alias를 넣어 고쳤다."
 }

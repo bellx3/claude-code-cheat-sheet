@@ -9,7 +9,7 @@ export const SURFACES = [
   { id: "cli", label: "Claude Code CLI", blurb: "터미널에서 쓰는 본체. 설치·플래그·권한·훅·자동화.",
     print: { columns: 4, fontPx: 10.5 } },
   { id: "desktop", label: "Claude Desktop", blurb: "데스크톱 앱의 Code 탭. 브라우저 pane·diff 리뷰·워크스페이스.",
-    print: { columns: 3, fontPx: 11 } },
+    print: { columns: 3, fontPx: 13 } },
   { id: "slash", label: "슬래시 · 플러그인", blurb: "세션 안에서 치는 명령과 플러그인 생태계.",
     print: { columns: 3, fontPx: 11 } },
   { id: "science", label: "Claude Science", blurb: "연구자용 워크벤치. 노트북·커넥터·클러스터.",

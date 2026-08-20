@@ -4,8 +4,8 @@
     {
       "name": "claude-ref",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["tools/serve.mjs", "8099"],
-      "port": 8099
+      "runtimeArgs": ["tools/serve.mjs", "8123"],
+      "port": 8123
     }
   ]
 }

@@ -108,11 +108,12 @@ const A3 = { width: 1587, height: 1123, mobile: false };
 let overflow = 0;
 try {
   for (const s of SURFACES) overflow += (await capture(`/print/sheet/${s.id}/`, `${OUT}/a3-${s.id}.png`, A3)) ? 1 : 0;
-  for (const [u, n] of [["/", "m-home"], ["/ref/cli/", "m-ref-cli"], ["/ref/", "m-ref"], ["/task/", "m-tasks"],
-                        ["/task/pre-commit-gate/", "m-task"], ["/prompts/", "m-prompts"],
-                        ["/prompts/pre-commit-risk-scan/", "m-prompt"], ["/docs/", "m-docs"], ["/download/", "m-download"]])
+  // "/" 는 리다이렉트 페이지라 찍지 않는다 (2026-08-20 개편 — 랜딩·허브 삭제, 서피스 4개가 상위 탭)
+  for (const [u, n] of [["/ref/cli/", "m-ref-cli"], ["/ref/desktop/", "m-ref-desktop"], ["/ref/slash/", "m-ref-slash"],
+                        ["/ref/science/", "m-ref-science"], ["/task/pre-commit-gate/", "m-task"],
+                        ["/prompts/pre-commit-risk-scan/", "m-prompt"]])
     overflow += (await capture(u, `${OUT}/${n}.png`, MOBILE)) ? 1 : 0;
-  for (const [u, n] of [["/", "d-home"], ["/ref/cli/", "d-ref-cli"], ["/task/pre-commit-gate/", "d-task"]])
+  for (const [u, n] of [["/ref/cli/", "d-ref-cli"], ["/task/pre-commit-gate/", "d-task"]])
     overflow += (await capture(u, `${OUT}/${n}.png`, DESK)) ? 1 : 0;
 
   // 전역 팔레트 — 검색창이 없는 리프 페이지에서 / 를 눌렀을 때의 화면
