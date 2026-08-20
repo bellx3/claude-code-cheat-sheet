@@ -16,17 +16,17 @@ a second source of truth for the same content.
 ```bash
 npm run build     # data gate (--pre) -> eleventy build -> output gate (--post)
 npm run serve     # eleventy --serve, local preview
-npm run verify     # build + search-test --strict + gate-reverse-test + measure-print
-node tools/gate-all.mjs               # run all 13 gates only (pass --pre or --post to run one phase)
+npm run verify    # build + search-test --strict + gate-reverse-test + measure-print
+npm run gate      # run all 14 gates only (gate-all.mjs; pass --pre or --post to run one phase)
+npm run pdf       # A3 PDF pipeline: build-pdf -> pdf-expect -> verify-pdf.py — pdf-expect derives the
+                  #   expected pins/terms from the data, so don't run verify-pdf.py against stale expect.json
+npm run shots     # screenshots for visual verification (375px / 1280px / A3)
+npm run motion    # scroll every page in Chrome, assert no element is left invisible
+npm run docs      # refresh the official-docs index from llms.txt
+npm run watch-docs                    # detect upstream doc changes (does not touch content)
 node tools/gate-reverse-test.mjs      # inject deliberate violations, confirm each gate actually fails
 node tools/search-test.mjs            # search ranker pass rate over the query corpus (add --strict to fail the run on regressions)
-node tools/fetch-llms-txt.mjs         # refresh the official-docs index from llms.txt
-node tools/watch-docs.mjs             # detect upstream doc changes (does not touch content)
-node tools/build-pdf.mjs              # generate A3 PDFs via headless Chrome
-python tools/verify-pdf.py            # 4-part PDF verification
 node tools/measure-print.mjs          # measure A3 page fill ratio
-node tools/shots-cdp.mjs              # screenshots for visual verification (375px / 1280px / A3)
-node tools/motion-check.mjs           # scroll every page in Chrome, assert no element is left invisible
 ```
 
 There is no unit test runner in the usual sense — correctness is enforced by the gates above, which read
@@ -47,8 +47,15 @@ tools/                           extraction, gates, PDF pipeline, doc-watch bot
 legacy/                          pre-migration HTML/PDF/README, read-only, kept for diffing against
 ```
 
-Site tabs (`/task/` `/ref/` `/prompts/` `/docs/` `/download/`) are separate URLs, not JS-toggled panels —
-hidden content breaks browser Ctrl+F, which is the whole point of a reference site.
+Site tabs are the four ref surfaces (`/ref/cli/` `/ref/desktop/` `/ref/slash/` `/ref/science/`), rendered
+straight from `refIndex.surfaces` — there is no nav data file to keep in sync. They are separate URLs, not
+JS-toggled panels — hidden content breaks browser Ctrl+F, which is the whole point of a reference site.
+The 2026-08-20 restructure deleted the landing and the five hub pages (`/task/` `/ref/` `/prompts/`
+`/docs/` `/download/`): `/` is now a layout-less redirect to `/ref/cli/`, task/prompt detail pages and
+`/about/` are reached through search, official docs land on their external URLs, and the A3 sheets moved
+to a per-surface button (`/print/sheet/<id>/`) plus a `/print/` link in the footer. Don't reintroduce a
+hub link without also restoring its page — G12 catches the broken href, and stale rows in
+`search-index.11ty.js` would make search the only path to a 404.
 
 Reference data is organized as surface -> section -> item, one YAML file per section
 (`src/_data/ref/cli/030-cli-flags.yaml` etc). Section/item `id`s must be lowercase ascii kebab-case
@@ -62,45 +69,50 @@ breaks 11ty pagination.
 
 `npm run build` runs `tools/gate-all.mjs` twice: `--pre` checks source data before the 11ty build,
 `--post` checks the actual files under `_site/` after it — source-only grep only proves something was
-wired up, not that it renders. 13 gates cover: id rules, cross-reference integrity, prompt license
-compliance, date validity, presence of safety warnings, A3 density, legacy-vs-current diffing, PII,
-search-index leakage, HTML sanitization, print-output pin consistency, internal links, and a deployed
-build-identity file. `tools/gate-reverse-test.mjs` is the check that the checks work: it seeds known
+wired up, not that it renders. 14 gates (G0–G13) cover: YAML parseability, id rules, cross-reference
+integrity, prompt license compliance, date validity, presence of safety warnings, A3 density,
+legacy-vs-current diffing, PII, search-index leakage, HTML sanitization, print-output pin consistency,
+internal links, and a deployed build-identity file. If G0 (YAML parse + top-level `id`) fails, the run
+stops there — the later gates would only bury the real error under cascading ones. `tools/gate-reverse-test.mjs` is the check that the checks work: it seeds known
 violations and asserts each gate actually catches them — a gate that always passes is not a gate.
 
 When editing `src/_data/ref/**/*.yaml`, expect the gate to fail loudly on id collisions, broken
 `tasksOf`-style cross references, or missing `confirmed`/date fields — read the failing gate's `[Gx ...]`
 label in the output, it names which check failed and why.
 
-### The landing page (src/index.njk)
+### Navigation (base.njk) and the surface pages
 
-Two panes, copied from devdocs.io: left is the search field over the whole index, right is a short
-orientation page. There is no hero — a visitor who came to look something up needs to know *what is in
-here*, and a centred tagline answers none of that. The landing sets `bodyClass: app`, which is the only
-place `main.wrap`'s max-width is removed; every other page is a document and keeps `.wrap`.
+`base.njk` renders the masthead, the four surface tabs (aria-current is driven by `tab`, which
+`ref-surface.njk` sets to the surface id via `eleventyComputed`), and the `#navsearch` trigger to the
+right of the tabs. The trigger is a button that opens the palette, not a real input — an input in the
+header would need its own results dropdown, mobile width handling, and focus management, and would be a
+second search UI that can drift from the palette.
 
-The sidebar has two layers on purpose, same split as DevDocs' "enabled docs" over the full list: a short
-`.areas` jump list that is reachable without scrolling, then the full `.tree` (~150 entries — tasks,
-every ref section, every prompt). Typing in the field swaps the tree out for results in place;
-`search.js` sets `data-q` on the nearest `[data-search-host]` and CSS does the rest. On mobile the tree
-becomes a 45vh scroll box rather than collapsing — a scroll container still answers Ctrl+F, a closed
-`<details>` does not (it was pushing the landing to 17,832px before).
+Surface pages have no lede/pagemeta under the title and no subnav (removed 2026-08-20 — the top tabs are
+the subnav now). The section cards are a **single column** in document order: a masonry `columns` layout
+was tried and rejected because column-first reading order stopped matching the sidebar TOC (decision
+history lives in the comment above `.cardgrid` in site.css). Card markup itself is untouched — `/print/`
+and the A3 sheets render from the same data through separate templates, so web layout changes never move
+print output.
 
-G10 allows `<details>` inside `<main>` only when it carries `data-toc`. That attribute is the claim
-"this is a table of contents, so collapsing it hides nothing that isn't elsewhere on the page" — it is
-not a style hook, which is why the gate stopped keying on `class="toc"`.
+G10 allows `<details>` inside `<main>` only when it carries `data-toc` (today that's only the surface
+pages' section TOC). That attribute is the claim "this is a table of contents, so collapsing it hides
+nothing that isn't elsewhere on the page" — it is not a style hook, which is why the gate stopped keying
+on `class="toc"`.
 
 ### Search (src/assets/search.js)
 
-One ranker, two mounts. The inline box (`#q`, on hub pages) and the global palette (`#pq`, in
-`partials/palette.njk`, on every page) share the same `search()`/`render()` — splitting them would let
-the two rankings drift apart silently, and `tools/search-test.mjs` only executes one of them.
+One ranker, one visible mount since 2026-08-20: the palette (`#pq`, in `partials/palette.njk`, on every
+page), opened by `/`, `Ctrl+K`, or the header `#navsearch` trigger. The inline-box mount (`#q`) still
+exists in search.js but no page renders one — if you add one back, it shares `search()`/`render()` with
+the palette by construction; never fork the ranker, `tools/search-test.mjs` only executes one of them.
+Result lists group by type (task → hub → prompt → ref → doc), so the flat DOM order of `.hit` links is
+NOT the raw ranking — the corpus in `tools/search-cases.json` tests raw `search()` order.
 
 `search-index.js` (251 KB raw / 64 KB gzip) is **not** referenced from `base.njk`. It used to be a
-blocking `<script>` on every page, which meant the 29 leaf pages that have no search box downloaded it
-and never used a byte of it. It is now injected on demand — search-box focus, `/`, `Ctrl+K`, or `?q=` —
-and prefetched on `load` + `requestIdleCallback` only on pages that render an inline box. Don't put the
-tag back; the leaf-page measurement was 405 KB → 163 KB.
+blocking `<script>` on every page. It is now injected on demand — palette open or `#navsearch`
+hover/click — so leaf pages never download it at rest. Don't put the tag back; the leaf-page measurement
+was 405 KB → 163 KB. (`?q=` deep links stopped doing anything when the inline boxes went away.)
 
 `tools/search-test.mjs` runs the built `search.js` in a VM against a stub DOM, so the file must keep
 ending in `})();` and must not touch anything beyond `getElementById`/`addEventListener` at parse time.
@@ -112,7 +124,9 @@ has no URL to screenshot.
 IntersectionObserver + CSS transitions, no library. GSAP + ScrollTrigger used to be vendored for this
 (116 KB, 71% of what was left on a leaf page after the search-index fix) and did nothing but tween
 `opacity`/`translateY` once per element. There are now **zero runtime dependencies**; everything shipped
-is the four files in `src/assets`.
+is the six files in `src/assets` — `search.js`, `motion.js`, `tocspy.js` (scrollspy that sets
+`aria-current` on the ref-page section TOC), `prompt.js` (slot fill / copy / command download on prompt
+pages), and the two CSS files.
 
 Two rules that are not style preferences:
 
@@ -147,6 +161,10 @@ licenses in `REDISTRIBUTABLE` in tools/constants.mjs) / `link_only` (no full-tex
 only). The gate enforces this against the license field and also checks the built search index doesn't
 leak full text it shouldn't.
 
+In prompt bodies, `{key}` placeholders are form-fill slots rendered as inputs by `src/assets/prompt.js` —
+they are *not* Claude Code runtime syntax (that's `$ARGUMENTS` / `$1` / `$name`), so don't convert one
+into the other.
+
 ## Windows-specific gotchas
 
 - `.gitattributes` forces `* text=auto eol=lf`. Without it CRLF creeps in and diffs blow up wholesale.
@@ -154,7 +172,8 @@ leak full text it shouldn't.
   silently (Chrome renders an error page as a normal-sized PDF instead of erroring out).
 - Verification screenshots must be taken against a local HTTP server, not `file://` — absolute-path CSS
   resolves against the drive root under `file://` and produces an unstyled page that looks superficially
-  fine in a screenshot.
+  fine in a screenshot. `tools/serve.mjs` is the dependency-free static server the screenshot/motion/print
+  tools spawn for exactly this reason.
 
 ## Deployment
 
