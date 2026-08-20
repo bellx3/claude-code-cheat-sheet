@@ -187,6 +187,23 @@ input:focus-visible {
 .topnav a:hover { color: var(--fg); }
 .topnav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
 
+/* 탭 우측의 검색 트리거 — 진짜 입력창이 아니라 팔레트를 여는 버튼이다. 입력창을 헤더에
+   직접 두면 결과 드롭다운·모바일 폭·포커스 관리가 전부 새 문제가 되고, 팔레트와 랭킹이
+   갈라질 길이 하나 더 생긴다. */
+.topnav .wrap { display: flex; align-items: center; gap: 10px; }
+.topnav ul { flex: 1 1 auto; min-width: 0; }
+.navsearch {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px;
+  min-height: 34px; margin: 5px 0; padding: 0 14px;
+  font-size: var(--fs-sm); font-family: inherit; color: var(--muted);
+  background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px;
+  cursor: pointer;
+  transition: border-color var(--ease), color var(--ease), box-shadow var(--ease);
+}
+.navsearch:hover, .navsearch:focus-visible { border-color: var(--accent); color: var(--fg); box-shadow: var(--shadow-sm); }
+.navsearch .pfx { color: var(--accent); font: 700 0.875rem/1 var(--font-mono); }
+@media (max-width: 640px) { .navsearch .ex { display: none; } }
+
 /* 하위 탭 (레퍼런스 서피스 등) */
 .subnav ul {
   display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none;
@@ -237,6 +254,12 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
 .lede { color: var(--muted); margin: 0 0 4px; max-width: var(--measure); }
 .pagemeta { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
 .backlink { margin: 0 0 12px; font-size: var(--fs-sm); }
+
+/* 서피스 페이지 머리: 제목 좌측 · 치트시트 버튼 우측 (다운로드 허브의 이관처) */
+.pagehead { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 12px; }
+.pagehead h1 { margin: 0; }
+a.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.sheetbtn .n { font-size: 0.8125rem; color: var(--muted); font-weight: 400; }
 .backlink a { color: var(--accent2); text-decoration: none; }
 .backlink a:hover { text-decoration: underline; }
 p.prose { margin: 0 0 12px; }
@@ -361,24 +384,16 @@ pre code { background: none; padding: 0; font-size: inherit; }
    카드 안에서 항목은 「이름 | 설명」 2열로 눕는다. 이 리포의 항목 639개 중
    세부 15%·코드 12%뿐이고 나머지는 전부 한 줄짜리라, 세로로 쌓으면 가로가 논다.
 
-   행 단위 그리드였다가 실측으로 폐기했다: cli 서피스 36카드 중 "권한 모드"(2521px,
-   항목 7개)와 같은 행의 "Hooks & 플러그인"(1371px, 항목 2개)이 짝지어지며 1150px
-   빈 공백이 남았다 — 항목 수 편차가 큰 이 데이터에서는 행 고정이 안 맞았다.
-   그렇다고 항목을 접어 숨기는 방식(<details>)도 못 쓴다 — G10 게이트가 본문의
-   <details>를 막는다(닫힌 상태는 Ctrl+F에서 빠진다는 게 이 리포가 실제로 겪은 문제).
-   그래서 진짜 마소너리(CSS columns)로 간다 — 아무것도 숨기지 않고 짧은 열부터
-   채운다. 트레이드오프: 읽는 순서가 좌→우가 아니라 위→아래(열 우선)로 바뀐다.
+   배치 결정의 이력 — 셋 다 실측·판정 기록이다:
+   ① 행 단위 그리드: 폐기. cli 36카드 중 "권한 모드"(2521px)와 "Hooks & 플러그인"(1371px)이
+      같은 행에 짝지어지며 1150px 공백 — 항목 수 편차가 큰 데이터에 행 고정이 안 맞았다.
+   ② CSS columns 마소너리: 공간은 해결했지만 읽는 순서가 열 우선(위→아래)이 돼
+      좌측 목차(문서 순서)와 카드 순서가 어긋났다 — 2026-08-20 사용자 판정으로 폐기.
+   ③ 현재: 1열. 카드 순서 = 문서 순서 = 목차 순서. 항목을 접어 숨기는 대안(<details>)은
+      여전히 금지다 — G10 게이트가 본문의 <details>를 막는다(닫힌 상태는 Ctrl+F에서 빠진다).
 
-   이 규칙은 .cardgrid 안에서만 적용된다 — /print/ 는 같은 item.njk 를 쓰지만
-   .cardgrid 가 없어 기존의 선형 배치 그대로다. */
-.cardgrid {
-  /* 440px 하한은 실측으로 정했다 — 340px 일 때 설명이 평균 1.84줄로 깨졌다.
-     열을 늘리기보다 열을 넓히는 쪽이 한글에서 유리하다. column-width는 힌트값이라
-     컨테이너가 440px보다 좁으면 브라우저가 알아서 1열로 접는다 — 그리드의
-     minmax(440px, 100%) 클램프와 달리 별도 미디어쿼리 없이 같은 효과를 낸다. */
-  column-width: 440px;
-  column-gap: 18px;
-}
+   카드 스타일 자체는 그대로다 — /print/ 와 A3 치트시트는 같은 데이터에서 별도 템플릿
+   (print-all/print-sheet + sheet-a3.css)으로 생성되므로 이 배치와 무관하다. */
 
 .cardgrid .section {
   margin: 0 0 18px;

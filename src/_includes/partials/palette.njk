@@ -1,45 +1,41 @@
 {# 전역 검색 팔레트. devdocs.io 의 "검색은 어느 페이지에서든 키 하나 거리" 를 그대로 가져온 것.
-   이 사이트는 검색창이 허브 페이지(index/ref/task/prompts/docs/download)에만 있었고,
-   작업 상세·프롬프트 상세·about 29개 페이지에서는 / 를 눌러도 아무 일도 일어나지 않았다.
-   그 페이지들이야말로 검색으로 도착해서 다시 검색하는 자리다.
+   2026-08-20 개편부터는 인라인 검색창이 없다 — 헤더의 검색 트리거(#navsearch)와 / · Ctrl+K 가
+   전부 이 팔레트를 연다. 검색 UI 가 하나뿐이므로 랭킹이 갈라질 자리도 없다.
 
-   마크업을 서버에서 찍는 이유: JS로 DOM을 만들면 스타일이 site.css 밖으로 새고,
-   인라인 검색창(#q)과 팔레트(#pq)가 서로 다른 마크업으로 갈라진다. 같은 CSS를 쓴다.
+   마크업을 서버에서 찍는 이유: JS로 DOM을 만들면 스타일이 site.css 밖으로 샌다.
    <dialog> 를 쓰는 이유: 포커스 트랩·Esc·스크롤 잠금·backdrop 이 전부 브라우저 기본 동작이다. #}
 <dialog id="palette" class="palette" aria-label="검색">
   <div class="searchbox">
     <label class="visually-hidden" for="pq" hidden>검색</label>
     <input id="pq" type="search" autocomplete="off" spellcheck="false"
-           placeholder="하고 싶은 일이나 명령어 — 예: 커밋 전에 자동으로, --resume, 권한">
+           placeholder="검색 — 예: --resume, 권한">
   </div>
   <div class="results" id="presults" aria-live="polite"></div>
   {# 질의가 비었을 때의 팔레트는 빈 상자가 아니라 목차여야 한다. #}
   <nav class="palette-empty" aria-label="영역 바로가기">
     <h3>영역</h3>
     <ul>
-      {%- for t in nav %}
-      <li><a href="{{ t.url }}"><b>{{ loop.index }}</b> {{ t.label }} <span>{{ t.blurb }}</span></a></li>
+      {%- for s in refIndex.surfaces %}
+      <li><a href="/ref/{{ s.id }}/"><b>{{ loop.index }}</b> {{ s.label }} <span>{{ s.blurb }}</span></a></li>
       {%- endfor %}
+      <li><a href="/about/"><b>{{ refIndex.surfaces.length + 1 }}</b> 출처·라이선스·한계 <span>갱신 정책과 알려진 한계</span></a></li>
     </ul>
   </nav>
-  <p class="palette-foot">
-    <kbd>↑</kbd><kbd>↓</kbd> 선택 · <kbd>Enter</kbd> 이동 · <kbd>Esc</kbd> 닫기 · <kbd>?</kbd> 단축키 전체
-  </p>
 </dialog>
 
 <dialog id="keyhelp" class="keyhelp" aria-label="키보드 단축키">
   <h2>키보드 단축키</h2>
   <dl>
     <dt><kbd>/</kbd> <span class="or">또는</span> <kbd>Ctrl</kbd>+<kbd>K</kbd></dt>
-    <dd>검색. 페이지에 검색창이 있으면 그리로, 없으면 팔레트를 연다.</dd>
+    <dd>검색 팔레트를 연다.</dd>
     <dt><kbd>↑</kbd> <kbd>↓</kbd></dt>
     <dd>검색 결과 이동</dd>
     <dt><kbd>Enter</kbd></dt>
     <dd>선택한 결과 열기</dd>
     <dt><kbd>Esc</kbd></dt>
     <dd>팔레트·검색어 지우기</dd>
-    <dt>{% for t in nav %}<kbd>{{ loop.index }}</kbd>{% endfor %}</dt>
-    <dd>상위 탭으로 이동 ({% for t in nav %}{{ loop.index }} {{ t.label }}{% if not loop.last %} · {% endif %}{% endfor %})</dd>
+    <dt>{% for s in refIndex.surfaces %}<kbd>{{ loop.index }}</kbd>{% endfor %}<kbd>{{ refIndex.surfaces.length + 1 }}</kbd></dt>
+    <dd>영역 이동 ({% for s in refIndex.surfaces %}{{ loop.index }} {{ s.label }} · {% endfor %}{{ refIndex.surfaces.length + 1 }} 출처·라이선스)</dd>
     <dt><kbd>?</kbd></dt>
     <dd>이 도움말</dd>
   </dl>

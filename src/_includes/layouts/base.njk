@@ -14,18 +14,25 @@
 
 <header class="masthead">
   <div class="wrap">
-    <a class="brand" href="/"><b>❯ Claude</b> 참고자료</a>
+    <a class="brand" href="/ref/cli/"><b>❯ Claude</b> 참고자료</a>
     <span class="tagline">{{ site.tagline }}</span>
   </div>
 </header>
 
+{# 상위 탭 = 레퍼런스 서피스 4개 (2026-08-20 개편). nav.yaml 을 없애고 refIndex 를 그대로 쓴다 —
+   탭 목록을 두 벌로 두면 서피스를 추가할 때 한쪽만 고치게 된다. 검색은 우측 트리거 하나로,
+   눌리면 전역 팔레트(#palette)가 열린다. 입력창을 헤더에 직접 두지 않는 이유: 결과 드롭다운·
+   모바일 폭·포커스 관리가 전부 새 문제가 되고, 팔레트와 랭킹이 갈라질 길이 하나 더 생긴다. #}
 <nav class="topnav" aria-label="주요 영역">
   <div class="wrap">
     <ul>
-      {%- for t in nav %}
-      <li><a href="{{ t.url }}"{% if t.id == tab %} aria-current="page"{% endif %}>{{ t.label }}</a></li>
+      {%- for s in refIndex.surfaces %}
+      <li><a href="/ref/{{ s.id }}/"{% if s.id == tab %} aria-current="page"{% endif %}>{{ s.label }}</a></li>
       {%- endfor %}
     </ul>
+    <button type="button" class="navsearch" id="navsearch">
+      <span class="pfx">❯</span> 검색<span class="ex"> — 예: --resume, 권한</span>
+    </button>
   </div>
 </nav>
 
@@ -39,7 +46,8 @@
       비공식 참고자료입니다. 공식 문서는
       <a href="https://code.claude.com/docs">code.claude.com/docs</a>.
       원본 치트시트 <a href="https://github.com/Njengah/claude-code-cheat-sheet">Njengah/claude-code-cheat-sheet</a> (MIT)에서 갈라져 나왔습니다.
-      <a href="/about/">출처·라이선스</a>
+      <a href="/about/">출처·라이선스</a> ·
+      <a href="/print/">전체 인쇄 뷰</a>
     </p>
     <p class="meta">
       빌드 {{ site.buildDate }} · <a href="{{ site.repo }}/commit/{{ site.sha }}">{{ site.shortSha }}</a>

@@ -66,15 +66,19 @@ export default class {
       rows.push({ t: "doc", w: 1, u: p.url, ti: p.title, s: p.blurb || "", b: "" });
     }
 
-    // 허브 페이지도 착지 대상이다. "프롬프트 복사" 같은 질의가 0건으로 끝나면 안 된다.
+    // 사이트 기능의 착지점. 탭 개편(2026-08-20)으로 허브 페이지가 사라졌다 — "치트시트"류
+    // 질의는 인쇄 페이지로, 출처·정책류는 /about/ 으로 착지한다. 없는 페이지를 여기 남기면
+    // 검색이 404 로 보내는 유일한 경로가 된다.
     const hubs = [
-      { u: "/task/", ti: "작업 목록", s: "하고 싶은 일에서 기능 찾기", k: "작업 할일 하고싶은 일 목록" },
-      { u: "/ref/", ti: "레퍼런스 전체 목차", s: "명령어·플래그·설정 전체", k: "레퍼런스 목차 전체 명령어 목록" },
-      { u: "/prompts/", ti: "프롬프트 저장소", s: "복사해서 바로 쓰는 프롬프트 모음", k: "프롬프트 복사 저장소 모음 커맨드 만들기" },
-      { u: "/docs/", ti: "공식 문서 색인", s: "원문으로 바로 가기", k: "공식문서 원문 docs 링크" },
-      { u: "/download/", ti: "다운로드", s: "A3 치트시트·커맨드 파일", k: "다운로드 치트시트 인쇄 pdf a3 출력" },
       { u: "/about/", ti: "출처·라이선스·한계", s: "갱신 정책과 알려진 한계", k: "라이선스 출처 한계 갱신" },
     ];
+    for (const s of refIndex.surfaces)
+      hubs.push({
+        u: `/print/sheet/${s.id}/`,
+        ti: `A3 치트시트 — ${s.label}`,
+        s: "인쇄용 한 장. Ctrl+P → A3 가로 → 배경 그래픽 켜기",
+        k: "다운로드 치트시트 인쇄 출력 pdf a3",
+      });
     for (const h of hubs) rows.push({ t: "hub", w: 3, ...h, b: "" });
 
     return `window.SEARCH_INDEX=${JSON.stringify(rows)};\n`;

@@ -1,8 +1,6 @@
 ---
 layout: layouts/base.njk
-tab: ref
-# 카드 그리드는 가로를 쓰는 배치라 이 페이지만 판을 넓힌다(base.njk 의 body.wide)
-wide: true
+# wide 판형은 다열 카드 그리드 시절의 것 — 1열 전환(2026-08-20)으로 근거가 사라져 뺐다
 pagination:
   data: refIndex.surfaces
   size: 1
@@ -10,24 +8,18 @@ pagination:
 permalink: "/ref/{{ surface.id }}/index.html"
 eleventyComputed:
   title: "{{ surface.label }}"
+  # lede 는 본문에 그리지 않지만 <meta name="description"> 이 쓴다 (base.njk)
   lede: "{{ surface.blurb }}"
+  # 서피스가 곧 상위 탭이다 — base.njk 의 aria-current 가 이 값으로 켜진다
+  tab: "{{ surface.id }}"
 ---
-<nav class="subnav" aria-label="레퍼런스 서피스">
-  <ul>
-    {%- for s in refIndex.surfaces %}
-    <li><a href="/ref/{{ s.id }}/"{% if s.id == surface.id %} aria-current="page"{% endif %}>{{ s.label }}</a></li>
-    {%- endfor %}
-  </ul>
-</nav>
-
-<h1>{{ surface.label }}</h1>
-<p class="lede">{{ surface.blurb }}</p>
-<p class="pagemeta">
-  섹션 {{ surface.sections | count }}개 · 항목 {{ surface.itemCount }}개
-  (A3 치트시트에 실리는 core {{ surface.coreCount }}개 · 세부 채움 {{ surface.detailCount }}개)
-</p>
-
-{% include "partials/searchbox.njk" %}
+{# 설명줄(lede·pagemeta)과 서피스 subnav 는 2026-08-20 개편에서 뺐다 — subnav 는 상위 탭과
+   중복이고, 치트시트 다운로드는 /download/ 허브 대신 여기 버튼이 담당한다. #}
+<div class="pagehead">
+  <h1>{{ surface.label }}</h1>
+  <a class="btn sheetbtn" href="/print/sheet/{{ surface.id }}/">A3 치트시트 인쇄
+    <span class="n">core {{ surface.coreCount }}개</span></a>
+</div>
 
 <div class="layout">
   <!-- 목차는 본문 중복이라 모바일에서만 접는다. 이 사이트에서 접기가 허용되는 유일한 자리. -->

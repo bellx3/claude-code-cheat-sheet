@@ -101,8 +101,11 @@
         if (p.nc.indexOf(nq) !== -1) sc += 20;
       }
       // 조회(정확한 이름) vs 발견(설명 어휘)은 다른 랭킹을 요구한다.
-      // 질의에 한글이 있으면 사용자가 이름을 모르는 상황이라 보고 설명 쪽 가중치를 올린다.
-      if (/[가-힣]/.test(q) && p.s && allIn(p.s, toks)) sc += 25;
+      // 질의에 한글이 있으면 사용자가 이름을 모르는 상황이라 보고 설명 쪽 가중치를 올린다 —
+      // 단, 복수 토큰일 때만. 「샌드박스」 같은 단일 한글 명사는 목적 서술이 아니라 조회라,
+      // 이 보너스가 그 단어를 요약에 스친 작업들을 정작 그 기능의 레퍼런스 위로 올렸다(실측:
+      // 작업 데이터가 늘자 /ref/cli/#sandbox--sandbox 가 6위로 밀렸다).
+      if (/[가-힣]/.test(q) && toks.length > 1 && p.s && allIn(p.s, toks)) sc += 25;
       // 짧은 제목 우선 — '--resume' 이 '--resume 세션 재개 예시'보다 위로.
       // 단 자리표시자 제목(설명·주의)은 조회 대상이 아니므로 보너스에서 뺀다.
       if (!IDX[i].ph) sc += Math.max(0, 24 - p.ti.length) * 0.4;
@@ -131,7 +134,7 @@
       // 0건에서 끝내면 막다른 길이다. 30초 안에 못 찾았을 때의 탈출구가 검색 UX의 절반이다.
       out.innerHTML =
         '<div class="empty">「' + esc(q) + '」 일치 없음.' +
-        ' <a href="/ref/">레퍼런스 목차</a>를 훑거나' +
+        ' <a href="/ref/cli/">레퍼런스 목차</a>를 훑거나' +
         ' <a href="https://code.claude.com/docs" rel="noopener">공식 문서에서 검색 ↗</a>' +
         '<br><span class="s">치트시트에 없는 주제일 수 있습니다. 이 사이트가 다루는 범위는 ' +
         (IDX ? IDX.length : 0) + '개 항목입니다.</span></div>';
@@ -197,7 +200,7 @@
       ensureIndex(function (ok) {
         if (!ok) {
           out.innerHTML = '<div class="empty">검색 인덱스를 불러오지 못했습니다. ' +
-            '<a href="/ref/">레퍼런스 목차</a>로 찾으세요.</div>';
+            '<a href="/ref/cli/">레퍼런스 목차</a>로 찾으세요.</div>';
           return;
         }
         draw();
@@ -264,6 +267,14 @@
 
   function typing(el) {
     return !!el && (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) || el.isContentEditable);
+  }
+
+  // 헤더의 검색 트리거(2026-08-20 개편) — 인라인 검색창을 없앤 뒤의 유일한 마우스 진입점.
+  // hover 에서 인덱스를 미리 당겨 첫 타이핑이 로드를 기다리지 않게 한다.
+  var navBtn = document.getElementById("navsearch");
+  if (navBtn && navBtn.addEventListener) {
+    navBtn.addEventListener("click", function () { focusSearch(); });
+    navBtn.addEventListener("pointerenter", function () { ensureIndex(null); });
   }
 
   // 탭 바로가기 숫자는 팔레트의 "영역 바로가기" 목록에서 읽는다 — nav.yaml 을 JS에 복사하지 않는다.
