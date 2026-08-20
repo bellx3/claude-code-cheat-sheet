@@ -98,6 +98,13 @@ const CASES = [
     pre: false,
   },
   {
+    gate: "G13",
+    what: "배포 헤더·리다이렉트 파일의 passthrough 를 제거한다",
+    file: "eleventy.config.mjs",
+    edit: (t) => t.replace('ec.addPassthroughCopy({ "src/_headers": "_headers", "src/_redirects": "_redirects" });', ""),
+    pre: false,
+  },
+  {
     gate: "G12",
     what: "존재하지 않는 내부 링크를 넣는다",
     // 2026-08-20 개편으로 랜딩이 리다이렉트 페이지가 됐다 — 모든 페이지가 지나는 푸터에 심는다.
@@ -116,9 +123,17 @@ function run(cmd, args) {
   }
 }
 
+// 빌드 전에 _site 를 비운다. eleventy 는 더 이상 만들지 않는 파일을 지우지 않으므로,
+// 직전 빌드의 잔재가 "산출물에 있어야 한다" 류 게이트를 통과시킨다
+// (실측: passthrough 를 제거해도 옛 _site/_headers 가 남아 G13 역방향 케이스가 안 잡혔다).
+function build() {
+  fs.rmSync("_site", { recursive: true, force: true });
+  return run("npx", ["eleventy", "--quiet"]);
+}
+
 // 기준: 손대기 전에는 통과해야 한다
 process.stdout.write("기준 상태 확인… ");
-run("npx", ["eleventy", "--quiet"]);
+build();
 const base = run("node", ["tools/gate-all.mjs"]);
 if (!base.ok) {
   console.log("실패 — 기준 상태에서 이미 게이트가 깨져 있다. 역방향 검증 의미 없음.\n" + base.out);
@@ -137,7 +152,7 @@ for (const c of CASES) {
       if (next === orig) { bad.push(`${c.gate} ${c.what} — 편집이 적용되지 않았다(패턴 불일치). 케이스가 낡았다.`); continue; }
       fs.writeFileSync(c.file, next, "utf8");
     }
-    if (!c.pre) run("npx", ["eleventy", "--quiet"]);
+    if (!c.pre) build();
     const r = run("node", ["tools/gate-all.mjs", c.pre ? "--pre" : "--post"]);
     const caught = !r.ok && r.out.includes(`[${c.gate}]`);
     if (caught) { pass += 1; console.log(`  OK  ${c.gate} — ${c.what}`); }
@@ -148,7 +163,7 @@ for (const c of CASES) {
 }
 
 // 복구 확인 — 되돌린 뒤 다시 통과해야 한다
-run("npx", ["eleventy", "--quiet"]);
+build();
 const after = run("node", ["tools/gate-all.mjs"]);
 console.log(`\n역방향 검증: ${pass}/${CASES.length} — 심은 위반을 게이트가 잡았다`);
 console.log(`복구 후 재통과: ${after.ok ? "OK" : "X 실패 — 파일이 원상복구되지 않았다"}`);

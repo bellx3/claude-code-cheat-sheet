@@ -10,7 +10,7 @@
   },
   "scripts": {
     "gate": "node tools/gate-all.mjs",
-    "build": "node tools/gate-all.mjs --pre && eleventy && node tools/gate-all.mjs --post",
+    "build": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\" && node tools/gate-all.mjs --pre && eleventy && node tools/gate-all.mjs --post",
     "serve": "eleventy --serve",
     "verify": "npm run build && node tools/search-test.mjs --strict && node tools/gate-reverse-test.mjs && node tools/measure-print.mjs",
     "pdf": "node tools/build-pdf.mjs && node tools/pdf-expect.mjs && python tools/verify-pdf.py",

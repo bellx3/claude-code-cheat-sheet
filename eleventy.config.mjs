@@ -4,10 +4,17 @@ export default function (ec) {
   // 11ty는 YAML 데이터 파일을 기본 지원하지 않는다. 이 줄이 없으면 _data/*.yaml이 조용히 무시된다.
   ec.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 
-  // 사이트가 배포하는 JS는 src/assets 아래 4개 파일이 전부다. 런타임 의존성 0개 —
+  // 사이트가 배포하는 JS/CSS는 src/assets 아래 6개 파일이 전부다. 런타임 의존성 0개 —
   // 벤더링하던 GSAP+ScrollTrigger(116KB)는 걷어냈고, 스크롤 등장 모션은
   // src/assets/motion.js 의 IntersectionObserver + CSS 트랜지션이 대신한다.
   ec.addPassthroughCopy({ "src/assets": "assets" });
+
+  // Cloudflare Pages 배포 설정 (2026-08-20, netlify.toml 에서 이관).
+  // _headers: search-index 무캐시(안 그러면 새 항목이 검색에 안 잡힌다) ·
+  //           build.json no-store(캐시된 build.json 은 배포 확인을 속인다) · 보안 헤더.
+  // _redirects: 레거시 치트시트 URL 8개 + 짧은 경로 4개의 301.
+  // 산출물에 실제로 복사됐는지는 G13 이 확인한다 — 이 줄이 조용히 빠지면 헤더가 통째로 사라진다.
+  ec.addPassthroughCopy({ "src/_headers": "_headers", "src/_redirects": "_redirects" });
 
   // 한국어 제목을 slugify에 넣으면 빈 문자열이 나와 DuplicatePermalinkOutputError로 빌드가 죽는다.
   // 모든 데이터는 사람이 정한 ascii id를 갖고, 이 필터는 그 id가 규칙을 지키는지만 본다.

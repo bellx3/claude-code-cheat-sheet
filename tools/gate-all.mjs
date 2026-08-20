@@ -325,6 +325,10 @@ if (runPost && fs.existsSync("_site")) {
   // G13 — 배포 확인용 산출물. Netlify는 빌드 실패 시 직전본을 계속 서빙하므로
   //        "고쳤다고 믿는데 방문자는 옛날 걸 본다"를 잡을 수단이 필요하다.
   gate("G13 build-json", () => {
+    // 배포 설정 파일도 산출물이다 — passthrough 가 조용히 빠지면 build.json 의 no-store 가
+    // 사라져 "배포됐는지 확인" 장치가 캐시에 속고, 레거시 301 12건이 통째로 죽는다.
+    for (const f of ["_site/_headers", "_site/_redirects"])
+      if (!fs.existsSync(f)) fail("G13", `${f} 없음 — eleventy passthrough 확인`);
     if (!fs.existsSync("_site/build.json")) { fail("G13", "build.json 없음"); return; }
     const b = JSON.parse(read("_site/build.json"));
     if (!b.sha || b.sha === "unknown") warn("G13", "build.json 의 sha 가 unknown — 배포본 대조가 불가능하다");
