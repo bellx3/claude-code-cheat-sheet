@@ -1,0 +1,126 @@
+# settings.md 의 키 45+ 중 개인·팀이 실제로 자주 만지는 것만 추린다 (2026-08-20 신설).
+# 전수 수록은 하지 않는다 — "공식 문서 본문을 옮기지 않는다"는 사이트 방침. 전체는 source 링크로.
+id: settings-keys
+title: 설정 키 (settings.json)
+group: control
+order: 165
+sheet: cli
+aliases: [설정, settings, settings.json, 설정 파일, 설정 키]
+summary: >-
+  자주 만지는 키만 추렸다. 키보다 먼저 알아야 할 것은 파일 4층 구조와 우선순위다.
+source:
+  url: https://code.claude.com/docs/en/settings
+  checked_at: "2026-08-20"
+items:
+  - id: settings-files
+    term: 설명
+    kind: note
+    tier: full
+    desc: "우선순위: managed → CLI 인자 → .claude/settings.local.json → .claude/settings.json → ~/.claude/settings.json"
+    detail: |
+      **local 은 개인용**(`.gitignore` 대상), **project 는 팀 공유**(커밋), **user 는 내 전역**.
+      같은 키가 겹치면 위 순서에서 앞선 층이 이긴다.
+
+      파일 첫 줄에 `"$schema": "https://json.schemastore.org/claude-code-settings.json"` 을
+      넣으면 에디터가 키 이름을 자동완성·검증해준다.
+
+      수명주기 훅도 이 파일의 `hooks` 키에 정의한다 — 상세는 「Hooks & 플러그인」 섹션.
+    tasks: [first-setup]
+  - id: permissions-defaultmode
+    term: permissions.defaultMode
+    kind: value
+    tier: full
+    desc: 세션 시작 권한 모드 (default/acceptEdits/plan/auto/dontAsk)
+    caveat: |
+      `"auto"` 값은 프로젝트·local 설정 파일에서는 무시된다 — auto 시작은 내장 기본값이나
+      user 설정으로만. 우선 규칙은 `--permission-mode` 플래그가 항상 이긴다.
+    see_also: [cli/permission-modes#auto]
+  - id: permissions-allow-deny-ask
+    term: permissions.allow / deny / ask
+    kind: value
+    tier: full
+    desc: 도구별 사전 승인·차단·확인 규칙
+    example: |
+      { "permissions": { "allow": ["Bash(npm run lint)"], "deny": ["Read(./.env)"] } }
+    detail: |
+      **deny 는 모든 모드에서 막힌다** — bypassPermissions 에서도. allow 는 bypass 에선 무의미.
+      승인 창이 잦으면 `/fewer-permission-prompts` 가 이 규칙을 대신 만들어준다.
+    tasks: [reduce-permission-prompts]
+  - id: env
+    term: env
+    kind: value
+    tier: full
+    desc: 세션에 주입할 환경변수 묶음
+    detail: |
+      자주 쓰는 값 — `ANTHROPIC_DEFAULT_OPUS_MODEL`/`ANTHROPIC_DEFAULT_SONNET_MODEL`
+      (모델 별칭이 가리킬 버전 고정), `CLAUDE_CODE_EFFORT_LEVEL`(max 를 세션 넘어 유지),
+      `MAX_THINKING_TOKENS`, `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1`.
+  - id: model-availablemodels
+    term: model / availableModels
+    kind: value
+    tier: full
+    desc: 기본 모델 지정 · 선택 가능한 모델 제한
+    see_also: [cli/model-effort#model-sonnet-opus-haiku-fable]
+  - id: sandbox-enabled
+    term: sandbox.enabled
+    kind: value
+    tier: full
+    desc: Bash 샌드박스를 설정으로 상시 켜기
+    detail: |
+      `/sandbox` 로 세션마다 켜는 대신 파일에 고정한다. 나가는 네트워크는
+      `sandbox.network.allowedDomains` 로 좁힌다.
+    see_also: [cli/sandbox#sandbox]
+  - id: autocompact
+    term: autoCompactEnabled / autoCompactWindow
+    kind: value
+    tier: full
+    desc: 자동 컴팩트 토글 · 발동 기준 컨텍스트 크기(100k~1M)
+    tasks: [shrink-context-cost]
+  - id: outputstyle
+    term: outputStyle
+    kind: value
+    tier: full
+    desc: 응답 스타일 지정 (/clear 후에도 유지)
+    see_also: [slash/market-integrations#explanatory-output-style]
+  - id: automemory
+    term: autoMemoryEnabled / autoMemoryDirectory
+    kind: value
+    tier: full
+    desc: 자동 메모리 토글 · 저장 위치 변경
+    see_also: [cli/memory#memory]
+  - id: claudemdexcludes
+    term: claudeMdExcludes
+    kind: value
+    tier: full
+    desc: 모노리포에서 남의 CLAUDE.md 를 글롭으로 제외
+    tasks: [stop-touching-wrong-files]
+  - id: cleanupperioddays
+    term: cleanupPeriodDays
+    kind: value
+    tier: full
+    desc: 대화 기록 보존 기간 (기본 30일)
+    detail: |
+      자동 메모리 디렉터리는 이 청소에서 제외된다 — 기록은 사라져도 메모리는 남는다.
+  - id: enabledplugins
+    term: enabledPlugins / extraKnownMarketplaces
+    kind: value
+    tier: full
+    desc: 프로젝트에 플러그인·마켓플레이스를 고정해 팀과 공유
+    see_also: [slash/plugin-scope#project]
+  - id: statusline
+    term: statusLine
+    kind: value
+    tier: full
+    desc: 터미널 하단 상태줄을 명령 출력으로 커스텀
+  - id: attribution
+    term: attribution
+    kind: value
+    tier: full
+    desc: 커밋·PR 에 붙는 서명 문구 변경
+    tasks: [review-before-merge]
+  - id: defaultshell
+    term: defaultShell
+    kind: value
+    tier: full
+    desc: "! 셸 모드의 셸 선택 (bash / powershell)"
+    tasks: [windows-gotchas]
