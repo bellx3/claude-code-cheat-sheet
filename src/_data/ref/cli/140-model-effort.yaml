@@ -14,7 +14,9 @@ items:
     term: "--model sonnet/opus/haiku/fable"
     kind: flag
     tier: core
-    desc: 별칭 전체 — default·best·fable·sonnet·opus·haiku·sonnet[1m]·opus[1m]·opusplan
+# desc 에 가운뎃점(·) 연쇄를 쓰지 말 것 — ·는 줄바꿈 지점이 아니라 A3 표에서 한 덩어리로
+# 굳어 지면을 밀어낸다(실측: 1661px>1587px 가로 넘침). 쉼표+공백은 꺾인다.
+    desc: "별칭 전체: default, best, fable, sonnet, opus, haiku, sonnet[1m], opus[1m], opusplan"
     detail: |
       `default` 는 오버라이드 해제(계정 기본으로 복귀), `best` 는 조직에 Fable 5 가 있으면
       Fable, 없으면 최신 Opus. `[1m]` 접미사는 100만 토큰 컨텍스트 창,
@@ -28,7 +30,7 @@ items:
     term: "--effort <level>"
     kind: flag
     tier: core
-    desc: low·medium·high·xhigh·max — 기본 high, max 는 세션 한정
+    desc: low, medium, high, xhigh, max — 기본 high, max 는 세션 한정
     detail: |
       모델이 지원 안 하는 레벨을 주면 그 아래 최고 지원 레벨로 폴백한다.
       low~xhigh 는 대화형 세션에서 설정하면 세션 간 유지되고, `max` 는
