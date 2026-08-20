@@ -6,43 +6,49 @@ order: 140
 sheet: slash
 summary: >-
   실사용 빈도가 높은 것들. 직접 만들기 전에 여기 있는지 먼저 확인.
+# 2026-08-20 정비: 레거시 이관 흔적(term 이 잘린 desc 복제)을 정리하고 설치 명령을 code 로 분리.
+# 5종 모두 출처 생존 확인(마켓 리포 3·npm 1·공식 카탈로그 1). "설치 1위" 류 문구는 검증 불가라 삭제 —
+# 설치 통계는 비공개고 순위는 커뮤니티 집계라는 경고(pin)가 이 섹션의 전제다.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-20"
 items:
   - id: plugin-top5-1
-    term: 1. Frontend Design (공식) — 디자인 토큰·레이아웃 추론으로 UI 품질 향상, 공식 마켓 설
-    kind: note
+    term: 1. frontend-design
+    kind: value
     tier: full
-    desc: >-
-      1. Frontend Design (공식) — 디자인 토큰·레이아웃 추론으로 UI 품질 향상, 공식 마켓 설치 1위 /plugin install
-      frontend-design@claude-plugins-official
+    desc: (공식 마켓) 디자인 토큰·레이아웃 추론으로 UI 품질 향상
+    code: /plugin install frontend-design@claude-plugins-official
   - id: plugin-top5-2
-    term: 2. Superpowers (커뮤니티) — 브레인스토밍·서브에이전트 개발·TDD 등 워크플로우 모음 /plu
-    kind: note
+    term: 2. superpowers
+    kind: value
     tier: full
-    desc: >-
-      2. Superpowers (커뮤니티) — 브레인스토밍·서브에이전트 개발·TDD 등 워크플로우 모음 /plugin marketplace add
-      obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace
+    desc: (커뮤니티) 브레인스토밍·서브에이전트 개발·TDD 등 워크플로우 모음
+    code: |-
+      /plugin marketplace add obra/superpowers-marketplace
+      /plugin install superpowers@superpowers-marketplace
   - id: plugin-top5-3
-    term: "3. Context7 — 최신 라이브러리 문서를 온디맨드로 조회 /plugin marketplace add "
-    kind: note
+    term: 3. context7
+    kind: value
     tier: full
-    desc: >-
-      3. Context7 — 최신 라이브러리 문서를 온디맨드로 조회 /plugin marketplace add upstash/context7 /plugin install
-      context7@context7-marketplace
+    desc: (커뮤니티) 최신 라이브러리 문서를 온디맨드로 조회
+    code: |-
+      /plugin marketplace add upstash/context7
+      /plugin install context7@context7-marketplace
   - id: plugin-top5-4
-    term: "4. Claude Mem — 세션 간 영구 메모리 추가 npx claude-mem install (플러그인 "
-    kind: note
+    term: 4. claude-mem
+    kind: value
     tier: full
-    desc: 4. Claude Mem — 세션 간 영구 메모리 추가 npx claude-mem install (플러그인 시스템 아닌 별도 설치)
+    desc: 세션 간 영구 메모리 추가 — 플러그인 시스템이 아닌 별도 설치
+    code: npx claude-mem install
   - id: plugin-top5-5
-    term: 5. Caveman — 토큰 절약형 축약 응답 모드 /plugin marketplace add JuliusB
-    kind: note
+    term: 5. caveman
+    kind: value
     tier: full
-    desc: >-
-      5. Caveman — 토큰 절약형 축약 응답 모드 /plugin marketplace add JuliusBrussee/caveman /plugin install
-      caveman@caveman
+    desc: (커뮤니티) 토큰 절약형 축약 응답 모드
+    code: |-
+      /plugin marketplace add JuliusBrussee/caveman
+      /plugin install caveman@caveman
   - id: plugin-top5-6
     term: 주의
     kind: note
