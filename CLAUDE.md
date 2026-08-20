@@ -14,7 +14,9 @@ a second source of truth for the same content.
 ## Commands
 
 ```bash
-npm run build     # data gate (--pre) -> eleventy build -> output gate (--post)
+npm run build     # clean _site -> data gate (--pre) -> eleventy -> output gate (--post)
+                  #   the clean is load-bearing: eleventy never deletes stale outputs, and a stale
+                  #   _site/_headers once masked a G13 "file must exist in output" reverse-test case
 npm run serve     # eleventy --serve, local preview
 npm run verify    # build + search-test --strict + gate-reverse-test + measure-print
 npm run gate      # run all 14 gates only (gate-all.mjs; pass --pre or --post to run one phase)
@@ -178,13 +180,22 @@ into the other.
 
 ## Deployment
 
-Netlify, `publish = "_site"`. A failed build does not take the site down — Netlify keeps serving the last
-successful build, so a real failure looks like "I fixed it" while visitors still see the old version. The
-commit SHA is stamped in the footer and at `/build.json`; after deploying, confirm with:
+Cloudflare Pages at https://claude-cheatsheet.pages.dev — build command `npm run build`, output `_site`,
+`NODE_VERSION=22`, production branch `main`. (Netlify was retired 2026-08-20 after its free-plan deploy
+credits ran out; `netlify.toml` is gone.) Headers and redirects live in `src/_headers` / `src/_redirects`,
+passthrough-copied into `_site` — the no-store on `/build.json`, the no-cache on `/search-index.js`, and
+the 12 legacy 301s all depend on that copy, which is why G13 fails the build if either file is missing
+from the output.
+
+A failed build does not take the site down — Pages keeps serving the last successful build, so a real
+failure looks like "I fixed it" while visitors still see the old version. The commit SHA is stamped in
+the footer and at `/build.json` (`CF_PAGES_COMMIT_SHA` → git fallback in src/_data/site.js); after
+deploying, confirm with:
 
 ```bash
-curl -s https://<site>/build.json | jq -r .sha
+curl -s https://claude-cheatsheet.pages.dev/build.json | jq -r .sha
 ```
 
-`netlify.toml`'s `ignore` skips builds for commits that don't touch `src`/`tools`/config, to conserve the
-free plan's per-production-deploy credit budget.
+The old netlify.toml `ignore` (skip builds for commits that touch nothing under `src`/`tools`/config)
+maps to **Settings → Builds → Build watch paths** in the Pages dashboard; include `src/*`, `tools/*`,
+`package.json`, `package-lock.json`, `eleventy.config.mjs`.

@@ -98,16 +98,21 @@ npm run serve     # 로컬 미리보기
 
 ## 배포
 
-Netlify — `netlify.toml`의 `publish = "_site"`. 빌드 실패 시 Netlify는 사이트를 내리지 않고
-**직전 성공본을 계속 서빙**한다. 즉 진짜 실패는 "사이트가 죽음"이 아니라 "고쳤다고 믿는데
-방문자는 옛날 걸 보는 것"이다. 그래서 커밋 SHA를 푸터와 `/build.json`에 박아둔다.
+Cloudflare Pages — https://claude-cheatsheet.pages.dev (빌드 `npm run build`, 출력 `_site`,
+`NODE_VERSION=22`). Netlify는 무료 플랜 배포 크레딧 소진으로 2026-08-20 은퇴했다.
+헤더·리다이렉트는 `src/_headers`·`src/_redirects`가 정본이고 passthrough로 산출물에 복사된다 —
+복사가 빠지면 G13이 빌드를 실패시킨다(`build.json` no-store 와 레거시 301이 조용히 사라지는 사고 방지).
+
+빌드 실패 시 Pages도 사이트를 내리지 않고 **직전 성공본을 계속 서빙**한다. 즉 진짜 실패는
+"사이트가 죽음"이 아니라 "고쳤다고 믿는데 방문자는 옛날 걸 보는 것"이다.
+그래서 커밋 SHA를 푸터와 `/build.json`에 박아둔다.
 
 ```bash
-curl -s https://<사이트>/build.json | jq -r .sha   # 방금 push한 SHA와 같아야 한다
+curl -s https://claude-cheatsheet.pages.dev/build.json | jq -r .sha   # 방금 push한 SHA와 같아야 한다
 ```
 
-`netlify.toml`의 `ignore`가 `src`·`tools`·설정 파일이 안 바뀐 커밋의 빌드를 건너뛴다.
-무료 플랜은 프로덕션 배포마다 크레딧을 먹으므로, 이 `ignore` 규칙이 크레딧 소모를 줄이는 장치다.
+`src`·`tools`·설정이 안 바뀐 커밋의 빌드 스킵은 대시보드의 **Build watch paths** 로 건다
+(옛 netlify.toml `ignore` 의 이관처).
 
 ## 라이선스
 
