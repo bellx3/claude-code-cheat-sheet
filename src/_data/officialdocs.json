@@ -1,12 +1,12 @@
 {
- "fetchedAt": "2026-08-13",
+ "fetchedAt": "2026-08-20",
  "sources": [
   {
    "key": "code",
    "url": "https://code.claude.com/docs/llms.txt",
    "label": "Claude Code",
-   "bytes": 41964,
-   "sha256": "01a759824826997aa465457cab8081e67c9bead2fc16f7e91eaa579939098389"
+   "bytes": 41883,
+   "sha256": "8693b8dcf0e3d90e7eae08b8133c67c0e169fc6435d1d2cda1e8be4af9c7435d"
   }
  ],
  "pages": [
@@ -88,7 +88,7 @@
    "title": "Choose a permission mode",
    "url": "https://code.claude.com/docs/en/permission-modes",
    "mdUrl": "https://code.claude.com/docs/en/permission-modes.md",
-   "blurb": "Control whether Claude asks before editing files or running commands. Cycle modes with Shift+Tab in the CLI or use the mode selector in VS Code, Desktop, and claude.ai."
+   "blurb": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop."
   },
   {
    "source": "code",
@@ -464,7 +464,7 @@
    "title": "Keep Claude working toward a goal",
    "url": "https://code.claude.com/docs/en/goal",
    "mdUrl": "https://code.claude.com/docs/en/goal.md",
-   "blurb": "Set a completion condition with /goal and Claude keeps working across turns until the condition is met."
+   "blurb": "Set a completion condition with /goal and Claude keeps working until it's met, a model judges it impossible, or an error you have to fix clears the goal."
   },
   {
    "source": "code",
@@ -1221,18 +1221,10 @@
   {
    "source": "code",
    "section": "Docs",
-   "title": "Slash Commands in the SDK",
-   "url": "https://code.claude.com/docs/en/agent-sdk/slash-commands",
-   "mdUrl": "https://code.claude.com/docs/en/agent-sdk/slash-commands.md",
-   "blurb": "Learn how to use slash commands to control Claude Code sessions through the SDK"
-  },
-  {
-   "source": "code",
-   "section": "Docs",
-   "title": "Agent Skills in the SDK",
+   "title": "Extend agents with skills",
    "url": "https://code.claude.com/docs/en/agent-sdk/skills",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/skills.md",
-   "blurb": "Extend Claude with specialized capabilities using Agent Skills in the Claude Agent SDK"
+   "blurb": "Control which skills Claude can invoke in Claude Agent SDK sessions, dispatch commands by name, and author skills your sessions discover"
   },
   {
    "source": "code",
@@ -1589,7 +1581,7 @@
      "title": "Choose a permission mode",
      "url": "https://code.claude.com/docs/en/permission-modes",
      "mdUrl": "https://code.claude.com/docs/en/permission-modes.md",
-     "blurb": "Control whether Claude asks before editing files or running commands. Cycle modes with Shift+Tab in the CLI or use the mode selector in VS Code, Desktop, and claude.ai."
+     "blurb": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop."
     },
     {
      "source": "code",
@@ -1965,7 +1957,7 @@
      "title": "Keep Claude working toward a goal",
      "url": "https://code.claude.com/docs/en/goal",
      "mdUrl": "https://code.claude.com/docs/en/goal.md",
-     "blurb": "Set a completion condition with /goal and Claude keeps working across turns until the condition is met."
+     "blurb": "Set a completion condition with /goal and Claude keeps working until it's met, a model judges it impossible, or an error you have to fix clears the goal."
     },
     {
      "source": "code",
@@ -2722,18 +2714,10 @@
     {
      "source": "code",
      "section": "Docs",
-     "title": "Slash Commands in the SDK",
-     "url": "https://code.claude.com/docs/en/agent-sdk/slash-commands",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/slash-commands.md",
-     "blurb": "Learn how to use slash commands to control Claude Code sessions through the SDK"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Agent Skills in the SDK",
+     "title": "Extend agents with skills",
      "url": "https://code.claude.com/docs/en/agent-sdk/skills",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/skills.md",
-     "blurb": "Extend Claude with specialized capabilities using Agent Skills in the Claude Agent SDK"
+     "blurb": "Control which skills Claude can invoke in Claude Agent SDK sessions, dispatch commands by name, and author skills your sessions discover"
     },
     {
      "source": "code",
