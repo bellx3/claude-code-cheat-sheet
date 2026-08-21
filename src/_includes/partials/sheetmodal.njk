@@ -1,0 +1,26 @@
+{# A3 치트시트 미리보기 모달. 버튼은 여전히 진짜 링크(<a href>)이고 JS 가 클릭을 가로챈다 —
+   JS 가 없거나 <dialog> 미지원이면 예전처럼 시트 페이지로 이동한다(기능이 사라지지 않는다).
+
+   마크업을 서버에서 찍는 이유는 palette.njk 와 같다: JS 로 DOM 을 만들면 스타일이 site.css
+   밖으로 샌다. <dialog> 를 쓰는 이유도 같다 — 포커스 트랩·Esc·스크롤 잠금·backdrop 이
+   브라우저 기본 동작이다.
+
+   iframe 은 열릴 때 처음 로드한다(data-src). 페이지마다 A3 시트를 미리 받아두면
+   조회하러 온 사람이 쓰지도 않을 문서를 매번 받는다. #}
+<dialog id="sheetmodal" class="sheetmodal" aria-label="A3 치트시트 미리보기">
+  <div class="sheetmodal-bar">
+    <p class="t">A3 치트시트 · {{ surface.label }}</p>
+    <p class="s">core {{ surface.coreCount }}개 · A3 가로 한 장</p>
+    <button type="button" class="btn primary" data-sheet-print>인쇄 · PDF로 저장</button>
+    <a class="btn" href="/print/sheet/{{ surface.id }}/">새 탭에서 열기</a>
+    <button type="button" class="btn" data-sheet-close>닫기</button>
+  </div>
+  <div class="sheetmodal-stage">
+    <div class="sheetmodal-paper">
+      <iframe title="A3 치트시트 미리보기 — {{ surface.label }}" data-src="/print/sheet/{{ surface.id }}/"></iframe>
+    </div>
+  </div>
+  <p class="sheetmodal-hint">
+    인쇄 대화상자에서 <b>용지 A3 · 가로 · 배경 그래픽 켜기</b>. 대상에서 <b>PDF로 저장</b>을 고르면 파일로 받습니다.
+  </p>
+</dialog>
