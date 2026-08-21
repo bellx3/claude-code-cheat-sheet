@@ -14,29 +14,23 @@ items:
     term: "공식 문서: code.claude.com/docs/en/overview"
     kind: note
     tier: full
-    desc: "공식 문서: code.claude.com/docs/en/overview"
   - id: cli-code-claude-com-docs-en-cli-reference
     term: "CLI 레퍼런스: code.claude.com/docs/en/cli-reference"
     kind: note
     tier: full
-    desc: "CLI 레퍼런스: code.claude.com/docs/en/cli-reference"
   - id: code-claude-com-docs-en-commands
     term: "명령어 레퍼런스: code.claude.com/docs/en/commands"
     kind: note
     tier: full
-    desc: "명령어 레퍼런스: code.claude.com/docs/en/commands"
   - id: code-claude-com-docs-en-permission-modes
     term: "권한 모드: code.claude.com/docs/en/permission-modes"
     kind: note
     tier: full
-    desc: "권한 모드: code.claude.com/docs/en/permission-modes"
   - id: hooks-code-claude-com-docs-en-hooks
     term: "Hooks: code.claude.com/docs/en/hooks"
     kind: note
     tier: full
-    desc: "Hooks: code.claude.com/docs/en/hooks"
   - id: github-github-com-anthropics-claude-code
     term: "GitHub: github.com/anthropics/claude-code"
     kind: note
     tier: full
-    desc: "GitHub: github.com/anthropics/claude-code"

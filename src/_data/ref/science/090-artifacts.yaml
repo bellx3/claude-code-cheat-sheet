@@ -19,7 +19,6 @@ items:
     term: 같은 파일명 재저장 = 새 버전. 열면 version stepper + diff 토글
     kind: note
     tier: full
-    desc: 같은 파일명 재저장 = 새 버전. 열면 version stepper + diff 토글
   - id: artifacts-2
     term: 당시 버전
     kind: value

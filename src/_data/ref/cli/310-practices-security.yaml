@@ -14,29 +14,23 @@ items:
     term: 작업 전환마다 /clear로 컨텍스트 초기화
     kind: note
     tier: full
-    desc: 작업 전환마다 /clear로 컨텍스트 초기화
   - id: max-turns
     term: "--max-turns로 무한 반복 방지"
     kind: note
     tier: full
-    desc: "--max-turns로 무한 반복 방지"
   - id: compact
     term: 장기 대화는 /compact로 압축
     kind: note
     tier: full
-    desc: 장기 대화는 /compact로 압축
   - id: dangerously-skip-permissions
     term: "--dangerously-skip-permissions 사용 지양"
     kind: note
     tier: full
-    desc: "--dangerously-skip-permissions 사용 지양"
   - id: disallowedtools
     term: 위험 명령은 --disallowedTools로 상시 차단
     kind: note
     tier: full
-    desc: 위험 명령은 --disallowedTools로 상시 차단
   - id: practices-security-1
     term: 도구 권한 주기적 점검, 항상 최신 버전 유지
     kind: note
     tier: full
-    desc: 도구 권한 주기적 점검, 항상 최신 버전 유지

@@ -26,12 +26,10 @@ items:
     term: 버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)
     kind: note
     tier: full
-    desc: 버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)
   - id: boto3-azure-sdk-settings-storage-100gb
     term: 코드에서 boto3, Azure SDK로 접근. Settings > Storage에서 탐색·임포트(최대 100GB)
     kind: note
     tier: full
-    desc: 코드에서 boto3, Azure SDK로 접근. Settings > Storage에서 탐색·임포트(최대 100GB)
   - id: cloud-storage-2
     term: 주의
     kind: note

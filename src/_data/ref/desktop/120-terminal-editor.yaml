@@ -14,14 +14,11 @@ items:
     term: "통합 터미널 Ctrl+`: 세션과 동일한 작업 디렉토리·환경 공유 (로컬 세션 전용)"
     kind: note
     tier: full
-    desc: "통합 터미널 Ctrl+`: 세션과 동일한 작업 디렉토리·환경 공유 (로컬 세션 전용)"
   - id: terminal-editor-1
     term: 파일 클릭 → 파일 패널에서 바로 편집·저장
     kind: note
     tier: full
-    desc: 파일 클릭 → 파일 패널에서 바로 편집·저장
   - id: terminal-editor-2
     term: "파일 우클릭: 컨텍스트로 첨부/다른 앱에서 열기/탐색기 표시/경로 복사"
     kind: note
     tier: full
-    desc: "파일 우클릭: 컨텍스트로 첨부/다른 앱에서 열기/탐색기 표시/경로 복사"

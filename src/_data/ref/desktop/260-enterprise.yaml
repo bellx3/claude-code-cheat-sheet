@@ -14,14 +14,11 @@ items:
     term: "관리 콘솔: Code 데스크톱 사용 여부, 웹 세션, Remote Control, Bypass 모드 비활성화 등 제어"
     kind: note
     tier: full
-    desc: "관리 콘솔: Code 데스크톱 사용 여부, 웹 세션, Remote Control, Bypass 모드 비활성화 등 제어"
   - id: managed-settings-disableautomode-sshhostal
     term: "Managed settings: disableAutoMode, sshHostAllowlist, managedMcpServers 등"
     kind: note
     tier: full
-    desc: "Managed settings: disableAutoMode, sshHostAllowlist, managedMcpServers 등"
   - id: macos-mdm-jamf-kandji-windows
     term: macOS는 MDM(Jamf/Kandji), Windows는 그룹 정책/레지스트리로 배포·정책 관리
     kind: note
     tier: full
-    desc: macOS는 MDM(Jamf/Kandji), Windows는 그룹 정책/레지스트리로 배포·정책 관리

@@ -19,13 +19,11 @@ items:
     term: 실행 없이 계산했다고 보고한 결과
     kind: note
     tier: full
-    desc: 실행 없이 계산했다고 보고한 결과
     subhead: 검증 예시
   - id: reviewer-3
     term: 응답 값과 원본 파일 불일치
     kind: note
     tier: full
-    desc: 응답 값과 원본 파일 불일치
     subhead: 검증 예시
   - id: doi
     term: DOI가 다른 논문으로 연결
@@ -37,7 +35,6 @@ items:
     term: 미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론
     kind: note
     tier: full
-    desc: 미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론
     subhead: 검증 예시
   - id: reviewer-4
     term: 검증 예시

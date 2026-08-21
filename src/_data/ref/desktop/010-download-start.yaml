@@ -14,17 +14,14 @@ items:
     term: "macOS: 유니버설 dmg (Intel/Apple Silicon)"
     kind: note
     tier: full
-    desc: "macOS: 유니버설 dmg (Intel/Apple Silicon)"
   - id: windows-x64-arm64
     term: "Windows: x64 설치 / ARM64는 별도 설치파일"
     kind: note
     tier: full
-    desc: "Windows: x64 설치 / ARM64는 별도 설치파일"
   - id: linux-apt-deb
     term: "Linux(베타): apt 또는 .deb"
     kind: note
     tier: full
-    desc: "Linux(베타): apt 또는 .deb"
   - id: code
     term: Code
     kind: value

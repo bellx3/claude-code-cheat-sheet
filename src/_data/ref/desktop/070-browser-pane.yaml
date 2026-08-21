@@ -14,12 +14,10 @@ items:
     term: 수정 후 자동으로 dev 서버 실행·검증(스크린샷/DOM검사/클릭/폼입력)
     kind: note
     tier: full
-    desc: 수정 후 자동으로 dev 서버 실행·검증(스크린샷/DOM검사/클릭/폼입력)
   - id: browser-pane-1
     term: 서버 드롭다운에서 시작/중지
     kind: note
     tier: full
-    desc: 서버 드롭다운에서 시작/중지
   - id: persist-sessions
     term: Persist sessions
     kind: value
@@ -29,4 +27,3 @@ items:
     term: HTML/PDF/이미지/영상 경로 클릭 시 Browser pane에서 열림
     kind: note
     tier: full
-    desc: HTML/PDF/이미지/영상 경로 클릭 시 Browser pane에서 열림

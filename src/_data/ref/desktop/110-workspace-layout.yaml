@@ -19,7 +19,6 @@ items:
     term: 헤더 드래그로 위치 변경, 가장자리 드래그로 크기 조절
     kind: note
     tier: full
-    desc: 헤더 드래그로 위치 변경, 가장자리 드래그로 크기 조절
   - id: views
     term: Views
     kind: value
@@ -29,4 +28,3 @@ items:
     term: Cmd/Ctrl+\ 포커스된 패널 닫기
     kind: note
     tier: full
-    desc: Cmd/Ctrl+\ 포커스된 패널 닫기

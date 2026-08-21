@@ -14,7 +14,6 @@ items:
     term: 설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음
     kind: note
     tier: full
-    desc: 설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음
   - id: context-cost
     term: Context cost
     kind: value
@@ -29,4 +28,3 @@ items:
     term: "스크립팅 설치: claude plugin install <name>@<marketplace> --scope project"
     kind: note
     tier: full
-    desc: "스크립팅 설치: claude plugin install <name>@<marketplace> --scope project"

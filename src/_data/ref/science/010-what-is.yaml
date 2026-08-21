@@ -24,12 +24,10 @@ items:
     term: 파일은 내 컴퓨터에 유지, 코드는 샌드박스에서 실행
     kind: note
     tier: full
-    desc: 파일은 내 컴퓨터에 유지, 코드는 샌드박스에서 실행
   - id: what-is-3
     term: 새 폴더·네트워크 호스트·원격 잡은 매번 승인 후 사용
     kind: note
     tier: full
-    desc: 새 폴더·네트워크 호스트·원격 잡은 매번 승인 후 사용
   - id: what-is-4
     term: 리뷰어
     kind: value

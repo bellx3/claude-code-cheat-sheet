@@ -15,17 +15,14 @@ items:
     term: Settings > Compute > SSH hosts > Add SSH host
     kind: value
     tier: full
-    desc: Settings > Compute > SSH hosts > Add SSH host
   - id: ssh-config-alias-user-port-proxyjump
     term: ~/.ssh/config의 alias 선택 (주소·user·port·ProxyJump 자동 인식)
     kind: note
     tier: full
-    desc: ~/.ssh/config의 alias 선택 (주소·user·port·ProxyJump 자동 인식)
   - id: partition-account-code-module-load-claude
     term: 호스트 메모 입력 (partition, account code, module load 등) — 첫 작업 전 Claude가 읽음
     kind: note
     tier: full
-    desc: 호스트 메모 입력 (partition, account code, module load 등) — 첫 작업 전 Claude가 읽음
   - id: advanced
     term: Advanced
     kind: value

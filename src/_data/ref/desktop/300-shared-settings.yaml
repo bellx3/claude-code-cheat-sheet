@@ -14,24 +14,19 @@ items:
     term: CLAUDE.md, CLAUDE.local.md — 둘 다 사용
     kind: note
     tier: full
-    desc: CLAUDE.md, CLAUDE.local.md — 둘 다 사용
   - id: mcp-claude-json-mcp-json
     term: MCP 서버(~/.claude.json, .mcp.json) — 공유
     kind: note
     tier: full
-    desc: MCP 서버(~/.claude.json, .mcp.json) — 공유
   - id: hooks-skills
     term: Hooks, Skills — 공유
     kind: note
     tier: full
-    desc: Hooks, Skills — 공유
   - id: claude-settings-json
     term: ~/.claude/settings.json — 공유(권한 규칙 등)
     kind: note
     tier: full
-    desc: ~/.claude/settings.json — 공유(권한 규칙 등)
   - id: desktop
     term: 터미널에서 /desktop 입력 → 현재 세션을 데스크톱 앱으로 이동
     kind: note
     tier: full
-    desc: 터미널에서 /desktop 입력 → 현재 세션을 데스크톱 앱으로 이동

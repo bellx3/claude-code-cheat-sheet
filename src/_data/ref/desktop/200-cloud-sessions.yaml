@@ -14,12 +14,10 @@ items:
     term: Environment에서 Cloud 선택 → 앱 종료해도 계속 실행, claude.ai/code·모바일 앱에서 확인
     kind: note
     tier: full
-    desc: Environment에서 Cloud 선택 → 앱 종료해도 계속 실행, claude.ai/code·모바일 앱에서 확인
   - id: cloud-sessions-1
     term: 여러 저장소 동시 추가 가능
     kind: note
     tier: full
-    desc: 여러 저장소 동시 추가 가능
   - id: continue-in
     term: Continue in
     kind: value

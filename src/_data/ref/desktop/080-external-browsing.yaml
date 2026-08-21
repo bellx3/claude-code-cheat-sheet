@@ -14,19 +14,15 @@ items:
     term: Cmd/Ctrl+Shift+B 로 Browser pane 열기
     kind: note
     tier: full
-    desc: Cmd/Ctrl+Shift+B 로 Browser pane 열기
   - id: allow-once-always-allow-deny
     term: 첫 접근 시 승인 카드(Allow once/Always allow/Deny), 서브도메인별 개별 승인
     kind: note
     tier: full
-    desc: 첫 접근 시 승인 카드(Allow once/Always allow/Deny), 서브도메인별 개별 승인
   - id: claude-in-chrome-browser-pane
     term: 로그인 상태 공유 필요하면 Claude in Chrome 확장 사용 (Browser pane은 별도 프로필)
     kind: note
     tier: full
-    desc: 로그인 상태 공유 필요하면 Claude in Chrome 확장 사용 (Browser pane은 별도 프로필)
   - id: allow-blocklist
     term: 조직 차원 allow/blocklist 및 외부 탐색 자체 차단 가능
     kind: note
     tier: full
-    desc: 조직 차원 allow/blocklist 및 외부 탐색 자체 차단 가능

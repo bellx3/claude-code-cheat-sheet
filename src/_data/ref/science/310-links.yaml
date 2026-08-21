@@ -14,24 +14,19 @@ items:
     term: "공식 문서: claude.com/docs/claude-science/overview"
     kind: note
     tier: full
-    desc: "공식 문서: claude.com/docs/claude-science/overview"
   - id: docs-claude-science-get-started
     term: "시작 가이드: /docs/claude-science/get-started"
     kind: note
     tier: full
-    desc: "시작 가이드: /docs/claude-science/get-started"
   - id: docs-claude-science-connectors-and-skills
     term: "커넥터·스킬: /docs/claude-science/connectors-and-skills"
     kind: note
     tier: full
-    desc: "커넥터·스킬: /docs/claude-science/connectors-and-skills"
   - id: cli-docs-claude-science-command-line-setti
     term: "CLI 설정: /docs/claude-science/command-line-settings"
     kind: note
     tier: full
-    desc: "CLI 설정: /docs/claude-science/command-line-settings"
   - id: claude-com-product-claude-science
     term: "다운로드: claude.com/product/claude-science"
     kind: note
     tier: full
-    desc: "다운로드: claude.com/product/claude-science"

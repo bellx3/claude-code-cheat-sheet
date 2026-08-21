@@ -14,14 +14,11 @@ items:
     term: "새 기능 개발: /plan → 승인 → 구현 → /code-review → /security-review"
     kind: note
     tier: full
-    desc: "새 기능 개발: /plan → 승인 → 구현 → /code-review → /security-review"
   - id: rewind
     term: "디버깅 막힐 때: /rewind 로 되돌린 뒤 원인 파악 후 재시도"
     kind: note
     tier: full
-    desc: "디버깅 막힐 때: /rewind 로 되돌린 뒤 원인 파악 후 재시도"
   - id: pr-diff-release-notes
     term: "PR 마무리: /diff 로 검토 → 커밋 → /release-notes"
     kind: note
     tier: full
-    desc: "PR 마무리: /diff 로 검토 → 커밋 → /release-notes"

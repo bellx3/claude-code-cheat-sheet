@@ -14,24 +14,19 @@ items:
     term: 반복 작업 → .claude/commands/ 커스텀 명령어화
     kind: note
     tier: full
-    desc: 반복 작업 → .claude/commands/ 커스텀 명령어화
   - id: output-format-json
     term: 자동화 스크립트 → --output-format json
     kind: note
     tier: full
-    desc: 자동화 스크립트 → --output-format json
   - id: practices-workflow-1
     term: 복합 작업 → 파이프로 단계별 연결
     kind: note
     tier: full
-    desc: 복합 작업 → 파이프로 단계별 연결
   - id: id
     term: 장시간 작업 → 세션 ID로 관리, 에러 처리 구현
     kind: note
     tier: full
-    desc: 장시간 작업 → 세션 ID로 관리, 에러 처리 구현
   - id: practices-workflow-2
     term: 팀 공유용 워크플로우는 문서화
     kind: note
     tier: full
-    desc: 팀 공유용 워크플로우는 문서화

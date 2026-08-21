@@ -14,27 +14,22 @@ items:
     term: 화면·앱 직접 조작 (CLI 없는 GUI 자동화용)
     kind: note
     tier: full
-    desc: 화면·앱 직접 조작 (CLI 없는 GUI 자동화용)
   - id: macos-windows-pro-max-team-enterprise
     term: macOS·Windows Pro/Max 리서치 프리뷰, Team/Enterprise 불가
     kind: note
     tier: full
-    desc: macOS·Windows Pro/Max 리서치 프리뷰, Team/Enterprise 불가
   - id: general-computer-use-macos
     term: "기본 꺼짐: 설정→General→Computer use 토글, macOS는 손쉬운 사용+화면 기록 권한 추가 필요"
     kind: note
     tier: full
-    desc: "기본 꺼짐: 설정→General→Computer use 토글, macOS는 손쉬운 사용+화면 기록 권한 추가 필요"
   - id: view-only-click-only-ide-full-control-3
     term: View only(브라우저 등) / Click only(터미널·IDE) / Full control(그 외) 3단계
     kind: note
     tier: full
-    desc: View only(브라우저 등) / Click only(터미널·IDE) / Full control(그 외) 3단계
   - id: 1-dispatch-30
     term: 세션당 1회 승인 (Dispatch 세션은 30분마다 재승인)
     kind: note
     tier: full
-    desc: 세션당 1회 승인 (Dispatch 세션은 30분마다 재승인)
   - id: computer-use-1
     term: 주의
     kind: note

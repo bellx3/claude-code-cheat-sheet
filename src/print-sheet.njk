@@ -38,7 +38,14 @@ eleventyExcludeFromCollections: true
 <h2>{{ sec.title }}</h2>
 <table>
   {%- for it in core %}{% if not it.tone %}
+  {#- 설명이 없는 항목(그 문장 자체가 내용인 한 줄)은 키 열 44% 에 갇히지 않게 두 칸을 쓴다.
+      예전에는 term 과 desc 에 같은 문장이 들어 있어 두 칸이 채워졌는데, 그건 같은 말을
+      두 번 찍던 것이었다(2026-08-21 데이터 정리). -#}
+  {%- if it.desc %}
   <tr><td class="k">{{ it.term }}</td><td class="v">{{ it.desc }}</td></tr>
+  {%- else %}
+  <tr><td class="k" colspan="2">{{ it.term }}</td></tr>
+  {%- endif %}
   {%- endif %}{% endfor %}
 </table>
   {%- for it in core %}{% if it.tone %}

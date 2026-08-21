@@ -185,6 +185,11 @@ if (runPre) {
           if (it.tier !== "core") continue;
           if (!it.desc) { warn("G6", `${sec._file} ${it.id}: core 인데 desc 가 비어 있다`); continue; }
           if (it.desc.includes("\n")) fail("G6", `${sec._file} ${it.id}: core 의 desc 에 개행이 있다`);
+          // 이관 흔적: 한 줄짜리 항목의 문장이 term 과 desc 양쪽에 들어가 화면·A3 양쪽에서
+          // 같은 말을 두 번 찍었다(664개 중 115개). 2026-08-21 에 desc 를 지웠고, 다시
+          // 들어오는 것을 여기서 막는다 — 어느 쪽을 지울지는 term 이 정본이다(검색 제목·A3 키 열).
+          if (String(it.term ?? "").trim() === it.desc.trim())
+            fail("G6", `${sec._file} ${it.id}: term 과 desc 가 같다 — 같은 말을 두 번 싣지 않는다(desc 를 지울 것)`);
           if (it.desc.length > 120) warn("G6", `${sec._file} ${it.id}: core desc 가 ${it.desc.length}자 (A3에서 줄바꿈 위험)`);
         }
   });

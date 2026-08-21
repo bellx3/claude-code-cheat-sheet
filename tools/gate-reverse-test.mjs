@@ -62,6 +62,15 @@ const CASES = [
     pre: true,
   },
   {
+    gate: "G6",
+    what: "term 과 똑같은 desc 를 되살린다",
+    file: "src/_data/ref/cli/020-cli-commands.yaml",
+    // desc 줄을 새로 넣지 말 것 — 키가 중복되면 G0(YAML 파싱)이 먼저 걸려 G6 을 못 본다.
+    // 있는 desc 의 값을 term 과 같게 바꾼다.
+    edit: (t) => t.replace("    desc: 대화형 세션 시작\n", "    desc: claude\n"),
+    pre: true,
+  },
+  {
     gate: "G7",
     what: "레퍼런스 섹션 파일 하나를 통째로 지운다",
     file: "src/_data/ref/cli/100-sandbox.yaml",

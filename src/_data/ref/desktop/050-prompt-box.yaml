@@ -14,22 +14,18 @@ items:
     term: Enter 전송, 진행 중 정정 메시지 입력 시 중단 없이 다음 단계에 반영
     kind: note
     tier: full
-    desc: Enter 전송, 진행 중 정정 메시지 입력 시 중단 없이 다음 단계에 반영
   - id: prompt-box-1
     term: "정지 버튼: 즉시 중단"
     kind: note
     tier: full
-    desc: "정지 버튼: 즉시 중단"
   - id: ssh-wsl
     term: "@파일명: 컨텍스트 추가 (로컬·SSH만, 클라우드·WSL 불가)"
     kind: note
     tier: full
-    desc: "@파일명: 컨텍스트 추가 (로컬·SSH만, 클라우드·WSL 불가)"
   - id: pdf
     term: "첨부: 이미지·PDF 드래그앤드롭"
     kind: note
     tier: full
-    desc: "첨부: 이미지·PDF 드래그앤드롭"
   - id: prompt-box-2
     term: +
     kind: value

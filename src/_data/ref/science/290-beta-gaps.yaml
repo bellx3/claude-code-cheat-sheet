@@ -14,12 +14,10 @@ items:
     term: 감사 로그 미기록, Compliance API 내보내기/삭제 불가
     kind: note
     tier: full
-    desc: 감사 로그 미기록, Compliance API 내보내기/삭제 불가
   - id: custom-data-retention
     term: 조직 데이터 내보내기 제외, Custom Data Retention 무효
     kind: note
     tier: full
-    desc: 조직 데이터 내보내기 제외, Custom Data Retention 무효
   - id: beta-gaps-1
     term: 로컬/커스텀 커넥터엔 미적용
     kind: value
@@ -29,9 +27,7 @@ items:
     term: 관리자가 원격 컴퓨트 연결을 제한할 수 없음
     kind: note
     tier: full
-    desc: 관리자가 원격 컴퓨트 연결을 제한할 수 없음
   - id: windows
     term: 오프보딩 시 로컬 데이터 미삭제 · 네이티브 Windows 빌드 없음
     kind: note
     tier: full
-    desc: 오프보딩 시 로컬 데이터 미삭제 · 네이티브 Windows 빌드 없음

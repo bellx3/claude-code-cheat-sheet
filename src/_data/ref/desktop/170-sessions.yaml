@@ -14,7 +14,6 @@ items:
     term: Cmd/Ctrl+N 새 세션, 여러 세션 병렬 실행
     kind: note
     tier: full
-    desc: Cmd/Ctrl+N 새 세션, 여러 세션 병렬 실행
   - id: git-worktree
     term: Git worktree
     kind: command
@@ -24,9 +23,7 @@ items:
     term: Cmd/Ctrl 누르고 사이드바 클릭 → 2개 세션 분할 보기
     kind: note
     tier: full
-    desc: Cmd/Ctrl 누르고 사이드바 클릭 → 2개 세션 분할 보기
   - id: pr-auto-archive
     term: 완료 후 보관 아이콘, PR 병합 시 자동 보관(Auto-archive) 설정 가능
     kind: note
     tier: full
-    desc: 완료 후 보관 아이콘, PR 병합 시 자동 보관(Auto-archive) 설정 가능

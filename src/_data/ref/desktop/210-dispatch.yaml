@@ -14,14 +14,11 @@ items:
     term: 휴대폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성 (Dispatch 배지 표시)
     kind: note
     tier: full
-    desc: 휴대폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성 (Dispatch 배지 표시)
   - id: dispatch-1
     term: 완료·승인 필요 시 폰으로 푸시 알림
     kind: note
     tier: full
-    desc: 완료·승인 필요 시 폰으로 푸시 알림
   - id: pro-max-team-enterprise
     term: Pro/Max 전용, Team/Enterprise 불가
     kind: note
     tier: full
-    desc: Pro/Max 전용, Team/Enterprise 불가

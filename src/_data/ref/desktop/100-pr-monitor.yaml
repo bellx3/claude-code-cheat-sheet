@@ -14,7 +14,6 @@ items:
     term: PR 생성 후 세션에 CI 상태 바 표시 (GitHub CLI gh 필요)
     kind: note
     tier: full
-    desc: PR 생성 후 세션에 CI 상태 바 표시 (GitHub CLI gh 필요)
   - id: auto-fix
     term: Auto-fix
     kind: value
@@ -29,4 +28,3 @@ items:
     term: 완료 시 데스크톱 알림
     kind: note
     tier: full
-    desc: 완료 시 데스크톱 알림

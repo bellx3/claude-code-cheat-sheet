@@ -14,12 +14,10 @@ items:
     term: 변경 후 +12 -1 형태 diff stats 클릭 → diff 뷰어
     kind: note
     tier: full
-    desc: 변경 후 +12 -1 형태 diff stats 클릭 → diff 뷰어
   - id: cmd-ctrl-enter
     term: 줄 클릭해 댓글, Cmd/Ctrl+Enter 로 한번에 제출
     kind: note
     tier: full
-    desc: 줄 클릭해 댓글, Cmd/Ctrl+Enter 로 한번에 제출
   - id: review-code
     term: Review code
     kind: value

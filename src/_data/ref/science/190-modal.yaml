@@ -30,17 +30,14 @@ items:
     term: 승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시
     kind: note
     tier: full
-    desc: 승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시
   - id: 1-gib-submit-modal-volume-out-5-gib
     term: 입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 ./out/ 최대 5 GiB
     kind: note
     tier: full
-    desc: 입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 ./out/ 최대 5 GiB
   - id: 10-12-23
     term: 동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)
     kind: note
     tier: full
-    desc: 동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)
   - id: modal-2
     term: 위험
     kind: note

@@ -24,12 +24,10 @@ items:
     term: 원격 컴퓨트 트래픽은 Anthropic 경유하지 않음
     kind: note
     tier: full
-    desc: 원격 컴퓨트 트래픽은 Anthropic 경유하지 않음
   - id: directory-anthropic
     term: Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신
     kind: note
     tier: full
-    desc: Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신
   - id: data-handling-3
     term: 위험
     kind: note
