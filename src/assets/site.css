@@ -236,6 +236,27 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8
 p.prose { margin: 0 0 12px; }
 ul.prose { margin: 0 0 12px; padding-left: 20px; }
 ul.prose li { margin: 0 0 6px; }
+/* 읽는 문서 페이지(작업·프롬프트 상세·about)의 본문 열.
+   본문(.prose)은 --measure(70ch)로 묶여 있는데 코드 블록·표만 판 전체 폭(1148px)이라
+   우측 경계가 문단마다 들쭉났다. 열 하나로 묶어 경계를 하나로 만든다.
+   42rem 인 이유: 후보 폭마다 코드 블록의 가로 넘침을 세어봤다(페이지 6개·코드 7개) —
+   40rem 에서 1개가 28px 넘쳤고 42rem 부터 0개다. 넘치지 않는 최소 폭.
+   ch 를 쓰지 않는다: ch 는 그 요소의 폰트 기준이라 모노 폰트인 <pre> 에서는 같은 76ch 도
+   더 좁게 잡혀 코드가 넘쳤다(카드 이름 열에서 겪은 것과 같은 함정).
+   안쪽 문단의 --measure 상한도 같은 값으로 맞춘다. 안 맞추면 문단만 70ch 라 경계가 둘이 된다
+   (문단 폭 640→672px, 읽는 폭은 사실상 그대로).
+   main 자체가 아니라 자식을 조이는 이유: main 을 좁히면 .wrap 의 auto 마진이 열을 화면
+   가운데로 옮겨, 제목이 왼쪽에 고정된 브랜드·탭과 어긋난다(실측: h1 x=300 vs 탭 x=78).
+   범위를 main.doc 로 한정하는 이유: /print/ 는 base.njk 를 거치지 않아 영향이 없고,
+   전역 pre 규칙을 건드렸다면 인쇄 산출물이 함께 바뀐다(A3 시트는 sheet-a3.css 라 무관). */
+main.doc > *,
+main.doc .prose,
+main.doc .lede,
+main.doc .pagemeta,
+main.doc .datanote,
+main.doc .caveat,
+main.doc .summary { max-width: 42rem; }
+
 /* 페이지 맨 아래 "이 데이터는 어느 파일" 줄 — 상세 페이지 공통 */
 .datanote { margin: 32px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
 
@@ -673,7 +694,8 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
 /* 슬롯은 `--staged` 같은 짧은 값을 받는 자리다. 판 전체 폭(1148px)짜리 입력창은
    들어갈 내용의 길이를 잘못 알려준다 — 입력 하나를 읽기 좋은 폭으로 묶는다. */
-.slots { display: grid; gap: 8px; margin: 10px 0; max-width: 30rem; }
+/* main.doc > * (0,1,1) 가 .slots (0,1,0) 를 이기므로 열 폭으로 덮인다. 특이도를 맞춘다. */
+.slots, main.doc .slots { display: grid; gap: 8px; margin: 10px 0; max-width: 30rem; }
 .slots label { display: grid; gap: 4px; font-size: var(--fs-sm); color: var(--muted); }
 .slots input {
   min-height: 38px; padding: 0 10px; font-size: 16px;

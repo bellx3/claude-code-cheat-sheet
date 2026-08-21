@@ -36,7 +36,9 @@
   </div>
 </nav>
 
-<main id="main" class="wrap">
+{# doc: true 인 페이지(작업·프롬프트 상세·about)는 카드가 아니라 읽는 문서다 — 본문 열을
+   하나로 묶는다. /print/ 는 base.njk 를 쓰지 않으므로 인쇄 산출물과 완전히 분리된다. #}
+<main id="main" class="wrap{% if doc %} doc{% endif %}">
 {{ content | safe }}
 </main>
 
