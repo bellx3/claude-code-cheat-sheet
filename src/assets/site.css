@@ -204,7 +204,8 @@ input:focus-visible {
 @media (max-width: 640px) { .navsearch .ex { display: none; } }
 
 /* ── 페이지 골격 ─────────────────────────────────────────── */
-main { padding: 20px 0 64px; }
+/* 상단 탭이 sticky 라 제목이 탭 밑에 바짝 붙으면 한 덩어리로 읽힌다. 한 숨 띄운다. */
+main { padding: 28px 0 64px; }
 h1 { font-size: 1.5rem; margin: 0 0 6px; line-height: 1.3; font-weight: 800; }
 h2 { font-size: 1.1875rem; margin: 32px 0 8px; line-height: 1.35; font-weight: 800; scroll-margin-top: calc(var(--tap) + 16px); }
 h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
@@ -245,7 +246,9 @@ ul.prose li { margin: 0 0 6px; }
   .toc { position: sticky; top: calc(var(--tap) + 12px); max-height: calc(100vh - 90px); overflow-y: auto; }
 }
 
-/* 목차 — 모바일에서만 접는다. 본문 중복이라 숨겨도 정보 손실이 없는 유일한 자리. */
+/* 목차 — 데스크톱은 좌측 sticky 열, 모바일은 접지 않고 스크롤 박스에 가둔다(아래 참조).
+   <details> 를 쓰지만 기본은 항상 열림이다. G10 이 본문의 <details> 를 막으면서 목차만
+   data-toc 로 허용하는 것은 "본문 중복이라 접어도 잃는 게 없다"는 주장에 대한 표시다. */
 .toc { font-size: var(--fs-sm); }
 .toc ol { list-style: none; margin: 0; padding: 0; }
 .toc li { margin: 0; }
@@ -263,6 +266,17 @@ ul.prose li { margin: 0 0 6px; }
 @media (min-width: 900px) {
   .toc > summary { display: none; }
   .toc[open] > *:not(summary), .toc > *:not(summary) { display: revert; }
+}
+/* 모바일에서는 목차가 본문 앞을 통째로 막는다 — 섹션 37개면 화면 두 개 분량이라
+   카드 첫 줄에 닿기 전에 목차만 스크롤하게 된다. 그렇다고 기본 접힘으로 두지는 않는다:
+   닫힌 <details> 안은 브라우저 Ctrl+F 에서 빠지는데, 그건 이 사이트가 탭을 별도 URL 로
+   두는 이유와 정면으로 충돌한다. 접지 말고 스크롤 박스에 가둔다 — 스크롤 컨테이너
+   안의 내용은 찾기가 그대로 찾아준다(삭제된 랜딩의 목차도 같은 이유로 이 방식이었다). */
+@media (max-width: 899px) {
+  .toc[open] > ol {
+    max-height: 40vh; overflow-y: auto;
+    border: 1px solid var(--line); border-radius: 8px; padding: 4px 6px;
+  }
 }
 
 /* ── 섹션 / 항목 ─────────────────────────────────────────── */
@@ -428,6 +442,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
   .cardgrid .item .badge {
     grid-column: 1; grid-row: 1;
     margin-bottom: 0; align-self: start; max-width: 30ch;
+    /* 그리드 아이템의 기본값은 stretch 라, 칩이 글자가 아니라 열 폭만큼 늘어난다
+       (실측: `--model` 칩 배경이 259px 짜리 막대로 그려졌다). 이름은 글자를 감싸야 한다. */
+    justify-self: start;
   }
   @supports (grid-template-columns: subgrid) {
     .cardgrid .section { display: grid; grid-template-columns: fit-content(35ch) minmax(0, 1fr); }
@@ -654,7 +671,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 .btn[data-copied="1"] { border-color: var(--ok); color: var(--ok); }
 .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-.slots { display: grid; gap: 8px; margin: 10px 0; }
+/* 슬롯은 `--staged` 같은 짧은 값을 받는 자리다. 판 전체 폭(1148px)짜리 입력창은
+   들어갈 내용의 길이를 잘못 알려준다 — 입력 하나를 읽기 좋은 폭으로 묶는다. */
+.slots { display: grid; gap: 8px; margin: 10px 0; max-width: 30rem; }
 .slots label { display: grid; gap: 4px; font-size: var(--fs-sm); color: var(--muted); }
 .slots input {
   min-height: 38px; padding: 0 10px; font-size: 16px;
