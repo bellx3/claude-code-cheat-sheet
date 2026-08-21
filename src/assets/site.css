@@ -750,8 +750,12 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* 세로는 남는 만큼 미리보기에 준다. 높이를 max-height 로만 두면 안 된다 — 다이얼로그 높이가
    내용(종이)에 의존하고 종이 크기는 다시 배율에 의존해서 순환이 생기고, 배율이 초깃값
    근처에서 굳는다(실측: flex 로 바꿨더니 0.553 → 0.521 로 오히려 줄었다). 높이를 확정한다. */
+/* display 는 반드시 [open] 에만 건다. <dialog> 를 숨기는 건 UA 의 dialog:not([open])
+   { display: none } 인데, 작성자 스타일은 특이도와 무관하게 UA 를 이긴다 — .sheetmodal 에
+   display:flex 를 그냥 걸었더니 닫힌 상태에서도 1382x828 로 남아 페이지를 덮었다(실측:
+   로드 직후부터 그랬고, 본문 맨 아래라 눈에 안 띄었을 뿐이다). */
+.sheetmodal[open] { display: flex; flex-direction: column; }
 .sheetmodal {
-  display: flex; flex-direction: column;
   width: min(96vw, 1500px); max-width: none;
   height: 92vh; max-height: 92vh; padding: 0;
   border: 1px solid var(--line); border-radius: 12px;
