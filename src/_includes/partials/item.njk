@@ -3,7 +3,12 @@
     같은 말을 두 번 하지 않는다: 이런 항목은 이름 없는 한 줄로 보고 판을 가로질러 눕힌다.
     데이터를 고치는 쪽이 정본이지만, 그 전에도 화면이 같은 말을 반복하면 안 된다. -#}
 {%- set sameNameDesc = it.term and it.desc and (it.term | trim) == (it.desc | trim) %}
-<article class="item{% if sameNameDesc %} item-line{% endif %}" id="{{ it.anchor }}">
+{#- 이름이 34자를 넘으면 이름이 아니라 한 줄짜리 명령이다(664개 중 98개 = 14.8%,
+    `curl -fsSL … | bash`·`git diff HEAD~1 | claude -p …` 같은 것들). 그런 것 하나가
+    카드의 이름 열 폭을 정하면 그 카드의 나머지 행이 전부 멀리 밀린다 — 열에서 빼고 눕힌다.
+    34자인 이유: 실제 이름 중 가장 긴 --dangerously-skip-permissions(30자)는 열에 남겨야 한다. -#}
+{%- set longTerm = it.term and (it.term | trim | length) > 34 %}
+<article class="item{% if sameNameDesc or longTerm %} item-line{% endif %}" id="{{ it.anchor }}">
   <a class="anchor" href="#{{ it.anchor }}" aria-label="이 항목 링크">#</a>
   {%- if it.tone %}
   <span class="badge warn">{{ "위험" if it.tone == "danger" else "주의" }}</span>

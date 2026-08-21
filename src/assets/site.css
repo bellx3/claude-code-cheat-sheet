@@ -480,9 +480,10 @@ pre code { background: none; padding: 0; font-size: inherit; }
     column-gap: 12px;
   }
   .cardgrid .item > * { grid-column: 2; }
-  /* 이름 없이 한 줄인 항목(이름==설명이라 이름을 접은 것)은 두 열을 가로지른다 —
-     빈 이름 칸만큼 들여쓰기가 생기면 목록 안에서 그 줄만 어긋나 보인다. */
-  .cardgrid .item-line > * { grid-column: 1 / -1; }
+  /* 한 줄짜리 항목(이름==설명이라 이름을 접었거나, 이름이 34자를 넘는 명령)은 열을 쓰지 않는다.
+     grid-column: 1/-1 로 가로지르게만 두면 그 항목도 트랙 크기 계산에 참여해서 이름 열이
+     그대로 넓어진다(실측: 눕혔는데도 열이 310px 그대로였다). 서브그리드에서 빼야 한다. */
+  .cardgrid .item-line { display: block; }
   .cardgrid .item .term,
   .cardgrid .item .term-label,
   .cardgrid .item .badge {
@@ -742,6 +743,50 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* 공식문서 색인 표의 열 폭. 인라인 style 대신 여기에 둔다 — 표 규칙은 한군데 모은다. */
 .tbl th.c-name { width: 30%; }
 .tbl th.c-md { width: 52px; }
+
+/* ── A3 치트시트 미리보기 모달 ─────────────────────────────────
+   시트를 실제 조판 폭(1587px = A3 가로 @96dpi)으로 그린 뒤 축소만 한다. iframe 을 좁히면
+   시트가 다른 조판으로 다시 흘러 미리보기가 거짓이 된다. 배율은 sheet.js 가 --s 로 준다. */
+/* 세로는 남는 만큼 미리보기에 준다. 높이를 max-height 로만 두면 안 된다 — 다이얼로그 높이가
+   내용(종이)에 의존하고 종이 크기는 다시 배율에 의존해서 순환이 생기고, 배율이 초깃값
+   근처에서 굳는다(실측: flex 로 바꿨더니 0.553 → 0.521 로 오히려 줄었다). 높이를 확정한다. */
+.sheetmodal {
+  display: flex; flex-direction: column;
+  width: min(96vw, 1500px); max-width: none;
+  height: 92vh; max-height: 92vh; padding: 0;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--bg); color: var(--fg);
+  box-shadow: var(--shadow-xl);
+}
+.sheetmodal::backdrop { background: rgb(28 25 23 / 0.55); }
+.sheetmodal-bar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 12px 16px; border-bottom: 2px solid var(--accent);
+}
+.sheetmodal-bar .t { margin: 0; font-weight: 700; font-size: var(--fs-ref); }
+.sheetmodal-bar .s { margin: 0; flex: 1 1 auto; font-size: var(--fs-xs); color: var(--muted); }
+.sheetmodal-bar .btn.primary { border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.sheetmodal-bar .btn.primary:hover { background: var(--accent-soft); }
+.sheetmodal-stage {
+  display: flex; justify-content: center; align-items: center;
+  padding: 16px; background: var(--bg-soft);
+  flex: 1 1 auto; min-height: 240px; overflow: auto;
+}
+.sheetmodal-paper {
+  flex: 0 0 auto;
+  width: calc(1587px * var(--s, 0.5)); height: calc(1123px * var(--s, 0.5));
+  overflow: hidden; background: #fff; border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.sheetmodal-paper iframe {
+  width: 1587px; height: 1123px; border: 0; display: block;
+  transform: scale(var(--s, 0.5)); transform-origin: top left;
+}
+.sheetmodal-hint {
+  margin: 0; padding: 10px 16px; border-top: 1px solid var(--line);
+  font-size: var(--fs-xs); color: var(--muted);
+}
+@media (max-width: 640px) { .sheetmodal-bar .s { display: none; } }
 
 /* ── 착지 하이라이트 ──────────────────────────────────────── */
 :target { background: var(--hl); }
