@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
-import { REDISTRIBUTABLE, ORIGINS, ASCII_ID, PII_ALLOW } from "./constants.mjs";
+import { REDISTRIBUTABLE, ORIGINS, ASCII_ID, PII_ALLOW, REF_GROUPS } from "./constants.mjs";
 import refIndexFn from "../src/_data/refIndex.js";
 import taskIndexFn from "../src/_data/taskIndex.js";
 import promptIndexFn from "../src/_data/promptIndex.js";
@@ -65,6 +65,12 @@ if (runPre) {
   //      DuplicatePermalinkOutputError로 빌드가 죽고, Netlify는 직전본을 계속 서빙한다.
   gate("G1 id", () => {
     for (const s of ref.surfaces) {
+      // 사이드바는 섹션을 group 축으로 접어 보여준다. 라벨 없는 group 은 화면에 빈 제목이
+      // 아니라 raw id("enterprise")로 나와 조용히 어색해지므로 여기서 막는다.
+      for (const g of s.groups) {
+        if (!g.id) fail("G1", `${s.id}: group 이 없는 섹션 (${g.sections[0]?._file})`);
+        else if (!REF_GROUPS[g.id]) fail("G1", `${s.id}: group 라벨 없음 "${g.id}" — tools/constants.mjs 의 REF_GROUPS 에 추가할 것`);
+      }
       const anchors = new Set();
       for (const sec of s.sections) {
         if (!ASCII_ID.test(sec.id)) fail("G1", `섹션 id 규칙 위반: ${s.id}/${sec.id} (${sec._file})`);

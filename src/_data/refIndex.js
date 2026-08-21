@@ -6,7 +6,7 @@ import yaml from "js-yaml";
 
 const DATA = path.resolve("src/_data/ref");
 
-import { SURFACES, toYmd } from "../../tools/constants.mjs";
+import { SURFACES, REF_GROUPS, toYmd } from "../../tools/constants.mjs";
 
 function loadSurface(surface) {
   const dir = path.join(DATA, surface);
@@ -41,11 +41,12 @@ export default function () {
   const surfaces = SURFACES.map((s) => {
     const sections = loadSurface(s.id);
     const items = sections.flatMap((sec) => sec.items);
-    // 페이지 내 묶음(group)은 나중에 URL 3단으로 승격할 여지를 남겨둔 축이다. 지금은 목차 그룹핑에만 쓴다.
+    // 페이지 내 묶음(group). 사이드바가 이 축으로 섹션을 접어 보여준다 —
+    // 라벨은 constants.mjs 의 REF_GROUPS 가 정본이고, 없으면 id 를 그대로 쓴다(G1 이 잡는다).
     const groups = [];
     for (const sec of sections) {
       let g = groups.find((x) => x.id === sec.group);
-      if (!g) { g = { id: sec.group, sections: [] }; groups.push(g); }
+      if (!g) { g = { id: sec.group, label: REF_GROUPS[sec.group] || sec.group, sections: [] }; groups.push(g); }
       g.sections.push(sec);
     }
     return {

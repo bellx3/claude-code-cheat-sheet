@@ -1,72 +1,75 @@
 /* 화면 전용 스타일. A3 인쇄는 sheet-a3.css로 완전히 분리한다 —
    화면용 16px과 인쇄용 8.5px를 @media print로 한 파일에 섞으면 둘 다 망가진다. */
 
+/* 팔레트는 이 프로젝트가 이미 갖고 있던 정체성에서 가져왔다.
+   A3 치트시트(sheet-a3.css)는 흰 종이 위 앰버 규칙선(#b45309 / #92400e)에 따뜻한 회색
+   헤어라인이고, 파비콘의 ❯ 도 같은 앰버다. 화면만 제네릭한 인디고(#6366f1)+슬레이트로
+   갈라져 있었다 — 같은 데이터에서 나오는 세 산출물(웹·인쇄·마크)이 서로 다른 물건처럼
+   보일 이유가 없다. 화면을 인쇄물 쪽으로 되돌린다: 종이 바탕, 앰버 규칙선, 따뜻한 회색.
+   그라디언트 3종과 .btn-primary/.btn-secondary 는 어디서도 쓰이지 않아 함께 걷어냈다. */
 :root {
-  --fs-body: 1rem;        /* 16px. 375px에서도 줄이지 않는다 */
-  --fs-sm: 0.875rem;
-  --fs-code: 0.875rem;
+  /* 타입 스케일 — 역할당 하나씩. 레퍼런스 장르(Claude 공식 문서·Stripe API)는 14px 를
+     기준으로 조밀하게 짠다. 이 사이트는 본문 17px 로 읽히고 있어서 카드가 헐렁했고,
+     설명(17px)이 섹션 제목(15px)보다 커서 위계가 뒤집혀 있었다(실측). */
+  --fs-body: 1rem;        /* 16px. 읽는 문서(.doc)용. 375px에서도 줄이지 않는다 */
+  --fs-ref: 0.875rem;     /* 14px. 조회하는 레퍼런스 본문 — 카드 설명의 기준 */
+  --fs-sm: 0.8125rem;     /* 13px. 보조 설명·목차 */
+  --fs-xs: 0.75rem;       /* 12px. 배지·출처·개수 */
+  --fs-code: 0.8125rem;
   --lh-body: 1.65;
+  --lh-ref: 1.55;
   --lh-code: 1.5;
   --tap: 44px;            /* 최소 터치 타깃 */
   --measure: 70ch;
+  --page: 1440px;         /* 헤더·본문·푸터가 공유하는 판. 1180 은 1600 화면에서 좌우 226px 를 버렸다 */
+  --rail: 244px;          /* 좌측 섹션 레일 */
 
   --bg: #ffffff;
-  --bg-soft: #f8fafc;
-  --fg: #0f172a;
-  --muted: #64748b;
-  --line: #e2e8f0;
-  --code-bg: #f1f5f9;
-  --accent: #6366f1;       /* 현대적인 인디고 톤 */
-  --accent-soft: #e0e7ff;
-  --accent2: #0ea5e9;      /* 스카이 블루 보조 액센트 */
-  --accent2-soft: #e0f2fe;
+  --bg-soft: #faf9f7;      /* A3 섹션 채움(#fafafa)을 살짝 데운 값 */
+  --fg: #1c1917;
+  --muted: #78716c;
+  --line: #e7e5e4;
+  --code-bg: #f5f4f2;
+  --accent: #b45309;       /* A3 규칙선·파비콘 ❯ 와 같은 앰버 */
+  --accent-soft: #fdf1e0;
+  --accent2: #92400e;      /* A3 섹션 제목의 진한 앰버 */
   --hl: #fef3c7;
-  --danger: #ef4444;
-  --danger-soft: #fee2e2;
-  --ok: #10b981;
+  --danger: #b91c1c;
+  --danger-soft: #fdeaea;
+  --ok: #15803d;
 
   --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
-  --ease: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* 그라디언트 추가 */
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
-  
-  /* 그림자 */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --ease: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* 그림자는 떠 있는 것(팔레트·복사 버튼)에만 남긴다. 종이 위 카드는 헤어라인으로 나눈다. */
+  --shadow-sm: 0 1px 2px 0 rgb(28 25 23 / 0.05);
+  --shadow-md: 0 2px 6px -1px rgb(28 25 23 / 0.08);
+  --shadow-lg: 0 8px 20px -6px rgb(28 25 23 / 0.14);
+  --shadow-xl: 0 24px 48px -12px rgb(28 25 23 / 0.24);
 }
 
+/* 다크도 같은 따뜻한 축으로 내린다 — 차가운 청회색으로 갈아타면 라이트와 다른 제품이 된다.
+   앰버는 어두운 바탕에서 #b45309 로는 대비가 모자라 amber-500 로 올린다. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f172a;
-    --bg-soft: #1e293b;
-    --fg: #f1f5f9;
-    --muted: #94a3b8;
-    --line: #334155;
-    --code-bg: #1e293b;
-    --accent: #818cf8;
-    --accent-soft: #312e81;
-    --accent2: #38bdf8;
-    --accent2-soft: #0c4a6e;
-    --hl: #312e81;
+    --bg: #1c1917;
+    --bg-soft: #262322;
+    --fg: #f5f5f4;
+    --muted: #a8a29e;
+    --line: #3b3735;
+    --code-bg: #262322;
+    --accent: #f59e0b;
+    --accent-soft: #3a2408;
+    --accent2: #fbbf24;
+    --hl: #422006;
     --danger: #f87171;
-    --danger-soft: #7f1d1d;
-    --ok: #34d399;
-    
-    /* 다크 모드 그라디언트 */
-    --gradient-primary: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
-    --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
-    --gradient-warm: linear-gradient(135deg, #fbbf24 0%, #fb923c 100%);
-    
-    /* 다크 모드 그림자 */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    --danger-soft: #4c1d1d;
+    --ok: #4ade80;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+    --shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 8px 20px -6px rgb(0 0 0 / 0.6);
+    --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.7);
   }
 }
 
@@ -96,36 +99,8 @@ input:focus-visible {
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
-/* 버튼 스타일 */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: var(--tap); padding: 0 16px;
-  border: none; border-radius: 8px;
-  font-size: var(--fs-sm); font-weight: 600; text-decoration: none;
-  cursor: pointer;
-  transition: all var(--ease);
-  box-shadow: var(--shadow-sm);
-}
-.btn-primary {
-  background: var(--gradient-primary);
-  color: #fff;
-}
-.btn-primary:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
-.btn-secondary {
-  background: var(--bg);
-  color: var(--fg);
-  border: 1px solid var(--line);
-}
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  box-shadow: var(--shadow-md);
-}
-
-.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: var(--page); margin: 0 auto; padding: 0 24px; }
+@media (max-width: 640px) { .wrap { padding: 0 16px; } }
 /* 카드 그리드 페이지(레퍼런스 서피스)만 판을 넓힌다. 한글 설명이 좁은 열에서 2~3줄로
    깨지는 걸 줄이려면 카드 폭이 필요하다. 머리말·푸터까지 같이 넓혀야 축이 맞는다. */
 .prose { max-width: var(--measure); }
@@ -206,21 +181,17 @@ input:focus-visible {
 /* ── 페이지 골격 ─────────────────────────────────────────── */
 /* 상단 탭이 sticky 라 제목이 탭 밑에 바짝 붙으면 한 덩어리로 읽힌다. 한 숨 띄운다. */
 main { padding: 28px 0 64px; }
-h1 { font-size: 1.5rem; margin: 0 0 6px; line-height: 1.3; font-weight: 800; }
+h1 { font-size: 1.5rem; margin: 0 0 6px; line-height: 1.3; font-weight: 700; letter-spacing: -0.01em; }
 h2 { font-size: 1.1875rem; margin: 32px 0 8px; line-height: 1.35; font-weight: 800; scroll-margin-top: calc(var(--tap) + 16px); }
 h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
-/* 섹션 헤딩은 좌측 보더 바 하나로만 구분한다 — 텍스트 반복(❯ 등)은 121개 섹션에서
-   시그니처가 아니라 소음이 됐다. 구조 신호는 한 번의 시각 장치로 충분하다. */
+/* 섹션 제목은 앰버 규칙선 하나로 구분한다 — A3 시트에서 모든 섹션 제목 아래 그어지는
+   2px 선을 그대로 화면에 가져온 것이고, 이 사이트의 서명이다. 예전의 그라디언트 바 +
+   hover 시 padding 이동은 121개 섹션에서 시그니처가 아니라 소음이었다(움직이는 제목은
+   훑는 눈을 붙잡는다). 구조 신호는 한 번의 시각 장치로 충분하다. */
 .section > h2 {
-  border-left: 4px solid var(--accent); padding-left: 12px; margin-left: -16px;
-  background: linear-gradient(90deg, var(--accent-soft) 0%, transparent 100%);
-  padding: 8px 12px;
-  border-radius: 0 8px 8px 0;
-  transition: all var(--ease);
-}
-.section > h2:hover {
-  background: linear-gradient(90deg, var(--accent-soft) 0%, var(--bg-soft) 100%);
-  padding-left: 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent2);
 }
 /* 페이지 머리는 어느 페이지에서나 같은 순서다:
    [.pagehead 또는 h1] → .lede(상세 페이지, 한 개) → .pagemeta(선택) → 본문(.prose).
@@ -228,11 +199,26 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
 .lede { color: var(--muted); margin: 0 0 4px; max-width: var(--measure); }
 .pagemeta { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
 
-/* 서피스 페이지 머리: 제목 좌측 · 치트시트 버튼 우측 (다운로드 허브의 이관처) */
-.pagehead { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 12px; }
+/* 서피스 페이지 머리: 제목 좌측 · 치트시트 버튼 우측 (다운로드 허브의 이관처).
+   앰버 규칙선은 A3 시트에서 가져온 이 사이트의 서명이다 — 지면에서 h1 아래 3px,
+   섹션 제목 아래 2px 로 반복되는 그 선. 화면에서도 같은 두 자리에만 쓴다. */
+.pagehead {
+  display: flex; align-items: baseline; gap: 8px 16px; flex-wrap: wrap;
+  margin: 0 0 20px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+}
 .pagehead h1 { margin: 0; }
+.pagehead .pagemeta { margin: 0; flex: 1 1 auto; }
 a.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-.sheetbtn .n { font-size: 0.8125rem; color: var(--muted); font-weight: 400; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 38px; padding: 0 14px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg);
+  font-size: var(--fs-sm); font-weight: 600; font-family: inherit; cursor: pointer;
+  transition: border-color var(--ease), color var(--ease);
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.sheetbtn .n { font-size: var(--fs-xs); color: var(--muted); font-weight: 400; }
 p.prose { margin: 0 0 12px; }
 ul.prose { margin: 0 0 12px; padding-left: 20px; }
 ul.prose li { margin: 0 0 6px; }
@@ -260,29 +246,59 @@ main.doc .summary { max-width: 42rem; }
 /* 페이지 맨 아래 "이 데이터는 어느 파일" 줄 — 상세 페이지 공통 */
 .datanote { margin: 32px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
 
+/* 레퍼런스 서피스의 앱 셸: 좌측 섹션 레일 + 본문. 판을 --page 로 넓혀 창을 쓴다 —
+   1180px 고정은 1600px 화면에서 좌우 226px 씩을 버리고 있었다(실측). */
+main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
+@media (max-width: 640px) { main.shell { padding: 20px 16px 48px; } }
+
 .layout { display: block; }
 @media (min-width: 900px) {
   :root { --fs-body: 1.0625rem; }
-  .layout { display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 40px; align-items: start; }
-  .toc { position: sticky; top: calc(var(--tap) + 12px); max-height: calc(100vh - 90px); overflow-y: auto; }
+  /* 레일과 본문 사이는 gap 이 아니라 헤어라인으로 나눈다 — 목록과 본문이 다른 층이라는
+     신호를 여백보다 선이 더 적은 비용으로 낸다(Stripe·Claude 문서 모두 같은 처리). */
+  .layout { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); align-items: start; }
+  .toc {
+    position: sticky; top: var(--tap);
+    max-height: calc(100vh - var(--tap)); overflow-y: auto;
+    padding: 2px 20px 32px 0; border-right: 1px solid var(--line);
+  }
+  .layout > .cardgrid { padding: 0 0 0 28px; min-width: 0; }
 }
 
-/* 목차 — 데스크톱은 좌측 sticky 열, 모바일은 접지 않고 스크롤 박스에 가둔다(아래 참조).
-   <details> 를 쓰지만 기본은 항상 열림이다. G10 이 본문의 <details> 를 막으면서 목차만
-   data-toc 로 허용하는 것은 "본문 중복이라 접어도 잃는 게 없다"는 주장에 대한 표시다. */
+/* 섹션 레일. 37줄 평면 목록은 훑는 대상이 아니라 벽이라, 데이터에 이미 있던 group 축으로
+   접어 보여준다. 그룹 라벨 → 섹션 이름 → 항목 수 세 층이면 "어디에 무엇이 몇 개" 가 한눈에
+   읽힌다. <details> 를 쓰지만 기본은 항상 열림이고, G10 이 본문의 <details> 를 막으면서
+   목차만 data-toc 로 허용하는 것은 "본문 중복이라 접어도 잃는 게 없다"는 주장의 표시다. */
 .toc { font-size: var(--fs-sm); }
-.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc ol { list-style: none; margin: 0 0 14px; padding: 0; }
 .toc li { margin: 0; }
+.toc-group {
+  margin: 0 0 4px; padding: 0 8px;
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em;
+  color: var(--muted); text-transform: uppercase;
+}
+.toc-group:not(:first-child) { margin-top: 4px; }
 .toc a {
-  display: block; padding: 5px 8px; border-radius: 6px;
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 5px 8px; border-radius: 6px;
+  border-left: 2px solid transparent;
   color: var(--muted); text-decoration: none;
+  transition: color var(--ease), background var(--ease), border-color var(--ease);
+}
+.toc a .t { flex: 1 1 auto; min-width: 0; }
+/* 개수는 정렬돼야 훑을 수 있다 — 표 숫자와 같은 규칙(tabular-nums, 우측 정렬). */
+.toc a .n {
+  flex: 0 0 auto; font: 400 var(--fs-xs)/1 var(--font-mono);
+  font-variant-numeric: tabular-nums; color: var(--muted); opacity: .7;
 }
 .toc a:hover { background: var(--bg-soft); color: var(--fg); }
 /* 스크롤에 맞춰 tocspy.js 가 붙이는 "지금 보는 섹션" 표시. 공식 문서 사이트의
    우측 "이 페이지에서" 활성 표시와 같은 역할을 좌측 목차 위에서 한다. */
 .toc a[aria-current="location"] {
-  background: var(--accent-soft); color: var(--fg); font-weight: 700;
+  background: var(--accent-soft); color: var(--accent2); font-weight: 700;
+  border-left-color: var(--accent);   /* A3 규칙선의 세로 버전 */
 }
+.toc a[aria-current="location"] .n { color: var(--accent2); opacity: 1; }
 .toc summary { min-height: var(--tap); display: flex; align-items: center; font-weight: 600; cursor: pointer; }
 @media (min-width: 900px) {
   .toc > summary { display: none; }
@@ -294,9 +310,10 @@ main.doc .summary { max-width: 42rem; }
    두는 이유와 정면으로 충돌한다. 접지 말고 스크롤 박스에 가둔다 — 스크롤 컨테이너
    안의 내용은 찾기가 그대로 찾아준다(삭제된 랜딩의 목차도 같은 이유로 이 방식이었다). */
 @media (max-width: 899px) {
-  .toc[open] > ol {
+  .toc { margin-bottom: 20px; }
+  .toc[open] > .toc-nav {
     max-height: 40vh; overflow-y: auto;
-    border: 1px solid var(--line); border-radius: 8px; padding: 4px 6px;
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 6px;
   }
 }
 
@@ -330,17 +347,20 @@ main.doc .summary { max-width: 42rem; }
    롱핸드로 써야 .item 의 본문 폰트를 실제로 물려받는다. */
 .item .term-label {
   background: none; padding: 0; color: var(--fg);
-  font-family: inherit; font-size: 1rem; font-weight: 700; line-height: 1.45;
+  font-family: inherit; font-size: var(--fs-ref); font-weight: 700; line-height: 1.45;
 }
-.item .desc { margin: 0 0 6px; max-width: var(--measure); }
-.item .detail { margin: 0 0 6px; color: var(--muted); font-size: var(--fs-sm); max-width: var(--measure); }
+/* 레퍼런스 본문의 기준 크기. 예전에는 본문 상속(≥900px 에서 17px)이라 설명이 섹션 제목
+   (15px)보다 커서 위계가 뒤집혀 있었다 — 카드 한 장 안에 12·13·14·15·16·17px 여섯 종이
+   섞였다(실측). 역할마다 하나씩만 남긴다: 이름 14 · 설명 14 · 세부 13 · 메타 12. */
+.item .desc { margin: 0 0 6px; font-size: var(--fs-ref); line-height: var(--lh-ref); max-width: var(--measure); }
+.item .detail { margin: 0 0 6px; color: var(--muted); font-size: var(--fs-sm); line-height: var(--lh-ref); max-width: var(--measure); }
 .item .detail p { margin: 0 0 6px; }
 .item .caveat {
   margin: 8px 0 0; padding: 8px 10px;
   border-left: 3px solid var(--danger); background: var(--danger-soft);
-  font-size: var(--fs-sm); max-width: var(--measure);
+  font-size: var(--fs-sm); line-height: var(--lh-ref); max-width: var(--measure);
 }
-.item .seealso { margin: 6px 0 0; font-size: var(--fs-sm); }
+.item .seealso { margin: 6px 0 0; font-size: var(--fs-xs); }
 .item .seealso a { color: var(--accent2); }
 .item .anchor {
   float: right; color: var(--muted); text-decoration: none;
@@ -350,9 +370,8 @@ main.doc .summary { max-width: 42rem; }
 
 .badge {
   display: inline-block; padding: 2px 8px; border-radius: 999px;
-  font-size: 0.75rem; font-weight: 600; vertical-align: middle;
+  font-size: var(--fs-xs); font-weight: 600; vertical-align: middle;
   border: 1px solid var(--line); color: var(--muted); background: var(--bg-soft);
-  box-shadow: var(--shadow-sm);
   transition: background var(--ease), color var(--ease), border-color var(--ease);
 }
 .badge.core { 
@@ -402,9 +421,8 @@ pre code { background: none; padding: 0; font-size: inherit; }
 
 .cardgrid .section {
   margin: 0 0 18px;
-  border: 1px solid var(--line); border-radius: 12px;
+  border: 1px solid var(--line); border-radius: 10px;
   background: var(--bg);
-  box-shadow: var(--shadow-sm);
   overflow: hidden;
   /* 다단 배치는 지연 렌더와 궁합이 나쁘다 */
   content-visibility: visible;
@@ -413,24 +431,28 @@ pre code { background: none; padding: 0; font-size: inherit; }
   display: inline-block;
   width: 100%;
   break-inside: avoid;
-  transition: box-shadow var(--ease), border-color var(--ease);
-}
-.cardgrid .section:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
 }
 
-/* 카드 머리 — 크기로 위계를 주되 무게로 누르지 않는다 */
-.cardgrid .section > h2 {
+/* 그룹 띠 — 카드 37장을 8개 묶음으로 끊는다. 레일의 그룹 라벨과 같은 축·같은 순서라
+   좌우가 서로를 가리킨다. 제목이 아니라 구분이므로 작고 조용하게. */
+.groupbar {
+  margin: 26px 0 10px; font-size: var(--fs-xs); font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  scroll-margin-top: calc(var(--tap) + 16px);
+}
+.groupbar:first-child { margin-top: 0; }
+
+/* 카드 머리 — 따뜻한 바탕 + 앰버 밑선. 제목(15px)이 설명(14px)보다 확실히 위에 있게 한다. */
+.cardgrid .section > h3 {
   margin: 0; padding: 9px 14px;
-  border-left: none;
   background: var(--bg-soft);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent2);
   font-size: 0.9375rem; font-weight: 700; line-height: 1.4;
 }
 .cardgrid .section .summary {
   margin: 0; padding: 10px 14px 2px;
-  font-size: var(--fs-sm); max-width: none;
+  font-size: var(--fs-sm); line-height: var(--lh-ref); max-width: none;
 }
 
 .cardgrid .item {
@@ -458,6 +480,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
     column-gap: 12px;
   }
   .cardgrid .item > * { grid-column: 2; }
+  /* 이름 없이 한 줄인 항목(이름==설명이라 이름을 접은 것)은 두 열을 가로지른다 —
+     빈 이름 칸만큼 들여쓰기가 생기면 목록 안에서 그 줄만 어긋나 보인다. */
+  .cardgrid .item-line > * { grid-column: 1 / -1; }
   .cardgrid .item .term,
   .cardgrid .item .term-label,
   .cardgrid .item .badge {
@@ -477,18 +502,22 @@ pre code { background: none; padding: 0; font-size: inherit; }
   }
 }
 
+/* 카드가 넓어지면(1600px 화면에서 1148px) 설명이 한 줄 890px 까지 늘어나 읽기 나쁘다.
+   예전 876px 카드에서는 상한을 풀어도 됐지만 이제는 아니다. ch 가 아니라 rem 인 이유는
+   .doc 열과 같다 — ch 는 요소 폰트 기준이라 자식마다 다른 폭이 나온다. */
 .cardgrid .item .desc,
-.cardgrid .item .detail { max-width: none; }
+.cardgrid .item .detail { max-width: 46rem; }
 .cardgrid .item .desc { margin-bottom: 0; }
 .cardgrid .item .detail { margin: 4px 0 0; }
 .cardgrid .item pre { margin: 6px 0 0; }
 .cardgrid .item .caveat { margin: 6px 0 0; }
 .cardgrid .item .seealso { margin: 4px 0 0; }
-/* 카드 맨 아래 출처 줄 */
+/* 카드 맨 아래 출처 줄 — 항목 안의 seealso 와 같은 역할·같은 크기(메타 12px)로 맞춘다.
+   같은 클래스가 위치에 따라 13px/14px 로 갈리던 것이 카드가 뭉개져 보이던 원인 중 하나였다. */
 .cardgrid .section > .seealso {
   margin: 0; padding: 9px 14px;
   border-top: 1px solid var(--line); background: var(--bg-soft);
-  font-size: 0.8125rem;
+  font-size: var(--fs-xs);
 }
 
 /* ── 검색 ────────────────────────────────────────────────── */

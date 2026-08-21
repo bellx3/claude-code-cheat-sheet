@@ -1,9 +1,14 @@
-<article class="item" id="{{ it.anchor }}">
+{#- 레거시 이관에서 한 줄짜리 항목의 문장이 term 과 desc 양쪽에 같이 들어갔다 —
+    664개 중 115개(17.3%)가 이름 칸과 설명 칸에 같은 문자열을 두 번 찍고 있었다.
+    같은 말을 두 번 하지 않는다: 이런 항목은 이름 없는 한 줄로 보고 판을 가로질러 눕힌다.
+    데이터를 고치는 쪽이 정본이지만, 그 전에도 화면이 같은 말을 반복하면 안 된다. -#}
+{%- set sameNameDesc = it.term and it.desc and (it.term | trim) == (it.desc | trim) %}
+<article class="item{% if sameNameDesc %} item-line{% endif %}" id="{{ it.anchor }}">
   <a class="anchor" href="#{{ it.anchor }}" aria-label="이 항목 링크">#</a>
   {%- if it.tone %}
   <span class="badge warn">{{ "위험" if it.tone == "danger" else "주의" }}</span>
   {%- endif %}
-  {%- if it.term and not it.tone %}
+  {%- if it.term and not it.tone and not sameNameDesc %}
     {%- if it.term | hasHangul %}
   <span class="term term-label">{{ it.term }}</span>
     {%- else %}

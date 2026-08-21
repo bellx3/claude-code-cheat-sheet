@@ -20,6 +20,13 @@ const CASES = [
     pre: true,
   },
   {
+    gate: "G1",
+    what: "섹션 group 을 라벨 없는 값으로 바꾼다",
+    file: "src/_data/ref/cli/010-install.yaml",
+    edit: (t) => t.replace("group: start", "group: nosuchgroup"),
+    pre: true,
+  },
+  {
     gate: "G2",
     what: "작업축이 없는 레퍼런스 항목을 가리키게 한다",
     file: "src/_data/tasks/pre-commit-gate.yaml",

@@ -18,6 +18,27 @@ export const SURFACES = [
     print: { columns: 3, fontPx: 11 } },
 ];
 
+// 섹션의 group 축에 붙일 한국어 라벨. 사이드바가 섹션 37개를 평면 나열하는 대신 이 묶음으로
+// 접어 보여준다 — 데이터에 이미 있던 축인데 화면에서 쓰이지 않고 있었다.
+// 라벨 없는 group 이 데이터에 들어오면 G1 이 실패한다(사이드바가 빈 제목을 내는 걸 막는다).
+export const REF_GROUPS = {
+  start: "시작 · 설치",
+  control: "제어 · 설정",
+  run: "실행 · 화면",
+  session: "세션",
+  automate: "자동화",
+  quality: "품질 · 검토",
+  extend: "확장",
+  plugin: "플러그인",
+  connect: "연결",
+  compute: "컴퓨트",
+  use: "사용",
+  cli: "CLI",
+  practice: "실전",
+  trouble: "문제 해결",
+  enterprise: "조직 · 엔터프라이즈",
+};
+
 export const TASK_GROUPS = [
   { id: "start", label: "시작·설정" },
   { id: "control", label: "제어·비용" },
