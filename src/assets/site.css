@@ -209,15 +209,6 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
 }
 .pagehead h1 { margin: 0; }
 .pagehead .pagemeta { margin: 0; flex: 1 1 auto; }
-a.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 38px; padding: 0 14px;
-  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg);
-  font-size: var(--fs-sm); font-weight: 600; font-family: inherit; cursor: pointer;
-  transition: border-color var(--ease), color var(--ease);
-}
-.btn:hover { border-color: var(--accent); color: var(--accent); }
 .sheetbtn .n { font-size: var(--fs-xs); color: var(--muted); font-weight: 400; }
 p.prose { margin: 0 0 12px; }
 ul.prose { margin: 0 0 12px; padding-left: 20px; }
@@ -240,8 +231,7 @@ main.doc .prose,
 main.doc .lede,
 main.doc .pagemeta,
 main.doc .datanote,
-main.doc .caveat,
-main.doc .summary { max-width: 42rem; }
+main.doc .caveat { max-width: 42rem; }
 
 /* 페이지 맨 아래 "이 데이터는 어느 파일" 줄 — 상세 페이지 공통 */
 .datanote { margin: 32px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
@@ -374,20 +364,15 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
   border: 1px solid var(--line); color: var(--muted); background: var(--bg-soft);
   transition: background var(--ease), color var(--ease), border-color var(--ease);
 }
-.badge.core { 
-  border-color: var(--accent); 
-  color: var(--accent); 
-  background: var(--accent-soft);
-}
-.badge.warn { 
-  border-color: var(--danger); 
-  color: var(--danger); 
+.badge.warn {
+  border-color: var(--danger);
+  color: var(--danger);
   background: var(--danger-soft);
 }
-.badge.ok { 
-  border-color: var(--ok); 
+.badge.ok {
+  border-color: var(--ok);
   color: var(--ok);
-  background: #d1fae5;
+  background: color-mix(in srgb, var(--ok) 12%, var(--bg));
 }
 
 pre {
@@ -542,27 +527,28 @@ pre code { background: none; padding: 0; font-size: inherit; }
   box-shadow: 0 0 0 4px var(--accent-soft), var(--shadow-md);
   transform: translateY(-1px);
 }
+/* 검색 결과도 본문과 같은 스케일을 쓴다. 제목에 크기를 안 준 탓에 본문(≥900px 에서 17px)을
+   물려받아, 카드는 14px 인데 결과만 17px 로 떠 있었다. 조회 도구에서는 한 화면에 결과가
+   많이 보이는 편이 낫기도 하다. 선택 표시는 레일의 활성 항목과 같은 앰버 세로 바로 맞춘다 —
+   hover 마다 행이 옆으로 밀리면(translateX) 화살표로 훑을 때 눈이 따라가기 어렵다. */
 .results { margin: 12px 0 0; }
-.results .group { margin-bottom: 18px; }
+.results .group { margin-bottom: 14px; }
 .results .group > h3 {
-  margin: 0 0 4px; font-size: var(--fs-sm); text-transform: uppercase;
-  letter-spacing: .04em; color: var(--muted);
+  margin: 0 0 4px; font-size: var(--fs-xs); text-transform: uppercase;
+  letter-spacing: .06em; color: var(--muted); font-weight: 700;
 }
 .results a.hit {
-  display: block; padding: 10px 12px; border-radius: 8px;
-  text-decoration: none; border: 1px solid transparent;
-  transition: all var(--ease);
-  position: relative;
+  display: block; padding: 7px 10px; border-radius: 6px;
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: background var(--ease), border-color var(--ease);
 }
-.results a.hit:hover, .results a.hit.sel { 
-  background: var(--bg-soft); 
-  border-color: var(--line);
-  transform: translateX(4px);
-  box-shadow: var(--shadow-sm);
+.results a.hit:hover, .results a.hit.sel {
+  background: var(--accent-soft);
+  border-left-color: var(--accent);
 }
-.results .hit .t { display: block; font-weight: 600; }
-.results .hit .t code { background: none; padding: 0; color: var(--accent); }
-.results .hit .c { display: block; font-size: var(--fs-sm); color: var(--muted); }
+.results .hit .t { display: block; font-weight: 600; font-size: var(--fs-ref); line-height: 1.45; }
+.results .hit .t code { background: none; padding: 0; color: var(--accent); font-size: inherit; }
+.results .hit .c { display: block; font-size: var(--fs-xs); color: var(--muted); }
 .results .hit .s { display: block; font-size: var(--fs-sm); color: var(--muted); }
 .results .empty { padding: 16px 0; color: var(--muted); }
 .results .empty a { color: var(--accent); }
@@ -642,41 +628,6 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* 관측 전에 인쇄하면 통째로 빈 종이가 나온다. 인쇄에서는 모션 상태를 무시한다. */
 @media print { .rv { opacity: 1 !important; transform: none !important; } }
 
-/* 추가 애니메이션 효과 */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.4s ease-out;
-}
-
-/* 로딩 상태 표시 */
-.loading {
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
 /* ── 카드 그리드 ─────────────────────────────────────────── */
 .cards {
   display: grid; gap: 12px; margin: 16px 0 0; padding: 0; list-style: none;
@@ -700,23 +651,21 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* span 에 margin 은 안 먹는다 — display:block 이 없으면 제목과 설명이 한 줄로 붙어 나온다. */
 .card .t { display: block; font-weight: 800; font-size: 1.0625rem; margin-bottom: 6px; line-height: 1.35; }
 .card .s { display: block; font-size: var(--fs-sm); color: var(--muted); }
-/* 개수·배지는 3층 위계의 맨 아래 — 알약으로 내려 제목·설명과 섞이지 않게 한다. */
-.card .n {
-  display: block; margin-top: 10px;
-  font-size: 0.8125rem; color: var(--muted);
-}
 
 /* ── 프롬프트 ────────────────────────────────────────────── */
 .prompt-body {
   position: relative; margin: 10px 0;
 }
 .prompt-body pre { background: var(--code-bg); white-space: pre-wrap; }
+/* 버튼 정의는 여기 하나뿐이다. 한때 페이지 머리 쪽에 .btn 을 또 선언해 두 규칙이 서로를
+   덮었고(min-height 38px vs var(--tap)), 같은 버튼이 자리마다 다른 크기로 나왔다. */
 .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: var(--tap); min-width: var(--tap); padding: 0 14px;
   /* 단축 속성 + inherit 은 무효라 button 이 UA 기본 폰트로 남는다. 롱핸드로 쓴다. */
   font-family: inherit; font-size: var(--fs-sm); font-weight: 600; line-height: 1;
   border: 1px solid var(--line); border-radius: 8px;
-  background: var(--bg); color: var(--fg); cursor: pointer;
+  background: var(--bg); color: var(--fg); cursor: pointer; text-decoration: none;
   transition: border-color var(--ease), color var(--ease);
 }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
@@ -740,9 +689,6 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .tbl { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: var(--fs-sm); }
 .tbl th, .tbl td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .tbl th { color: var(--muted); font-weight: 600; }
-/* 공식문서 색인 표의 열 폭. 인라인 style 대신 여기에 둔다 — 표 규칙은 한군데 모은다. */
-.tbl th.c-name { width: 30%; }
-.tbl th.c-md { width: 52px; }
 
 /* ── A3 치트시트 미리보기 모달 ─────────────────────────────────
    시트를 실제 조판 폭(1587px = A3 가로 @96dpi)으로 그린 뒤 축소만 한다. iframe 을 좁히면
