@@ -91,12 +91,33 @@ right of the tabs. The trigger is a button that opens the palette, not a real in
 header would need its own results dropdown, mobile width handling, and focus management, and would be a
 second search UI that can drift from the palette.
 
-Surface pages have no lede/pagemeta under the title and no subnav (removed 2026-08-20 — the top tabs are
-the subnav now). The section cards are a **single column** in document order: a masonry `columns` layout
-was tried and rejected because column-first reading order stopped matching the sidebar TOC (decision
-history lives in the comment above `.cardgrid` in site.css). Card markup itself is untouched — `/print/`
-and the A3 sheets render from the same data through separate templates, so web layout changes never move
-print output.
+Surface pages use the **app shell** (`main.shell`, full-bleed to `--page: 1440px`): a sticky left rail of
+sections plus the card column. The rail groups sections by the `group` axis that already existed in the
+YAML — `REF_GROUPS` in tools/constants.mjs holds the labels and **G1 fails the build on a group without
+one**, because the rail would otherwise render a raw id. The cards are grouped by the same axis in the
+same order: grouping only the rail makes rail order diverge from card order, which is the exact mismatch
+that got the masonry layout rejected (decision history lives above `.cardgrid` in site.css). Within a
+group the cards are a **single column** in document order.
+
+Two item-level rules live in `partials/item.njk`, both data-driven: an item whose `term` equals its `desc`
+renders once (115 of 664 items carried the same sentence in both fields), and an item whose `term` runs
+past 34 characters is laid out as a full-width line instead of a name-column entry (98 items — they are
+shell one-liners, not names). Both add `.item-line`, which is **excluded from the card's subgrid**; if it
+merely spanned both tracks it would still drive the name column's width.
+
+`/print/` and the A3 sheets render from the same data through separate templates, so card layout changes
+never move print output — but note `/print/` does share `site.css` (it has its own `.wrap`, not `main`),
+while the A3 sheets are fully isolated in `sheet-a3.css`.
+
+The A3 button opens a preview **modal** (`partials/sheetmodal.njk` + `src/assets/sheet.js`, loaded only
+when `shell` is set) rather than navigating away; the button stays a real link so the sheet page is still
+reachable without JS. The modal iframe renders the sheet at its true 1587×1123 layout width and only
+scales it — narrowing the iframe would reflow the sheet and make the preview a lie. The dialog needs a
+**definite height** (`height: 92vh`, not just `max-height`): with an auto height the stage sizes to the
+paper, the paper sizes to the scale, and the scale reads the stage, so the scale freezes near its initial
+value. There is no client-side PDF export — that needs a rendering library, and this site ships zero
+runtime dependencies; the print dialog's "Save as PDF" produces the same file because `@page` in
+sheet-a3.css already pins A3 landscape.
 
 G10 allows `<details>` inside `<main>` only when it carries `data-toc` (today that's only the surface
 pages' section TOC). That attribute is the claim "this is a table of contents, so collapsing it hides
@@ -127,9 +148,15 @@ has no URL to screenshot.
 IntersectionObserver + CSS transitions, no library. GSAP + ScrollTrigger used to be vendored for this
 (116 KB, 71% of what was left on a leaf page after the search-index fix) and did nothing but tween
 `opacity`/`translateY` once per element. There are now **zero runtime dependencies**; everything shipped
-is the six files in `src/assets` — `search.js`, `motion.js`, `tocspy.js` (scrollspy that sets
-`aria-current` on the ref-page section TOC), `prompt.js` (slot fill / copy / command download on prompt
-pages), and the two CSS files.
+is the seven files in `src/assets` — `search.js`, `motion.js`, `tocspy.js` (keeps the active top tab
+scrolled into view, and sets `aria-current` on the ref-page section rail), `prompt.js` (slot fill / copy /
+command download on prompt pages), `sheet.js` (A3 preview modal), and the two CSS files. `prompt.js` and
+`sheet.js` are loaded conditionally from `base.njk`, not on every page.
+
+The palette is derived from the project's own print artifact: `sheet-a3.css` rules in amber (`#b45309` /
+`#92400e`) on white and the favicon `❯` is the same amber, so the screen uses that instead of the generic
+indigo/slate it shipped with. The amber rule is the one recurring device — page head, section head, active
+rail item — and nothing else gets an accent.
 
 Two rules that are not style preferences:
 
