@@ -1,4 +1,6 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+# 2026-08-23: 프런트매터 목록이 "name, description, aliases" 로 적혀 있었는데 공식 프런트매터
+# 참조에 aliases 가 없다. 실제 필드로 고치고 인자 치환 규칙을 채웠다.
 id: custom-commands
 title: 커스텀 슬래시 명령어 만들기
 group: practice
@@ -8,22 +10,61 @@ summary: >-
   파일 한 장이면 명령 하나 생성. 커스텀 명령은 스킬로 통합, 문법은 동일.
 source:
   url: https://code.claude.com/docs/en/skills
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: claude-commands-md
     term: .claude/commands/*.md
     kind: file
     tier: full
-    desc: .claude/commands/*.md 에 정의
+    desc: 프로젝트 명령 파일 — 스킬로 통합됐지만 계속 동작
+    aliases: [커스텀 명령, 슬래시 명령 만들기]
+    detail: |
+      두는 위치가 누가 쓸 수 있는지를 정한다.
+
+      **개인** `~/.claude/skills/<name>/SKILL.md` — 내 모든 프로젝트.
+      **프로젝트** `.claude/skills/<name>/SKILL.md` — 이 프로젝트만.
+      **플러그인** `<plugin>/skills/<name>/SKILL.md` — 플러그인이 켜진 곳.
+
+      같은 이름이 겹치면 enterprise → personal → project 순으로 덮어쓴다.
+      `.claude/commands/*.md` 도 같은 방식으로 동작하지만, **스킬과 이름이 겹치면 스킬이 이긴다.**
+    tasks: [ship-a-reusable-command]
   - id: frontmatter-name-description-aliases
-    term: "frontmatter: name, description, aliases"
+    term: "frontmatter: description 만 사실상 필수"
     kind: note
     tier: full
+    desc: 전부 선택 필드 — description 은 Claude 가 언제 쓸지 판단하는 근거
+    detail: |
+      자주 쓰는 필드: `name`(표시 이름, 기본값은 디렉터리 이름), `description`(무엇을·언제),
+      `when_to_use`(트리거 문구), `argument-hint`(자동완성 힌트), `arguments`(이름 붙은 위치 인자),
+      `allowed-tools`/`disallowed-tools`(그 턴 동안의 도구 허용·차단),
+      `model`·`effort`(그 턴만 모델·추론 강도 덮어쓰기), `context: fork`(포크된 서브에이전트로 실행),
+      `paths`(글롭에 맞는 파일을 다룰 때만 자동 로드), `disable-model-invocation`(내가 부를 때만),
+      `user-invocable: false`(Claude 만 부름), `hooks`, `shell`, `metadata`, `license`.
+
+      `description` 과 `when_to_use` 를 합친 길이는 목록에서 1,536자에서 잘린다 —
+      **핵심 용례를 앞에 둘 것.**
   - id: arguments
     term: 본문에 $ARGUMENTS 로 인자 전달
     kind: note
     tier: full
+    detail: |
+      `$ARGUMENTS` 는 명령 이름 뒤에 온 전체 문자열로 치환된다. 위치별로 쓰려면
+      `$ARGUMENTS[N]` 또는 짧게 `$N` 을 쓴다(`/migrate-component SearchBar React Vue` →
+      `$0`=SearchBar, `$1`=React, `$2`=Vue).
+
+      인자를 넘겼는데 본문에 `$ARGUMENTS` 가 없으면 내용 끝에 `ARGUMENTS: <입력>` 이 덧붙는다 —
+      **누락돼도 입력 자체는 Claude 에게 전달된다.**
+    caveat: 여기서 쓰는 `$ARGUMENTS`·`$1` 은 실행 시점 문법이다. 프롬프트 본문의 `{key}` 자리표시자와 섞지 말 것.
   - id: claude-commands-deploy-md-deploy
     term: "예: .claude/commands/deploy.md → /deploy 로 호출"
     kind: note
     tier: full
+    detail: |
+      한 메시지 앞머리에 스킬을 여러 개 쌓을 수도 있다 — `/write-tests /fix-issue 123` 은 둘을
+      모두 불러오고 뒤에 남은 `123` 을 각자의 `$ARGUMENTS` 로 넘긴다.
+      첫 스킬 + 최대 5개까지 펼쳐지고, 포크된 서브에이전트로 도는 스킬(`/code-review`)이나
+      인자가 슬래시로 시작할 수 있는 스킬(`/loop`)을 만나면 거기서 멈춘다.
+
+      `~/.claude/skills/` 와 프로젝트 `.claude/skills/` 는 **세션 중 변경이 자동 감지**된다.
+      세션 시작 때 없던 디렉터리를 새로 만들었으면 재시작해야 감시가 붙는다.
+    see_also: [slash/system-extend#reload-skills]

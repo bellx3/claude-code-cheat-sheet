@@ -8,17 +8,50 @@ summary: >-
   명령을 이어 붙여 쓰는 실전 조합.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: plan-code-review-security-review
     term: "새 기능 개발: /plan → 승인 → 구현 → /code-review → /security-review"
     kind: note
     tier: full
+    detail: |
+      계획을 먼저 받는 이유는 **되돌리는 비용이 가장 싼 지점이 여기**라서다. 구현 후의 리뷰는
+      두 번으로 나눈다 — `/code-review` 는 정확성, `/security-review` 는 브랜치 전체의 보안.
+      한 번에 다 보라고 하면 관점이 섞여 얕아진다.
+    tasks: [review-before-merge]
   - id: rewind
     term: "디버깅 막힐 때: /rewind 로 되돌린 뒤 원인 파악 후 재시도"
     kind: note
     tier: full
+    detail: |
+      고침을 쌓다 막혔으면 그 위에 또 쌓지 말고 되돌린다. 되돌린 뒤에는 재현부터 다시 만든다 —
+      재현 없이 고치면 무엇이 고쳤는지 알 수 없고, 다음에 또 같은 자리에서 막힌다.
+    tasks: [undo-mistake, it-broke]
   - id: pr-diff-release-notes
     term: "PR 마무리: /diff 로 검토 → 커밋 → /release-notes"
     kind: note
     tier: full
+    detail: |
+      `/diff` 의 턴별 diff 로 **내가 의도한 파일만 바뀌었는지** 먼저 본다. 동시에 다른 세션이
+      돌고 있으면 특히 그렇다 — 인덱스 전체를 커밋하면 남이 stage 해 둔 것이 함께 들어간다.
+    tasks: [review-before-merge, pre-commit-gate]
+  - id: combo-context-diet
+    term: "느려졌을 때: /context → /clear 또는 /compact → /effort 조정"
+    kind: note
+    tier: full
+    detail: |
+      순서가 중요하다. `/context` 로 무엇이 먹는지 먼저 보고, 작업이 바뀐 것이면 `/clear`,
+      이어가야 하면 `/compact`, 그 다음에 `/effort` 나 `/model` 로 강도를 내린다.
+      감으로 자르면 남겨야 할 것을 자른다.
+    tasks: [shrink-context-cost]
+  - id: combo-delegate
+    term: "조사가 길어질 때: /subtask 로 위임 → /tasks 로 확인"
+    kind: note
+    tier: full
+    detail: |
+      파일을 많이 훑어야 하는 조사는 본 대화에 쌓지 않고 넘긴다. 결과만 돌아오므로 이후 작업이
+      가벼워진다. 여러 개를 띄웠으면 `/tasks` 에서 끝난 것을 회수한다.
+
+      다만 위임이 항상 싸지는 않다 — 위치·존재·개수를 찾는 검색은 직접 하는 편이 대개 싸다.
+      위임이 이기는 것은 여러 파일의 내용을 읽어야 답이 나올 때다.
+    tasks: [split-work-across-agents, shrink-context-cost]

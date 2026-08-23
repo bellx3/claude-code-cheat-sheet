@@ -8,40 +8,92 @@ summary: >-
   자주 쓰이진 않지만 필요할 때 찾게 되는 것들.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: cd-path
     term: /cd <path>
     kind: command
     tier: core
     desc: 작업 디렉토리 이동
+    aliases: [디렉터리 이동, 작업 위치]
+    detail: |
+      대화와 **프롬프트 캐시를 유지한 채** 세션의 작업 디렉터리를 옮긴다(v2.1.169+).
+      부분 경로를 입력하면 후보가 뜨고 `Tab` 으로 채운다. 처음 다루는 위치면 워크스페이스를
+      신뢰할지 먼저 묻고, 이후 `--resume` 이 옮겨진 세션을 찾아낸다.
+
+      세션을 옮기지 않고 접근 권한만 추가하려면 `/add-dir` 다. 이동 대상을 제한하려면
+      `Cd` 권한 규칙을 쓴다.
+    see_also: [slash/misc-utils#add-dir-path]
   - id: add-dir-path
     term: /add-dir <path>
     kind: command
     tier: core
     desc: 작업 디렉토리 추가
+    aliases: [디렉터리 추가, 다른 폴더]
+    detail: |
+      현재 세션에서 파일 접근이 가능한 작업 디렉터리를 추가한다. 성공하면 `DirectoryAdded` 훅이 돈다.
+      응답 중에 실행하면 바로 확인을 묻고, 확인하면 **같은 턴의 다음 도구 호출부터** 접근된다
+      (v2.1.234+).
+    caveat: 추가한 디렉터리의 `.claude/` 설정은 대부분 읽히지 않는다 — 파일 접근 권한이 늘어나는 것이지 설정이 합쳐지는 것이 아니다.
+    tasks: [stop-touching-wrong-files]
   - id: chrome
     term: /chrome
     kind: command
     tier: core
     desc: Claude in Chrome 설정
-  - id: web
-    term: /web
-    kind: command
-    tier: core
-    desc: 웹 검색 도구 활성화
+    aliases: [크롬, 브라우저 확장]
+    detail: |
+      Claude in Chrome 설정을 구성한다. 내 실제 Chrome 의 로그인 세션을 그대로 쓰는 경로이므로,
+      로그인이 필요한 화면을 다뤄야 할 때 쓴다.
   - id: copy-n
     term: /copy [N]
     kind: command
     tier: core
     desc: 마지막 응답 클립보드 복사
+    aliases: [복사, 클립보드]
+    detail: |
+      마지막 응답을 클립보드로 복사한다. 숫자를 주면 N번째 최신 응답을 복사한다(`/copy 2`).
+      코드 블록이 있으면 **블록 단위로 고르는 선택기**가 뜨고, 거기서 `w` 를 누르면 클립보드 대신
+      파일로 쓴다 — SSH 로 붙어 있을 때 유용하다.
   - id: login-logout
     term: /login, /logout
     kind: command
     tier: core
     desc: 계정 로그인/로그아웃
+    aliases: [로그인, 로그아웃, 계정 전환]
+    detail: |
+      Anthropic 계정에 로그인·로그아웃한다. 개인 계정과 업무 계정을 오갈 때, 그리고
+      구독이 필요한 기능(원격 제어·텔레포트 등)이 인증을 요구할 때 쓴다.
   - id: upgrade
     term: /upgrade
     kind: command
     tier: core
     desc: Claude Code 업그레이드
+    aliases: [플랜 변경, 업그레이드]
+    detail: |
+      상위 플랜으로 바꾸는 페이지를 브라우저에서 연다. **CLI 자체를 업데이트하는 명령이 아니라
+      요금제 변경**이다 — 버전 업데이트는 릴리스 채널 쪽이고 `/doctor` 가 새 버전 유무를 알려준다.
+    caveat: 브라우저가 열리지 않는 환경(SSH 등)에서는 URL 을 출력하지 않고 로그인 안내만 뜬다.
+  - id: stop
+    term: /stop
+    kind: command
+    tier: full
+    desc: 백그라운드 세션 중단
+    aliases: [중단, 세션 정지]
+    detail: |
+      현재 백그라운드 세션을 세운다. **붙어 있는 동안만** 쓸 수 있고, 대화 기록과 워크트리는
+      남는다. 세우지 않고 빠져나오려면 `/exit` 이나 왼쪽 화살표를 쓴다.
+    see_also: [slash/plan-control#background-prompt-bg]
+  - id: web
+    term: /web
+    kind: command
+    tier: full
+    desc: 공식 명령 표에 없음 (2026-08-23 확인)
+    aliases: [웹 검색]
+    detail: |
+      초벌 이관 때 "웹 검색 도구 활성화"로 적혀 있었으나, **공식 명령 표(2026-08-23 확인)에
+      `/web` 이 없다.** 이름이 바뀌었거나 사라진 것으로 보인다.
+
+      대신 찾을 곳: 웹 세션용 GitHub 연결은 `/web-setup`, 도구 허용·차단은 `/permissions`,
+      웹 검색 자체는 도구 권한과 설정에서 다룬다.
+    see_also: [slash/collab-surfaces#web-setup, slash/system-extend#permissions]

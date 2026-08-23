@@ -8,25 +8,47 @@ summary: >-
   판정 근거가 되는 1차 출처.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: code-claude-com-docs-en-commands
     term: "명령어 전체: code.claude.com/docs/en/commands"
     kind: note
     tier: full
+    detail: |
+      이 서피스의 정본이다. 명령별 인자·별칭·버전 요구사항·플랫폼 제약이 표 하나에 다 들어 있고,
+      **삭제된 명령도 "Removed in vX" 로 남아 있다** — 옛 문서나 블로그에서 본 명령이 안 먹으면
+      여기서 확인한다.
   - id: code-claude-com-docs-en-discover-plugins
     term: "플러그인 설치: code.claude.com/docs/en/discover-plugins"
     kind: note
     tier: full
+    detail: |
+      공식 마켓 카탈로그(LSP 계열의 필요 바이너리 표 포함), 스코프별 설치, Installed 탭의
+      미사용 판정 규칙이 여기 있다.
   - id: code-claude-com-docs-en-plugins
     term: "플러그인 제작: code.claude.com/docs/en/plugins"
     kind: note
     tier: full
+    detail: |
+      만드는 쪽 문서. 배포까지 갈 것이 아니면 스킬 문서(`/docs/en/skills`)로 충분하다.
+  - id: docs-skills
+    term: "스킬·커스텀 명령: code.claude.com/docs/en/skills"
+    kind: note
+    tier: full
+    detail: |
+      커스텀 명령이 스킬로 통합된 뒤의 정본이다. 프런트매터 전체 필드, 인자 치환(`$ARGUMENTS`,
+      `$N`), 스킬이 사는 위치와 이름 충돌 규칙이 여기 있다.
+    see_also: [slash/custom-commands#frontmatter-name-description-aliases]
   - id: claude-com-plugins
     term: "공식 마켓: claude.com/plugins"
     kind: note
     tier: full
+    detail: |
+      터미널을 열지 않고 카탈로그를 훑을 때. 설치는 결국 `/plugin install <name>@claude-plugins-official` 이다.
   - id: claudemarketplaces-com
     term: "커뮤니티 순위: claudemarketplaces.com"
     kind: note
     tier: full
+    detail: |
+      커뮤니티 집계다. Anthropic 은 설치 통계를 공개하지 않으므로 **여기의 순위는 공식 수치가
+      아니다** — 참고로만 본다.

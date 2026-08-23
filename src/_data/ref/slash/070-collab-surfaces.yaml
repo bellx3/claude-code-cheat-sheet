@@ -8,35 +8,79 @@ summary: >-
   다른 서피스(웹·데스크톱)로 작업을 넘기거나 가져오는 축.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: desktop
     term: /desktop
     kind: command
     tier: core
     desc: 세션을 데스크톱 앱으로 이동 (별칭 /app)
+    aliases: [/app, 데스크톱, 앱으로]
+    detail: |
+      지금 세션을 데스크톱 앱에서 이어 간다. macOS 또는 x64 Windows 와 Claude 구독이 필요하다.
+      터미널에서 시작한 작업을 diff 뷰어·브라우저 창이 있는 화면으로 옮길 때 쓴다.
   - id: mobile
     term: /mobile
     kind: command
     tier: core
     desc: 모바일 앱 다운로드 QR
+    aliases: [/ios, /android, 모바일]
+    detail: |
+      모바일 앱을 받을 QR 코드를 띄운다. 원격으로 세션을 지켜보려면 앱 설치 후
+      `/remote-control` 로 이 세션을 연결한다.
+    see_also: [slash/collab-surfaces#remote-control]
   - id: remote-control
     term: /remote-control
     kind: command
     tier: core
     desc: 다른 기기에서 세션 계속
+    aliases: [/rc, 원격 제어, 폰에서]
+    detail: |
+      이 세션을 claude.ai 에서 원격 조작할 수 있게 연다 — **세션은 이 기기에서 계속 돌고**,
+      조작 창구만 밖으로 나간다. 로그아웃 상태에서 실행하면 구독이 필요하다는 안내와 로그인
+      방법을 알려준다(v2.1.206 이전에는 알 수 없는 명령으로 떴다).
+    tasks: [long-running-work]
   - id: teleport
     term: /teleport
     kind: command
     tier: core
     desc: 웹 세션을 터미널로 가져오기
+    aliases: [/tp, 텔레포트, 웹에서 가져오기]
+    detail: |
+      웹에서 돌던 세션을 이 터미널로 끌어온다. 선택기가 열리고 **브랜치와 대화를 함께**
+      가져온다. claude.ai 구독이 필요하다. 방향이 반대인 것은 `/background`(터미널 → 백그라운드)와
+      `/desktop`(터미널 → 데스크톱)이다.
+    tasks: [resume-yesterday]
   - id: bug-report
     term: /bug [report]
     kind: command
     tier: core
     desc: 버그 보고·대화 공유
+    aliases: [버그, 신고]
+    detail: |
+      버그를 신고하거나 대화를 공유한다. **얼마나 많은 세션 기록을 포함할지 고르고 동의 화면에서
+      확인한 뒤**에 전송된다.
+
+      Anthropic 계정으로 1st-party 연결에 로그인돼 있으면 Anthropic 으로 가고, 서드파티 공급자나
+      자격증명이 없으면 `~/.claude/feedback-bundles/` 아래 로컬 묶음으로 저장돼 직접 전달하게 된다.
+    caveat: 대화 기록에는 코드·경로·환경 정보가 섞여 있다. 포함 범위를 고르는 화면을 그냥 넘기지 말 것.
   - id: feedback-report
     term: /feedback [report]
     kind: command
     tier: core
     desc: 제품 피드백 전송
+    aliases: [피드백, 의견]
+    detail: |
+      제품 피드백을 보낸다. `/bug` 과 같은 대화상자·동의 절차·전송 규칙을 쓴다 —
+      차이는 신고의 성격뿐이다.
+    see_also: [slash/collab-surfaces#bug-report]
+  - id: web-setup
+    term: /web-setup
+    kind: command
+    tier: full
+    desc: 웹 세션용 GitHub 연결
+    aliases: [웹 연결, GitHub 연결]
+    detail: |
+      로컬 `gh` CLI 자격증명으로 GitHub 계정을 웹(Claude Code on the web)에 연결한다.
+      `/schedule` 처럼 클라우드에서 도는 기능이 GitHub 연결을 필요로 하면 자동으로 이것을 물어본다.
+    see_also: [slash/plan-control#schedule-description]

@@ -1,4 +1,6 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+# 2026-08-23: context-cost / installed 의 desc 가 이관 때 어순이 깨져 있었다("설치 화면의 로 매 턴").
+# 공식 문서 기준으로 문장을 세우고 항목을 늘렸다.
 id: plugin-tips
 title: 플러그인 실무 팁
 group: plugin
@@ -7,24 +9,70 @@ sheet: slash
 summary: >-
   설치·관리에서 겪는 실무 문제들.
 source:
-  url: https://code.claude.com/docs/en/plugins
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/discover-plugins
+  checked_at: "2026-08-23"
 items:
   - id: anthropic
     term: 설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음
     kind: note
     tier: full
+    detail: |
+      플러그인은 MCP 서버·파일·스크립트를 함께 들고 온다. Anthropic 은 그 내용을 통제하지 않고
+      의도대로 동작한다는 보증도 하지 않는다 — **설치는 남의 코드를 내 세션에 상주시키는 결정**이다.
+      각 플러그인의 홈페이지를 먼저 확인한다.
   - id: context-cost
     term: Context cost
     kind: value
     tier: full
-    desc: 설치 화면의 로 매 턴 추가되는 토큰 비용 확인
+    desc: 설치 화면에 표시되는 매 턴 추가 토큰 비용
+    detail: |
+      설치 화면에 그 플러그인이 **매 턴 추가하는 토큰 비용**이 표시된다. 기능이 마음에 들어도
+      이 값이 크면 상주 비용이 계속 나간다 — 자주 쓰지 않을 것이면 필요할 때만 켜는 편이 낫다.
+    see_also: [slash/system-extend#skills]
   - id: installed
     term: Installed
     kind: value
     tier: full
-    desc: 2주·10세션 이상 미사용 플러그인은 탭에서 정리
+    desc: 미사용 플러그인을 골라내는 탭 — Not used recently 머리말과 Last used 줄
+    detail: |
+      Installed 탭은 **2주 이상, 10세션 이상 쓰지 않은** 플러그인을 "Not used recently" 머리말
+      아래로 모아 준다. 상세 화면에는 Last used 줄이 붙는다. 쓰지 않는데 시작·컨텍스트 비용만
+      내는 것을 여기서 골라 끄거나 지운다.
+
+      예외: 조직이 관리하는 것과 `--plugin-dir` 로 불러온 것, 그리고 테마·출력 스타일·모니터·
+      워크플로를 제공하는 것은 호출 기록 없이도 값을 주므로 미사용으로 분류되지 않는다.
+      LSP 플러그인은 진단이나 탐색 요청에 응답하면 사용으로 집계된다(v2.1.203+).
   - id: claude-plugin-install-name-marketplace-sco
     term: "스크립팅 설치: claude plugin install <name>@<marketplace> --scope project"
     kind: note
     tier: full
+    detail: |
+      셸 명령은 패널을 열지 않으므로 스크립트·프로비저닝에 쓴다. `--scope` 없이 실행하면
+      user 스코프로 들어간다. 세션 안에서 돌린 것이 아니므로 **다음 시작 때 또는
+      `/reload-plugins` 로만 적용된다.**
+  - id: community-marketplace
+    term: 커뮤니티 마켓 (claude-community)
+    kind: value
+    tier: full
+    desc: anthropics/claude-plugins-community — 자동 검증 통과 · 커밋 SHA 고정
+    detail: |
+      공식 마켓(`claude-plugins-official`)은 첫 대화형 실행에서 자동으로 추가되지만,
+      커뮤니티 마켓은 직접 추가한다.
+
+      Anthropic 의 자동 검증·안전성 심사를 통과한 서드파티 플러그인이 올라가고,
+      **각 항목이 특정 커밋 SHA 에 고정**되어 있다. 설치 이름은 `@claude-community` 다.
+    code: |-
+      /plugin marketplace add anthropics/claude-plugins-community
+      /plugin install <plugin-name>@claude-community
+  - id: reload-cost
+    term: /reload-plugins 의 토큰 비용
+    kind: value
+    tier: full
+    desc: 다음 요청에서 캐시가 깨질 수 있음
+    detail: |
+      재적용은 다음 요청에 비용을 남긴다 — 새로 올라온 구성 요소가 대화에 덧붙는 형태로
+      스스로를 알린다. **MCP 서버를 제공하는 플러그인은 도구가 지연 로드되지 않는 경우 캐시가
+      깨져 대화 전체를 다시 읽는다.**
+
+      캐시를 깨뜨릴 상황이면 명령이 경고하고 건너뛰며, `--force` 로 다시 불러야 진행한다.
+    see_also: [slash/plugin-syntax#plugin-discover-installed]

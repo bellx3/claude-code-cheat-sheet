@@ -5,33 +5,94 @@ group: session
 order: 110
 sheet: slash
 summary: >-
-  부가 기능.
+  화면·입력·재미 요소처럼 본작업 밖의 것들.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: focus
     term: /focus
     kind: command
     tier: core
     desc: 포커스 뷰 토글
+    aliases: [포커스, 화면 정리]
+    detail: |
+      마지막 프롬프트, **한 줄로 요약된 도구 호출**(편집 diffstat 포함), 최종 응답만 남기는
+      화면으로 바꾼다. 요약 줄은 그 턴에 띄운 서브에이전트 수를 세고, 끝난 백그라운드 작업
+      알림을 하나로 합친다.
+
+      선택은 세션을 넘어 유지되고, 설정의 `viewMode` 로 덮어쓸 수 있다.
+      전체화면 렌더링에서만 쓸 수 있다.
   - id: radio
     term: /radio
     kind: command
     tier: core
     desc: Claude FM 로파이 라디오
+    aliases: [라디오, 음악]
+    detail: |
+      브라우저에서 Claude FM 로파이 라디오를 연다. 브라우저를 열 수 없는 환경에서는 스트림 URL 을
+      출력한다. Bedrock·Vertex·Foundry 등에서는 쓸 수 없다.
   - id: powerup
     term: /powerup
     kind: command
     tier: core
     desc: 인터랙티브 기능 학습 레슨
+    aliases: [학습, 튜토리얼, 기능 익히기]
+    detail: |
+      애니메이션 데모가 붙은 짧은 대화형 레슨으로 기능을 익힌다. 문서를 읽는 대신
+      **한 기능씩 실제로 눌러 보는** 방식이라 처음 붙는 사람에게 권할 만하다.
+    tasks: [first-setup]
   - id: passes
     term: /passes
     kind: command
     tier: core
     desc: Claude Code 무료 체험 공유
+    aliases: [체험권, 초대]
+    detail: |
+      친구에게 Claude Code 1주 무료 체험을 공유한다. 계정이 대상일 때만 목록에 보인다.
   - id: design-login
     term: /design-login
     kind: command
     tier: core
     desc: 디자인 시스템 접근 권한
+    aliases: [디자인 로그인]
+    detail: |
+      claude.ai 계정으로 `/design-sync` 가 쓸 디자인 시스템 접근 권한을 승인한다.
+      동기화가 권한 문제로 막히면 여기부터 확인한다.
+    see_also: [slash/team-research#design-sync-hint]
+  - id: tui-renderer
+    term: /tui [default|fullscreen]
+    kind: command
+    tier: full
+    desc: 터미널 렌더러 선택
+    aliases: [전체화면, fullscreen, 깜빡임]
+    detail: |
+      터미널 UI 렌더러를 정하고 **대화를 유지한 채 그 렌더러로 다시 띄운다.** `fullscreen` 은
+      깜빡임 없는 대체 화면 렌더러를 켠다. 인자 없이 실행하면 현재 렌더러를 출력한다.
+      `/focus` 나 `/scroll-speed` 처럼 전체화면에서만 되는 기능의 전제 조건이다.
+    see_also: [slash/extras#focus]
+  - id: scroll-speed
+    term: /scroll-speed
+    kind: command
+    tier: full
+    desc: 마우스 휠 스크롤 속도
+    aliases: [스크롤, 휠]
+    detail: |
+      마우스 휠 스크롤 속도를 대화형으로 조정한다. 대화상자가 열린 상태에서 **바로 굴려 보며
+      확인할 수 있는 자**가 함께 뜬다. 전체화면 렌더링에서만 쓸 수 있고 JetBrains IDE 터미널에서는
+      쓸 수 없다.
+  - id: voice
+    term: /voice [hold|tap|off]
+    kind: command
+    tier: full
+    desc: 음성 입력 토글
+    aliases: [음성, 딕테이션, 받아쓰기]
+    detail: |
+      음성 입력을 켜거나 특정 방식으로 지정한다 — `hold` 는 누르고 있는 동안, `tap` 은 눌러서
+      시작·정지. Claude.ai 계정이 필요하다.
+  - id: stickers
+    term: /stickers
+    kind: command
+    tier: full
+    desc: Claude Code 스티커 주문
+    aliases: [스티커, 굿즈]

@@ -8,40 +8,115 @@ summary: >-
   스킬·플러그인·MCP 처럼 기능을 늘리는 축.
 source:
   url: https://code.claude.com/docs/en/skills
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: agents
     term: /agents
     kind: command
     tier: core
     desc: 서브에이전트 생성·관리
+    aliases: [서브에이전트, 에이전트 만들기]
+    detail: |
+      **v2.1.198 부터는 관리 화면이 아니라 안내를 출력한다** — 서브에이전트는 Claude 에게 만들라고
+      말하거나 `.claude/agents/`·`~/.claude/agents/` 를 직접 편집한다. v2.1.197 이하에서는
+      대화형 관리 화면이 열렸다.
+    tasks: [split-work-across-agents]
   - id: hooks
     term: /hooks
     kind: command
     tier: core
     desc: 이벤트 훅 설정 보기
+    aliases: [훅, 자동 실행]
+    detail: |
+      도구 이벤트에 걸린 훅 설정을 확인한다. "매번 X 하게 해 줘" 같은 자동 동작은 메모리나
+      선호가 아니라 훅이 담당한다 — 훅은 Claude 가 아니라 하네스가 실행하기 때문이다.
+    tasks: [pre-commit-gate, stop-touching-wrong-files]
   - id: mcp-subcommand
     term: /mcp [subcommand]
     kind: command
     tier: core
     desc: MCP 서버 연결 관리
+    aliases: [MCP, 커넥터, 외부 도구]
+    detail: |
+      MCP 서버 연결과 OAuth 인증을 관리한다. 인자 없이 실행하면 대화형 목록이 열리고,
+      `reconnect <server>` 로 끊긴 서버 하나만 다시 붙이고, `enable`/`disable` 에 서버 이름이나
+      `all` 을 주면 대화상자 없이 연결 상태만 바꾼다.
+
+      `-p` 비대화 모드에서도 쓸 수 있고, 그때는 목록 대신 상태 요약을 텍스트로 출력한다(v2.1.205+).
+    tasks: [connect-external-tools]
   - id: sandbox-action
     term: /sandbox [action]
     kind: command
     tier: core
     desc: 격리 환경에서 실행
+    aliases: [샌드박스, 격리, 샌드박싱]
+    detail: |
+      샌드박스 모드를 켜고 끈다. 지원되는 플랫폼에서만 보인다. 권한 확인이 잦다고
+      `--dangerously-skip-permissions` 로 가는 대신 **격리로 위험을 낮추는 쪽**이 이 명령의 방향이다.
+    tasks: [reduce-permission-prompts]
   - id: memory
     term: /memory
     kind: command
     tier: core
     desc: CLAUDE.md 편집·자동 메모리
+    aliases: [메모리, CLAUDE.md, 기억]
+    detail: |
+      `CLAUDE.md` 파일을 편집하고, 자동 메모리를 켜거나 끄고, 적립된 자동 메모리 항목을 본다.
+      코드베이스에서 알 수 있는 사실을 메모리에 넣으면 **매 세션 컨텍스트 비용만 늘고 낡는다** —
+      비자명한 결정과 제약만 남기는 편이 낫다.
+    tasks: [onboard-unknown-repo]
   - id: permissions
     term: /permissions
     kind: command
     tier: core
     desc: 도구 권한 규칙 관리
+    aliases: [/allowed-tools, 권한, 허용, 차단]
+    detail: |
+      allow·ask·deny 규칙을 관리하는 대화형 화면을 연다. 스코프별 규칙 보기, 추가·삭제,
+      작업 디렉터리 관리, 오토 모드의 최근 거부 검토까지 여기서 한다.
+
+      응답 중에 실행하면 대화상자가 즉시 열리고, 바꾼 규칙은 **같은 턴의 다음 도구 호출부터**
+      적용된다(v2.1.234+).
+    tasks: [reduce-permission-prompts]
   - id: list-agents
     term: /list-agents
     kind: command
     tier: core
     desc: 메시지 가능한 서브에이전트 목록
+    aliases: [/peers, 에이전트 목록, 세션 목록]
+    detail: |
+      메시지를 보낼 수 있는 서브에이전트·팀 동료·다른 Claude Code 세션을 **주소로 쓸 이름과 함께**
+      나열한다(v2.1.224+). 교차 세션 메시징이 켜진 세션에서만 쓸 수 있다.
+    tasks: [split-work-across-agents]
+  - id: skills
+    term: /skills
+    kind: command
+    tier: full
+    desc: 스킬 목록·토큰 비용·노출 조정
+    aliases: [스킬 목록, 스킬 끄기]
+    detail: |
+      쓸 수 있는 스킬을 나열한다. 이름으로 필터하고, `t` 로 **토큰 비용 순 정렬**,
+      `Space` 로 Claude 와 `/` 메뉴에 대한 노출을 순환시키고 `Enter` 로 저장한다.
+      컨텍스트가 비싸진 원인이 스킬 더미인지 여기서 확인할 수 있다.
+    tasks: [shrink-context-cost]
+  - id: reload-skills
+    term: /reload-skills
+    kind: command
+    tier: full
+    desc: 스킬·명령 디렉터리 재스캔
+    aliases: [스킬 새로고침]
+    detail: |
+      세션 중에 디스크에서 추가·수정된 스킬과 명령을 **재시작 없이** 인식시킨다. 몇 개가
+      사용 가능하고 몇 개가 추가·삭제됐는지 보고한다(v2.1.152+). 스킬을 만들며 시험할 때 쓴다.
+    tasks: [ship-a-reusable-command]
+  - id: import-agent-config
+    term: /import [codex|gemini]
+    kind: command
+    tier: full
+    desc: 다른 코딩 에이전트 설정 가져오기
+    aliases: [가져오기, codex, gemini, 이관]
+    detail: |
+      이 기기의 다른 코딩 에이전트(현재 OpenAI Codex, Google Gemini CLI) 설정을 가져온다 —
+      지시 파일·MCP 서버·명령·서브에이전트·스킬까지. `--dry-run` 은 아무것도 쓰지 않고 미리 보고,
+      `--yes` 는 선택 화면을 건너뛴다.
+    tasks: [first-setup]

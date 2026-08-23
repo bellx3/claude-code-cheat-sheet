@@ -7,16 +7,43 @@ sheet: slash
 summary: >-
   한 번 쓰고 말 것과 배포할 것의 구분.
 source:
-  url: https://code.claude.com/docs/en/plugins
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/skills
+  checked_at: "2026-08-23"
 items:
   - id: slash-vs-plugin-1
     term: 설명
     kind: note
     tier: full
     desc: 내장 슬래시 명령어 → 세션·모델·진단 등 Claude Code 자체 기능 제어
+    detail: |
+      내장 명령은 **도구 자체를 조작한다** — 컨텍스트를 자르고, 모델을 바꾸고, 권한을 정하고,
+      상태를 읽는다. 동작이 CLI 에 박혀 있으므로 내가 바꿀 여지가 없고, 그래서 예측 가능하다.
+
+      일부는 내장이 아니라 번들 스킬이다(`/code-review`, `/simplify`, `/verify`, `/doctor`,
+      `/loop`, `/batch` 등) — 프롬프트가 Claude 에게 넘겨지는 형태라 상황에 따라 Claude 가
+      스스로 부를 수도 있다.
   - id: slash-vs-plugin-2
     term: 설명
     kind: note
     tier: full
     desc: 플러그인 → 스킬·에이전트·MCP·Hooks를 패키지로 확장, 설치 후 plugin:command 형태로 사용
+    detail: |
+      플러그인은 스킬·에이전트·MCP 서버·훅·LSP 서버를 **한 묶음으로 배포**하는 단위다.
+      설치 후에는 `plugin-name:skill-name` 네임스페이스로 부른다.
+
+      판단 기준은 배포 여부다 — 나 혼자 반복하는 것은 `.claude/skills/` 파일 한 장이면 끝이고,
+      팀·조직에 나눠 주고 버전을 관리해야 하는 것부터 플러그인이 값을 한다.
+    see_also: [slash/custom-commands#claude-commands-md]
+  - id: skill-vs-command-file
+    term: 스킬 파일 vs 명령 파일
+    kind: note
+    tier: full
+    desc: .claude/skills/<name>/SKILL.md 가 정본, .claude/commands/*.md 도 계속 동작
+    detail: |
+      커스텀 명령은 스킬로 통합됐다. 같은 이름의 스킬과 명령이 둘 다 있으면 **스킬이 이긴다**
+      (`.claude/commands/deploy.md` 와 `.claude/skills/deploy/SKILL.md` 가 함께 있으면
+      `/deploy` 는 스킬을 실행한다).
+
+      스킬은 디렉터리라 보조 파일을 함께 담을 수 있고 프런트매터로 도구·모델·강도까지 지정한다 —
+      명령 파일에서 옮겨 갈 이유가 대개 여기 있다.
+    see_also: [slash/custom-commands#frontmatter-name-description-aliases]

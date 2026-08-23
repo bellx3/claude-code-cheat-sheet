@@ -5,68 +5,80 @@ group: plugin
 order: 150
 sheet: slash
 summary: >-
-  언어 서버를 붙여 코드 인텔리전스를 얹는 계열.
+  언어 서버를 붙여 코드 인텔리전스를 얹는 계열. 설치 후 언어서버 바이너리를 따로 깔아야 동작.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-20"
+  checked_at: "2026-08-23"
 items:
   - id: c-c
     term: C/C++
     kind: value
     tier: core
-    desc: clangd-lsp
+    desc: "clangd-lsp (바이너리: clangd)"
   - id: market-lsp-1
     term: C#
     kind: value
     tier: core
-    desc: csharp-lsp
+    desc: "csharp-lsp (바이너리: csharp-ls)"
   - id: go
     term: Go
     kind: value
     tier: core
-    desc: gopls-lsp
+    desc: "gopls-lsp (바이너리: gopls)"
   - id: java
     term: Java
     kind: value
     tier: core
-    desc: jdtls-lsp
+    desc: "jdtls-lsp (바이너리: jdtls)"
   - id: kotlin
     term: Kotlin
     kind: value
     tier: core
-    desc: kotlin-lsp
+    desc: "kotlin-lsp (바이너리: kotlin-language-server)"
   - id: lua
     term: Lua
     kind: value
     tier: core
-    desc: lua-lsp
+    desc: "lua-lsp (바이너리: lua-language-server)"
   - id: php
     term: PHP
     kind: value
     tier: core
-    desc: php-lsp
+    desc: "php-lsp (바이너리: intelephense)"
   - id: python
     term: Python
     kind: command
     tier: core
-    desc: pyright-lsp
+    desc: "pyright-lsp (바이너리: pyright-langserver)"
   - id: rust
     term: Rust
     kind: value
     tier: core
-    desc: rust-analyzer-lsp
+    desc: "rust-analyzer-lsp (바이너리: rust-analyzer)"
   - id: swift
     term: Swift
     kind: value
     tier: core
-    desc: swift-lsp
+    desc: "swift-lsp (바이너리: sourcekit-lsp)"
   - id: typescript
     term: TypeScript
     kind: value
     tier: core
-    desc: typescript-lsp
+    desc: "typescript-lsp (바이너리: typescript-language-server)"
   - id: market-lsp-2
     term: 설명
     kind: note
     tier: full
     desc: 설치 후 해당 언어서버 바이너리 별도 설치 필요 — 자동 진단(에러·타입) + 정밀 코드 탐색 제공
+    detail: |
+      이 계열은 Claude Code 내장 LSP 도구를 켜는 설정 묶음이다. 바이너리는 플러그인이 깔아 주지
+      않으므로 표의 것을 직접 설치해야 한다. 얻는 것은 둘이다.
+
+      **자동 진단** — 파일을 편집할 때마다 언어 서버가 에러·경고를 돌려준다. 컴파일러나 린터를
+      돌리지 않고도 타입 오류·누락된 임포트를 그 턴 안에서 알아채고 고친다.
+      직접 읽으려면 "Found N new diagnostic issues" 표시가 뜰 때 **Ctrl+O** 를 누른다.
+
+      **정밀 탐색** — 정의로 이동, 참조 찾기, 타입 정보, 심볼 목록, 구현 찾기, 호출 계층.
+      grep 기반 검색보다 정확하다(언어·환경에 따라 가용 범위는 다르다).
+    caveat: 설치 후 `/plugin` Errors 탭에 `Executable not found in $PATH` 가 뜨면 바이너리가 없는 것이다 — 플러그인은 깔렸어도 아무 진단도 오지 않는다.
+    see_also: [slash/plugin-syntax#plugin-discover-installed]

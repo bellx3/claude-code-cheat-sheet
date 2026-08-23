@@ -7,29 +7,59 @@ sheet: slash
 summary: >-
   어느 범위에 설치되느냐가 어디서 쓸 수 있는지를 결정.
 source:
-  url: https://code.claude.com/docs/en/plugins
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/discover-plugins
+  checked_at: "2026-08-23"
 items:
   - id: user
     term: User
     kind: value
     tier: core
     desc: 내 계정, 모든 프로젝트에 설치
+    aliases: [사용자 스코프, 전역 설치]
+    detail: |
+      내 계정 기준으로 모든 프로젝트에서 쓴다. 저장소에 흔적이 남지 않으므로 **동료의 환경에는
+      영향이 없다** — 내 작업 습관에 속한 도구는 여기가 맞다.
   - id: project
     term: Project
     kind: value
     tier: core
     desc: .claude/settings.json에 기록, 협업자 공유
+    aliases: [프로젝트 스코프, 공유 설치]
+    detail: |
+      `.claude/settings.json` 에 기록되므로 **커밋되면 협업자 전원에게 같이 깔린다.**
+      팀이 함께 쓰기로 합의한 것만 여기 넣는다.
+
+      나만 빼고 싶을 때는 제거가 아니라 `.claude/settings.local.json` 의 무효화로 처리된다 —
+      제거하면 남에게서도 사라진다.
   - id: local
     term: Local
     kind: value
     tier: core
     desc: 이 저장소에서 나만(.local.json)
+    aliases: [로컬 스코프]
+    detail: |
+      이 저장소에서 나만 쓴다(`.claude/settings.local.json`). 프로젝트에 필요하지만 팀에
+      강요하고 싶지 않은 도구를 붙일 자리다.
+  - id: managed
+    term: Managed
+    kind: value
+    tier: full
+    desc: 관리자가 배포, 변경 불가
+    aliases: [관리형, 조직 배포]
+    detail: |
+      관리자가 관리형 설정으로 설치한 것이라 **내가 바꿀 수 없다.** 목록에 보이는데 비활성화가
+      안 되면 이 스코프인지 확인한다.
   - id: plugin-scope-1
     term: 설명
     kind: note
     tier: full
     desc: "스킬은 plugin-name:command 형태로 네임스페이스 (예: /commit-commands:commit)"
+    detail: |
+      플러그인 스킬은 `plugin-name:skill-name` 으로 네임스페이스가 붙는다. 그래서 내 프로젝트의
+      같은 이름 스킬과 **충돌하지 않고 나란히 존재한다.**
+
+      네임스페이스가 없는 쪽의 우선순위는 enterprise → personal → project 순으로 덮어쓰며,
+      같은 이름의 스킬과 `.claude/commands/` 명령이 함께 있으면 스킬이 이긴다.
   - id: plugin-scope-2
     term: 주의
     kind: note

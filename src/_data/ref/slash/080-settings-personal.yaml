@@ -8,30 +8,90 @@ summary: >-
   설정과 개인화. 대부분 설정 파일에도 같은 항목 존재.
 source:
   url: https://code.claude.com/docs/en/settings
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: config-key-value
     term: /config [key=value]
     kind: command
     tier: core
     desc: 설정 열기/직접 지정
+    aliases: [/settings, 설정, 환경설정]
+    detail: |
+      설정 화면을 열어 테마·모델·출력 스타일 등을 조정한다. **화면을 열지 않고 값만 바꿀 수도 있다** —
+      `/config thinking=false` 처럼 `key=value` 를 넘기면 된다(v2.1.181+). `theme=dark`,
+      `model=sonnet` 같은 축약 키도 받는다(v2.1.182+).
+
+      `/config --help` 로 설정 가능한 키 전체와 각 선택지를 볼 수 있다. `key=value` 형태는
+      `-p` 비대화 모드와 모바일 원격 제어에서도 동작한다.
+    tasks: [first-setup]
   - id: color-color-default
     term: /color [color|default]
     kind: command
     tier: core
     desc: 프롬프트 바 색상
+    aliases: [색상, 세션 구분]
+    detail: |
+      프롬프트 바 색을 이번 세션에 대해 정한다. red·blue·green·yellow·purple·orange·pink·cyan
+      중에서 고르고, `default` 로 되돌리고, 인자 없이 실행하면 무작위로 고른다.
+
+      **여러 세션을 동시에 띄워 두는 환경에서 어느 터미널이 어느 작업인지 구분하는 용도**로 쓸 만하다.
+      원격 제어가 붙어 있으면 색이 claude.ai 쪽에도 동기화된다.
   - id: keybindings
     term: /keybindings
     kind: command
     tier: core
     desc: 단축키 파일 열기
+    aliases: [단축키, 키 바인딩]
+    detail: |
+      키보드 단축키 파일(`~/.claude/keybindings.json`)을 연다. 기본 제출 키를 바꾸거나
+      코드 방식 단축키를 추가하는 것도 여기서 한다.
   - id: privacy-settings
     term: /privacy-settings
     kind: command
     tier: core
     desc: 개인정보보호 설정
+    aliases: [개인정보, 프라이버시, 학습 사용]
+    caveat: Pro·Max 구독자만 쓸 수 있다 — 다른 플랜에서는 명령 목록에 보이지 않는다.
   - id: fewer-permission-prompts
     term: /fewer-permission-prompts
     kind: command
     tier: core
     desc: 권한 프롬프트 감소
+    aliases: [권한 확인 줄이기, 허용 목록]
+    detail: |
+      과거 대화 기록을 훑어 **자주 쓰인 읽기 전용 Bash·MCP 호출**을 찾아, 우선순위를 매긴 허용
+      목록을 프로젝트 `.claude/settings.json` 에 추가하는 번들 스킬이다.
+
+      실제로 쓴 것만 근거로 허용하므로, 권한을 통째로 끄는 것(`--dangerously-skip-permissions`)과
+      성질이 다르다.
+    tasks: [reduce-permission-prompts]
+  - id: theme
+    term: /theme
+    kind: command
+    tier: full
+    desc: 색 테마 변경
+    aliases: [테마, 다크 모드, 색약]
+    detail: |
+      색 테마를 바꾼다. 터미널 배경의 명암을 따라가는 `auto`, 라이트·다크 변형,
+      **색약 대응(daltonized) 테마**, 터미널 팔레트를 그대로 쓰는 ANSI 테마, 그리고
+      `~/.claude/themes/` 나 플러그인에서 온 커스텀 테마까지 고를 수 있다.
+      목록의 **New custom theme…** 로 새로 만들 수도 있다.
+  - id: statusline
+    term: /statusline
+    kind: command
+    tier: full
+    desc: 상태줄 구성
+    aliases: [상태줄, 스테이터스라인]
+    detail: |
+      상태줄을 구성한다. 원하는 내용을 말로 설명하거나, 인자 없이 실행하면 **현재 셸 프롬프트에서
+      자동으로 구성**해 준다. 모델·브랜치·비용 같은 것을 항상 눈에 두고 싶을 때 쓴다.
+  - id: terminal-setup
+    term: /terminal-setup
+    kind: command
+    tier: full
+    desc: 터미널 단축키 설정
+    aliases: [Shift+Enter, 줄바꿈, 터미널 설정]
+    detail: |
+      Shift+Enter 같은 단축키가 먹지 않는 터미널에서 키 바인딩을 설정한다.
+      **필요한 터미널에서만 명령 목록에 보인다** — VS Code, Cursor, Devin Desktop, Alacritty, Zed 등.
+      줄바꿈이 안 되고 바로 전송돼 버릴 때 찾을 명령이다.

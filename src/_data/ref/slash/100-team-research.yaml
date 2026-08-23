@@ -8,40 +8,96 @@ summary: >-
   팀 연동과 조사 성격의 명령.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: install-github-app
     term: /install-github-app
     kind: command
     tier: core
     desc: Claude GitHub App 설치
+    aliases: [깃허브 앱, GitHub Actions]
+    detail: |
+      저장소에 Claude GitHub App 을 설치한다. 저장소를 고르는 단계와 연동 설정을 안내하고,
+      **GitHub Actions 워크플로와 시크릿까지 같이 잡아 주는 선택 단계**가 붙는다.
+      PR 에서 Claude 를 부르거나 CI 안에서 돌리려면 여기가 출발점이다.
+    tasks: [ci-headless-run]
   - id: install-slack-app
     term: /install-slack-app
     kind: command
     tier: core
     desc: Claude Slack 앱 설치
+    aliases: [슬랙, Slack]
+    detail: |
+      Claude Slack 앱을 설치한다. 브라우저가 열려 OAuth 흐름을 마치면 워크스페이스에서
+      Claude 를 부를 수 있다.
   - id: release-notes
     term: /release-notes
     kind: command
     tier: core
     desc: 버전별 체인지로그 보기
+    aliases: [릴리스 노트, 변경 이력, 새 기능]
+    detail: |
+      대화형 버전 선택기로 체인지로그를 본다. 특정 버전의 노트만 보거나 전체를 펼칠 수 있다.
+
+      **노트는 화면에만 뜨고 Claude 가 보는 대화에는 들어가지 않는다** — 긴 릴리스 노트를 읽어도
+      컨텍스트가 늘지 않는다.
   - id: claude-api-subcommand
     term: /claude-api [subcommand]
     kind: command
     tier: core
     desc: Claude API 참고자료 로드
+    aliases: [API, SDK, 모델 ID, 마이그레이션]
+    detail: |
+      프로젝트 언어에 맞는 Claude API·Managed Agents 참고자료를 불러오는 번들 스킬이다.
+      코드가 `anthropic` 이나 `@anthropic-ai/sdk` 를 임포트하면 **자동으로도 켜진다.**
+
+      하위 명령: `migrate` 는 기존 API 코드를 새 모델로, `upgrade` 는 SDK 의존성을 메이저 버전
+      너머로, `managed-agents-onboard` 는 Managed Agent 생성 안내, `prompt-audit` 는 옛 모델
+      기준으로 쓰인 지시를 찾아 수정안을 diff 로 제시한다.
+    caveat: 모델 ID·가격·한도는 기억으로 답하지 말고 이 자료로 확인할 것 — 그 값들이 가장 빨리 낡는다.
   - id: deep-research-question
     term: /deep-research <question>
     kind: command
     tier: core
     desc: 웹 검색 기반 심화 조사
+    aliases: [심화 조사, 리서치, 딥 리서치]
+    detail: |
+      질문 하나에 대해 웹 검색을 부채꼴로 펼치고, 출처를 가져와 교차 확인한 뒤 **인용이 붙은
+      보고서**로 합치는 번들 워크플로다. 백그라운드에서 돌고, 내가 부를 때만 시작한다
+      (v2.1.218 이전에는 Claude 가 스스로 시작할 수도 있었다).
+    caveat: 서브에이전트를 여럿 띄우는 워크플로다 — 가벼운 질문에 부르면 답보다 비용이 크다.
   - id: dataviz-request
     term: /dataviz [request]
     kind: command
     tier: core
     desc: 차트·대시보드 설계 지침
+    aliases: [차트, 그래프, 시각화, 대시보드]
+    detail: |
+      차트·그래프·대시보드의 설계 지침을 불러오는 번들 스킬이다(v2.1.198+). 데이터에 맞는 차트
+      형태를 고르고, 색을 역할에 따라 배정하고, **번들 스크립트로 색약 안전성과 명암비를 검증**하고,
+      마크·인터랙션·접근성 규칙을 적용한다. 팔레트는 브랜드 중립 자리표시자이므로 내 것으로 교체한다.
   - id: design-sync-hint
     term: /design-sync [hint]
     kind: command
     tier: core
     desc: 디자인 시스템 업로드
+    aliases: [디자인 시스템, Claude Design]
+    detail: |
+      저장소의 React 디자인 시스템을 변환해 Claude Design 에 올린다 — 이후 생성되는 디자인이
+      **내 실제 컴포넌트**를 쓰게 된다. 이름을 붙일 수도 있다(`/design-sync Acme DS`).
+
+      첫 동기화는 모든 컴포넌트를 검증하므로 큰 저장소에서는 몇 시간이 걸릴 수 있다.
+      Bedrock·Vertex·Foundry 등에서는 claude.ai 에 닿지 못해 쓸 수 없다.
+    see_also: [slash/extras#design-login]
+  - id: team-onboarding
+    term: /team-onboarding
+    kind: command
+    tier: full
+    desc: 팀 온보딩 가이드 생성
+    aliases: [온보딩, 팀 가이드, 인수인계]
+    detail: |
+      **최근 30일**의 세션·명령·MCP 사용 기록을 분석해 팀 온보딩 가이드를 마크다운으로 만든다.
+      동료가 첫 메시지로 붙여 넣으면 바로 세팅이 되는 형태다.
+      claude.ai 유료 플랜에서는 Claude Code 에서 바로 열리는 공유 링크도 돌려준다.
+    caveat: 내 사용 기록에서 만들어지므로 경로·저장소 이름 같은 것이 섞인다 — 공유 전에 읽어 볼 것.
+    tasks: [onboard-unknown-repo]

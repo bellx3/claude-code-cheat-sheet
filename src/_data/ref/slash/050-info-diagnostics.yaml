@@ -8,35 +8,74 @@ summary: >-
   지금 상태가 어떤지 읽는 명령들. 고치기 전에 여기부터 확인.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: status
     term: /status
     kind: command
     tier: core
     desc: 세션 상태·진행 작업 표시
+    aliases: [상태, 버전 확인]
+    detail: |
+      설정 화면의 Status 탭을 열어 버전·모델·계정·연결 상태를 보여준다. **Claude 가 응답 중일 때도
+      즉시 실행되는 명령** 중 하나다.
+
+      Session kind 행으로 지금 세션이 대화형인지, 백그라운드 작업인지(터미널이 붙었는지까지)
+      구분할 수 있다(v2.1.221+).
+    tasks: [it-broke]
   - id: usage-cost
     term: /usage, /cost
     kind: command
     tier: core
     desc: 토큰 사용량·비용 표시
+    aliases: [/stats, 비용, 요금, 사용량]
+    detail: |
+      세션 비용, 플랜 사용 한도, 활동 통계를 보여준다. 유료 플랜에서는 **스킬·서브에이전트·
+      플러그인·MCP 서버별 내역**까지 쪼개 준다 — 무엇이 비용을 먹는지 여기서 지목할 수 있다.
+      `/cost`, `/stats` 는 별칭이다.
+    tasks: [shrink-context-cost]
+    see_also: [slash/session-mgmt#context-all]
   - id: doctor
     term: /doctor
     kind: command
     tier: core
     desc: 설정 진단 및 문제 해결
+    aliases: [진단, 설치 점검, 고장]
+    detail: |
+      설치·설정을 점검하고 **고쳐 주기까지 하는** 번들 스킬이다. 중복·잔여 설치, PATH 문제,
+      파싱 안 되는 설정 파일을 잡고, 릴리스 채널에 새 버전이 있는지도 확인한다.
+
+      쓰지 않는 스킬·MCP 서버·플러그인을 그 컨텍스트 비용과 함께 지목하고, 느린 훅을 표시한다.
+      로컬 `CLAUDE.md` 와 체크인된 것의 중복을 정리하고, 너무 커진 `CLAUDE.md` 에서 코드베이스로
+      알 수 있는 내용을 덜어내 스킬·중첩 `CLAUDE.md` 로 옮기는 제안도 한다.
+    tasks: [it-broke, first-setup]
   - id: insights
     term: /insights
     kind: command
     tier: core
     desc: 세션 사용 패턴 분석 보고서
+    aliases: [사용 패턴, 리포트]
+    detail: |
+      이 기기의 최근 세션들을 분석한 HTML 보고서를 만든다 — 어느 프로젝트에서 일했는지,
+      어떻게 쓰는지, 어디서 일이 틀어지는지, 써 볼 만한 기능은 무엇인지.
+      **클라우드 세션에서는 쓸 수 없다**(분석 대상이 이 기기의 기록이므로).
   - id: recap
     term: /recap
     kind: command
     tier: core
     desc: 세션 한 줄 요약
+    aliases: [요약, 무슨 작업 중]
+    detail: |
+      현재 세션을 한 줄로 요약한다. 자리를 비웠다 돌아왔을 때 자동으로 뜨는 요약과 같은 것을
+      필요할 때 직접 부르는 형태다. 컨텍스트를 줄이는 `/compact` 와 달리 **대화를 건드리지 않는다.**
   - id: heapdump
     term: /heapdump
     kind: command
     tier: core
     desc: 메모리 진단 스냅샷
+    aliases: [메모리, 힙덤프]
+    detail: |
+      JS 힙 스냅샷과 메모리 내역을 `~/Desktop`(Linux 에 Desktop 이 없으면 홈)에 쓴다.
+      메모리 사용량이 비정상적으로 높을 때의 진단용이다. 명령 메뉴에 뜨지 않으므로 이름을
+      전부 입력해야 한다.
+    caveat: 메모리 문제를 신고할 때 **-diagnostics.json 만** 첨부할 것. .heapsnapshot 에는 대화 전문과 자격증명이 들어 있다 — 공유하면 안 된다.

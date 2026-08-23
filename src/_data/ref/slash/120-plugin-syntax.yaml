@@ -7,8 +7,8 @@ sheet: slash
 summary: >-
   플러그인이 제공하는 명령의 호출 문법.
 source:
-  url: https://code.claude.com/docs/en/plugins-reference
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/discover-plugins
+  checked_at: "2026-08-23"
 items:
   - id: plugin-discover-installed
     term: "/plugin                       # Discover/Installed/"
@@ -27,3 +27,15 @@ items:
       /plugin list [--enabled|--disabled]
 
       /reload-plugins [--force]     # 변경사항 즉시 적용
+    detail: |
+      `/plugin` 은 터미널에서 대화형 패널을 연다. **Discover**(마켓 목록)·**Installed**(설치된 것)·
+      **Marketplaces**(출처 관리)·**Errors**(로드 실패 원인) 네 탭으로 되어 있고,
+      Errors 탭은 LSP 바이너리 누락처럼 조용히 실패한 것을 찾는 자리다.
+
+      마켓 이름을 붙여 설치하면(`name@marketplace`) 조회 전에 그 마켓을 새로 받아온다.
+      이름만 주면 캐시된 목록에서 찾으므로, 방금 올라온 플러그인은
+      `/plugin marketplace update <name>` 을 먼저 돌려야 보인다.
+
+      스크립트에서는 패널을 열지 않는 셸 명령(`claude plugin install ... --scope project`)을 쓴다.
+    caveat: 설치 요약이 "Run /reload-plugins to activate." 면 아직 활성이 아니다 — 프롬프트 캐시를 깨뜨리는 변경이라 미뤄 둔 것이므로 직접 실행해야 적용된다.
+    see_also: [slash/plugin-scope#plugin-scope-2]

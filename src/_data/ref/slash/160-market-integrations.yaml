@@ -1,63 +1,117 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+# 2026-08-23 정비: 이관 때 한 desc 에 눌려 있던 카테고리(소스관리+PM, 디자인+인프라, 협업+모니터링)를
+# 공식 카탈로그 분류대로 분리했다. 기존 id 는 G7 기준선 때문에 유지하고 뒤에 항목을 늘렸다.
 id: market-integrations
 title: 공식 마켓 — 외부 연동 & 워크플로우
 group: plugin
 order: 160
 sheet: slash
 summary: >-
-  외부 서비스 연동 계열.
+  MCP 서버가 미리 설정된 채로 오는 외부 연동 계열. 손으로 붙이는 설정을 건너뛴다.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-23"
 items:
   - id: market-integrations-1
     term: 소스관리
     kind: value
     tier: full
-    desc: "github, gitlab PM: atlassian, asana, linear, notion"
+    desc: github, gitlab
+    subhead: 외부 연동
+    detail: |
+      MCP 서버가 미리 구성된 채로 온다 — 토큰·엔드포인트를 손으로 적을 일이 없다.
+      PR·이슈를 읽고 쓰는 작업이 잦으면 `gh` CLI 만으로 버티기보다 이쪽이 편하다.
+  - id: market-integrations-pm
+    term: 프로젝트 관리
+    kind: value
+    tier: full
+    desc: atlassian (Jira/Confluence), asana, linear, notion
+    subhead: 외부 연동
   - id: market-integrations-2
     term: 디자인
     kind: value
     tier: full
-    desc: "figma 인프라: vercel, firebase, supabase"
+    desc: figma
+    subhead: 외부 연동
+    detail: |
+      Figma 연동. 저장소의 React 디자인 시스템을 Claude Design 에 올리는 `/design-sync` 와는
+      다른 축이다 — 이쪽은 디자인 파일을 읽는 연결이다.
+    see_also: [slash/team-research#design-sync-hint]
+  - id: market-integrations-infra
+    term: 인프라
+    kind: value
+    tier: full
+    desc: vercel, firebase, supabase
+    subhead: 외부 연동
   - id: market-integrations-3
     term: 협업
     kind: value
     tier: full
-    desc: "slack 모니터링: sentry"
-  - id: explanatory-output-style
-    term: explanatory-output-style
+    desc: slack
+    subhead: 외부 연동
+    detail: |
+      Slack 연동. 워크스페이스에서 Claude 를 부르는 앱 설치는 `/install-slack-app` 쪽이고,
+      이것은 세션에서 Slack 을 읽고 쓰는 MCP 연결이다.
+    see_also: [slash/team-research#install-slack-app]
+  - id: market-integrations-monitoring
+    term: 모니터링
     kind: value
     tier: full
-    desc: 구현 선택의 이유를 설명해주는 출력 스타일
-    subhead: 출력 스타일
-  - id: learning-output-style
-    term: learning-output-style
-    kind: value
-    tier: full
-    desc: 대화형 학습 모드 출력 스타일
-    subhead: 출력 스타일
+    desc: sentry
+    subhead: 외부 연동
   - id: security-guidance
     term: security-guidance
     kind: value
     tier: full
     desc: 변경마다 자동 보안 리뷰
     subhead: 개발 워크플로우
+    detail: |
+      Claude 가 만드는 변경마다 흔한 취약점을 검토하고 **같은 세션에서 고치도록 지시한다.**
+      브랜치 전체를 한 번에 보는 `/security-review` 와 달리 변경 단위로 계속 붙는 방식이다.
+      프로젝트별 규칙을 추가할 수도 있다.
+    see_also: [slash/quality-security#security-review]
   - id: commit-commands
     term: commit-commands
     kind: value
     tier: full
     desc: 커밋·푸시·PR 생성 스킬
     subhead: 개발 워크플로우
+    detail: |
+      커밋·푸시·PR 생성 흐름을 스킬로 제공한다. 설치 후에는 `/commit-commands:commit` 처럼
+      네임스페이스가 붙은 이름으로 부른다.
   - id: pr-review-toolkit
     term: pr-review-toolkit
     kind: value
     tier: full
     desc: PR 리뷰 전용 에이전트
     subhead: 개발 워크플로우
+    detail: |
+      PR 리뷰에 특화된 에이전트 묶음. 내장 `/code-review` 로 부족할 때, 관점을 나눠 여러 번
+      돌리는 용도로 얹는다.
   - id: agent-sdk-dev-plugin-dev
     term: agent-sdk-dev, plugin-dev
     kind: value
     tier: full
     desc: SDK·플러그인 개발 도구
     subhead: 개발 워크플로우
+    detail: |
+      `agent-sdk-dev` 는 Claude Agent SDK 로 만들 때, `plugin-dev` 는 플러그인을 직접 만들 때
+      쓰는 도구 묶음이다. 남의 플러그인을 쓰는 쪽이 아니라 만드는 쪽에 필요한 것들이다.
+  - id: explanatory-output-style
+    term: explanatory-output-style
+    kind: value
+    tier: full
+    desc: 구현 선택의 이유를 설명해주는 출력 스타일
+    subhead: 출력 스타일
+    detail: |
+      구현 선택의 근거를 함께 설명하는 출력 스타일. 남의 코드베이스에 처음 붙을 때,
+      결과만 받는 대신 왜 그렇게 했는지 같이 읽고 싶을 때 쓴다.
+  - id: learning-output-style
+    term: learning-output-style
+    kind: value
+    tier: full
+    desc: 대화형 학습 모드 출력 스타일
+    subhead: 출력 스타일
+    detail: |
+      학습을 위한 대화형 모드. 답을 바로 주기보다 짚어 가며 익히게 한다.
+      출력 스타일 계열은 호출 기록이 남지 않아도 값을 주므로, 미사용 정리 대상에서 빠진다.
