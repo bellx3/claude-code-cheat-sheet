@@ -100,9 +100,10 @@ that got the masonry layout rejected (decision history lives above `.cardgrid` i
 group the cards are a **single column** in document order.
 
 Two item-level rules live in `partials/item.njk`, both data-driven: an item whose `term` equals its `desc`
-renders once (115 of 664 items carried the same sentence in both fields), and an item whose `term` runs
-past 34 characters is laid out as a full-width line instead of a name-column entry (98 items — they are
-shell one-liners, not names). Both add `.item-line`, which is **excluded from the card's subgrid**; if it
+renders once (115 of the 664 items at migration carried the same sentence in both fields; the `desc` side
+was deleted, so 102 of 693 items today are name-only), and an item whose `term` runs past 34 characters is
+laid out as a full-width line instead of a name-column entry (100 items — they are shell one-liners, not
+names). Both add `.item-line`, which is **excluded from the card's subgrid**; if it
 merely spanned both tracks it would still drive the name column's width.
 
 `/print/` and the A3 sheets render from the same data through separate templates, so card layout changes
@@ -133,7 +134,8 @@ opened by `/`, `Ctrl+K`, or the header `#navsearch` trigger. The old inline-box 
 of them. Result lists group by type (task → hub → prompt → ref → doc), so the flat DOM order of `.hit`
 links is NOT the raw ranking — the corpus in `tools/search-cases.json` tests raw `search()` order.
 
-`search-index.js` (251 KB raw / 64 KB gzip) is **not** referenced from `base.njk`. It used to be a
+`search-index.js` (318 KB raw / 87 KB gzip — it grew with the 2026-08-23 `detail` pass) is **not**
+referenced from `base.njk`. It used to be a
 blocking `<script>` on every page. It is now injected on demand — palette open or `#navsearch`
 hover/click — so leaf pages never download it at rest. Don't put the tag back; the leaf-page measurement
 was 405 KB → 163 KB.
