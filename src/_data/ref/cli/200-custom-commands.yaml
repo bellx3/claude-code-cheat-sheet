@@ -37,6 +37,11 @@ items:
     kind: snippet
     tier: full
     desc: 파일명이 그대로 명령 이름이 된다
+    detail: |
+      스킬로 만들 때는 **디렉터리명**이 호출 이름이 된다(`.claude/skills/deploy/SKILL.md` → `/deploy`).
+      한 메시지 앞머리에 여러 개를 쌓을 수도 있다 — `/write-tests /fix-issue 123` 은 둘을 불러오고
+      뒤에 남은 `123` 을 각자의 `$ARGUMENTS` 로 넘긴다(첫 스킬 + 최대 5개).
+    see_also: [slash/custom-commands#claude-commands-deploy-md-deploy]
     code: |-
       /debug     # .claude/commands/debug.md
       /test      # .claude/commands/test.md

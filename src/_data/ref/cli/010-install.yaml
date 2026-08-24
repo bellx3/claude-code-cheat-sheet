@@ -8,13 +8,20 @@ summary: >-
   네이티브 설치가 권장 경로. npm 설치는 새로 깔 때 비권장 레거시. 문제 발생 시 추측 전에 claude doctor 먼저.
 source:
   url: https://code.claude.com/docs/en/setup
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: curl-fssl-https-claude-ai-install-sh-bash
     term: curl -fsSL https://claude.ai/install.sh | bash
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      설치 경로는 넷이다 — 설치 스크립트(macOS·Linux·WSL), PowerShell 스크립트(Windows),
+      Homebrew cask, WinGet. **Windows 는 설치 직후 `PATH` 가 이미 열려 있던 터미널에 반영되지
+      않으므로** 새 창을 열어야 한다.
+
+      npm 설치가 꼬였으면 `claude install stable` 로 네이티브 바이너리를 다시 깔아 원인을 가른다.
+    tasks: [first-setup]
     code: |-
       # macOS/Linux/WSL
       curl -fsSL https://claude.ai/install.sh | bash
@@ -28,11 +35,19 @@ items:
     kind: command
     tier: core
     desc: 로그인
+    detail: |
+      `--email` 로 주소를 미리 채우고, `--sso` 로 SSO 를 강제하고, `--console` 로 구독 대신
+      Anthropic Console(API 과금)로 붙는다.
+    see_also: [cli/cli-commands#claude-auth]
   - id: claude-auth-status
     term: claude auth status
     kind: command
     tier: core
     desc: 인증 상태 확인
+    detail: |
+      **JSON 으로 출력하고 로그인 상태면 0, 아니면 1 로 종료한다**(`--text` 는 사람이 읽는 형태) —
+      CI 에서 인증 여부를 판정하기에 이 종료 코드가 편하다.
+    tasks: [ci-headless-run]
   - id: claude-auth-logout
     term: claude auth logout
     kind: command

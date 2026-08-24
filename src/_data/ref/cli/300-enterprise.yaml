@@ -8,7 +8,7 @@ summary: >-
   조직이 배포하는 managed-settings.json 이 최상단, 개인 설정으로 뒤집기 불가.
 source:
   url: https://code.claude.com/docs/en/settings
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: enterprise-1
     term: 설명
@@ -29,6 +29,13 @@ items:
     kind: note
     tier: full
     desc: auto 모드는 프로덕션 배포·강제 푸시·시크릿 유출 등을 기본 차단
+    detail: |
+      기본 규칙은 `claude auto-mode defaults` 로 JSON 으로 볼 수 있고(`--label 'Git Destructive'`
+      처럼 접두어로 걸러서), 내 설정이 적용된 실효 구성은 `claude auto-mode config` 다.
+      조직은 관리 설정의 `autoMode` 로 무엇을 신뢰·차단할지 조정하고 `disableAutoMode` 로 끈다.
+
+      되돌리려면 `claude auto-mode reset`(사용자 설정의 `autoMode` 섹션 제거, 확인 후 실행).
+    see_also: [cli/permission-modes#auto]
   - id: sandbox-network-alloweddomains
     term: sandbox.network.allowedDomains
     kind: value

@@ -8,29 +8,58 @@ summary: >-
   판정 근거가 되는 1차 출처. 이 사이트 내용과 어긋나면 이쪽이 맞음.
 source:
   url: https://code.claude.com/docs/en/overview
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: code-claude-com-docs-en-overview
     term: "공식 문서: code.claude.com/docs/en/overview"
     kind: note
     tier: full
+    detail: |
+      전체 문서의 출발점. 이 사이트와 어긋나면 이쪽이 맞다 —
+      문서 색인은 `code.claude.com/docs/llms.txt` 로 한 번에 받을 수 있다.
   - id: cli-code-claude-com-docs-en-cli-reference
     term: "CLI 레퍼런스: code.claude.com/docs/en/cli-reference"
     kind: note
     tier: full
+    detail: |
+      플래그 80여 개와 `claude` 하위 명령 전체가 예시와 함께 표로 있다.
+      이 사이트의 플래그 섹션은 자주 쓰는 것을 골라 옮긴 것이므로, 없는 플래그는 여기서 찾는다.
   - id: code-claude-com-docs-en-commands
     term: "명령어 레퍼런스: code.claude.com/docs/en/commands"
     kind: note
     tier: full
+    detail: |
+      **삭제된 명령도 "Removed in vX" 로 남아 있다** — 옛 자료에서 본 명령이 안 먹으면 여기서 확인한다.
   - id: code-claude-com-docs-en-permission-modes
     term: "권한 모드: code.claude.com/docs/en/permission-modes"
     kind: note
     tier: full
+    detail: |
+      어떤 모드도 자동 승인하지 않는 행위 목록이 여기 있다 — `bypassPermissions` 가
+      "전부 생략"이 아니라는 근거가 그 목록이다.
   - id: hooks-code-claude-com-docs-en-hooks
     term: "Hooks: code.claude.com/docs/en/hooks"
     kind: note
     tier: full
+    detail: |
+      이벤트 종류와 입출력 규약. "매번 X 하게 해 줘"를 지침이 아니라 구조로 만드는 자리다.
+  - id: docs-settings-reference
+    term: "설정 키 전체: code.claude.com/docs/en/settings-reference"
+    kind: note
+    tier: full
+    detail: |
+      `settings.json` 의 키 하나하나가 여기 있다. 이 사이트의 설정 키 섹션은 자주 쓰는 15종만 골랐다.
+    see_also: [cli/settings-keys#permissions-allow-deny-ask]
+  - id: docs-interactive-mode
+    term: "대화형 모드·단축키: code.claude.com/docs/en/interactive-mode"
+    kind: note
+    tier: full
+    detail: |
+      키보드 단축키의 정본. 터미널·플랫폼별로 동작이 갈리는 키가 여기 정리돼 있다.
   - id: github-github-com-anthropics-claude-code
     term: "GitHub: github.com/anthropics/claude-code"
     kind: note
     tier: full
+    detail: |
+      버그 신고와 이슈 검색. 신고 전에 독립 `claude` CLI 에서도 재현되는지 확인하고,
+      로그를 붙일 때는 **경로·환경 정보가 섞여 있는지 먼저 읽어 볼 것.**

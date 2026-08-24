@@ -8,7 +8,7 @@ summary: >-
   터미널에서 치는 진입점. 대부분은 claude 하나로 시작하고, 나머지는 이어가기(-c/-r)와 관리 명령.
 source:
   url: https://code.claude.com/docs/en/cli-reference
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: claude
     term: claude
@@ -37,43 +37,135 @@ items:
     kind: value
     tier: core
     desc: 파이프 콘텐츠 처리
+    detail: |
+      표준입력을 그대로 받는다 — `git diff`, `docker logs`, DB 출력 무엇이든 된다.
+      **넣은 만큼 컨텍스트를 먹으므로** 먼저 걸러서 넘기는 편이 낫다.
+    see_also: [cli/git-integrations#git-log-oneline-10-claude-p]
   - id: claude-c-continue
     term: claude -c / --continue
     kind: command
     tier: core
     desc: 최근 대화 이어가기
+    detail: |
+      현재 디렉터리의 가장 최근 대화를 불러온다. **백그라운드 세션·`-p`·SDK·첫 프롬프트가 `/loop` 인
+      세션은 건너뛴다** — 그것들까지 포함하려면 `claude -p --continue` 다.
+      `/add-dir` 로 이 디렉터리를 추가했던 세션도 포함된다.
+    tasks: [resume-yesterday]
+    see_also: [cli/cli-flags#continue-resume]
   - id: claude-r-s-query
     term: claude -r "<s>" "query"
     kind: command
     tier: core
     desc: 세션 ID·이름으로 재개
+    detail: |
+      ID 나 이름으로 재개하고, 인자 없이 주면 선택기가 열린다. ID 를 주면 현재 프로젝트와 그
+      워크트리를 먼저 찾고 없으면 이 기기의 다른 프로젝트까지 찾는다(v2.1.223+).
+    tasks: [resume-yesterday]
   - id: claude-n-name
     term: claude -n <name>
     kind: command
     tier: core
     desc: 세션 표시 이름 지정
+    detail: |
+      `/resume` 목록과 터미널 제목에 뜨고, **그 이름으로 재개할 수도 있다**(`claude --resume <name>`).
+      세션 도중에 바꾸려면 `/rename` 이다.
+    see_also: [cli/cli-flags#name-session-id]
   - id: claude-from-pr-pr
     term: claude --from-pr <PR>
     kind: command
     tier: core
     desc: PR 연결 세션 재개
+    detail: |
+      PR 번호, GitHub·GitHub Enterprise PR URL, GitLab MR URL, Bitbucket PR URL 을 받는다.
+      **Claude 가 PR 을 만들면 연결은 자동으로 걸린다.**
   - id: claude-update
     term: claude update
     kind: command
     tier: core
     desc: 최신 버전 업데이트
+    detail: |
+      특정 버전이나 채널을 지정하려면 `claude install <version|stable|latest>` 쪽이다.
   - id: claude-install-version
     term: claude install [version]
     kind: command
     tier: core
     desc: 네이티브 바이너리 설치
+    detail: |
+      `2.1.118` 같은 버전이나 `stable`·`latest` 를 받는다. npm 설치가 꼬였을 때 네이티브로
+      다시 깔아 원인을 가르는 데도 쓴다.
+    tasks: [it-broke]
   - id: claude-setup-token
     term: claude setup-token
     kind: command
     tier: core
     desc: 장기 OAuth 토큰 생성
+    detail: |
+      CI·스크립트용 장기 토큰을 만든다. **터미널에 출력만 하고 저장하지 않으므로** 그 자리에서
+      비밀 저장소에 넣어야 한다. Claude 구독이 필요하다.
+    tasks: [ci-headless-run]
   - id: claude-mcp
     term: claude mcp
     kind: command
     tier: core
     desc: MCP 서버 구성
+    detail: |
+      하위 명령으로 서버를 추가·삭제·조회한다. `claude mcp login <name>` 은 대화형 `/mcp` 패널을
+      열지 않고 OAuth 흐름만 돌리고(SSH 에서는 `--no-browser` 로 URL 을 출력),
+      `claude mcp logout <name>` 은 저장된 자격증명을 지운다(v2.1.186+).
+    tasks: [connect-external-tools]
+  - id: claude-agents
+    term: claude agents
+    kind: command
+    tier: full
+    desc: 백그라운드 세션 감시·디스패치 화면
+    aliases: [에이전트 뷰, 백그라운드 목록]
+    detail: |
+      병렬 백그라운드 세션을 보고 새로 띄우는 화면을 연다. `--cwd <path>` 로 그 디렉터리 아래에서
+      시작된 것만, `--json` 으로 스크립트용 JSON 배열(`--json --all` 은 끝난 것도 포함)을 얻는다.
+      `--permission-mode`·`--model`·`--effort`·`--agent` 로 **디스패치될 세션의 기본값**을 정한다.
+    tasks: [long-running-work, split-work-across-agents]
+    see_also: [cli/cli-flags#bg-background]
+  - id: claude-bg-manage
+    term: claude attach / logs / stop / rm / respawn <id>
+    kind: command
+    tier: full
+    desc: 백그라운드 세션 붙기·로그·중단·목록 제거·재시작
+    aliases: [백그라운드 관리]
+    detail: |
+      `attach` 는 이 터미널에 붙이고, `logs` 는 최근 출력을 찍고, `stop`(=`kill`) 은 세운다.
+      `rm` 은 목록에서 빼되 **대화 기록은 남으므로** `claude --resume` 으로 다시 볼 수 있고,
+      `respawn` 은 대화를 유지한 채 다시 띄운다(`--all` 로 전부 — 새 바이너리를 물릴 때 쓴다).
+  - id: claude-auth
+    term: claude auth login / logout / status
+    kind: command
+    tier: full
+    desc: 로그인·로그아웃·인증 상태
+    aliases: [인증, 로그인]
+    detail: |
+      `login` 은 `--email` 로 주소를 미리 채우고, `--sso` 로 SSO 를 강제하고,
+      `--console` 로 구독 대신 Anthropic Console(API 과금) 로 붙는다.
+
+      `status` 는 **JSON 으로** 상태를 출력하고 로그인 상태면 0, 아니면 1 로 종료한다
+      (`--text` 는 사람이 읽는 형태) — CI 에서 인증 여부를 판정할 때 쓴다.
+    tasks: [ci-headless-run, it-broke]
+  - id: claude-doctor-cli
+    term: claude doctor
+    kind: command
+    tier: full
+    desc: 세션 없이 설치·설정 진단 (읽기 전용)
+    aliases: [진단]
+    detail: |
+      **세션을 시작하지 않고** 설치 상태·설정 파일 파싱 오류·원격 제어 가능 여부를 찍는다.
+      고침까지 해 주는 것은 세션 안의 `/doctor` 쪽이다 — 이쪽은 읽기 전용이라 스크립트에 넣기 좋다.
+    tasks: [it-broke]
+    see_also: [cli/advanced-slash#insights]
+  - id: claude-project-purge
+    term: claude project purge [path]
+    kind: command
+    tier: full
+    desc: 프로젝트의 로컬 상태 전부 삭제
+    aliases: [정리, 기록 삭제]
+    detail: |
+      대화 기록·작업 목록·디버그 로그·파일 편집 이력·프롬프트 이력과 `~/.claude.json` 의 항목까지
+      지운다. `--dry-run` 으로 먼저 보고, `-i` 로 항목별 확인, `--all` 로 전 프로젝트.
+    caveat: 비가역이다. 경로를 생략하면 목록에서 고르게 되는데, 지우기 전에 `--dry-run` 으로 무엇이 사라지는지 확인할 것.

@@ -8,20 +8,31 @@ summary: >-
   실행한 디렉터리가 기본 작업 범위. 코드가 여러 곳에 흩어져 있으면 탐색 시작 전에 추가 필요.
 source:
   url: https://code.claude.com/docs/en/cli-reference
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: add-dir-apps-lib
     term: "--add-dir ../apps ../lib"
     kind: flag
     tier: core
     desc: 추가 작업 디렉토리 등록
+    aliases: [디렉터리 추가, 모노레포]
+    detail: |
+      공백으로 여러 경로를 한 번에 준다. **파일 접근만 늘어난다** — 그 디렉터리의 `.claude/` 설정
+      (스킬·훅·권한 규칙)은 대부분 읽지 않으므로, 설정까지 필요하면 그 폴더에서 세션을 시작해야 한다.
   - id: add-dir-path-to-project
     term: "--add-dir /path/to/project"
     kind: flag
     tier: core
     desc: 디렉토리 경로 유효성 확인
+    detail: |
+      각 경로가 실제로 존재하는 디렉터리인지 검사한다 — 오타는 시작 시점에 걸러진다.
+      세션 중간에 추가하려면 `/add-dir` 이고, 성공하면 `DirectoryAdded` 훅이 돈다.
   - id: add-dir-fe-be-shared
     term: "--add-dir ../fe ../be ../shared"
     kind: flag
     tier: core
     desc: 여러 디렉토리 동시 접근
+    detail: |
+      세션마다 다시 적지 않으려면 설정의 `permissions.additionalDirectories` 에 올린다.
+      `/add-dir` 로 이 디렉터리를 추가했던 세션은 나중에 `--resume`·`--continue` 목록에도 잡힌다.
+    see_also: [cli/cli-flags#add-dir]

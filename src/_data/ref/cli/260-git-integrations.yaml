@@ -8,13 +8,19 @@ summary: >-
   표준 입력으로 무엇이든 전달 가능. git·docker·DB 출력이 그대로 입력.
 source:
   url: https://code.claude.com/docs/en/headless
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: git-log-oneline-10-claude-p
     term: git log --oneline -10 | claude -p "체인지로그 작성"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      표준입력이 만능 어댑터다. 다만 **넣은 만큼 컨텍스트를 먹는다** — `git diff --name-only`,
+      `git log -10` 처럼 먼저 걸러서 넘기는 편이 낫다.
+
+      로그·DB 출력에는 자격증명이나 개인정보가 섞여 있을 수 있다. 파이프로 넘기면 그대로 모델에
+      전달되므로, 무엇을 넘기는지 한 번 보고 넘긴다.
     code: |-
       git log --oneline -10 | claude -p "체인지로그 작성"
       git diff --name-only | claude -p "변경사항 설명"

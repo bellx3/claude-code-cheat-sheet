@@ -8,13 +8,20 @@ summary: >-
   속도 저하의 원인은 대개 컨텍스트 과다, 또는 작업 전환 후 이전 대화 잔존.
 source:
   url: https://code.claude.com/docs/en/costs
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: claude-p-max-turns-1
     term: "claude -p --max-turns 1 \"빠른 분석\"     # 단일 턴"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      순서가 있다 — `/context` 로 **무엇이 먹고 있는지 먼저 보고**, 작업이 바뀐 것이면 `/clear`,
+      이어가야 하면 `/compact`, 그 다음 `/effort`·`/model` 로 강도를 내린다. 감으로 자르면
+      남겨야 할 것을 자른다.
+
+      `--autocompact auto` 는 모델에 맞춰진 기본 창으로 되돌리는 값이다. `/doctor` 는 쓰지 않는
+      스킬·MCP 서버·플러그인을 **그 컨텍스트 비용과 함께** 지목해 준다.
     code: |-
       claude -p --max-turns 1 "빠른 분석"     # 단일 턴
       claude --autocompact auto                # 자동 컨텍스트 압축

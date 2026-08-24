@@ -8,13 +8,20 @@ summary: >-
   CI 에서 돌릴 때는 결과를 파싱 가능한 형식으로, 실패는 조용히 지나가지 않게.
 source:
   url: https://code.claude.com/docs/en/github-actions
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: claude-p-output-format-json
     term: claude -p "커버리지 분석" --output-format json \
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      CI 에서는 실패가 조용히 지나가지 않는 것이 핵심이다 — `--max-turns` 는 한도에 닿으면
+      **오류로 종료**하므로 잡을 수 있다. 결과 파싱은 `--output-format json`, 형식을 스키마로
+      고정하려면 `--json-schema`.
+
+      `find ... -exec claude -p` 는 **파일 하나에 세션 하나**다. 파일이 많으면 비용이 급히 늘어나므로
+      `--max-budget-usd` 를 같이 걸고, 시작 시간을 줄이려면 `--bare` 를 붙인다.
     code: |-
       claude -p "커버리지 분석" --output-format json \
         | jq '.coverage_percentage'

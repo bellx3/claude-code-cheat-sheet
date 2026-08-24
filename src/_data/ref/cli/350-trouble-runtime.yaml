@@ -8,13 +8,19 @@ summary: >-
   동작 이상 시 커스터마이제이션 배제로 범위를 반씩 줄이는 게 가장 빠름.
 source:
   url: https://code.claude.com/docs/en/troubleshooting
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: clear
     term: "/clear                          # 컨텍스트 비우기"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      "느려졌다"의 원인은 대개 컨텍스트가 찼거나, 작업이 바뀌었는데 이전 대화가 남아 있는 것이다 —
+      `/context` 로 확인한 뒤 자른다.
+
+      MCP·시작 단계가 의심되면 `--debug='mcp,startup'` 으로 범주를 좁혀 본다(필터는 `=` 형태에서만
+      붙는다). 권한 때문에 막힌 것처럼 보이면 `/permissions` 로 실제 규칙을 확인한다.
     code: |-
       /clear                          # 컨텍스트 비우기
       claude -p --max-turns 3 "포커스 질의"

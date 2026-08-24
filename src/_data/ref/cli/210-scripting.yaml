@@ -8,13 +8,20 @@ summary: >-
   대화형이 아니라 한 번 돌고 끝나는 실행. 권한 모드·출력 형식·상한 셋을 반드시 함께 설정.
 source:
   url: https://code.claude.com/docs/en/headless
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: claude-p-analyze-codebase
     term: claude -p "analyze codebase" \
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      프린트 모드는 한 번 돌고 끝난다. **셋을 같이 걸어야 안전하다** —
+      권한 모드(`--permission-mode`), 출력 형식(`--output-format`), 상한(`--max-turns`·
+      `--max-budget-usd`). 상한에 닿으면 오류로 종료하므로 잘린 결과가 조용히 다음 단계로 흐르지 않는다.
+
+      시작을 빠르게 하려면 `--bare` 로 훅·스킬·MCP 자동 탐색을 건너뛴다. 이렇게 만든 `-p` 세션은
+      나중에 `--continue` 로 잡히지 않는다(`claude -p --continue` 는 포함한다).
     code: |-
       #!/bin/bash
       claude -p "analyze codebase" \

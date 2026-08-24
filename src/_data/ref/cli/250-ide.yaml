@@ -8,13 +8,18 @@ summary: >-
   편집기와 붙이면 열려 있는 파일·선택 영역이 맥락으로 전달.
 source:
   url: https://code.claude.com/docs/en/platforms
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: ide-ide
     term: "/ide                # IDE 연동 상태 표시/관리"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      `--ide` 는 **유효한 IDE 가 정확히 하나일 때만** 자동 연결한다 — 여러 개가 떠 있으면 붙지 않으니
+      `/ide` 로 상태를 보고 고른다. 붙으면 열려 있는 파일과 선택 영역이 맥락으로 넘어간다.
+
+      Chrome 연동은 내 로그인 세션을 그대로 쓰는 경로다 — 로그인이 필요한 화면을 다뤄야 할 때만 켠다.
     code: |-
       /ide                # IDE 연동 상태 표시/관리
       claude --ide          # 사용 가능한 IDE 자동 연결

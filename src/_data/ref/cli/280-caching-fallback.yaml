@@ -8,13 +8,19 @@ summary: >-
   이어가기로 컨텍스트 재사용, 과부하 시 폴백 모델로 전환.
 source:
   url: https://code.claude.com/docs/en/model-config
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: claude-c-p
     term: "claude -c -p \"이전 분석 이어가기\"   # 컨텍스트 재사용"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      `-c -p` 는 직전 대화를 이어받아 컨텍스트를 재사용한다. `&` 로 병렬 실행하면 각각이 독립 세션이라
+      컨텍스트를 공유하지 않는다 — 서로의 결과가 필요하면 파이프나 세션 이어가기로 묶어야 한다.
+
+      `--fallback-model` 은 쉼표로 나열한 **순서대로** 시도한다. 참고로 모델을 오가며 바꾸면
+      프롬프트 캐시가 새로 쌓이므로, 긴 대화 중간의 잦은 전환은 캐시 이득을 버린다.
     code: |-
       claude -c -p "이전 분석 이어가기"   # 컨텍스트 재사용
       claude -p "task1" & claude -p "task2" & wait  # 병렬

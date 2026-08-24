@@ -10,7 +10,7 @@ summary: >-
   자주 만지는 키만 추렸다. 키보다 먼저 알아야 할 것은 파일 4층 구조와 우선순위다.
 source:
   url: https://code.claude.com/docs/en/settings
-  checked_at: "2026-08-20"
+  checked_at: "2026-08-24"
 items:
   - id: settings-files
     term: 설명
@@ -31,10 +31,14 @@ items:
     kind: value
     tier: full
     desc: 세션 시작 권한 모드 (default/acceptEdits/plan/auto/dontAsk)
+    detail: |
+      `--permission-mode` 플래그가 이 값을 세션 단위로 덮어쓴다. `bypassPermissions` 는
+      여기 적어도 조직 정책(`permissions.disableBypassPermissionsMode`)이 막으면 뜨지 않는다.
+      데스크톱 앱은 **선택기에서 고른 모드를 폴더별로 기억하고 그 폴더에서는 이 값보다 우선**한다.
     caveat: |
       `"auto"` 값은 프로젝트·local 설정 파일에서는 무시된다 — auto 시작은 내장 기본값이나
       user 설정으로만. 우선 규칙은 `--permission-mode` 플래그가 항상 이긴다.
-    see_also: [cli/permission-modes#auto]
+    see_also: [cli/permission-modes#auto, cli/new-flags#permission-mode-mode, desktop/session-setup#permission-mode]
   - id: permissions-allow-deny-ask
     term: permissions.allow / deny / ask
     kind: value
@@ -60,6 +64,10 @@ items:
     kind: value
     tier: full
     desc: 기본 모델 지정 · 선택 가능한 모델 제한
+    detail: |
+      `model` 은 시작 모델, `availableModels` 는 **고를 수 있는 목록 자체를 제한**한다(조직용).
+      `--model` 플래그와 `/model` 이 그 위에서 세션 값을 정하고, 허용 목록에서 빠진 값은
+      무시되어 현재 모델이 유지된다.
     see_also: [cli/model-effort#model-sonnet-opus-haiku-fable]
   - id: sandbox-enabled
     term: sandbox.enabled
@@ -75,24 +83,39 @@ items:
     kind: value
     tier: full
     desc: 자동 컴팩트 토글 · 발동 기준 컨텍스트 크기(100k~1M)
+    detail: |
+      설정을 건드리지 않고 이번 세션만 바꾸려면 `/autocompact` 나 `--autocompact` 다.
+      자동 요약이 정보를 잃는 것이 문제라면 창을 넓히기보다 **중요한 수치를 파일로 남기는 편**이 낫다.
+    see_also: [cli/new-flags#autocompact-auto-tokens]
     tasks: [shrink-context-cost]
   - id: outputstyle
     term: outputStyle
     kind: value
     tier: full
     desc: 응답 스타일 지정 (/clear 후에도 유지)
+    detail: |
+      Claude 의 역할·어조·출력 형식을 바꾼다. 공식 마켓의 `explanatory-output-style`·
+      `learning-output-style` 이 플러그인으로 배포되는 예다.
     see_also: [slash/market-integrations#explanatory-output-style]
   - id: automemory
     term: autoMemoryEnabled / autoMemoryDirectory
     kind: value
     tier: full
     desc: 자동 메모리 토글 · 저장 위치 변경
-    see_also: [cli/memory#memory]
+    detail: |
+      세션 안에서는 `/memory` 로 켜고 끄고 적립된 항목을 본다.
+      **코드베이스에서 알 수 있는 사실이 쌓이면 매 세션 컨텍스트 비용만 늘고 낡는다** —
+      비자명한 결정과 제약만 남기는 편이 낫다.
+    see_also: [slash/system-extend#memory, cli/memory#memory]
   - id: claudemdexcludes
     term: claudeMdExcludes
     kind: value
     tier: full
     desc: 모노리포에서 남의 CLAUDE.md 를 글롭으로 제외
+    detail: |
+      메모리를 읽을 때 특정 `CLAUDE.md` 를 건너뛴다. 패키지가 많은 저장소에서 관계없는 지침이
+      전부 딸려 오는 것을 막는 용도다 — 반대로 그 패키지에서 일할 때만 붙게 하려면
+      중첩 `.claude/skills/` 나 스킬의 `paths` 를 쓴다.
     tasks: [stop-touching-wrong-files]
   - id: cleanupperioddays
     term: cleanupPeriodDays
@@ -106,21 +129,36 @@ items:
     kind: value
     tier: full
     desc: 프로젝트에 플러그인·마켓플레이스를 고정해 팀과 공유
-    see_also: [slash/plugin-scope#project]
+    detail: |
+      스코프별로 개별 플러그인을 켜고 끈다. **클라우드 세션에서 플러그인을 쓰는 경로가 이것이다** —
+      저장소의 `.claude/settings.json` 에 적어 두면 세션 시작 때 설치된다
+      (데스크톱에서 설치한 플러그인은 클라우드 세션에 따라가지 않는다).
+    see_also: [desktop/skills-plugins#wsl, slash/plugin-scope#project]
   - id: statusline
     term: statusLine
     kind: value
     tier: full
     desc: 터미널 하단 상태줄을 명령 출력으로 커스텀
+    detail: |
+      내 명령의 출력을 프롬프트 아래에 렌더한다. 직접 JSON 을 쓰는 대신 `/statusline` 에게
+      원하는 것을 말하거나, 인자 없이 실행해 **현재 셸 프롬프트에서 자동 구성**하게 할 수 있다.
+    see_also: [slash/settings-personal#statusline]
   - id: attribution
     term: attribution
     kind: value
     tier: full
     desc: 커밋·PR 에 붙는 서명 문구 변경
+    detail: |
+      `attribution.commit`·`attribution.pr`·`attribution.sessionUrl` 로 나눠 끄거나 바꿀 수 있다 —
+      커밋 트레일러는 남기고 PR 본문의 문구만 없애는 식의 조정이 가능하다.
     tasks: [review-before-merge]
   - id: defaultshell
     term: defaultShell
     kind: value
     tier: full
     desc: "! 셸 모드의 셸 선택 (bash / powershell)"
+    detail: |
+      `!` 로 직접 돌리는 명령의 셸을 정한다. 스킬 단위로 바꾸려면 스킬 프런트매터의
+      `shell: powershell` 이 있다 — Windows 에서 두 셸이 섞여 스크립트가 깨지는 일을 줄인다.
     tasks: [windows-gotchas]
+    see_also: [cli/keybindings#keybindings-2]

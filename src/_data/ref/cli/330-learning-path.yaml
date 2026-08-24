@@ -8,7 +8,7 @@ summary: >-
   무엇부터 익힐지 순서. 권한 모드와 컨텍스트 관리가 초반 체감 가장 큼.
 source:
   url: https://code.claude.com/docs/en/quickstart
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: learning-path-1
     term: 초급
@@ -16,15 +16,26 @@ items:
     tier: full
     desc: 기본 명령어부터 → /help 자주 활용 → 간단한 질의로 연습 → 작업 간 /clear
     subhead: 초급
+    detail: |
+      처음 붙는 사람에게 가장 빠른 것은 `/powerup` 이다 — 애니메이션 데모가 붙은 짧은 레슨으로
+      기능을 하나씩 눌러 본다. 그 다음은 `/init` 으로 `CLAUDE.md` 를 만들고 `/clear` 습관을 붙이는 것.
   - id: learning-path-2
     term: 중급
     kind: note
     tier: full
     desc: 권한 모드·도구 권한 마스터 → JSON 출력 자동화 → MCP 연동 → 커스텀 명령어화
     subhead: 중급
+    detail: |
+      권한은 우회(`--dangerously-skip-permissions`)가 아니라 **좁혀서 여는 것**부터 익히는 게 맞다 —
+      `/fewer-permission-prompts` 로 실제로 쓴 호출만 허용 목록에 올리는 흐름.
+      커스텀 명령은 이제 스킬이 정본(`.claude/skills/<name>/SKILL.md`)이다.
   - id: learning-path-3
     term: 고급
     kind: note
     tier: full
     desc: Hooks·플러그인·샌드박싱 활용 → 백그라운드/클라우드 세션 → 팀 협업·엔터프라이즈 정책 준수
     subhead: 고급
+    detail: |
+      "매번 X 하게" 같은 자동 동작은 지침이 아니라 **훅**이 담당한다(하네스가 실행한다).
+      병렬 작업은 `--worktree` 로 격리하고, 오래 걸리는 것은 `--bg` 로 떼어낸다.
+      팀에 배포할 것은 스킬 → 플러그인 순으로 올린다.

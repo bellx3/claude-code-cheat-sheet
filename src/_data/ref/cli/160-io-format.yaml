@@ -8,7 +8,7 @@ summary: >-
   사람이 읽는 출력 대신 기계가 파싱할 출력을 받는 축. 자동화의 출발점.
 source:
   url: https://code.claude.com/docs/en/headless
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: output-format-json
     term: "--output-format json"
@@ -34,6 +34,11 @@ items:
     kind: flag
     tier: core
     desc: 프린트 모드 입력 형식
+    detail: |
+      표준입력으로 메시지를 흘려 넣는다. **작업 중에 보낸 메시지는 큐에 남아 자기 턴으로 실행되고,
+      그 턴은 자기 `--max-turns` 한도를 따로 갖는다.** 보낸 것을 확인받으려면
+      `--replay-user-messages` 로 되돌려 받는다.
+    tasks: [ci-headless-run]
   - id: json-schema-schema
     term: "--json-schema '<schema>'"
     kind: flag
@@ -49,3 +54,7 @@ items:
     kind: flag
     tier: core
     desc: 배치/1회성 처리
+    detail: |
+      **한도에 닿으면 오류로 종료**하므로 잘린 결과가 성공처럼 흐르지 않는다.
+      돈으로도 막으려면 `--max-budget-usd` 를 같이 건다(서브에이전트 지출까지 합산된다).
+    see_also: [cli/new-flags#max-budget-usd]

@@ -8,13 +8,20 @@ summary: >-
   관점을 하나로 고정해 따로 돌리는 편이 한 번에 다 시키는 것보다 깊이 들어감.
 source:
   url: https://code.claude.com/docs/en/security-guidance
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: git-diff-head-1-claude-p-security-md
     term: git diff HEAD~1 | claude -p "보안 이슈 리뷰" > security.md
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      관점을 하나로 고정해 따로 돌리는 이유는, 한 번에 다 시키면 관점이 섞여 얕아지기 때문이다.
+      대신 같은 diff 를 여러 번 읽는 비용이 든다.
+
+      내장 명령으로도 같은 일을 한다 — `/code-review` 는 강도(`low`~`max`)와 대상(PR·브랜치·경로)을
+      받고 `--fix` 로 적용까지 하며, `/security-review` 는 **브랜치와 origin 기본 브랜치의 차이**를
+      본다(`origin` 이 없으면 실패한다).
     code: |-
       git diff HEAD~1 | claude -p "보안 이슈 리뷰" > security.md
       git diff HEAD~1 | claude -p "성능 이슈 확인" > perf.md

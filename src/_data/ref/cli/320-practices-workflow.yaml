@@ -7,26 +7,61 @@ sheet: cli
 summary: >-
   반복이 보이면 명령어로 고정, 자동화할 거면 출력 형식부터 결정.
 source:
-  url: https://code.claude.com/docs/en/quickstart
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/skills
+  checked_at: "2026-08-24"
 items:
   - id: claude-commands
     term: 반복 작업 → .claude/commands/ 커스텀 명령어화
     kind: note
     tier: full
+    detail: |
+      지금은 **스킬이 정본이다** — `.claude/skills/<name>/SKILL.md`. `.claude/commands/*.md` 도
+      계속 동작하지만 이름이 겹치면 스킬이 이긴다. 스킬은 디렉터리라 보조 파일을 담고
+      프런트매터로 도구·모델·강도까지 정할 수 있다.
+    tasks: [ship-a-reusable-command]
+    see_also: [slash/custom-commands#claude-commands-md]
   - id: output-format-json
     term: 자동화 스크립트 → --output-format json
     kind: note
     tier: full
+    detail: |
+      형식이 스키마까지 필요하면 `--json-schema` 를 쓴다 — 스키마에 맞지 않으면 **오류로 종료**하므로
+      파이프 뒤쪽이 깨진 값을 받지 않는다. 진행을 흘려 받아야 하면 `stream-json` 이다.
+    tasks: [ci-headless-run]
+    see_also: [cli/new-flags#json-schema]
   - id: practices-workflow-1
     term: 복합 작업 → 파이프로 단계별 연결
     kind: note
     tier: full
+    detail: |
+      `cat file | claude -p "..."` 처럼 표준입력을 넘긴다. 여러 사람·여러 기기가 같은 작업을
+      돌린다면 `--exclude-dynamic-system-prompt-sections` 로 **프롬프트 캐시 재사용률**을 올릴 수 있다.
+    see_also: [cli/new-flags#exclude-dynamic-prompt]
   - id: id
     term: 장시간 작업 → 세션 ID로 관리, 에러 처리 구현
     kind: note
     tier: full
+    detail: |
+      `--session-id` 로 ID 를 직접 정하면 나중에 스크립트가 그 세션을 다시 찾을 수 있고,
+      `--name` 은 사람이 `/resume` 목록에서 알아볼 이름을 붙인다. 오래 걸리는 것은 `--bg` 로
+      떼어내고 `claude agents` 로 확인한다.
+    tasks: [long-running-work]
+    see_also: [cli/cli-flags#name-session-id]
   - id: practices-workflow-2
     term: 팀 공유용 워크플로우는 문서화
     kind: note
     tier: full
+    detail: |
+      문서 대신 **실행되는 것으로 남기는 편**이 낫다 — 반복 절차는 스킬로, 자동 검사는 훅으로,
+      묶어 배포할 것은 플러그인으로. 지침이 지켜지길 바라는 것과 하네스가 강제하는 것은 다르다.
+    tasks: [ship-a-reusable-command, pre-commit-gate]
+  - id: worktree-parallel
+    term: 병렬 작업 → --worktree 로 격리
+    kind: note
+    tier: full
+    detail: |
+      같은 저장소에서 세션 여러 개를 돌리면 서로의 편집이 섞인다. `-w` 는
+      `<repo>/.claude/worktrees/<name>` 에 격리된 워크트리를 만들고, `#123` 이나 PR URL 을 주면
+      그 PR 에서 분기한다. 커밋할 때는 `git commit -- <경로>` 로 **지금 의도한 파일만** 넣는다.
+    tasks: [split-work-across-agents]
+    see_also: [cli/cli-flags#worktree]

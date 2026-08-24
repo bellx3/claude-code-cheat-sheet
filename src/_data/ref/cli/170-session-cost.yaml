@@ -8,25 +8,38 @@ summary: >-
   무한 반복으로 새어나가는 비용을 구조적으로 막는 장치들. 일회성 작업에는 상한 설정이 안전.
 source:
   url: https://code.claude.com/docs/en/costs
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: p-max-turns-3
     term: "-p --max-turns 3"
     kind: flag
     tier: core
     desc: 프린트 모드 턴 수 제한
+    detail: |
+      **한도에 닿으면 오류로 종료한다** — 잘린 결과가 성공처럼 다음 단계로 흐르지 않는다.
+      기본값은 무제한이므로 일회성 실행에는 걸어 두는 편이 안전하다.
   - id: max-budget-usd-5-00
     term: "--max-budget-usd 5.00"
     kind: flag
     tier: core
     desc: 지출 상한 설정
+    detail: |
+      프린트 모드 전용. **서브에이전트의 지출도 합산된다** — 상한에 닿으면 새 서브에이전트 생성이
+      `Budget limit reached` 로 실패하고 돌던 백그라운드 서브에이전트도 중단된다(v2.1.217+).
+    see_also: [cli/new-flags#max-budget-usd]
   - id: verbose
     term: "--verbose"
     kind: flag
     tier: core
     desc: 상세 로그 출력
+    detail: |
+      비용이 어디서 나가는지 볼 때 쓴다. 턴 단위 출력을 전부 보여주고 `viewMode` 설정을 덮어쓴다.
   - id: usage-cost
     term: /usage, /cost
     kind: command
     tier: core
     desc: 토큰 사용량·비용 표시
+    detail: |
+      유료 플랜에서는 **스킬·서브에이전트·플러그인·MCP 서버별 내역**까지 쪼개 준다.
+      플랜 사용량은 터미널·데스크톱·웹이 공유하는 값이다. `/stats` 도 같은 것을 연다.
+    see_also: [slash/info-diagnostics#usage-cost]

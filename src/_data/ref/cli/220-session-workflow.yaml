@@ -8,13 +8,19 @@ summary: >-
   세션 ID 를 잡아 여러 단계를 이어 붙이거나, 파이프로 단계를 연결하는 패턴.
 source:
   url: https://code.claude.com/docs/en/headless
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: sid-claude-p-start-output-format-json
     term: SID=$(claude -p "start" --output-format json \
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      `--output-format json` 의 `session_id` 를 잡아 두면 `claude -r "$SID"` 로 같은 대화를 이어
+      여러 단계를 붙일 수 있다. ID 를 내가 정하려면 `--session-id <UUID>` 를 쓴다.
+
+      **파이프로 잇는 것과 세션을 잇는 것은 다르다** — 파이프의 각 단계는 앞 단계의 출력만 받는
+      새 대화다. 앞의 탐색 결과나 파일 내용을 알고 있어야 하는 작업이면 세션을 이어야 한다.
     code: |-
       SID=$(claude -p "start" --output-format json \
         | jq -r '.session_id')

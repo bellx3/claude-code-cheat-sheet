@@ -8,13 +8,19 @@ summary: >-
   설정 파일 공유로 같은 기준 적용. CI·락다운 환경은 dontAsk 가 기본.
 source:
   url: https://code.claude.com/docs/en/admin-setup
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: claude-settings-team-config-json
     term: claude --settings team-config.json "표준 분석"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      `--settings` 는 **준 키만** 덮어쓴다 — 적지 않은 키는 각자의 파일 값을 그대로 쓰므로,
+      팀 공통 설정을 강제하려면 그 키를 전부 적어야 한다. 어느 층까지 읽을지는
+      `--setting-sources user,project,local` 로 정한다.
+
+      `dontAsk`(미리 승인한 도구만 허용)는 **CLI 전용 모드**다 — 데스크톱 앱에는 없다.
     code: |-
       claude --settings team-config.json "표준 분석"
       claude -r "team-session-id" "팀 논의 이어가기"

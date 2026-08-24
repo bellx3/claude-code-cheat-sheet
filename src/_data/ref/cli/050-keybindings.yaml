@@ -1,4 +1,5 @@
 # legacy/cheatsheet.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
+# 2026-08-24: Ctrl+L 의 "2회=/clear" 는 v2.1.238 에서 사라졌다(이제 다시 그리기만 한다). desc 정정.
 id: keybindings
 title: 키보드 단축키
 group: start
@@ -8,23 +9,35 @@ summary: >-
   손이 기억하면 가장 빨라지는 것들. Shift+Tab(권한 모드)과 Esc(중단) 둘만 익혀도 체감 큼.
 source:
   url: https://code.claude.com/docs/en/interactive-mode
-  checked_at: "2026-08-20"
+  checked_at: "2026-08-24"
 items:
   - id: ctrl-c
     term: Ctrl+C
     kind: shortcut
     tier: core
     desc: 중단 (2회=종료)
+    detail: |
+      **돌고 있는 것이 있으면 중단, 없으면 입력 비우기**다. 아무것도 안 돌고 있을 때 한 번 누르면
+      프롬프트가 비고, 한 번 더 누르면 Claude Code 가 종료된다.
   - id: ctrl-d
     term: Ctrl+D
     kind: shortcut
     tier: core
     desc: Claude Code 종료
+    detail: |
+      첫 누름에 확인 안내가 뜨고 **800ms 안에** 다시 눌러야 종료된다.
+      입력창에 글자가 있으면 종료가 아니라 커서 뒤 한 글자를 지운다.
   - id: ctrl-o
     term: Ctrl+O
     kind: shortcut
     tier: core
     desc: 트랜스크립트 뷰어 토글
+    detail: |
+      도구 사용과 실행을 자세히 보여주고, 어시스턴트 메시지마다 **타임스탬프와 쓰인 모델**이 붙는다.
+      기본적으로 "Called slack 3 times" 처럼 한 줄로 접히는 MCP 호출도 여기서 펼쳐진다.
+
+      전체화면 렌더링에서는 뷰어 안에서 `{`·`}`(이전·다음 사용자 프롬프트), `[`(대화를 터미널
+      스크롤백에 기록), `v`(임시 파일로 열기), `q`·`Esc`(나가기)가 동작한다.
   - id: ctrl-r
     term: Ctrl+R
     kind: shortcut
@@ -35,31 +48,53 @@ items:
     kind: shortcut
     tier: core
     desc: 작업(task) 목록 토글
+    detail: |
+      **Claude 의 할 일 체크리스트를 상태 영역에 보이거나 감추는 것**이다 —
+      백그라운드 작업 보기가 아니다. 돌고 있는 셸·서브에이전트는 `/tasks` 쪽이다.
+    see_also: [cli/advanced-slash#tasks]
   - id: ctrl-b
     term: Ctrl+B
     kind: shortcut
     tier: core
     desc: 실행 중 작업을 백그라운드로 (tmux는 2회)
+    detail: |
+      Bash 명령과 에이전트를 백그라운드로 보낸다. 세션 자체를 떼어내는 것은 `/background` 다.
+    see_also: [cli/advanced-slash#background-bg]
   - id: ctrl-x-ctrl-k
     term: Ctrl+X Ctrl+K
     kind: shortcut
     tier: core
     desc: 백그라운드 서브에이전트 전부 중단 (3초 내 2회)
+    detail: |
+      이 세션의 백그라운드 서브에이전트를 모두 세우고, **남은 세션 동안 아티팩트 자동 답글도 끈다.**
+      확인을 위해 3초 안에 두 번 눌러야 한다.
   - id: ctrl-s
     term: Ctrl+S
     kind: shortcut
     tier: core
     desc: 프롬프트 보관 · 빈 입력에서 다시 누르면 복원
+    detail: |
+      복원할 때 **커서 위치와 붙여넣은 내용까지** 같이 돌아온다. 쓰던 프롬프트를 버리지 않고
+      급한 질문을 먼저 보낼 때 쓴다.
   - id: ctrl-v-alt-v
     term: Ctrl+V / Alt+V
     kind: shortcut
     tier: core
     desc: 클립보드 이미지 붙여넣기
+    detail: |
+      커서 위치에 `[Image #N]` 칩이 들어가므로 **프롬프트 안에서 위치로 참조**할 수 있다
+      ("두 번째 이미지의 오류" 처럼). iTerm2 는 `Cmd+V`, Windows·WSL 은 `Alt+V` 이고,
+      WSL 은 둘 다 걸려 있다(터미널이 `Ctrl+V` 를 가로채면 `Alt+V`).
   - id: ctrl-l
     term: Ctrl+L
     kind: shortcut
     tier: core
-    desc: 화면 다시 그리기 (풀스크린에서 2회=/clear)
+    desc: 화면 다시 그리기 (입력·대화 유지)
+    detail: |
+      화면이 깨지거나 일부가 비어 보일 때 강제로 다시 그린다. 입력과 대화는 그대로 남는다.
+
+      **v2.1.238 부터는 두 번 눌러도 대화가 지워지지 않는다** — 그 전에는 2초 안에 `Ctrl+L` 이나
+      `Cmd+K` 를 두 번 누르면 `/clear` 가 돌았다. 지금 대화를 비우려면 `/clear` 를 직접 쓴다.
   - id: ctrl-z
     term: Ctrl+Z
     kind: shortcut
@@ -78,11 +113,18 @@ items:
     kind: shortcut
     tier: core
     desc: 응답·도구 호출 중단, 대화상자 닫기
+    detail: |
+      턴 중간에 세워도 **거기까지 한 일은 남는다.** 큐에 넣어 둔 메시지가 있으면 그것을 다음으로 보낸다.
+      대화상자가 열려 있으면 닫고, 권한 프롬프트에서는 거부로 처리한다.
   - id: esc-esc
     term: Esc Esc
     kind: shortcut
     tier: core
     desc: 초안 삭제, 비어있으면 되돌리기
+    detail: |
+      글자가 있으면 지우면서 **초안을 히스토리에 저장**하므로 `Up` 으로 되살릴 수 있다.
+      입력이 비어 있으면 되돌리기 메뉴가 열린다(코드·대화를 이전 지점으로).
+    see_also: [cli/advanced-slash#rewind-turn]
   - id: shift-tab
     term: Shift+Tab
     kind: shortcut
@@ -96,23 +138,87 @@ items:
     kind: shortcut
     tier: core
     desc: 모델 전환
+    detail: |
+      쓰던 프롬프트를 비우지 않고 바꾼다.
   - id: alt-t-option-t
     term: Alt+T / Option+T
     kind: shortcut
     tier: core
     desc: 확장 사고 토글
+    detail: |
+      **Fable 5 에는 효과가 없다**(항상 확장 사고를 쓴다). macOS 에서는 Option 을 Meta 로
+      설정하지 않아도 동작하는 몇 안 되는 Alt 계열 키다.
   - id: alt-o-option-o
     term: Alt+O / Option+O
     kind: shortcut
     tier: core
     desc: 패스트 모드 토글
+    see_also: [slash/model-runtime#fast-on-off]
   - id: keybindings-1
     term: "@"
     kind: shortcut
     tier: core
     desc: 파일 경로 언급 자동완성
+    detail: |
+      교차 세션 메시징이 켜진 세션에서는 `@` 뒤에 한 글자 이상 치면 **이 기기의 다른 라이브 세션도
+      후보로 뜬다** — 골라서 그 세션에 메시지를 보내게 할 수 있다.
+    see_also: [slash/system-extend#list-agents]
   - id: keybindings-2
     term: "!"
     kind: shortcut
     tier: core
     desc: 셸 모드 진입
+    detail: |
+      명령을 직접 돌리고 **그 출력이 세션에 들어가며 Claude 가 그것에 대해 응답한다** —
+      결과를 복사해 붙여 넣는 왕복이 없어진다.
+  - id: readline-editing
+    term: Ctrl+K / Ctrl+U / Ctrl+W / Ctrl+Y
+    kind: shortcut
+    tier: full
+    desc: 줄 끝까지·줄 시작까지·앞 단어 삭제 / 삭제한 것 붙여넣기
+    aliases: [readline, 편집 키]
+    detail: |
+      지운 것은 보관되므로 `Ctrl+Y` 로 붙여넣을 수 있고, 붙여넣은 뒤 `Alt+Y` 로 이전에 지운 것들을
+      순환한다. macOS 에서는 `Cmd+Backspace` 가 `Ctrl+U`, `Option+Delete` 가 `Ctrl+W` 에 매핑되고
+      Windows 는 `Ctrl+Backspace` 가 `Ctrl+W` 다.
+
+      `Ctrl+W` 가 공백 단위로 지우게 하려면 설정의 `keybindingFlavor` 를 `"readline"` 로 둔다.
+      되돌리기는 `Ctrl+_`(또는 `Ctrl+Shift+-`)다.
+  - id: word-motion
+    term: Alt+B / Alt+F / Alt+D
+    kind: shortcut
+    tier: full
+    desc: 단어 단위 이동·삭제
+    detail: |
+      macOS 에서는 **Option 을 Meta 로 설정**해야 동작한다(터미널 설정).
+      `keybindingFlavor: "readline"` 이면 `Alt+F`·`Alt+D` 의 경계 판정이 단어 끝 기준으로 바뀐다.
+  - id: multiline-input
+    term: 여러 줄 입력
+    kind: shortcut
+    tier: full
+    desc: 역슬래시+Enter · Option+Enter · Shift+Enter · Ctrl+J
+    aliases: [줄바꿈, 멀티라인]
+    detail: |
+      `\` 뒤에 `Enter` 는 **모든 터미널에서** 되고, `Ctrl+J` 도 설정 없이 된다.
+      `Shift+Enter` 는 iTerm2·WezTerm·Ghostty·Kitty·Warp·Apple Terminal·Windows Terminal 에서
+      기본 동작하고, 그 외 터미널은 `/terminal-setup` 으로 잡는다.
+      `Option+Enter` 는 macOS 에서 Option 을 Meta 로 설정한 뒤.
+    see_also: [slash/settings-personal#terminal-setup]
+  - id: help-panel
+    term: "?"
+    kind: shortcut
+    tier: full
+    desc: 단축키 도움 패널 토글 (빈 입력에서)
+    detail: |
+      입력이 비어 있을 때만 패널이 열린다 — 글자가 있으면 그냥 `?` 가 입력된다.
+      전체화면 렌더링이 필요하다.
+  - id: emoji-space
+    term: ": 이모지 · Space 음성"
+    kind: shortcut
+    tier: full
+    desc: ":name: 로 이모지 삽입 / 스페이스로 음성 입력"
+    detail: |
+      `:name:` 을 전부 치면 이모지가 들어가고, 두 글자 이상이면 후보가 뜬다(v2.1.217+).
+      스페이스를 누르고 있으면 음성 입력이 된다 — `/voice` 로 켜 두어야 하고
+      `/voice tap` 으로 눌러서 시작·정지 방식으로 바꿀 수 있다.
+    see_also: [slash/extras#voice]
