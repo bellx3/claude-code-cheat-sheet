@@ -55,6 +55,15 @@ const CASES = [
     pre: true,
   },
   {
+    // TODAY 를 로컬 기준으로 바꾼 뒤(2026-08-24) 미래 날짜를 계속 거부하는지 확인한다.
+    // 시간대 문제를 고치면서 비교를 느슨하게 만들어 버리면 이 케이스가 잡는다.
+    gate: "G4",
+    what: "섹션 확인일을 미래 날짜로 바꾼다",
+    file: "src/_data/ref/cli/010-install.yaml",
+    edit: (t) => t.replace(/checked_at: "[\d-]+"/, 'checked_at: "2099-01-01"'),
+    pre: true,
+  },
+  {
     gate: "G5",
     what: "안전 경고를 tier: full 로 내려 인쇄에서 뺀다",
     file: "src/_data/ref/cli/070-permission-modes.yaml",

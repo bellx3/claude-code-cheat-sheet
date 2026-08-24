@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
+import { localYmd } from "./constants.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const MAP = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/section-ids.json"), "utf8"));
@@ -16,7 +17,7 @@ const SHEETS = [
   { surface: "science", file: "legacy/cheatsheet-science.html" },
 ];
 
-const TODAY = process.env.EXTRACT_DATE || new Date().toISOString().slice(0, 10);
+const TODAY = process.env.EXTRACT_DATE || localYmd();   // G4 와 같은 기준(로컬)이어야 한다
 
 // ── HTML 유틸 ─────────────────────────────────────────────
 const ENT = { "&lt;": "<", "&gt;": ">", "&amp;": "&", "&quot;": '"', "&#39;": "'", "&nbsp;": " " };

@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
-import { REDISTRIBUTABLE, ORIGINS, ASCII_ID, PII_ALLOW, REF_GROUPS } from "./constants.mjs";
+import { REDISTRIBUTABLE, ORIGINS, ASCII_ID, PII_ALLOW, REF_GROUPS, localYmd } from "./constants.mjs";
 import refIndexFn from "../src/_data/refIndex.js";
 import taskIndexFn from "../src/_data/taskIndex.js";
 import promptIndexFn from "../src/_data/promptIndex.js";
@@ -21,7 +21,7 @@ const fail = (gate, msg) => errors.push(`[${gate}] ${msg}`);
 const warn = (gate, msg) => warns.push(`[${gate}] ${msg}`);
 const gate = (name, fn) => { ran.push(name); fn(); };
 
-const TODAY = new Date().toISOString().slice(0, 10);
+const TODAY = localYmd();   // UTC 가 아니라 로컬 기준 — constants.mjs 의 주석 참조
 const isDate = (v) => /^\d{4}-\d{2}-\d{2}$/.test(String(v || "").slice(0, 10));
 
 // ────────────────────────── PRE ──────────────────────────

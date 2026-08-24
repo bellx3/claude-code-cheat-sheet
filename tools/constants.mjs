@@ -69,6 +69,15 @@ export function toYmd(v) {
   return String(v).slice(0, 10);
 }
 
+// "오늘"은 **로컬 기준**으로 계산한다. toISOString() 은 UTC 라서 KST(+9) 에서는 자정~오전 9시
+// 사이에 그날 손으로 적은 날짜가 "미래 날짜"로 판정된다(실측: 2026-08-24 08:16 KST 에 G4 가
+// 그날 checked_at 을 거부해 빌드가 멈췄고, 우회로 하루 전 날짜를 적었다).
+// 데이터의 날짜는 사람이 자기 시간대에서 적는 값이므로 비교 기준도 로컬이어야 한다.
+export function localYmd(d = new Date()) {
+  const p2 = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}`;
+}
+
 // 문서에 나오는 자리표시자 도메인. PII 검사에서 제외한다.
 // 경로는 예외로 두지 않는다 — 자리표시자처럼 보이는 형태를 허용하면 예외가 계속 넓어지고,
 // 결국 진짜 경로가 통과한다. 문서에 경로 예시가 필요하면 문구를 바꾸는 쪽이 맞다
