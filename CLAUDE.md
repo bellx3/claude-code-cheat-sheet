@@ -101,9 +101,9 @@ group the cards are a **single column** in document order.
 
 Two item-level rules live in `partials/item.njk`, both data-driven: an item whose `term` equals its `desc`
 renders once (115 of the 664 items at migration carried the same sentence in both fields; the `desc` side
-was deleted, and the 2026-08-23/24 `detail` passes filled most of the rest in, so 46 of 713 items today are
+was deleted, and the 2026-08-23/24 `detail` passes filled most of the rest in, so 29 of 741 items today are
 name-only), and an item whose `term` runs past 34 characters is laid out as a full-width line instead of a
-name-column entry (101 items — they are shell one-liners, not names). Both add `.item-line`, which is **excluded from the card's subgrid**; if it
+name-column entry (107 items — they are shell one-liners, not names). Both add `.item-line`, which is **excluded from the card's subgrid**; if it
 merely spanned both tracks it would still drive the name column's width.
 
 `/print/` and the A3 sheets render from the same data through separate templates, so card layout changes
@@ -134,7 +134,7 @@ opened by `/`, `Ctrl+K`, or the header `#navsearch` trigger. The old inline-box 
 of them. Result lists group by type (task → hub → prompt → ref → doc), so the flat DOM order of `.hit`
 links is NOT the raw ranking — the corpus in `tools/search-cases.json` tests raw `search()` order.
 
-`search-index.js` (365 KB raw / 103 KB gzip — it grew with the 2026-08-23/24 `detail` passes; each item
+`search-index.js` (413 KB raw / 119 KB gzip — it grew with the 2026-08-23/24 `detail` passes; each item
 contributes at most 800 chars of `detail`/`code`/`caveat` to the index body) is **not** referenced from
 `base.njk`. It used to be a
 blocking `<script>` on every page. It is now injected on demand — palette open or `#navsearch`
