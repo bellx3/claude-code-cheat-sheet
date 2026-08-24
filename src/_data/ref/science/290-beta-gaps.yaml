@@ -7,22 +7,36 @@ sheet: science
 summary: >-
   베타라서 아직 안 되는 것들. 기대치 조정용.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/whats-not-available-yet
+  checked_at: "2026-08-24"
 items:
   - id: compliance-api
     term: 감사 로그 미기록, Compliance API 내보내기/삭제 불가
     kind: note
     tier: full
+    detail: |
+      대화가 구성원 컴퓨터에 있으므로 **API 가 닿을 Anthropic 측 데이터가 애초에 없다.**
+      감사 로그 연동은 로드맵에 있다.
   - id: custom-data-retention
     term: 조직 데이터 내보내기 제외, Custom Data Retention 무효
     kind: note
     tier: full
+    detail: |
+      자동 삭제 창은 **Anthropic 서버에 저장된** 대화·프로젝트·아티팩트에 적용되는데
+      Claude Science 는 그것을 만들지 않으므로 작용 대상이 없다.
+      세션 지속 시간 설정도 브라우저 사인인 단계만 제한하고, 이후에는 앱이 자체 토큰으로 로그인을 유지한다.
   - id: beta-gaps-1
-    term: 로컬/커스텀 커넥터엔 미적용
+    term: 허용목록의 사각지대
     kind: value
     tier: full
-    desc: 커넥터·도메인·스킬 허용목록이
+    desc: 커넥터·도메인·스킬 허용목록이 로컬·커스텀 커넥터엔 미적용
+    aliases: [허용목록, 관리자 통제]
+    detail: |
+      조직의 커넥터·도메인 허용목록은 **관리자가 퍼블리시한 Directory 커넥터에만** 적용되고,
+      구성원이 로컬에서 추가한 커넥터(자기 컴퓨터에서 돌거나 커스텀 URL 을 가리키는 것)는 제한하지
+      못한다. 스킬도 같다 — 조직 스킬은 보이지만 **어떤 featured 스킬을 켤지에 대한 관리자 통제는 없다.**
+      로컬·커스텀 커넥터 통제는 로드맵에 있다.
+    see_also: [science/directory-connectors#directory-connectors-2]
   - id: beta-gaps-2
     term: 관리자가 원격 컴퓨트 연결을 제한할 수 없음
     kind: note
@@ -31,3 +45,7 @@ items:
     term: 오프보딩 시 로컬 데이터 미삭제 · 네이티브 Windows 빌드 없음
     kind: note
     tier: full
+    detail: |
+      조직에서 구성원을 제거하면 **로그인은 막히지만 이미 그 컴퓨터에 있는 데이터는 지워지지 않는다** —
+      기기 관리 소프트웨어로 처리해야 한다.
+    see_also: [science/windows-wsl2#wsl-install-d-ubuntu-24-04]

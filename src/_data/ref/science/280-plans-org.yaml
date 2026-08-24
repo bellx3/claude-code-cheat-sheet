@@ -7,8 +7,8 @@ sheet: science
 summary: >-
   플랜별로 쓸 수 있는 범위 상이.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/enable-claude-science
+  checked_at: "2026-08-24"
 items:
   - id: free
     term: Free
@@ -25,11 +25,19 @@ items:
     kind: value
     tier: core
     desc: 기본 꺼짐 — Owner가 활성화
+    detail: |
+      **Admin 역할로는 켤 수 없다** — 구성원 추가와 좌석 배정은 되지만 활성화는 Owner·Primary Owner 만
+      할 수 있다. 사용량은 구성원의 평소 주간 한도에 합산되고 claude.ai 와 같은 좌석을 쓴다.
   - id: plans-org-1
     term: 설명
     kind: note
     tier: full
     desc: Organization settings > Claude Science > Enable for your organization → 마법사 → Enable
+    detail: |
+      마법사가 **아직 지원되지 않는 것**, 접근 역할, 퍼블리시할 커넥터를 차례로 훑는다.
+      도입 현황은 Analytics 의 Claude Science 탭에서 보고, Enterprise 는 Admin API 의
+      `science_metrics`(세션 수·메시지 수·delegation 수·원격 잡 수·스킬 호출 수)로도 받는다.
+    see_also: [science/beta-gaps#compliance-api]
   - id: plans-org-2
     term: 위험
     kind: note

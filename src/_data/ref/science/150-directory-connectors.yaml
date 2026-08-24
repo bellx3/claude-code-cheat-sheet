@@ -7,16 +7,24 @@ sheet: science
 summary: >-
   다른 Claude 제품과 공용으로 쓰는 커넥터.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/connectors-and-skills
+  checked_at: "2026-08-24"
 items:
   - id: directory-connectors-1
     term: 설명
     kind: note
     tier: full
     desc: "claude.com/connectors 기반 4종: PubMed, Clinical Trials, ChEMBL, bioRxiv"
+    detail: |
+      Featured 커넥터와 달리 **커넥터 디렉터리에서 오고 다른 Claude 제품에서도 쓰인다.**
+      그래서 조직의 커넥터 권한 정책이 이쪽에는 적용된다 — 로컬로 추가한 커넥터에는 적용되지 않는다.
+    see_also: [science/beta-gaps#beta-gaps-1]
   - id: directory-connectors-2
     term: 설명
     kind: note
     tier: full
     desc: Team/Enterprise는 관리자가 추가해야 표시됨
+    detail: |
+      디렉터리 커넥터는 **Anthropic 호스팅 커넥터 서비스를 경유한다** — 관리자가 걸어 둔 권한과
+      터널이 그대로 적용되는 이유다.
+    see_also: [science/data-handling#directory-anthropic]

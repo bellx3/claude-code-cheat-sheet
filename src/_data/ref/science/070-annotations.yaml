@@ -7,14 +7,17 @@ sheet: science
 summary: >-
   셀·결과에 주석을 남기는 기능.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/annotations
+  checked_at: "2026-08-24"
 items:
   - id: annotations-1
     term: 설명
     kind: note
     tier: full
     desc: 영역 선택 → Annotate pill 클릭 → 코멘트 입력 → Cmd/Ctrl+Enter 또는 Save
+    detail: |
+      위치를 산문으로 설명하는 대신 **아티팩트의 그 부분에 코멘트를 붙이는 것**이다.
+      텍스트는 강조 배지로, 이미지는 번호 핀으로 표시되고, 올려서 읽고 눌러서 수정·삭제한다.
   - id: n-comments
     term: N comments
     kind: value
@@ -31,3 +34,7 @@ items:
     term: "불가: 테이블 · 스레드/resolve 없음 · 1,000자 제한"
     kind: note
     tier: full
+    detail: |
+      한 번 보낸 주석은 **소비된다** — 아티팩트에서 빠지고 메시지의 카드로 남는다.
+      Claude 가 아티팩트를 고친 뒤 또 지적할 것이 있으면 **새 버전에 다시 주석을 단다.**
+      PDF 선택은 페이지 경계를 넘을 수 없다.

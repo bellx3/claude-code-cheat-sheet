@@ -7,14 +7,18 @@ sheet: science
 summary: >-
   serve 실행 시 정하는 값들. 네트워크 노출 범위를 여기서 결정.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/command-line-settings
+  checked_at: "2026-08-24"
 items:
   - id: port-n
     term: "--port <n>"
     kind: flag
     tier: core
     desc: 기본 8000 (0=자동 할당)
+    detail: |
+      `port ... is already in use` 는 다른 프로그램이 쓰는 것이고,
+      `daemon already running on port ...` 은 **이미 Claude Science 가 돌고 있는 것**이다 —
+      후자는 다시 띄울 필요 없이 `claude-science url` 로 링크만 받으면 된다.
   - id: no-browser
     term: "--no-browser"
     kind: flag
@@ -25,6 +29,9 @@ items:
     kind: flag
     tier: core
     desc: 백그라운드 실행
+    detail: |
+      `--no-browser` 를 함축한다. WSL 처럼 터미널을 닫으면 VM 이 내려가는 환경에서는
+      detached 라도 VM 이 살아 있어야 한다.
   - id: no-auto-update
     term: "--no-auto-update"
     kind: flag
@@ -35,6 +42,10 @@ items:
     kind: flag
     tier: core
     desc: 기본 127.0.0.1 (변경 시 네트워크 노출)
+    detail: |
+      기본값이라 **내 기기에서만 닿는다.** 다른 주소로 바꾸면 네트워크에 노출되므로,
+      원격 접속이 필요하면 이 값을 바꾸는 대신 **SSH 터널**을 쓰는 편이 맞다.
+    see_also: [science/remote-ssh#ssh-l-8000-localhost-8000]
   - id: base-path-prefix
     term: "--base-path </prefix>"
     kind: flag
@@ -45,16 +56,26 @@ items:
     kind: flag
     tier: core
     desc: 허용 오리진 (반복 지정)
+    detail: |
+      브라우저 Origin 을 하나 더 허용한다 — **Claude 가 닿을 수 있는 사이트와는 무관하다**
+      (그쪽은 샌드박스 네트워크 허용목록이다).
   - id: sandbox-port-n
     term: "--sandbox-port <n>"
     kind: flag
     tier: core
     desc: 기본 port+1, HTML 미리보기용
+    detail: |
+      생성된 HTML 미리보기를 **별도 오리진에서** 서비스해, 미리보기 페이지가 내 세션을 읽지 못하게
+      한다. SSH 터널을 쓸 때 이 포트를 안 열면 인터랙티브 차트가 정적 스냅샷으로 보인다.
+    see_also: [science/remote-ssh#remote-ssh-2]
   - id: verbose
     term: "--verbose"
     kind: flag
     tier: core
     desc: 상세 로그
+    detail: |
+      기본적으로 시작·정보 로그는 **로그 파일에만** 간다 — 콘솔에서 보려면 이 플래그다.
+      기록된 로그는 `claude-science logs --tail` 로 따라간다.
   - id: serve-flags-1
     term: 위험
     kind: note

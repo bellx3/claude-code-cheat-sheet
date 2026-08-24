@@ -7,19 +7,28 @@ sheet: science
 summary: >-
   문헌 DB 접근. 기관 구독 필요 여부로 구분.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/literature-access
+  checked_at: "2026-08-24"
 items:
   - id: settings-credentials-services-literature-a
     term: Settings > Credentials > Services > Literature access
     kind: value
     tier: full
     desc: Settings > Credentials > Services > Literature access (claude.ai 계정 설정과 별개)
+    detail: |
+      **앱 자체의 Settings** 이고 claude.ai 계정·조직 설정과 별개다(톱니 → Settings → Credentials →
+      Services). 커스텀 자격증명을 추가해 두면 Services 목록이 그 아래에 나타난다.
+      OpenAlex 는 같은 Services 목록에 자기 항목이 따로 있다.
   - id: literature-1
     term: 시도 순서
     kind: value
     tier: full
     desc: 오픈액세스(Unpaywall·Semantic Scholar·PMC) → CrossRef 링크 → 보유 키 출판사 → 라이브러리 프록시 → 출판사 페이지
+    detail: |
+      DOI 나 제목을 주면 이 순서로 시도하고, 받은 파일(PDF·XML·텍스트)은 세션에 저장된다.
+
+      요청 예절도 정해져 있다 — 제공자마다 **초당 1건**으로 조절하고, 요청받으면 물러나고,
+      매 요청에 자신을 밝히고, **페이월 HTML 은 스크랩하지 않는다.**
   - id: elsevier-api-key
     term: Elsevier API key
     kind: value
@@ -55,6 +64,9 @@ items:
     kind: value
     tier: core
     desc: 매 요청 필수 (무료 발급)
+    detail: |
+      OpenAlex 는 모든 요청에 키를 요구하므로 **OpenAlex 기반 문헌 검색은 키가 없으면 아예 안 돈다.**
+      키는 OpenAlex API 설정 페이지에서 무료로 만든다.
   - id: literature-2
     term: 주의
     kind: note

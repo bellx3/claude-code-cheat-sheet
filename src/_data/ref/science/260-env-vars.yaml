@@ -7,26 +7,39 @@ sheet: science
 summary: >-
   환경 변수로 넘기는 값들.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/command-line-settings
+  checked_at: "2026-08-24"
 items:
   - id: do-not-track
     term: DO_NOT_TRACK
     kind: value
     tier: core
     desc: 텔레메트리 끄기(값 무관)
+    detail: |
+      설정 파일의 `disable_telemetry = true` 와 **같은 스위치**다. 보내지는 것은 이벤트 수·소요 시간
+      같은 제품 사용 지표이고 대화 내용은 아니다.
   - id: github-token
     term: GITHUB_TOKEN
     kind: value
     tier: core
     desc: api.github.com 레이트리밋 완화
+    detail: |
+      **`api.github.com` 에만 쓰인다** — GitHub 저장소에서 스킬을 설치할 때의 레이트리밋을 올리는 용도다.
+    see_also: [science/custom-skills#import-from-github]
   - id: https-proxy-http-proxy
     term: HTTPS_PROXY / HTTP_PROXY
     kind: value
     tier: core
     desc: 프록시 (설정파일보다 우선)
+    detail: |
+      **환경변수가 설정 파일을 이기는 유일한 경우**다. 그 밖의 설정은 전부 `config.toml` 쪽에 둔다.
+      `https://`(프록시까지 TLS) 주소는 앱 자체 연결에만 적용되고 샌드박스의 패키지 다운로드는
+      직접 연결하므로, 프록시는 `http://` 를 쓰는 편이 낫다.
+    see_also: [science/config-toml#network]
   - id: no-proxy-all-proxy
     term: NO_PROXY / ALL_PROXY
     kind: value
     tier: core
     desc: NO_PROXY는 설정 키와 병합
+    detail: |
+      다른 값들은 덮어쓰지만 `NO_PROXY` 만 `no_proxy` 키와 **합쳐진다** — 한쪽에만 적어도 둘 다 적용된다.

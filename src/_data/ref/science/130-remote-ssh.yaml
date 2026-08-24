@@ -7,14 +7,22 @@ sheet: science
 summary: >-
   원격 리눅스 서버에 SSH 터널로 연결.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/run-on-remote-linux-server
+  checked_at: "2026-08-24"
 items:
   - id: ssh-l-8000-localhost-8000
     term: ssh -L 8000:localhost:8000 \
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      앱이 `127.0.0.1` 에만 붙기 때문에 **터널이 정석**이다. 두 포트를 함께 여는 이유는
+      8000 이 앱, 8001(기본 `port+1`)이 HTML 미리보기 오리진이기 때문이다.
+
+      링크는 약 3분 만료이므로 **터널을 먼저 세워 두고** 서버에서 `claude-science url` 로 새로 받는다.
+      여러 컴퓨터에서 같은 프로젝트를 보려면 이렇게 리눅스 서버에 한 번 설치해 터널로 접속하는 것이
+      유일한 방법이다(계정으로 동기화되지 않는다).
+    see_also: [science/what-is#what-is-2]
     code: |-
       # ① 내 컴퓨터에서 먼저 터널 (링크 3분 만료)
       ssh -L 8000:localhost:8000 \
@@ -28,6 +36,9 @@ items:
     kind: note
     tier: full
     desc: 리다이렉트 실패 시 로그인 화면의 Paste a code 사용
+    detail: |
+      OAuth 리다이렉트가 앱으로 돌아올 수 없는 환경이라서 생기는 일이다 — 오류가 아니라
+      **예상된 경로**이므로 사인인 화면의 Paste a code 를 쓴다.
   - id: remote-ssh-2
     term: 주의
     kind: note

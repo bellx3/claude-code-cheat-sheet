@@ -7,13 +7,16 @@ sheet: science
 summary: >-
   판정 근거가 되는 1차 출처.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/overview
+  checked_at: "2026-08-24"
 items:
   - id: claude-com-docs-claude-science-overview
     term: "공식 문서: claude.com/docs/claude-science/overview"
     kind: note
     tier: full
+    detail: |
+      이 서피스의 정본이다. Claude Code 문서(`code.claude.com/docs`)와 **다른 트리**이므로
+      Claude Code 쪽 자료에서 Claude Science 항목을 찾으면 나오지 않는다.
   - id: docs-claude-science-get-started
     term: "시작 가이드: /docs/claude-science/get-started"
     kind: note
@@ -22,6 +25,28 @@ items:
     term: "커넥터·스킬: /docs/claude-science/connectors-and-skills"
     kind: note
     tier: full
+    detail: |
+      Featured 커넥터 16그룹의 실제 데이터베이스 목록과 featured 과학 스킬 목록이 여기 있다.
+  - id: docs-core-concepts
+    term: "핵심 개념: /docs/claude-science/core-concepts"
+    kind: note
+    tier: full
+    detail: |
+      프로젝트·세션·워크스페이스·샌드박스·승인 카드·delegation·메모리가 한 페이지에 정리돼 있다 —
+      이 시트의 용어 절과 승인 범위 절의 근거다.
+  - id: docs-network-requirements
+    term: "네트워크 요건: /docs/claude-science/network-requirements"
+    kind: note
+    tier: full
+    detail: |
+      프록시·방화벽 허용목록을 만들 때의 정본이다. 사내망 설정 전반은
+      `/docs/claude-science/corporate-networks` 쪽이 더 자세하다.
+  - id: docs-changelog
+    term: "변경 이력: /docs/claude-science/changelog"
+    kind: note
+    tier: full
+    detail: |
+      베타라 변화가 빠르다 — 이 시트의 「확인」 날짜가 오래됐으면 여기부터 본다.
   - id: cli-docs-claude-science-command-line-setti
     term: "CLI 설정: /docs/claude-science/command-line-settings"
     kind: note

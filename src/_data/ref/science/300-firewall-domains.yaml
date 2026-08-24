@@ -7,8 +7,8 @@ sheet: science
 summary: >-
   방화벽에서 열어야 하는 도메인 목록.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/network-requirements
+  checked_at: "2026-08-24"
 items:
   - id: claude-ai
     term: claude.ai
@@ -16,6 +16,8 @@ items:
     tier: full
     desc: claude.ai, platform.claude.com, api.anthropic.com
     subhead: 앱 필수
+    detail: |
+      앱이 Anthropic 과 통신하는 최소 집합이다. 이것이 막히면 사인인과 모델 호출 자체가 안 된다.
   - id: mcp-claude-com
     term: "*.mcp.claude.com"
     kind: value
@@ -37,6 +39,11 @@ items:
     desc: >-
       pypi.org, files.pythonhosted.org, conda.anaconda.org, repo.anaconda.com, cran.r-project.org,
       bioconductor.org, registry.npmjs.org, github.com, *.githubusercontent.com
+    detail: |
+      샌드박스의 패키지 설치 경로다. **패키지 소스를 다른 서버로 돌릴 수는 없고**, 사내 미러가
+      필요하면 `config.toml` 의 `[conda] channel_mirror`·`pip_index_url` 을 쓴다
+      (`pip_index_url` 을 설정하면 공개 Python 호스트가 샌드박스 허용목록에서 빠진다).
+    see_also: [science/config-toml#network]
     subhead: 패키지 (항상 허용·차단 불가)
   - id: firewall-domains-3
     term: 영구 차단 (해제 불가)
@@ -45,6 +52,11 @@ items:
     desc: >-
       익명 파일 업로드·웹훅·리버스 터널·path-style 오브젝트 스토리지(s3.amazonaws.com 등) → 버킷은
       <bucket>.s3.<region>.amazonaws.com 호스트명 형식으로 사용
+    detail: |
+      데이터가 빠져나갈 통로를 구조적으로 막아 둔 목록이라 **해제할 수 없다.**
+      GCS 를 코드에서 다룰 때 `gsutil`·`gcloud storage`·google-cloud-storage 라이브러리가
+      막히는 것도 같은 이유(path-style 주소)이고, 그래서 HMAC 키 + `boto3` 나 import/export 를 쓴다.
+    see_also: [science/cloud-storage#cloud-storage-2]
     subhead: 영구 차단 (해제 불가)
   - id: firewall-domains-4
     term: 주의

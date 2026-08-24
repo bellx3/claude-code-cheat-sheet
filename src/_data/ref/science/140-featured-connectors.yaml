@@ -7,14 +7,21 @@ sheet: science
 summary: >-
   기본으로 켜져 있는 읽기 전용 커넥터들. 대부분 공개 연구 DB.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/connectors-and-skills
+  checked_at: "2026-08-24"
 items:
   - id: featured-connectors-1
     term: 설명
     kind: note
     tier: full
     desc: 계정·키 불필요, 승인 카드 없이 실행. Settings > Connectors에서 개별 OFF
+    detail: |
+      전부 **읽기 전용**이고 기본으로 켜져 있다. 요청에 데이터 소스 이름을 직접 대도 되고,
+      필요한 것만 설명하면 Claude 가 도구를 고른다 — 커넥터 질의는 대화에 **펼칠 수 있는 코드 단계**로 뜬다.
+
+      뒤에 있는 데이터베이스들은 Settings > Network 의 허용목록에 **그룹 단위로** 올라가 있어서,
+      그룹을 끄면 그것에 의존하는 커넥터가 함께 꺼진다.
+    see_also: [science/firewall-domains#firewall-domains-1]
   - id: genomes
     term: Genomes
     kind: value
@@ -100,6 +107,10 @@ items:
     kind: note
     tier: full
     desc: "추가: BioMart, CellGuide(CELLxGENE), ZINC, Ketcher(2D 분자 스케처)"
+    detail: |
+      ZINC 는 구매 가능한 화학 공간, CellGuide 는 CELLxGENE 세포 유형이다.
+      직접 추가한 커넥터는 이들과 달리 **도구마다 승인 카드가 뜬다**(Once·이 대화·이 프로젝트·Global).
+    see_also: [science/custom-mcp#ask-each-time]
   - id: featured-connectors-3
     term: 주의
     kind: note

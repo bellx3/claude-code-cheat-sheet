@@ -7,14 +7,17 @@ sheet: science
 summary: >-
   외부 컴퓨트로 실행 위임. 과금이 붙는 경로.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/compute-providers
+  checked_at: "2026-08-24"
 items:
   - id: settings-compute-cloud-providers
     term: Settings > Compute > Cloud providers
     kind: value
     tier: full
     desc: Settings > Compute > Cloud providers → Modal Connect
+    detail: |
+      **내 Modal 계정에서 돌고 Modal 이 나에게 직접 청구한다** — Anthropic 은 컴퓨트를 제공하지도
+      청구하지도 않고 결제수단을 보지 않는다.
   - id: modal-token-new-cli-modal-toml
     term: "modal token new        # CLI 로그인 → ~/.modal.toml 자동 인식"
     kind: snippet
@@ -30,14 +33,27 @@ items:
     term: 승인 카드에 머신 스펙(H100 등)·초당 과금·최대 청구 시간 표시
     kind: note
     tier: full
+    detail: |
+      내 머신에 GPU 가 없거나 메모리가 부족할 때 Claude 가 잡을 제안한다. 카드에는 Modal 프로필,
+      정확한 스펙(예: H100, CPU 8, 32 GiB), 초당 과금 안내, 최대 청구 시간, Modal 요금 페이지 링크가 뜬다.
+      승인 범위는 잡 단위·대화·프로젝트 중에서 고른다.
+
+      Modal 셋업 셸을 여는 것은 **별도 카드**로 묻는다(30분 상한, GPU 없음).
   - id: 1-gib-submit-modal-volume-out-5-gib
     term: 입력 1 GiB/submit 제한 (초과 시 Modal Volume 마운트), 출력 ./out/ 최대 5 GiB
     kind: note
     tier: full
+    detail: |
+      컨테이너 이미지는 잡이 필요한 환경에서 **한 번 빌드해 두고 환경이 바뀔 때까지 재사용**한다
+      (빌드 목록은 Settings > Compute 의 Modal 페이지 Details 문서에 기록된다).
   - id: 10-12-23
     term: 동시 잡 기본 10, 컨테이너 타임아웃 기본 12시간(최대 23)
     kind: note
     tier: full
+    detail: |
+      **지출 상한은 없다.** 통제 수단은 셋뿐이다 — 잡마다 스펙·시간을 보고 개별 승인,
+      동시 컨테이너 수 제한(이 머신 기준), Modal 이 강제하는 컨테이너 타임아웃.
+      지출은 Modal 대시보드에서 본다.
   - id: modal-2
     term: 위험
     kind: note

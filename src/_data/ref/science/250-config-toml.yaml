@@ -7,19 +7,31 @@ sheet: science
 summary: >-
   설정 파일. 앱 설정보다 우선.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/configuration-file-reference
+  checked_at: "2026-08-24"
 items:
   - id: claude-science-config-toml
     term: ~/.claude-science/config.toml
     kind: file
     tier: full
     desc: ~/.claude-science/config.toml — 시작 시 1회 읽음, 변경은 재시작 후 적용
+    detail: |
+      **모든 키에 기본값이 있어 파일이 없어도 앱이 돈다** — 관리자가 기기 관리로 배포해 정책을
+      세우는 용도다. 한 번만 다른 파일로 돌리려면 `claude-science --config <file>`.
   - id: network
     term: "[network]"
     kind: snippet
     tier: full
     desc: 예시
+    detail: |
+      우선순위가 키마다 다르다. **프록시와 패키지 미러 키는 파일이 Settings 보다 우선**하고,
+      그때 Settings 화면에는 "조직 관리"로 표시돼 구성원이 바꿀 수 없다.
+      반면 **`[sandbox.network]` 목록은 덮어쓰는 것이 아니라 더해지고** 아무것도 잠그지 않는다.
+
+      환경변수 예외 하나 — 앱 환경의 프록시 변수(`ALL_PROXY` 포함)가 `[network] proxy` 보다 우선한다.
+      `http://` 미러를 쓰려면 `allow_insecure_mirror` 를 켜야 하는데, 평문 미러는 경로상의 공격자가
+      패키지를 갈아치울 수 있어 기본이 꺼져 있다.
+    see_also: [science/env-vars#https-proxy-http-proxy]
     code: |-
       [network]
       proxy = "http://proxy.example.corp:8080"

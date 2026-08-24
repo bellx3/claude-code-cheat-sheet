@@ -7,14 +7,17 @@ sheet: science
 summary: >-
   터미널에서 쓰는 서브커맨드.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/command-line-settings
+  checked_at: "2026-08-24"
 items:
   - id: serve
     term: serve
     kind: value
     tier: core
     desc: 실행 + 1회용 로그인 링크 열기
+    detail: |
+      **데이터 디렉터리당 하나만 돌고** Ctrl-C 로 멈춘다. 평소 쓰는 명령은 이것 하나이고,
+      나머지는 돌고 있는 프로그램을 관리하는 것들이다.
   - id: open
     term: open
     kind: value
@@ -25,6 +28,10 @@ items:
     kind: value
     tier: core
     desc: 새 로그인 링크만 출력 (SSH용)
+    detail: |
+      링크의 nonce 는 **1회용 비밀번호**로 브라우저 탭 하나를 로그인시키고 약 3분 뒤 만료된다.
+      로그인된 탭은 프로그램을 재시작할 때까지 유지되므로 **링크를 보관할 필요가 없다.**
+    see_also: [science/remote-ssh#ssh-l-8000-localhost-8000]
   - id: status
     term: status
     kind: value
@@ -45,11 +52,17 @@ items:
     kind: value
     tier: core
     desc: 업데이트 (--to <ver>로 롤백)
+    detail: |
+      `--check` 는 확인만 한다. 업데이트는 **서명 검증 후 바이너리를 원자적으로 교체**한다.
+      특정 버전을 지정하는 `--to` 가 롤백 수단이기도 하다.
   - id: import-path
     term: import <path>
     kind: value
     tier: core
     desc: 다른 데이터 디렉터리 병합
+    detail: |
+      다른 데이터 디렉터리나 그 DB 파일을 이쪽으로 합친다. **같은 임포트를 두 번 돌리는 것은
+      안전하다**(멱등) — 위험한 것은 되돌릴 수 없다는 점이다.
   - id: version
     term: "--version"
     kind: flag

@@ -7,8 +7,8 @@ sheet: science
 summary: >-
   노트북 조작과 컴포저 단축키.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/core-concepts
+  checked_at: "2026-08-24"
 items:
   - id: ui-shortcuts-1
     term: "@"
@@ -25,6 +25,9 @@ items:
     kind: command
     tier: core
     desc: 스킬 삽입 (스킬 피커)
+    detail: |
+      Claude 가 필요할 때 스킬을 자동으로 불러오므로 **직접 고르는 것은 강제 지정**에 해당한다.
+    see_also: [science/builtin-skills#settings-skills]
   - id: cmd-ctrl-k
     term: Cmd/Ctrl+K
     kind: shortcut
@@ -35,6 +38,9 @@ items:
     kind: value
     tier: full
     desc: 사이드바 = 프로젝트 전체 아티팩트 그리드 (업로드는 Your uploads)
+    detail: |
+      검색 가능한 그리드다. **주석(annotation)은 이 그리드에 나타나지 않고 다운로드에도 포함되지 않는다.**
+    see_also: [science/annotations#annotations-1]
   - id: ui-shortcuts-4
     term: 아티팩트 메뉴
     kind: value
@@ -49,6 +55,13 @@ items:
     desc: >-
       Permissions · Memory · Specialists · Connectors · Skills · Network · Compute · Credentials ·
       Storage · Usage
+    detail: |
+      찾는 것이 어디 있는지 — 상시 허가 철회는 **Permissions**, 리뷰어 커스터마이즈는 **Specialists**,
+      샌드박스 허용 호스트는 **Network**, GPU·SSH 호스트·Modal·모델 엔드포인트는 **Compute**,
+      클라우드 스토리지·문헌 키·GitHub 토큰은 **Credentials**, 데이터 폴더 위치는 **Storage**.
+
+      **메모리는 기본 꺼짐**이고 Memory 에서 켠다 — 저장된 사실은 로컬 DB 에만 있고 Anthropic 으로
+      동기화되지 않는다. 세션별로 끄는 토글도 있다.
   - id: compute
     term: Compute 탭
     kind: value

@@ -7,14 +7,17 @@ sheet: science
 summary: >-
   이 제품 고유의 용어들. 다른 Claude 제품과 이름이 겹쳐도 뜻은 다를 수 있음.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/glossary
+  checked_at: "2026-08-24"
 items:
   - id: project
     term: Project
     kind: value
     tier: core
     desc: 관련 세션·산출물 묶음. custom instructions와 폴더 권한이 세션 간 유지
+    detail: |
+      프로젝트를 지우면 그 안의 세션·아티팩트·프로젝트 범위 메모리가 **함께 사라진다.**
+      반대로 세션만 지우면 아티팩트와 출처 기록은 남는다.
   - id: session
     term: Session
     kind: value
@@ -35,11 +38,17 @@ items:
     kind: value
     tier: core
     desc: 변수를 메모리에 유지하는 살아있는 Python·R 프로세스
+    detail: |
+      **약 30분 유휴, 패키지 설치로 환경이 재시작될 때, 세션 종료 시** 끝난다 —
+      그때 메모리의 변수도 사라지므로 오래 걸리는 중간 결과는 파일로 저장해 두는 편이 안전하다.
   - id: environment
     term: Environment
     kind: value
     tier: core
     desc: conda 기반 명명된 패키지 세트, 세션 간 재사용
+    detail: |
+      **머신 전체의 모든 프로젝트가 공유한다** — 한 프로젝트에서 만든 환경이 다른 프로젝트에도 보인다.
+      목록·삭제는 설정 화면이 없으므로 Claude 에게 요청한다.
   - id: version
     term: Version
     kind: value
@@ -55,3 +64,6 @@ items:
     kind: value
     tier: core
     desc: ~/.claude-science — DB·아티팩트·워크스페이스·로그
+    detail: |
+      위치는 Settings > Storage > Data location 에서 확인한다. 유일한 사본이므로 백업 대상이다.
+    caveat: 이 폴더 안의 파일을 직접 옮기거나 이름을 바꾸거나 지우면 아티팩트 링크와 버전 이력이 깨진다 — 관리는 앱을 통해서만.

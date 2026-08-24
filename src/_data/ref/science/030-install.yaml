@@ -7,8 +7,8 @@ sheet: science
 summary: >-
   설치 경로와 첫 실행.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/get-started
+  checked_at: "2026-08-24"
 items:
   - id: macos
     term: macOS
@@ -17,12 +17,23 @@ items:
     desc: >-
       claude.com/product/claude-science 에서 설치 파일 다운로드 → 더블클릭. 첫 실행 시 Python·R 기본 환경 구성(수 분) 후 브라우저 탭
       자동 오픈
+    detail: |
+      첫 실행이 런타임과 스타터 Python·R 환경을 구성하는데 **수 분 걸린다**(느린 회선이면 더).
+      그 사이 일부 커넥터가 로드 오류를 보일 수 있고 대개 설치가 끝나면 스스로 풀린다 —
+      "자동 재시도가 멈췄다"는 오류면 Settings > Connectors 에서 껐다 켜거나 앱을 재시작한다.
+
+      브라우저 탭이 안 뜨면 메뉴 바 아이콘에서 **Open** 을 고른다.
     subhead: macOS
   - id: sudo-apt-get-install-y-curl-bubblewrap-soc
     term: "sudo apt-get install -y curl bubblewrap socat   # Ubuntu/Deb"
     kind: snippet
     tier: full
     desc: Linux 예시
+    detail: |
+      설치 스크립트는 현재 릴리스를 받아 **체크섬을 검증하고** `claude-science` 명령을 깐다 —
+      바이너리를 브라우저로 따로 받아 옮기지 말 것(검증과 안정 채널을 건너뛴다).
+
+      설치 후 `. ~/.profile` 로 PATH 를 반영하고 `claude-science --version` 으로 확인한다.
     code: |-
       # 샌드박스 의존성 (sudo 필요)
       sudo apt-get install -y curl bubblewrap socat   # Ubuntu/Debian
@@ -41,4 +52,25 @@ items:
     pin: true
     tone: warn
     desc: 브라우저 탭에서 열리지만 로컬 앱 — 공개 URL 없음. API 키 불필요
+    subhead: Linux
+  - id: setup-wizard
+    term: 사인인 & 셋업 위저드
+    kind: value
+    tier: full
+    desc: Claude 계정으로 로그인 → 커넥터·스킬·접근 사이트 선택 (나중에 Settings 에서 변경)
+    aliases: [로그인, 셋업, 위저드]
+    detail: |
+      OAuth 리다이렉트가 앱으로 돌아올 수 없는 환경(SSH 터널 등)에서는 사인인 화면의
+      **Paste a code** 를 쓴다. API 키는 필요 없다.
+    subhead: Linux
+  - id: data-folder
+    term: 데이터 폴더 ~/.claude-science
+    kind: value
+    tier: full
+    desc: DB·아티팩트·워크스페이스·로그가 모두 이 한 폴더에
+    aliases: [데이터 디렉터리, 백업]
+    detail: |
+      기존 conda 설치·R 라이브러리·셸 설정을 건드리지 않는다. Linux 에서 `claude-science` 명령 자체는
+      `~/.local/bin` 에 깔린다.
+    caveat: 이 폴더를 지우면 프로젝트·아티팩트·대화 기록이 전부 사라진다. 유일한 사본이므로 정기 백업에 포함시킬 것(위치는 Settings > Storage > Data location).
     subhead: Linux

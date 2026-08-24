@@ -7,14 +7,19 @@ sheet: science
 summary: >-
   S3·GCS·Azure 버킷 연결.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/cloud-storage
+  checked_at: "2026-08-24"
 items:
   - id: settings-credentials
     term: Settings > Credentials
     kind: value
     tier: full
     desc: Settings > Credentials → AWS / Google Cloud / Microsoft Azure
+    detail: |
+      **자격증명은 내 컴퓨터에서 암호화되고 해당 제공자에게만 전송된다.**
+      S3 호환 스토어는 AWS 폼의 **S3-compatible endpoint** 필드를 쓰고, 그 엔드포인트 호스트는
+      따로 허용목록에 올려야 한다.
+    caveat: Claude 가 쓰는 코드는 여기 추가한 자격증명을 모두 쓸 수 있다 — 분석 세션에서 절대 닿아서는 안 되는 버킷이면 그 자격증명을 추가하지 말 것.
   - id: access-key-service-account-json-hmac-key-c
     term: access key, service-account JSON, HMAC key, connection string 등 + 버킷명(또는 Azure B
     kind: note
@@ -26,10 +31,15 @@ items:
     term: 버킷 등록 = 샌드박스 네트워크 허용목록 추가 (호출별 승인 카드 없음)
     kind: note
     tier: full
+    detail: |
+      주소가 허용목록에 올라가 코드가 카드 없이 닿을 수 있게 된다 — 다만 **버킷 안에서 무엇을 할 수
+      있는지는 자격증명의 권한이 정한다.**
   - id: boto3-azure-sdk-settings-storage-100gb
     term: 코드에서 boto3, Azure SDK로 접근. Settings > Storage에서 탐색·임포트(최대 100GB)
     kind: note
     tier: full
+    detail: |
+      제자리에서 읽고 쓴다 — 평범한 코드로 객체를 다루고, 아티팩트를 내보낼 수도 있다.
   - id: cloud-storage-2
     term: 주의
     kind: note

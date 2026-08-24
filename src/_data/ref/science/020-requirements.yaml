@@ -7,34 +7,55 @@ sheet: science
 summary: >-
   설치 전에 확인할 것. Windows 는 WSL2 필요.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/overview
+  checked_at: "2026-08-24"
 items:
   - id: requirements-1
     term: 플랜
     kind: value
     tier: core
     desc: Pro/Max/Team/Enterprise (Free 불가)
+    detail: |
+      **Team·Enterprise 는 Owner 가 조직에 대해 먼저 활성화**해야 구성원이 로그인할 수 있다.
+      사인인이 claude.ai 에서 멈추면 셋 중 하나다 — Free 플랜, 리다이렉트 실패(Paste a code 사용),
+      조직 미활성화.
+    see_also: [science/plans-org#plans-org-1]
   - id: macos
     term: macOS
     kind: value
     tier: core
     desc: 13 이상 (Apple Silicon/Intel)
+    detail: |
+      다운로드 페이지에서 **Mac(Intel) / Mac(Apple Silicon) 을 골라야 한다** —
+      잘못 받으면 "지원되지 않는 앱"이라 하거나 아이콘에 사선이 그어진다.
+      내 칩은 Apple 메뉴 → 이 Mac에 관하여의 칩/프로세서 줄에서 확인한다.
   - id: linux
     term: Linux
     kind: value
     tier: core
     desc: x64 glibc 배포판 (arm64·Alpine 불가)
+    detail: |
+      `claude-science` 명령은 `~/.local/bin` 에 깔린다 — `command not found` 면 PATH 문제이므로
+      `. ~/.profile` 을 돌리거나 새 터미널을 연다.
   - id: requirements-2
     term: 디스크
     kind: value
     tier: core
     desc: 약 5GB (런타임+기본 환경)
+    detail: |
+      런타임과 스타터 Python·R 환경이 차지한다. 이후 task environment 를 만들면 그만큼 더 늘어난다
+      (환경은 머신 전체가 공유한다).
   - id: linux-2
     term: Linux 필수
     kind: value
     tier: core
     desc: socat, bubblewrap 0.8.0+, 비특권 유저 네임스페이스
+    detail: |
+      설치에 `sudo` 가 필요하다. **Ubuntu 22.04 의 bubblewrap 은 너무 낮고 24.04 는 괜찮다** —
+      배포판과 무관하게 시작 전에 `bwrap --version` 으로 0.8.0 이상인지 확인한다.
+
+      리눅스가 시작을 거부하면 대개 이 의존성이 없거나 낮거나 커널이 유저 네임스페이스를 막은 것이다.
+    tasks: [windows-gotchas]
   - id: requirements-3
     term: 주의
     kind: note

@@ -7,14 +7,17 @@ sheet: science
 summary: >-
   HTTP 모델 엔드포인트 연결.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/compute-providers
+  checked_at: "2026-08-24"
 items:
   - id: settings-compute-model-endpoints
     term: Settings > Compute > Model endpoints
     kind: value
     tier: full
     desc: Settings > Compute > Model endpoints → NVIDIA BioNeMo NIM Connect
+    detail: |
+      과학 모델을 HTTP 로 서비스하는 **모델 서버**에 붙여 분석에서 직접 호출하는 경로다.
+      호스팅형이든 내가 돌리는 컨테이너든 같다.
   - id: model-endpoints-1
     term: 설명
     kind: note
@@ -22,3 +25,6 @@ items:
     desc: >-
       BioNeMo Agent Toolkit 스킬 import + NVIDIA NGC API 자격증명 → NVIDIA 호스팅 API 또는 로컬 Docker NIM 컨테이너
       선택
+    detail: |
+      로컬 컨테이너로 돌리려면 **NVIDIA GPU 가 있는 머신**이 필요하다. 붙인 뒤에는 특정 NIM 스킬에
+      대해 로컬 Docker 컨테이너를 띄우거나 원격 연결을 설정하라고 Claude 에게 요청한다.

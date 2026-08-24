@@ -7,14 +7,20 @@ sheet: science
 summary: >-
   결과를 검토하는 기능.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/the-reviewer
+  checked_at: "2026-08-24"
 items:
   - id: reviewer-1
     term: 설명
     kind: note
     tier: full
     desc: 응답·승인된 plan·아티팩트·실행 기록을 독립적으로 재독해 주장과 실제 실행을 대조 (재실행은 하지 않음)
+    detail: |
+      응답 뒤 자동으로 돌고, 긴 작업 중에는 주기적으로 돌고, **Request review** 로 언제든 부를 수 있다.
+
+      한계를 정확히 알아 두는 것이 중요하다 — 주장이 기록과 맞는지를 보되 **분석을 다시 돌리지는
+      않는다.** 쓰인 방법에서 결론이 안 나오는 것은 잡지만, **그 방법이 내 연구 질문에 맞는
+      선택이었는지는 판단하지 않는다.**
   - id: reviewer-2
     term: 실행 없이 계산했다고 보고한 결과
     kind: note
@@ -26,10 +32,10 @@ items:
     tier: full
     subhead: 검증 예시
   - id: doi
-    term: DOI가 다른 논문으로 연결
+    term: 인용·DOI 불일치
     kind: value
     tier: full
-    desc: 인용이 주장을 뒷받침하지 않음 /
+    desc: 인용이 주장을 뒷받침하지 않음 · DOI가 다른 논문으로 연결
     subhead: 검증 예시
   - id: plan
     term: 미완료 plan 단계 · 방법론상 뒷받침 안 되는 결론
@@ -41,6 +47,9 @@ items:
     kind: note
     tier: full
     desc: 응답 후 자동 실행 + Request review 수동 트리거. 결과는 Reviewer · N findings 카드(claim·evidence·transcript 링크)
+    detail: |
+      카드가 뜨면 Claude 가 그 findings 를 읽고 **다음 메시지에서 고치거나 왜 해당하지 않는지
+      설명한다.** 카드에서 리뷰어의 전체 추론을 펼쳐 볼 수 있다.
     subhead: 검증 예시
   - id: reviewer-5
     term: 검증 예시
@@ -49,4 +58,10 @@ items:
     desc: >-
       기본값: Max/Team/Enterprise ON, Pro OFF. 커스텀 기준은 Settings > Specialists > Reviewer >
       Instructions(추가만 가능, 내장 체크 제거 불가)
+    detail: |
+      자동 리뷰는 **세션별 토글**이다(세션 설정 메뉴). 리뷰도 내 플랜 사용량을 쓴다 —
+      켜 두면 그만큼 소모된다.
+
+      Settings > Specialists 에서 리뷰어를 손보거나 **내 방식에 맞춘 별도 specialist** 를 만들어
+      추가 검토를 붙일 수 있다.
     subhead: 검증 예시

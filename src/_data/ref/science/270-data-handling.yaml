@@ -7,23 +7,38 @@ sheet: science
 summary: >-
   데이터가 어디에 남고 어디로 나가는지.
 source:
-  url: ""
-  checked_at: "2026-08-13"
+  url: https://claude.com/docs/claude-science/how-claude-science-works-with-your-data
+  checked_at: "2026-08-24"
 items:
   - id: data-handling-1
     term: 내 기기에만
     kind: value
     tier: full
-    desc: 대화·산출물은 저장 (~/.claude-science) — Anthropic 측 세션 저장소 없음
+    desc: 대화·산출물은 내 기기에만 저장 (~/.claude-science) — Anthropic 측 세션 저장소 없음
+    detail: |
+      Anthropic 이 브라우즈·동기화·내보낼 대상이 아예 없다는 뜻이다. 그래서 **조직의 데이터 통제
+      수단(Custom Data Retention·조직 내보내기·Compliance API)이 이 데이터에는 닿지 않는다** —
+      기기 관리(MDM·EDR)가 유일한 통제 수단이다.
+    see_also: [science/beta-gaps#custom-data-retention]
   - id: data-handling-2
     term: 프롬프트·응답
     kind: value
     tier: full
-    desc: "Anthropic이 받는 것: + 제품 사용 텔레메트리(대화 내용 아님, 끌 수 있음)"
+    desc: "Anthropic이 받는 것: 프롬프트·응답 + 제품 사용 텔레메트리(대화 내용 아님, 끌 수 있음)"
+    detail: |
+      모델을 호출할 때마다 프롬프트와 응답이 전송되고 **모델 트래픽에 대한 표준 보존 정책**을 따른다 —
+      다른 Claude 제품과 같은 정책이다. 조직의 Custom Data Retention 설정은 이 보존 기간을 바꾸지 않는다.
+
+      **로컬에서 데이터를 지워도 서버 측 모델 트래픽 로그가 먼저 지워지지는 않는다**(표준 보존 기간까지 남는다).
+    see_also: [science/what-is#what-is-2]
   - id: anthropic
     term: 원격 컴퓨트 트래픽은 Anthropic 경유하지 않음
     kind: note
     tier: full
+    detail: |
+      내가 통제하는 서버·클라우드 계정으로 **코드와 데이터가 직접 간다.**
+      관리자가 구성원의 원격 컴퓨트 연결을 막을 수단은 아직 없다.
+    see_also: [science/beta-gaps#beta-gaps-2]
   - id: directory-anthropic
     term: Directory 커넥터는 Anthropic 호스팅 경유, 로컬 커넥터는 직접 통신
     kind: note
