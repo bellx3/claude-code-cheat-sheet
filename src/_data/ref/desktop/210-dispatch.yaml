@@ -8,17 +8,31 @@ summary: >-
   여러 작업을 한 번에 흩뿌려 돌리는 탭.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: code-dispatch
     term: 휴대폰에서 작업 지시 → 개발 작업이면 자동으로 Code 세션 생성 (Dispatch 배지 표시)
     kind: note
     tier: full
+    detail: |
+      Dispatch 는 Cowork 탭에 사는 **지속되는 대화**다. 일을 던지면 어떻게 처리할지 스스로 정한다.
+
+      Code 세션이 되는 경로는 둘 — 내가 직접 요청하거나("Claude Code 세션 열어서 로그인 버그
+      고쳐줘"), Dispatch 가 개발 작업이라고 판단해 스스로 띄우는 것. **버그 수정·의존성 갱신·
+      테스트 실행·PR 열기**는 대개 Code 로, **조사·문서 편집·스프레드시트**는 Cowork 에 남는다.
   - id: dispatch-1
     term: 완료·승인 필요 시 폰으로 푸시 알림
     kind: note
     tier: full
+    detail: |
+      터미널에서 떨어져 있을 때 쓰는 여러 방법 중 하나다 — 원격 제어(`/remote-control`)나
+      웹 세션과는 성격이 다르다. 이쪽은 **일을 던져 두고 결과를 기다리는** 형태다.
+    see_also: [slash/collab-surfaces#remote-control]
   - id: pro-max-team-enterprise
     term: Pro/Max 전용, Team/Enterprise 불가
     kind: note
     tier: full
+    detail: |
+      computer use 를 켜 두면 Dispatch 가 띄운 Code 세션도 화면 조작을 쓸 수 있는데,
+      이때 **앱 승인이 30분마다 만료되고 다시 묻는다**(일반 세션은 세션 내내 유지).
+    see_also: [desktop/computer-use#1-dispatch-30]

@@ -7,64 +7,106 @@ sheet: desktop
 summary: >-
   데스크톱에서 쓸 수 있는 슬래시 명령. 터미널 전용 대화형 명령은 여기서 동작 불가.
 source:
-  url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: slash-commands-1
     term: /
     kind: command
     tier: full
     desc: / 입력 또는 +→Slash commands 로 탐색 (내장 명령어 + 커스텀·프로젝트·플러그인 스킬)
+    detail: |
+      고르면 입력창에 강조된 채로 들어가고, 뒤에 할 일을 이어 적어 보낸다.
+      **Claude 가 작업 중일 때도 다른 메시지처럼 보낼 수 있다**(v2.1.206+). 그 전 버전에서는
+      턴 중간에 보낸 명령이 세션을 실행 중 상태로 붙잡아 이후 메시지가 전달되지 않았다.
   - id: clear-compact-context
     term: /clear, /compact, /context
     kind: command
     tier: core
     desc: 새 대화 시작/요약/컨텍스트 확인
+    detail: |
+      데스크톱은 컨텍스트가 차면 **자동으로 요약하고 계속 진행한다** — `/compact` 는 그 시점을
+      앞당겨 직접 부르는 것이다. 사용량은 모델 선택기 옆 사용량 링에서도 볼 수 있다.
+    tasks: [shrink-context-cost]
+    see_also: [desktop/usage#usage-1]
   - id: rewind-diff
     term: /rewind, /diff
     kind: command
     tier: core
     desc: 체크포인트 롤백 / diff 뷰어
+    detail: |
+      데스크톱에서는 diff 를 명령 없이도 볼 수 있다 — 변경 후 뜨는 `+12 -1` 표시를 클릭하거나
+      `Cmd/Ctrl+Shift+D` 로 diff 패널을 연다.
+    tasks: [undo-mistake]
+    see_also: [desktop/diff-review#12-1-diff-stats-diff]
   - id: model-effort-plan
     term: /model, /effort, /plan
     kind: command
     tier: core
     desc: 모델·추론강도 변경 / 계획 모드
+    detail: |
+      셋 다 UI 에 대응 메뉴가 있다 — `Cmd/Ctrl+Shift+I`(모델), `Cmd/Ctrl+Shift+E`(추론 강도),
+      `Cmd/Ctrl+Shift+M`(권한 모드). 열린 메뉴에서는 `1`~`9` 로 바로 고른다.
   - id: rename-branch-export
     term: /rename, /branch, /export
     kind: command
     tier: core
     desc: 이름변경/대화분기/내보내기
+    detail: |
+      이름 변경은 상단 툴바의 세션 제목을 클릭해서도 된다. 며칠 뒤 사이드바에서 찾을 때
+      이름이 붙어 있는지가 갈린다.
   - id: code-review-security-review
     term: /code-review, /security-review
     kind: command
     tier: core
     desc: diff 검토 / 보안 취약점 검사
+    detail: |
+      diff 뷰어 우상단의 **Review code** 버튼이 같은 성격의 UI 진입점이다. 그쪽은
+      컴파일 오류·명백한 논리 오류·보안 취약점·확실한 버그에 집중하고 스타일은 보지 않는다.
+    tasks: [review-before-merge]
+    see_also: [desktop/diff-review#review-code]
   - id: background-tasks-fork
     term: /background, /tasks, /fork
     kind: command
     tier: core
     desc: 백그라운드 분리/작업목록/복사
+    detail: |
+      `/tasks` 가 여는 것과 같은 내용을 Views 메뉴의 **Tasks 패널**로 상시 띄워 둘 수 있다 —
+      서브에이전트·백그라운드 셸·동적 워크플로의 진행이 여기 모인다.
+    see_also: [desktop/background-tasks#tasks]
   - id: loop-goal-recap-insights
     term: /loop, /goal, /recap, /insights
     kind: command
     tier: core
     desc: 반복실행/목표설정/요약/분석
+    detail: |
+      정기 반복은 데스크톱에는 **Scheduled tasks** 라는 별도 기능이 있다 — CLI 에서 cron·CI 로
+      하던 자리다. `/insights` 는 이 기기의 기록을 분석하므로 클라우드 세션에서는 못 쓴다.
   - id: btw
     term: /btw
     kind: command
     tier: core
     desc: 사이드 채팅 열기
+    detail: |
+      `Cmd/Ctrl+;` 와 같은 것을 연다. 본 대화 컨텍스트는 읽지만 기록에는 남지 않는다.
+    see_also: [desktop/side-chat#side-chat-1]
   - id: desktop
     term: /desktop
     kind: command
     tier: core
     desc: (터미널에서) 세션을 데스크톱으로 이동
+    detail: |
+      터미널에서 실행하면 세션을 저장해 데스크톱 앱에서 열고 **CLI 는 종료된다.**
+      macOS 와 x64 Windows, Claude 구독 로그인에서만 된다 — API 키 인증이나
+      Bedrock·Agent Platform·Foundry 에서는 쓸 수 없다.
   - id: ide-mcp-doctor-usage
     term: /ide, /mcp, /doctor, /usage
     kind: command
     tier: core
     desc: IDE·MCP 관리/진단/사용량
+    detail: |
+      MCP 는 데스크톱에서 Connectors UI 로도 관리된다. 사용량은 사용량 링이 같은 정보를 준다.
+    see_also: [desktop/connectors#connectors-1]
   - id: slash-commands-2
     term: 주의
     kind: note

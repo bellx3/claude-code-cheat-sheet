@@ -7,16 +7,40 @@ sheet: desktop
 summary: >-
   외부 서비스를 UI 에서 바로 연결. MCP 직접 설정 전에 여기부터 확인.
 source:
-  url: https://code.claude.com/docs/en/mcp
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: connectors-1
     term: +
     kind: value
     tier: full
     desc: "버튼 → Connectors: Google Calendar/Slack/GitHub/Linear/Notion 등 (로컬·SSH만, 클라우드·WSL 불가)"
+    aliases: [커넥터, 연동, 외부 서비스]
+    detail: |
+      **커넥터는 그래픽 설정 흐름이 붙은 MCP 서버다.** 목록에 있는 서비스는 이쪽이 빠르고,
+      없는 것은 설정 파일로 MCP 서버를 직접 붙인다. 세션 시작 전에도 중간에도 추가할 수 있다.
+
+      붙이면 캘린더를 읽고 메시지를 보내고 이슈를 만드는 일을 바로 시킬 수 있다.
+      지금 세션에 무엇이 붙어 있는지 Claude 에게 물어봐도 된다.
+    tasks: [connect-external-tools]
+    see_also: [slash/system-extend#mcp-subcommand]
   - id: connectors-2
     term: 설명
     kind: note
     tier: full
     desc: 설정→Connectors 에서 관리·연결 해제
+    detail: |
+      프롬프트 박스의 Connectors 메뉴에서 **Manage connectors** 로도 같은 화면에 간다.
+      클라우드·WSL 세션에는 `+` 버튼이 없고, 클라우드에서 커넥터가 필요하면 루틴을 만들 때
+      함께 지정한다.
+  - id: customize-sidebar
+    term: Customize (사이드바)
+    kind: value
+    tier: full
+    desc: 커넥터·스킬·플러그인을 한 자리에서 관리
+    aliases: [커스터마이즈]
+    detail: |
+      사이드바의 **Customize** 에서 셋을 함께 관리한다. 주의할 점은 출처다 —
+      **Cowork 탭은 이 Customize 설정(claude.ai 계정 동기화)에서 스킬·플러그인·커넥터를 가져오고,
+      CLI 의 `~/.claude` 디렉터리를 읽지 않는다.** Code 탭의 로컬 세션과 서로 다른 목록을 볼 수 있다.
+    see_also: [desktop/three-tabs#cowork]

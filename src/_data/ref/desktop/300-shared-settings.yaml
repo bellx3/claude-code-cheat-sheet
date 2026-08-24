@@ -7,26 +7,49 @@ sheet: desktop
 summary: >-
   CLI 와 공유되는 설정. 한쪽에서 고치면 다른 쪽에도 적용.
 source:
-  url: https://code.claude.com/docs/en/settings
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: claude-md-claude-local-md
     term: CLAUDE.md, CLAUDE.local.md — 둘 다 사용
     kind: note
     tier: full
+    detail: |
+      프로젝트 메모리는 양쪽이 같은 파일을 읽는다. 그래서 같은 기기·같은 프로젝트에서 CLI 와
+      데스크톱을 동시에 돌려도 **지침은 하나로 유지되고, 세션 이력만 각자 따로 남는다.**
   - id: mcp-claude-json-mcp-json
     term: MCP 서버(~/.claude.json, .mcp.json) — 공유
     kind: note
     tier: full
+    detail: |
+      데스크톱은 여기에 하나를 더 읽는다 — **채팅 앱의 `claude_desktop_config.json`** 도
+      로컬 Code 세션에 올린다. 같은 이름이 겹치면 로컬 세션은 `claude_desktop_config.json` 쪽을
+      쓴다. `~/.claude.json`(사용자 스코프)과 `.mcp.json` 에 같은 stdio 서버가 있으면 Code 탭은
+      `~/.claude.json` 을 택해 **CLI 의 스코프 우선순위와 다르게 동작한다.**
+    caveat: 독립 CLI 는 `claude_desktop_config.json` 을 읽지 않는다. macOS·WSL 에서 `claude mcp add-from-claude-desktop` 으로 옮겨야 한다.
+    see_also: [desktop/connectors#connectors-1]
   - id: hooks-skills
     term: Hooks, Skills — 공유
     kind: note
     tier: full
+    detail: |
+      설정에 정의한 훅과 스킬이 양쪽에 적용된다. 다만 **Cowork 탭은 예외**로,
+      Customize(claude.ai 계정)에서 가져오므로 `~/.claude` 를 읽지 않는다.
+    see_also: [desktop/three-tabs#cowork]
   - id: claude-settings-json
     term: ~/.claude/settings.json — 공유(권한 규칙 등)
     kind: note
     tier: full
+    detail: |
+      권한 규칙·허용 도구 같은 `settings.json` 의 값이 데스크톱 세션에도 적용된다 —
+      **세션별 `--allowedTools` 대응이 없는 데스크톱에서 도구를 통제하는 유일한 창구**가 이것이다.
+      모델 목록도 양쪽이 같다.
+    see_also: [desktop/cli-mapping#allowedtools-disallowedtools]
   - id: desktop
     term: 터미널에서 /desktop 입력 → 현재 세션을 데스크톱 앱으로 이동
     kind: note
     tier: full
+    detail: |
+      세션을 저장해 앱에서 열고 **CLI 는 종료한다.** macOS·x64 Windows 와 Claude 구독 로그인이
+      필요하다 — API 키 인증이나 Bedrock·Agent Platform·Foundry 에서는 쓸 수 없다.
+    see_also: [desktop/slash-commands#desktop]

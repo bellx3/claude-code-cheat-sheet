@@ -8,28 +8,45 @@ summary: >-
   같은 일을 어디서 하는 게 나은지 판단하는 표.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: feature-compare-1
     term: 권한 모드
     kind: value
     tier: core
     desc: CLI는 dontAsk 포함 전체 / 데스크톱은 4종+Bypass
+    detail: |
+      데스크톱은 Manual·Accept edits·Plan·Auto 이고, Bypass permissions 는 조건을 만족하면
+      선택기에 추가된다. `dontAsk`(미리 승인한 도구만 허용)는 **CLI 전용**이다.
+    see_also: [desktop/permission-modes#manual-default]
   - id: feature-compare-2
     term: 서드파티 프로바이더
     kind: value
     tier: core
     desc: CLI는 Bedrock 등 / 데스크톱은 기본 Anthropic API
+    detail: |
+      데스크톱을 Bedrock·Agent Platform·Foundry 나 자체 호스팅 LLM 게이트웨이로 돌리는 경로는
+      따로 있다(게이트웨이 연결·3P 배포 문서). **기본 구성에서는 Anthropic API 다.**
   - id: mcp
     term: MCP 서버
     kind: value
     tier: core
     desc: CLI는 설정파일 / 데스크톱은 Connectors UI 또는 설정파일
+    detail: |
+      Connectors UI 는 **로컬·SSH 세션에서만** 뜬다. 목록에 없는 서비스는 양쪽 모두 설정 파일로
+      직접 붙인다.
+    see_also: [desktop/connectors#connectors-1]
   - id: feature-compare-3
     term: 플러그인
     kind: value
     tier: core
     desc: CLI는 /plugin / 데스크톱은 플러그인 관리자 UI
+    see_also: [desktop/skills-plugins#skills-plugins-2]
+  - id: mention-files
+    term: "@멘션"
+    kind: value
+    tier: full
+    desc: CLI는 텍스트 기반 / 데스크톱은 자동완성(로컬·SSH만)
   - id: feature-compare-4
     term: 파일 첨부
     kind: value
@@ -40,6 +57,15 @@ items:
     kind: value
     tier: core
     desc: CLI는 --worktree / 데스크톱은 자동 worktree
+    see_also: [desktop/sessions#git-worktree]
+  - id: multi-session
+    term: 다중 세션
+    kind: value
+    tier: full
+    desc: CLI는 터미널 여러 개 / 데스크톱은 사이드바 탭
+    detail: |
+      **데스크톱을 쓸 이유가 가장 분명한 항목이다** — 세션이 한 창에 모이고, 두 개를 나란히 볼 수
+      있고, 각자 워크트리가 자동으로 붙는다.
   - id: feature-compare-6
     term: 반복 작업
     kind: value
@@ -50,18 +76,42 @@ items:
     kind: value
     tier: core
     desc: CLI는 macOS /mcp 활성화 / 데스크톱은 앱 내장
+    see_also: [desktop/computer-use#cli-gui]
   - id: ios
     term: iOS 시뮬레이터
     kind: value
     tier: core
     desc: CLI는 Computer Use로 구동 / 데스크톱은 전용 패널
+    detail: |
+      데스크톱의 전용 패널은 **computer use 를 켜지 않아도 동작한다** — 화면 조작을 켜야만 되는
+      CLI 쪽과 다른 점이다.
+    see_also: [desktop/computer-use#ios-simulator-pane]
   - id: dispatch
     term: Dispatch
     kind: value
     tier: core
     desc: CLI 없음 / 데스크톱은 사이드바 지원
+  - id: agent-teams
+    term: 에이전트 팀
+    kind: value
+    tier: full
+    desc: CLI 전용 / 데스크톱은 없음 — 대신 동적 워크플로 사용
+    aliases: [에이전트 팀, agent teams]
+    detail: |
+      팀장이 공용 작업 목록에서 동료에게 일을 배분하는 방식은 **CLI 에만 있다.**
+      데스크톱에서 한 세션 안의 다중 에이전트가 필요하면 동적 워크플로를 쓰거나,
+      Claude 에게 다른 세션을 확인·메시지하게 한다.
+    see_also: [desktop/background-tasks#code]
   - id: feature-compare-7
     term: 스크립팅/자동화
     kind: value
     tier: core
     desc: CLI는 --print·Agent SDK / 데스크톱 미지원
+  - id: inline-suggest
+    term: 인라인 코드 제안
+    kind: value
+    tier: full
+    desc: 양쪽 모두 없음 — 자동완성형 제안은 제공하지 않음
+    detail: |
+      데스크톱은 편집기 자동완성 같은 제안을 하지 않는다. 대화로 지시하고 명시적으로 코드를
+      바꾸는 방식이다 — IDE 확장을 대체하는 물건이 아니라는 뜻이다.

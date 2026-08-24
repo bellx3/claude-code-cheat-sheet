@@ -8,10 +8,20 @@ summary: >-
   본 작업 흐름을 끊지 않고 옆에서 질문.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: side-chat-1
     term: 설명
     kind: note
     tier: full
     desc: Cmd/Ctrl+; 또는 /btw 로 열기 — 메인 세션 컨텍스트는 읽지만 기록엔 안 남음, 앱 종료 시 사라짐 (로컬·SSH·WSL만)
+    aliases: [사이드 채팅, 곁질문, btw]
+    detail: |
+      **한쪽 방향으로만 통한다** — 그 시점까지의 본 대화를 읽지만, 여기서 주고받은 것은 본 대화에
+      아무것도 남기지 않는다. 코드 한 조각을 이해하거나 가정을 확인하려고 본 작업의 방향을
+      틀지 않아도 되는 것이 요점이다.
+
+      끝나면 닫고 본 세션을 이어 간다. 디스크에 저장되지 않으므로 **앱을 닫으면 돌아갈 수 없다** —
+      남겨야 하는 결론은 본 대화로 옮겨 적어야 한다.
+    tasks: [shrink-context-cost]
+    see_also: [desktop/slash-commands#btw]

@@ -8,22 +8,46 @@ summary: >-
   세션 목록·이름·재개. 이름을 붙여두면 며칠 뒤 찾기가 훨씬 수월.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: cmd-ctrl-n
     term: Cmd/Ctrl+N 새 세션, 여러 세션 병렬 실행
     kind: note
     tier: full
+    detail: |
+      사이드바의 **+ New session** 과 같다. 세션마다 컨텍스트와 변경이 독립이다.
+      상단 컨트롤로 상태·프로젝트·환경별 필터와 프로젝트별 묶어 보기를 쓸 수 있고,
+      이름 변경은 활성 세션 툴바의 제목을 클릭해서 한다.
+
+      작업이 끝났는데 내가 그 세션을 보고 있지 않으면 **OS 알림**이 온다.
+    tasks: [split-work-across-agents]
   - id: git-worktree
     term: Git worktree
     kind: command
     tier: full
-    desc: Git 저장소는 세션마다 자동 로 격리(.claude/worktrees/)
+    desc: Git 저장소는 세션마다 자동 워크트리로 격리(.claude/worktrees/)
+    aliases: [워크트리, 격리]
+    detail: |
+      기본 위치는 `<프로젝트 루트>/.claude/worktrees/` 이고, 설정 → Claude Code 의
+      **Worktree location** 에서 바꿀 수 있다. 브랜치 이름 앞에 붙일 **접두어**도 정할 수 있어
+      Claude 가 만든 브랜치를 묶어 두기 쉽다.
+
+      `.env` 처럼 gitignore 된 파일을 새 워크트리에 넣어야 하면 프로젝트 루트에
+      `.worktreeinclude` 파일을 만든다 — 이것을 모르면 새 세션마다 환경변수가 없어 서버가 안 뜬다.
+    caveat: 세션 격리에는 Git 이 필요하다. Windows 는 Git 이 없으면 Code 탭 자체가 동작하지 않는다.
   - id: cmd-ctrl-2
     term: Cmd/Ctrl 누르고 사이드바 클릭 → 2개 세션 분할 보기
     kind: note
     tier: full
+    detail: |
+      분할 중에 사이드바의 다른 세션을 클릭하면 **포커스가 있는 쪽이 교체된다.**
+      `Cmd/Ctrl+\` 로 포커스된 패널을 닫으면 단일 세션으로 돌아온다.
   - id: pr-auto-archive
     term: 완료 후 보관 아이콘, PR 병합 시 자동 보관(Auto-archive) 설정 가능
     kind: note
     tier: full
+    detail: |
+      보관은 워크트리를 정리하는 동작이기도 하다 — 사이드바에서 세션에 마우스를 올리고
+      보관 아이콘을 누른다. 자동 보관은 설정 → Claude Code 의
+      **Auto-archive after PR merge or close** 이고, **실행이 끝난 로컬 세션에만** 적용된다.
+    see_also: [desktop/pr-monitor#pr-monitor-1]

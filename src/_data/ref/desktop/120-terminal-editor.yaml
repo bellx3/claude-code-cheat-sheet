@@ -8,17 +8,32 @@ summary: >-
   앱 안의 터미널과 편집기. 별도 창을 오갈 필요 감소.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: ctrl
     term: "통합 터미널 Ctrl+`: 세션과 동일한 작업 디렉토리·환경 공유 (로컬 세션 전용)"
     kind: note
     tier: full
+    detail: |
+      **환경을 공유하는 것이 요점이다** — `npm test`·`git status` 가 Claude 가 편집하는 것과
+      같은 파일을 본다. 별도 터미널 앱에서 돌리면 워크트리가 달라 다른 사본을 보게 된다.
+
+      탭을 하나 더 열려면 패널 헤더의 `+`, 또는 채팅에서 폴더를 우클릭해 **Open in terminal**.
+    see_also: [desktop/sessions#git-worktree]
   - id: terminal-editor-1
     term: 파일 클릭 → 파일 패널에서 바로 편집·저장
     kind: note
     tier: full
+    detail: |
+      **로컬·SSH 세션에서만** 된다(클라우드 세션은 Claude 에게 고치라고 하는 편이 맞다).
+      HTML·PDF·이미지·영상은 파일 패널이 아니라 Browser pane 으로 열린다.
+
+      열어 둔 사이에 디스크에서 파일이 바뀌면 경고가 뜨고 덮어쓰기·버리기를 고르게 한다.
+      패널 헤더의 경로를 클릭하면 절대경로가 복사된다.
   - id: terminal-editor-2
     term: "파일 우클릭: 컨텍스트로 첨부/다른 앱에서 열기/탐색기 표시/경로 복사"
     kind: note
     tier: full
+    detail: |
+      채팅·diff 뷰어·파일 패널 어디서든 경로를 우클릭하면 같은 메뉴가 뜬다.
+      **Open in** 은 VS Code·Cursor·Zed 처럼 설치된 편집기로 넘긴다.

@@ -8,23 +8,36 @@ summary: >-
   여러 세션·패널을 동시에 두는 배치.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: workspace-layout-1
     term: 설명
     kind: note
     tier: full
     desc: "패널: chat·diff·browser·terminal·file·plan·tasks·subagent (+macOS는 iOS 시뮬레이터)"
+    detail: |
+      Code 탭 자체가 이 패널들을 임의 배치하는 구조로 되어 있다. **CLI 와 데스크톱을 나누는
+      실질적인 차이가 이것**이다 — 같은 엔진이지만 변경·미리보기·터미널을 한 화면에 나란히 둘 수 있다.
   - id: workspace-layout-2
     term: 헤더 드래그로 위치 변경, 가장자리 드래그로 크기 조절
     kind: note
     tier: full
+    detail: |
+      패널 배치·터미널·파일 편집기·뷰 모드는 **Claude Desktop v1.2581.0 이상**이 필요하다.
+      macOS 는 Claude → Check for Updates, Windows 는 Help → Check for Updates.
   - id: views
     term: Views
     kind: value
     tier: full
     desc: 메뉴에서 패널 추가
+    detail: |
+      세션 툴바의 Views 메뉴에서 패널을 추가한다. tasks·subagent 패널은 여기서만 열 수 있고,
+      이 둘이 백그라운드 작업의 진행과 출력을 보는 창구다.
+    see_also: [desktop/background-tasks#tasks]
   - id: cmd-ctrl
     term: Cmd/Ctrl+\ 포커스된 패널 닫기
     kind: note
     tier: full
+    detail: |
+      세션 두 개를 분할해 보고 있을 때도 같은 키로 포커스된 쪽을 닫아 단일 세션으로 돌아온다.
+    see_also: [desktop/sessions#cmd-ctrl-2]

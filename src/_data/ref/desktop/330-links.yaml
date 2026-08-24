@@ -8,16 +8,23 @@ summary: >-
   판정 근거가 되는 1차 출처.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: code-claude-com-docs-en-desktop
     term: "공식 문서: code.claude.com/docs/en/desktop"
     kind: note
     tier: full
+    detail: |
+      이 서피스의 정본이다. 권한 모드 표, 단축키 표, `launch.json` 필드 표, 관리 설정 키 표,
+      CLI 대응표가 모두 이 한 페이지에 있다.
   - id: cowork-claude-com-product-cowork
     term: "Cowork: claude.com/product/cowork"
     kind: note
     tier: full
+    detail: |
+      Cowork 탭과 Dispatch 쪽. Code 탭과 **스킬·플러그인·커넥터의 출처가 다르다**는 점이
+      실무에서 가장 자주 걸리는 지점이다.
+    see_also: [desktop/three-tabs#cowork]
   - id: ios-docs-en-desktop-ios-simulator
     term: "iOS 시뮬레이터: /docs/en/desktop-ios-simulator"
     kind: note
@@ -26,6 +33,22 @@ items:
     term: "WSL 연동: /docs/en/desktop-wsl"
     kind: note
     tier: full
+    detail: |
+      Windows 에서 리눅스 툴체인으로 작업할 때. 이 세션에서는 @멘션·커넥터·플러그인이 빠진다는
+      제약을 먼저 확인한다.
+    see_also: [desktop/environments#wsl-windows]
+  - id: docs-scheduled-tasks
+    term: "정기 실행: /docs/en/desktop-scheduled-tasks"
+    kind: note
+    tier: full
+    detail: |
+      CLI 에서 cron·CI 로 하던 반복 작업의 데스크톱 대응이다.
+  - id: docs-desktop-linux
+    term: "Linux(베타): /docs/en/desktop-linux"
+    kind: note
+    tier: full
+    detail: |
+      apt 로 설치·갱신한다. Computer Use 는 아직 없다.
   - id: claude-com-download
     term: "다운로드: claude.com/download"
     kind: note

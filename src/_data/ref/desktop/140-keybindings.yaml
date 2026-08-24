@@ -8,13 +8,16 @@ summary: >-
   데스크톱 전용 단축키. 터미널 CLI 와 같은 키라도 동작이 다를 수 있음.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: cmd-ctrl
     term: Cmd/Ctrl + /
     kind: shortcut
     tier: core
     desc: 단축키 목록 표시
+    aliases: [단축키 목록, 키보드]
+    detail: |
+      Code 탭에서 쓸 수 있는 단축키 전체를 앱 안에서 띄운다. 아래 표가 낡았을 때의 정본이다.
   - id: cmd-ctrl-n
     term: Cmd/Ctrl + N
     kind: shortcut
@@ -30,6 +33,16 @@ items:
     kind: shortcut
     tier: core
     desc: 다음/이전 세션
+    detail: |
+      정확히는 `Ctrl+Tab` / `Ctrl+Shift+Tab` 이고, **세션 순환·터미널 토글·뷰 모드 토글은
+      모든 플랫폼에서 `Ctrl`** 이다(macOS 에서도 `Cmd` 가 아니다).
+  - id: cmd-shift-bracket
+    term: Cmd/Ctrl + Shift + ] / [
+    kind: shortcut
+    tier: full
+    desc: 다음/이전 세션 (대체 키)
+    detail: |
+      `Ctrl+Tab` 이 터미널 에뮬레이터나 창 관리자에 먹히는 환경에서 쓸 수 있는 같은 동작의 키다.
   - id: esc
     term: Esc
     kind: shortcut
@@ -50,6 +63,8 @@ items:
     kind: shortcut
     tier: core
     desc: Browser 요소 선택
+    detail: |
+      Browser pane 에서 요소를 집어 대화에 넘긴다 — "이 버튼"을 말로 설명하는 대신 지목한다.
   - id: ctrl
     term: Ctrl + `
     kind: shortcut
@@ -90,6 +105,9 @@ items:
     kind: value
     tier: core
     desc: 열린 메뉴에서 항목 선택
+    detail: |
+      모델(`Cmd/Ctrl+Shift+I`)·권한 모드(`Cmd/Ctrl+Shift+M`)·추론 강도(`Cmd/Ctrl+Shift+E`) 메뉴를
+      열고 숫자만 눌러 고르는 흐름이 가장 빠르다.
   - id: keybindings-1
     term: 주의
     kind: note

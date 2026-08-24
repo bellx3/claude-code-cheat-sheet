@@ -8,7 +8,7 @@ summary: >-
   탭마다 다루는 대상이 별개. 현재 탭 위치가 사용 가능 기능을 결정.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: chat
     term: Chat
@@ -26,6 +26,11 @@ items:
     detail: |
       장기 실행 작업과 에이전트 협업을 위한 탭. 백그라운드 작업을 관리하고
       여러 에이전트가 같은 작업에 협력할 수 있다.
+
+      **스킬·플러그인·커넥터의 출처가 Code 탭과 다르다** — Cowork 는 사이드바의 Customize
+      설정(claude.ai 계정으로 동기화)에서 가져오고, CLI 의 `~/.claude` 디렉터리를 읽지 않는다.
+      Dispatch 도 이 탭에 산다.
+    see_also: [desktop/dispatch#code-dispatch]
   - id: code
     term: Code
     kind: value

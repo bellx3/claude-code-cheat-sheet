@@ -7,21 +7,32 @@ sheet: desktop
 summary: >-
   데스크톱 앱은 CLI 와 설정 공유, 조작 체계는 별개. 같은 기능도 이름이 다를 수 있음.
 source:
-  url: https://code.claude.com/docs/en/desktop-quickstart
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: macos-dmg-intel-apple-silicon
     term: "macOS: 유니버설 dmg (Intel/Apple Silicon)"
     kind: note
     tier: full
+    detail: |
+      `claude.com/download` 에서 받는다. 실행할 때 자동으로 업데이트를 확인한다.
+      Git 은 대개 이미 깔려 있다 — `git --version` 이 버전을 뱉으면 된 것이다.
   - id: windows-x64-arm64
     term: "Windows: x64 설치 / ARM64는 별도 설치파일"
     kind: note
     tier: full
+    detail: |
+      설치 직후 `PATH` 가 반영되지 않으면 **새 터미널 창을 열어야** 한다 — 이미 열려 있던 창에는
+      적용되지 않는다. "다른 설치가 진행 중"이라는 오류가 근거 없이 뜨면 설치 관리자를
+      관리자 권한으로 실행한다.
   - id: linux-apt-deb
     term: "Linux(베타): apt 또는 .deb"
     kind: note
     tier: full
+    detail: |
+      베타다. 업데이트는 패키지 관리자로 하고(자동 업데이트가 아니다),
+      **Computer Use 는 아직 Linux 앱에 없다.**
+    see_also: [desktop/computer-use#cli-gui]
   - id: code
     term: Code
     kind: value
@@ -30,6 +41,19 @@ items:
     detail: |
       설치 후 앱을 실행하고 Anthropic 계정으로 로그인한다. 세 탭 중 Code 탭을 클릭해서
       소프트웨어 개발 기능을 사용한다. CLI와 세션과 설정을 공유한다.
+
+      CLI 와 **같은 엔진에 그래픽 인터페이스**를 얹은 것이라, 같은 기기·같은 프로젝트에서
+      둘을 동시에 돌려도 된다. 세션 이력만 각자 따로 남고 설정과 `CLAUDE.md` 는 공유한다.
+    tasks: [first-setup]
+  - id: version-check
+    term: 버전 확인
+    kind: value
+    tier: full
+    desc: macOS는 Claude → About Claude, Windows는 Help → About
+    aliases: [버전, 업데이트 확인]
+    detail: |
+      버전 번호를 클릭하면 클립보드로 복사된다. 문제를 신고할 때는 앱 버전·OS·정확한 오류
+      메시지를 함께 넣는다. 패널 배치·터미널·파일 편집기·뷰 모드는 **v1.2581.0 이상**에서만 있다.
   - id: download-start-1
     term: 주의
     kind: note

@@ -8,18 +8,35 @@ summary: >-
   변경을 시각적으로 훑고 그 자리에서 코멘트 작성.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: 12-1-diff-stats-diff
     term: 변경 후 +12 -1 형태 diff stats 클릭 → diff 뷰어
     kind: note
     tier: full
+    detail: |
+      왼쪽에 파일 목록, 오른쪽에 그 파일의 변경이 뜬다. PR 을 만들기 전에 **파일 단위로 훑는
+      자리**다. `Cmd/Ctrl+Shift+D` 로도 열고 닫는다.
+    tasks: [review-before-merge]
   - id: cmd-ctrl-enter
     term: 줄 클릭해 댓글, Cmd/Ctrl+Enter 로 한번에 제출
     kind: note
     tier: full
+    detail: |
+      줄을 클릭하면 코멘트 상자가 열리고 Enter 로 코멘트가 붙는다. 여러 줄에 달아 두고
+      **Cmd/Ctrl+Enter 로 한꺼번에 제출**하면 Claude 가 그것들을 읽고 고친 결과를 새 diff 로 준다.
+
+      한 건씩 말로 지시하는 것보다 이쪽이 낫다 — 지적이 코드 위치에 붙어 있어 어디를 말하는지가
+      해석 대상이 되지 않는다.
   - id: review-code
     term: Review code
     kind: value
     tier: full
     desc: "버튼: 컴파일오류·명백한 버그·보안취약점 위주(스타일은 안 봄)"
+    detail: |
+      diff 뷰어 우상단에 있다. 커밋 전에 변경을 평가하게 하고, 코멘트가 **diff 뷰어 안에**
+      달린다. 각 코멘트에 답하거나 수정을 요청할 수 있다.
+
+      보는 것: 컴파일 오류, 확실한 논리 오류, 보안 취약점, 명백한 버그.
+      **보지 않는 것: 스타일·서식·기존 문제·린터가 잡을 것.**
+    see_also: [desktop/slash-commands#code-review-security-review]

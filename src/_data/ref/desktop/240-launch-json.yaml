@@ -5,43 +5,97 @@ group: extend
 order: 240
 sheet: desktop
 summary: >-
-  미리보기로 띄울 서버를 프로젝트에 정의.
+  미리보기로 띄울 서버를 프로젝트에 정의. 자동 감지된 설정이 이 파일에 저장되고, 주석 있는 JSON 을 받는다.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: name-runtimeexecutable
     term: name / runtimeExecutable
     kind: value
     tier: core
     desc: 식별자 / 실행 명령
+    detail: |
+      `runtimeExecutable` 은 `npm`·`yarn`·`node` 처럼 실행할 명령이다. 파일은 **세션을 시작할 때
+      고른 폴더의 루트**에 저장되고 그 폴더가 프리뷰의 작업 디렉터리가 된다 — 부모 폴더로
+      세션을 열면 하위 폴더의 dev 서버는 자동 감지되지 않는다.
+
+      `configurations` 배열에 여러 개를 정의해 프런트엔드와 API 를 같이 띄울 수 있다.
+    code: |-
+      {
+        "version": "0.0.1",
+        "configurations": [
+          { "name": "my-app", "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"], "port": 3000 }
+        ]
+      }
   - id: runtimeargs-args
     term: runtimeArgs / args
     kind: value
     tier: core
     desc: 명령 인자
+    detail: |
+      `runtimeArgs` 는 `runtimeExecutable` 에 넘기는 인자(`["run", "dev"]`),
+      `args` 는 **`program` 을 쓸 때만** 쓰이는 인자다.
   - id: port-3000
     term: port (기본 3000)
     kind: value
     tier: core
     desc: 서버 포트
+    detail: |
+      비워 두면 3000 이다. Claude 가 다른 포트를 잡게 되면 **`PORT` 환경변수로 그 값을 서버에
+      넘긴다** — 서버가 그 변수를 읽지 않으면 엉뚱한 포트를 계속 열게 된다.
   - id: cwd-env
     term: cwd / env
     kind: value
     tier: core
     desc: 작업 디렉토리 / 환경변수
+    detail: |
+      `cwd` 는 프로젝트 루트 기준 상대 경로이고, 루트를 명시하려면 `${workspaceFolder}` 를 쓴다.
+      `env` 는 `{ "NODE_ENV": "development" }` 같은 추가 환경변수다.
+    caveat: 이 파일은 저장소에 커밋된다 — 비밀값을 `env` 에 넣지 말 것. dev 서버에 비밀값을 넘겨야 하면 로컬 환경변수 편집기를 쓴다.
+    see_also: [desktop/environments#local]
   - id: autoport
     term: autoPort
     kind: value
     tier: core
     desc: 포트 충돌 시 자동 재할당 여부
+    detail: |
+      **세 가지 상태가 있고 기본값이 "묻는다"** 라는 점이 중요하다.
+
+      `true` — 빈 포트를 찾아 쓴다(대부분의 dev 서버에 적합).
+      `false` — 오류로 실패한다. OAuth 콜백이나 CORS 허용 목록처럼 **그 포트여야 하는** 서버에 쓴다.
+      지정하지 않음 — 그 포트가 꼭 필요한지 한 번 묻고 답을 저장한다.
   - id: program-url
     term: program / url
     kind: value
     tier: core
     desc: node 스크립트 직접 실행 / 접속 주소
+    detail: |
+      `program` 은 `node` 로 바로 돌릴 단독 스크립트다(`"program": "server.js"` → `node server.js`).
+      패키지 매니저를 거쳐 띄우는 것은 `runtimeExecutable` 쪽이다.
+
+      `url` 은 `http://localhost:<port>` 대신 열 주소다 — 로컬 HTTPS, `*.localhost` 서브도메인,
+      리다이렉트로 로그인하는 앱이 여기 해당한다. **localhost 주소는 오리진만 허용된다**
+      (경로·쿼리 불가, 포트는 항목의 `port` 와 일치해야 한다). 특정 페이지를 보려면 프리뷰가
+      열린 뒤 이동을 요청한다.
+
+      명령 없이 `url` 만 두면 **내가 이미 돌리고 있는 서버에 프리뷰를 붙인다.**
+    caveat: localhost 가 아닌 주소는 처음 열 때 승인을 묻는다(외부 사이트 탐색과 같은 규칙). 조직의 외부 사이트 정책도 그대로 적용된다.
   - id: launch-json-1
     term: 설명
     kind: note
     tier: full
     desc: "autoVerify: 기본 켜짐(수정마다 자동 검증), false로 끌 수 있음"
+    detail: |
+      `autoVerify` 는 `configurations` 안이 아니라 **최상위**에 둔다. 켜져 있으면 파일을 고칠 때마다
+      스크린샷을 찍고 오류를 확인하고 동작을 검증한 뒤 응답을 끝낸다.
+
+      끄더라도 프리뷰 도구는 남아 있어 언제든 검증을 요청할 수 있다 — 자동인지 수동인지의 차이다.
+    code: |-
+      {
+        "version": "0.0.1",
+        "autoVerify": false,
+        "configurations": [ ... ]
+      }
+    see_also: [desktop/browser-pane#dev-dom]

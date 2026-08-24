@@ -8,26 +8,41 @@ summary: >-
   입력창에서 바로 쓸 수 있는 참조·첨부 문법.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: enter
     term: Enter 전송, 진행 중 정정 메시지 입력 시 중단 없이 다음 단계에 반영
     kind: note
     tier: full
+    detail: |
+      **중단하지 않고 방향만 바꾸는 것이 기본 동작이다.** Claude 는 현재 동작이 끝나는 즉시
+      정정을 읽고 다음 단계 전에 반영한다. 지금 하는 일을 즉시 멈춰야 할 때만 정지 버튼을 쓴다.
   - id: prompt-box-1
     term: "정지 버튼: 즉시 중단"
     kind: note
     tier: full
+    detail: |
+      키보드로는 `Esc`. 진행 중인 도구 호출까지 끊는다.
   - id: ssh-wsl
     term: "@파일명: 컨텍스트 추가 (로컬·SSH만, 클라우드·WSL 불가)"
     kind: note
     tier: full
+    detail: |
+      CLI 의 텍스트 기반 @멘션과 달리 **자동완성이 붙는다.** 파일을 대화 컨텍스트에 넣어
+      Claude 가 읽고 참조할 수 있게 한다.
   - id: pdf
     term: "첨부: 이미지·PDF 드래그앤드롭"
     kind: note
     tier: full
+    detail: |
+      **CLI 에는 없는 기능이다.** 버그 스크린샷, 디자인 목업, 참고 문서를 그대로 넘길 때 쓴다.
+      첨부 버튼으로도 되고 입력창에 끌어다 놓아도 된다.
   - id: prompt-box-2
     term: +
     kind: value
     tier: full
     desc: "버튼: 파일첨부/스킬/커넥터/플러그인"
+    detail: |
+      커넥터와 플러그인 항목은 **로컬·SSH 세션에서만** 뜬다(클라우드·WSL 에는 없다).
+      스킬은 `/` 를 직접 입력해 찾는 것과 같은 목록이다.
+    see_also: [desktop/connectors#connectors-1, desktop/skills-plugins#skills-plugins-2]

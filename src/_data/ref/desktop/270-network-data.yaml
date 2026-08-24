@@ -7,8 +7,8 @@ sheet: desktop
 summary: >-
   데이터가 어디까지 나가는지에 대한 규칙.
 source:
-  url: https://code.claude.com/docs/en/security
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: network-data-1
     term: 설명
@@ -17,8 +17,33 @@ items:
     desc: >-
       주요 허용 도메인: anthropic.com, claude.ai, claude.com, claude.app, *.claudeusercontent.com (HTTPS
       443)
+    aliases: [방화벽, 도메인, 허용 목록]
+    detail: |
+      앱 코드와 사용자 콘텐츠를 Anthropic CDN 에서 받으므로 이들이 막히면 **빈 화면**이 된다.
+      와일드카드까지 포함한 목록에 `*.claudemcpcontent.com` 도 있다.
+
+      트래픽은 443 HTTPS 다 — OTLP 모니터링·LLM 게이트웨이·MCP 서버에 사용자 지정 포트를
+      쓰는 경우만 예외다.
+    caveat: 아티팩트가 Google Fonts 를 쓰면 fonts.googleapis.com · fonts.gstatic.com 도 요청한다. 막을 때는 조용히 버리지 말고 즉시 거절해야 첫 렌더가 지연되지 않는다.
+  - id: firewall-narrow
+    term: 와일드카드를 줄이려면
+    kind: value
+    tier: full
+    desc: 개별 호스트 지정 — 다만 일부 서브도메인은 동적 생성이라 와일드카드 유지 필요
+    aliases: [방화벽 좁히기]
+    detail: |
+      `api.anthropic.com` · `a-api.anthropic.com` · `a-cdn.anthropic.com` · `s-cdn.anthropic.com` ·
+      `assets-proxy.anthropic.com` · `a.claude.ai` · `a-cdn.claude.ai` · `assets.claude.ai` ·
+      `downloads.claude.ai` · `platform.claude.com` 처럼 개별 호스트로 좁힐 수 있다.
+
+      **와일드카드로 남겨야 하는 것**: `*.livepreview.claude.ai` · `*.livepreview.claude.app` ·
+      `*.claudeusercontent.com` · `*.claudemcpcontent.com`.
   - id: network-data-2
     term: 설명
     kind: note
     tier: full
     desc: 로컬 세션은 로컬 처리, 클라우드 세션은 Anthropic 관리 인프라에서 코드·대화 컨텍스트 처리
+    detail: |
+      정확히는 **로컬·SSH 세션은 배포에 설정된 모델 공급자**(기본은 Anthropic API)로 대화와 코드
+      컨텍스트를 보내고, **클라우드 세션은 Anthropic API** 로 보낸다.
+      조직이 자체 호스팅 환경으로 라우팅하면 클라우드 세션의 실행 위치가 그쪽으로 바뀐다.

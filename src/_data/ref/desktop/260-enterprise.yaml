@@ -7,18 +7,43 @@ sheet: desktop
 summary: >-
   조직 정책이 개인 설정보다 우선.
 source:
-  url: https://code.claude.com/docs/en/admin-setup
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: code-remote-control-bypass
     term: "관리 콘솔: Code 데스크톱 사용 여부, 웹 세션, Remote Control, Bypass 모드 비활성화 등 제어"
     kind: note
     tier: full
+    detail: |
+      `claude.ai/admin-settings/claude-code` 에서 네 가지를 켜고 끈다 —
+      **Code in the desktop**(조직 구성원의 데스크톱 Code 접근),
+      **Code in the web**(웹 세션), **Remote Control**, **Disable Bypass permissions mode**.
   - id: managed-settings-disableautomode-sshhostal
     term: "Managed settings: disableAutoMode, sshHostAllowlist, managedMcpServers 등"
     kind: note
     tier: full
+    detail: |
+      관리 설정은 프로젝트·사용자 설정을 덮어쓴다. 데스크톱에 걸리는 주요 키:
+
+      `permissions.disableBypassPermissionsMode` · `disableAutoMode`(모드 선택기에서 Auto 제거) ·
+      `autoMode`(분류기가 무엇을 신뢰·차단할지) · `browserExternalPageTools`(외부 페이지에서
+      Claude 의 도구만 차단) · `disableBrowserExternalNavigation`(외부 이동 자체 차단) ·
+      `disableMobileSimulatorTools` · `sshConfigs` · `sshHostAllowlist` · `managedMcpServers`.
+    caveat: 어디까지 닿는지는 세션 위치가 정한다 — 로컬은 디스크의 관리 설정 파일, 클라우드는 서버 관리 설정(디스크 파일은 닿지 않는다), SSH 는 원격 호스트의 파일을 읽는다.
   - id: macos-mdm-jamf-kandji-windows
     term: macOS는 MDM(Jamf/Kandji), Windows는 그룹 정책/레지스트리로 배포·정책 관리
     kind: note
     tier: full
+    detail: |
+      macOS 는 `com.anthropic.claudefordesktop` 환경설정 도메인, Windows 는 레지스트리
+      `SOFTWARE\Policies\Claude` 다. 여기서 다루는 것은 Claude Code 기능의 on/off,
+      자동 업데이트 제어, 사용자 지정 배포 URL 이다.
+  - id: sso-auth
+    term: SSO·인증
+    kind: value
+    tier: full
+    desc: 엔터프라이즈는 전체 사용자에게 SSO 강제 가능 (SAML·OIDC)
+    aliases: [SSO, 인증, SAML]
+    detail: |
+      조직 단위로 SSO 를 필수화할 수 있다. SAML 설정은 지원 문서, OIDC 는 엔터프라이즈 관리자
+      가이드에 있다.

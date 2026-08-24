@@ -7,20 +7,37 @@ sheet: desktop
 summary: >-
   앱에서 스킬·플러그인 관리. CLI 와 같은 파일 체계 사용.
 source:
-  url: https://code.claude.com/docs/en/skills
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: skills-plugins-1
     term: +
     kind: value
     tier: full
     desc: / 입력 또는 →Slash commands 로 내장 명령어·커스텀 스킬·플러그인 스킬 탐색
+    aliases: [스킬, 슬래시 명령]
+    detail: |
+      **어느 스킬이 보이는지가 환경에 따라 다르다.** 로컬 세션은 `~/.claude/skills/` 의 개인 스킬,
+      SSH 세션은 **원격 호스트의** `~/.claude/skills/`(내 기기가 아니다), 클라우드 세션은
+      claude.ai 계정에서 켠 스킬을 불러온다.
+    see_also: [slash/custom-commands#claude-commands-md]
   - id: skills-plugins-2
     term: +
     kind: value
     tier: full
     desc: "→Plugins: 설치된 플러그인 확인, \"Add plugin\"으로 마켓플레이스 설치"
+    aliases: [플러그인, 마켓플레이스]
+    detail: |
+      **터미널 없이 설치할 수 있다.** Add plugin 이 플러그인 브라우저를 열고 설정된 마켓
+      (공식 Anthropic 마켓 포함)의 목록을 보여준다. Manage plugins 로 활성·비활성·삭제.
+      스코프는 CLI 와 같이 user·project·local 중에서 고른다.
+    see_also: [slash/plugin-scope#user]
   - id: wsl
     term: 플러그인은 클라우드·WSL 세션에서는 사용 불가
     kind: note
     tier: full
+    detail: |
+      정확히는 플러그인 브라우저가 클라우드 세션에 없고, **데스크톱에서 설치한 플러그인도
+      클라우드 세션에서는 쓰이지 않는다.** 클라우드에서 쓰려면 둘 중 하나다 —
+      저장소 `.claude/settings.json` 의 `enabledPlugins` 에 적어 세션 시작 때 설치되게 하거나,
+      claude.ai 계정에서 켜서 동기화된 플러그인으로 불러오게 하는 것. WSL 세션에는 아예 없다.

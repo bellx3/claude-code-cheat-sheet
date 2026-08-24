@@ -8,25 +8,35 @@ summary: >-
   무엇을 크게 볼지 고르는 축.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: normal
     term: Normal
     kind: value
     tier: core
     desc: 도구 호출 요약 + 전체 텍스트 응답
+    detail: |
+      기본값. 도구 호출은 요약으로 접히고 텍스트 응답은 전문이 보인다.
   - id: verbose
     term: Verbose
     kind: value
     tier: core
     desc: 모든 도구 호출·중간 단계 표시
+    detail: |
+      **Claude 가 왜 그 행동을 했는지 따질 때** 쓴다. 모든 도구 호출·파일 읽기·중간 단계가 보인다.
+      CLI 의 `--verbose` 에 대응한다.
   - id: summary
     term: Summary
     kind: value
     tier: core
     desc: 최종 응답과 변경사항만
+    detail: |
+      **세션을 여러 개 돌리며 결과만 빠르게 훑을 때** 쓴다. 최종 응답과 변경만 남는다.
   - id: view-modes-1
     term: 설명
     kind: note
     tier: full
     desc: Ctrl+O 로 순환 전환
+    detail: |
+      전송 버튼 옆 **Transcript view** 드롭다운에서도 고른다. `Ctrl+O` 는 macOS·Windows 모두
+      `Ctrl` 이다(`Cmd` 가 아니다).

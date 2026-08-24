@@ -7,11 +7,30 @@ sheet: desktop
 summary: >-
   사용량과 한도를 앱 안에서 확인.
 source:
-  url: https://code.claude.com/docs/en/costs
-  checked_at: "2026-08-13"
+  url: https://code.claude.com/docs/en/desktop
+  checked_at: "2026-08-24"
 items:
   - id: usage-1
     term: 설명
     kind: note
     tier: full
     desc: 모델 선택기 옆 사용량 링 클릭 → 컨텍스트 사용량(세션별) + 플랜 사용량(전체 서피스 공유)
+    aliases: [사용량, 한도, 링]
+    detail: |
+      두 숫자의 층이 다르다. **컨텍스트 사용량은 세션별**이고, **플랜 사용량은 모든 Claude Code
+      서피스가 공유한다** — 터미널에서 쓴 것도 여기 합산된다.
+
+      컨텍스트가 차면 데스크톱은 자동으로 대화를 요약하고 계속 간다. 그 시점을 앞당기려면
+      `/compact` 를 직접 부른다.
+    tasks: [shrink-context-cost]
+    see_also: [desktop/slash-commands#clear-compact-context]
+  - id: cloud-cost
+    term: 클라우드 세션 비용
+    kind: value
+    tier: full
+    desc: 별도 컴퓨트 과금 없음 — 구독 플랜 한도에 합산
+    aliases: [클라우드 요금, 컴퓨트 과금]
+    detail: |
+      클라우드 세션도 **별도의 컴퓨트 요금이 붙지 않고** 구독 플랜 한도에 들어간다.
+      앱을 닫아도 계속 도는 성질과 합치면, 오래 걸리는 작업을 로컬에 붙잡아 둘 이유가 적다.
+    see_also: [desktop/environments#cloud]

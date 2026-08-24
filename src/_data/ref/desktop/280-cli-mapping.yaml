@@ -5,10 +5,10 @@ group: practice
 order: 280
 sheet: desktop
 summary: >-
-  CLI 명령이 데스크톱에서 무엇에 해당하는지 대조표.
+  CLI 명령이 데스크톱에서 무엇에 해당하는지 대조표. 목록에 없는 플래그는 스크립팅용이라 대응이 없다.
 source:
   url: https://code.claude.com/docs/en/desktop
-  checked_at: "2026-08-13"
+  checked_at: "2026-08-24"
 items:
   - id: model-sonnet
     term: "--model sonnet"
@@ -20,38 +20,75 @@ items:
     kind: flag
     tier: core
     desc: 사이드바에서 세션 클릭
+    detail: |
+      데스크톱은 세션이 사이드바에 상시 늘어서 있으므로 재개가 곧 클릭이다.
+      상태·프로젝트·환경으로 걸러 볼 수 있다.
   - id: permission-mode
     term: "--permission-mode"
     kind: flag
     tier: core
     desc: 모드 선택기
+    detail: |
+      `Cmd/Ctrl+Shift+M` 으로 열고 `1`~`9` 로 고른다. 고른 값은 **폴더별로 기억된다.**
+    see_also: [desktop/session-setup#permission-mode]
   - id: dangerously-skip-permissions
     term: "--dangerously-skip-permissions"
     kind: flag
     tier: core
     desc: Bypass permissions 모드
+    detail: |
+      Pro·Max 는 설정 → Claude Code 의 **Allow bypass permissions mode** 를 먼저 켜야 선택기에
+      나타나고, Team·Enterprise 는 개인 토글이 없고 조직 정책이 정한다.
   - id: add-dir
     term: "--add-dir"
     kind: flag
     tier: core
     desc: 클라우드 세션의 + 버튼(저장소 추가)
+    detail: |
+      **클라우드 세션에만 있는 대응이다.** 로컬 세션에서 다른 폴더를 붙이는 UI 는 없으므로,
+      필요하면 그 폴더에서 세션을 새로 시작하거나 CLI 를 쓴다.
+    see_also: [desktop/cloud-sessions#cloud-sessions-1]
   - id: allowedtools-disallowedtools
     term: "--allowedTools/--disallowedTools"
     kind: flag
     tier: core
     desc: 세션별 대응 없음(설정파일 규칙은 적용)
+    detail: |
+      세션 단위로 도구를 열고 닫는 UI 가 없다. **다만 설정 파일의 권한 규칙은 데스크톱 세션에도
+      그대로 적용된다** — `~/.claude/settings.json` 이나 프로젝트 설정에 규칙으로 적는다.
+    tasks: [reduce-permission-prompts]
   - id: verbose
     term: "--verbose"
     kind: flag
     tier: core
     desc: Verbose 뷰 모드
+    see_also: [desktop/view-modes#verbose]
   - id: print-output-format
     term: "--print, --output-format"
     kind: flag
     tier: core
     desc: 미지원 (대화형 전용)
+    detail: |
+      데스크톱은 대화형 전용이다. 스크립팅·자동화는 CLI 의 `--print` 나 Agent SDK 쪽이고,
+      **이 축은 데스크톱으로 옮겨오지 않는다.**
+    tasks: [ci-headless-run]
+  - id: anthropic-model-env
+    term: ANTHROPIC_MODEL
+    kind: value
+    tier: full
+    desc: 모델 드롭다운
+    detail: |
+      환경변수로 모델을 고정하는 대신 드롭다운에서 고른다. 세션 중간에도 같은 곳에서 바꾼다.
   - id: max-thinking-tokens
     term: MAX_THINKING_TOKENS
     kind: value
     tier: core
     desc: 로컬 환경변수 에디터
+    detail: |
+      확장 사고는 **기본 켜짐**이다. Anthropic API 에서 끄려면 로컬 환경변수 편집기에서 이 값을
+      `0` 으로 둔다 — 단, **Fable 5 는 항상 확장 사고를 쓰므로 효과가 없다.**
+
+      적응형 추론을 쓰는 모델에서는 `0` 이외의 값이 무시된다(추론 깊이를 적응형이 정한다).
+      Opus 4.6·Sonnet 4.6 에서 고정 예산으로 돌리려면 `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING=1`.
+      Fable 5·Sonnet 5·Opus 4.7 이상은 항상 적응형이고 고정 예산 모드가 없다.
+    see_also: [desktop/environments#local]
