@@ -8,7 +8,7 @@ summary: >-
   실행 전에 계획을 받거나, 완료 조건을 걸고 맡기는 축.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: plan-description
     term: /plan [description]

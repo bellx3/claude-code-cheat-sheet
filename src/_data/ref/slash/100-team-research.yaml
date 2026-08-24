@@ -8,7 +8,7 @@ summary: >-
   팀 연동과 조사 성격의 명령.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: install-github-app
     term: /install-github-app

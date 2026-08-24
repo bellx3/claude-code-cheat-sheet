@@ -1,5 +1,5 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
-# 2026-08-23: context-cost / installed 의 desc 가 이관 때 어순이 깨져 있었다("설치 화면의 로 매 턴").
+# 2026-08-24: context-cost / installed 의 desc 가 이관 때 어순이 깨져 있었다("설치 화면의 로 매 턴").
 # 공식 문서 기준으로 문장을 세우고 항목을 늘렸다.
 id: plugin-tips
 title: 플러그인 실무 팁
@@ -10,7 +10,7 @@ summary: >-
   설치·관리에서 겪는 실무 문제들.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: anthropic
     term: 설치 전 출처 신뢰도 확인 — Anthropic은 서드파티 플러그인 내용을 검증하지 않음

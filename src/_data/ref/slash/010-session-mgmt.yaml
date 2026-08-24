@@ -8,7 +8,7 @@ summary: >-
   대화 자체를 다루는 명령들. 작업이 바뀌면 이어가지 말고 자르는 편이 나음.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: clear-name
     term: /clear [name]

@@ -8,7 +8,7 @@ summary: >-
   다른 서피스(웹·데스크톱)로 작업을 넘기거나 가져오는 축.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: desktop
     term: /desktop

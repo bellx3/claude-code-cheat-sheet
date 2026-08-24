@@ -8,7 +8,7 @@ summary: >-
   플러그인이 제공하는 명령의 호출 문법.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: plugin-discover-installed
     term: "/plugin                       # Discover/Installed/"

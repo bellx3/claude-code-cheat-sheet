@@ -1,5 +1,5 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
-# 2026-08-23: 프런트매터 목록이 "name, description, aliases" 로 적혀 있었는데 공식 프런트매터
+# 2026-08-24: 프런트매터 목록이 "name, description, aliases" 로 적혀 있었는데 공식 프런트매터
 # 참조에 aliases 가 없다. 실제 필드로 고치고 인자 치환 규칙을 채웠다.
 id: custom-commands
 title: 커스텀 슬래시 명령어 만들기
@@ -10,7 +10,7 @@ summary: >-
   파일 한 장이면 명령 하나 생성. 커스텀 명령은 스킬로 통합, 문법은 동일.
 source:
   url: https://code.claude.com/docs/en/skills
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: claude-commands-md
     term: .claude/commands/*.md

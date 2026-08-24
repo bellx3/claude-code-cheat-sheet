@@ -8,7 +8,7 @@ summary: >-
   판정 근거가 되는 1차 출처.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: code-claude-com-docs-en-commands
     term: "명령어 전체: code.claude.com/docs/en/commands"

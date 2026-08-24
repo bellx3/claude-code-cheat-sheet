@@ -8,7 +8,7 @@ summary: >-
   설정과 개인화. 대부분 설정 파일에도 같은 항목 존재.
 source:
   url: https://code.claude.com/docs/en/settings
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: config-key-value
     term: /config [key=value]

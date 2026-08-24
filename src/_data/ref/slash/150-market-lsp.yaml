@@ -8,7 +8,7 @@ summary: >-
   언어 서버를 붙여 코드 인텔리전스를 얹는 계열. 설치 후 언어서버 바이너리를 따로 깔아야 동작.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: c-c
     term: C/C++

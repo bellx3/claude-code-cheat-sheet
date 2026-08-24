@@ -8,7 +8,7 @@ summary: >-
   명령을 이어 붙여 쓰는 실전 조합.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: plan-code-review-security-review
     term: "새 기능 개발: /plan → 승인 → 구현 → /code-review → /security-review"

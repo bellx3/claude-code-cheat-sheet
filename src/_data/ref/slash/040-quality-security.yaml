@@ -8,7 +8,7 @@ summary: >-
   변경을 검토받는 명령들. 관점을 나눠 여러 번 돌리는 편이 더 깊이 들어감.
 source:
   url: https://code.claude.com/docs/en/code-review
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: code-review-level-fix
     term: /code-review [level] [--fix]

@@ -8,7 +8,7 @@ summary: >-
   화면·입력·재미 요소처럼 본작업 밖의 것들.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: focus
     term: /focus

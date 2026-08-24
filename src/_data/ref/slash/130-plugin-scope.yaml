@@ -8,7 +8,7 @@ summary: >-
   어느 범위에 설치되느냐가 어디서 쓸 수 있는지를 결정.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: user
     term: User

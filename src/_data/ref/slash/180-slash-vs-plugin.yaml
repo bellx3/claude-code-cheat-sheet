@@ -8,7 +8,7 @@ summary: >-
   한 번 쓰고 말 것과 배포할 것의 구분.
 source:
   url: https://code.claude.com/docs/en/skills
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: slash-vs-plugin-1
     term: 설명

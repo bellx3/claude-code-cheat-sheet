@@ -8,7 +8,7 @@ summary: >-
   모델·추론 강도를 세션 안에서 변경.
 source:
   url: https://code.claude.com/docs/en/model-config
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: model-model
     term: /model [model]

@@ -1,5 +1,5 @@
 # legacy/cheatsheet-slash.html 에서 초벌 이관. detail/example/caveat/source.url 은 사람이 채운다.
-# 2026-08-23 정비: 이관 때 한 desc 에 눌려 있던 카테고리(소스관리+PM, 디자인+인프라, 협업+모니터링)를
+# 2026-08-24 정비: 이관 때 한 desc 에 눌려 있던 카테고리(소스관리+PM, 디자인+인프라, 협업+모니터링)를
 # 공식 카탈로그 분류대로 분리했다. 기존 id 는 G7 기준선 때문에 유지하고 뒤에 항목을 늘렸다.
 id: market-integrations
 title: 공식 마켓 — 외부 연동 & 워크플로우
@@ -10,7 +10,7 @@ summary: >-
   MCP 서버가 미리 설정된 채로 오는 외부 연동 계열. 손으로 붙이는 설정을 건너뛴다.
 source:
   url: https://code.claude.com/docs/en/discover-plugins
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: market-integrations-1
     term: 소스관리

@@ -8,7 +8,7 @@ summary: >-
   지금 상태가 어떤지 읽는 명령들. 고치기 전에 여기부터 확인.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: status
     term: /status

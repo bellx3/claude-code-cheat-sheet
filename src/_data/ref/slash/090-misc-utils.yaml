@@ -8,7 +8,7 @@ summary: >-
   자주 쓰이진 않지만 필요할 때 찾게 되는 것들.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-23"
+  checked_at: "2026-08-24"
 items:
   - id: cd-path
     term: /cd <path>
@@ -88,10 +88,10 @@ items:
     term: /web
     kind: command
     tier: full
-    desc: 공식 명령 표에 없음 (2026-08-23 확인)
+    desc: 공식 명령 표에 없음 (2026-08-24 확인)
     aliases: [웹 검색]
     detail: |
-      초벌 이관 때 "웹 검색 도구 활성화"로 적혀 있었으나, **공식 명령 표(2026-08-23 확인)에
+      초벌 이관 때 "웹 검색 도구 활성화"로 적혀 있었으나, **공식 명령 표(2026-08-24 확인)에
       `/web` 이 없다.** 이름이 바뀌었거나 사라진 것으로 보인다.
 
       대신 찾을 곳: 웹 세션용 GitHub 연결은 `/web-setup`, 도구 허용·차단은 `/permissions`,
