@@ -8,7 +8,7 @@ summary: >-
   스킬·플러그인·MCP 처럼 기능을 늘리는 축.
 source:
   url: https://code.claude.com/docs/en/skills
-  checked_at: "2026-08-24"
+  checked_at: "2026-08-26"
 items:
   - id: agents
     term: /agents
@@ -109,6 +109,79 @@ items:
       세션 중에 디스크에서 추가·수정된 스킬과 명령을 **재시작 없이** 인식시킨다. 몇 개가
       사용 가능하고 몇 개가 추가·삭제됐는지 보고한다(v2.1.152+). 스킬을 만들며 시험할 때 쓴다.
     tasks: [ship-a-reusable-command]
+  - id: claude-api-subcommand
+    term: /claude-api [migrate|upgrade|managed-agents-onboard|prompt-audit]
+    kind: command
+    tier: full
+    desc: Claude API 참조 자료
+    aliases: [Anthropic API, API 마이그레이션]
+    detail: |
+      프로젝트 언어용 Claude API 및 Managed Agents 참조 자료를 로드한다. 코드가 `anthropic` 이나
+      `@anthropic-ai/sdk` 를 import 하면 자동으로 활성화된다.
+
+      `migrate` 로 기존 Claude API 코드를 새 모델로 업데이트하고, `upgrade` 로 Anthropic SDK
+      의존성을 메이저 버전 간에 옮긴다(현재 Python `anthropic` 패키지 0.x → 1.x).
+      `managed-agents-onboard` 로 새 Managed Agent 생성을 안내하고, `prompt-audit` 로 프롬프트·스킬·도구
+      설명에서 오래된 모델용 지시를 찾아 수정 제안을 diff 로 보여준다(v2.1.221+).
+  - id: debug-description
+    term: /debug [description]
+    kind: command
+    tier: full
+    desc: 디버그 로그 활성화 및 문제 해결
+    aliases: [디버그, 문제 해결]
+    detail: |
+      현재 세션에 디버그 로그를 활성화하고 세션 디버그 로그를 읽어 문제를 해결한다. 기본값은
+      `claude --debug` 로 시작하지 않은 한 디버그 로그가 꺼져 있으므로, 세션 중간에 `/debug` 를
+      실행하면 그 시점부터 로그를 캡처한다. 문제 설명을 붙이면 분석에 초점을 맞춘다.
+    tasks: [it-broke]
+  - id: deep-research-question
+    term: /deep-research <question>
+    kind: command
+    tier: full
+    desc: 심층 웹 연구
+    aliases: [깊은 연구, 조사]
+    detail: |
+      질문에 대해 웹 검색을 펼쳐 소스를 가져와 교차 검증하고 인용이 포함된 보고서를 종합한다.
+      클라우드에서 도는 워크플로우다(v2.1.218+ 이후에는 명시적으로 호출할 때만 실행).
+  - id: design-login
+    term: /design-login
+    kind: command
+    tier: full
+    desc: 디자인 시스템 인증
+    aliases: [디자인 인증, Claude Design]
+    detail: |
+      `/design-sync` 를 위한 디자인 시스템 접근 권한을 claude.ai 계정으로 인증한다.
+  - id: design-sync-hint
+    term: /design-sync [hint]
+    kind: command
+    tier: full
+    desc: 디자인 시스템 동기화
+    aliases: [디자인 시스템, 컴포넌트 라이브러리]
+    detail: |
+      리포의 React 디자인 시스템을 변환해 Claude Design(https://claude.ai/design)에 올려서
+      Claude 가 만든 디자인이 실제 컴포넌트를 쓰게 한다. 이름을 붙일 수도 있다(`/design-sync Acme DS`).
+      첫 동기화는 모든 컴포넌트를 검증하므로 큰 리포에서는 몇 시간이 걸릴 수 있다.
+      Anthropic API 에서 사용 가능하며, 일부 플랫폼에서는 claude.ai 에 접근할 수 없어 사용할 수 없다.
+    caveat: Anthropic API 에서만 사용 가능하다. 다른 플랫폼에서는 기본 도구가 claude.ai 에 접근할 수 없다.
+  - id: auto-mode-setup
+    term: /auto-mode-setup
+    kind: command
+    tier: full
+    desc: 오토 모드 환경 설정 생성
+    aliases: [오토 모드, 자동 권한]
+    detail: |
+      프로젝트와 최근 세션에서 `autoMode.environment` 항목을 초안으로 작성하고, 초안을 검토한 뒤
+      사용자 설정에 저장한다. Pro·Max·Team 플랜과 Claude Code v2.1.228+ 이 필요하다.
+      네이티브 Windows 에서는 v2.1.233+ 이 필요하다.
+    tasks: [reduce-permission-prompts]
+  - id: remote-env
+    term: /remote-env
+    kind: command
+    tier: full
+    desc: 클라우드 에이전트 기본 환경
+    aliases: [클라우드 환경, 리모트 환경]
+    detail: |
+      클라우드 에이전트의 기본 환경을 선택한다.
   - id: import-agent-config
     term: /import [codex|gemini]
     kind: command
@@ -118,5 +191,25 @@ items:
     detail: |
       이 기기의 다른 코딩 에이전트(현재 OpenAI Codex, Google Gemini CLI) 설정을 가져온다 —
       지시 파일·MCP 서버·명령·서브에이전트·스킬까지. `--dry-run` 은 아무것도 쓰지 않고 미리 보고,
-      `--yes` 는 선택 화면을 건너뛴다.
+      `--yes` 는 선택 화면을 건너뛴다(v2.1.213+).
     tasks: [first-setup]
+  - id: plugin-subcommand
+    term: /plugin [subcommand]
+    kind: command
+    tier: full
+    desc: 플러그인 관리
+    aliases: [플러그인, 설치, 활성화]
+    detail: |
+      Claude Code 플러그인을 관리한다. 인자 없이 실행하면 플러그인 메뉴가 열리고,
+      `list`·`install`·`enable`·`disable` 같은 하위 명령을 직접 실행할 수도 있다.
+      설치할 때 플러그인을 바로 활성화할 수도 있고, 설치 요약에서 다시 로드가 필요한지 알려준다.
+  - id: reload-plugins-force
+    term: /reload-plugins [--force]
+    kind: command
+    tier: full
+    desc: 플러그인 다시 로드
+    aliases: [플러그인 새로고침]
+    detail: |
+      활성 플러그인을 다시 로드해 보류 중인 변경사항을 적용한다. 재로드된 구성요소 수를 보고하고
+      로드 오류를 표시한다. 재로드로 MCP 도구가 바뀌어 프롬프트 캐시가 무효화되면 경고하고 건너뛴다.
+      `--force` 를 주면 강제로 진행한다.

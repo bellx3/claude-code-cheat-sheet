@@ -1,18 +1,18 @@
 {
- "fetchedAt": "2026-08-20",
+ "fetchedAt": "2026-08-25",
  "sources": [
   {
    "key": "code",
    "url": "https://code.claude.com/docs/llms.txt",
    "label": "Claude Code",
-   "bytes": 41883,
-   "sha256": "8693b8dcf0e3d90e7eae08b8133c67c0e169fc6435d1d2cda1e8be4af9c7435d"
+   "bytes": 45306,
+   "sha256": "465c161f71598cf6231bab83b6ca31365f3c1146120bb8d2a2a6dce323302442"
   }
  ],
  "pages": [
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Getting started",
    "title": "Overview",
    "url": "https://code.claude.com/docs/en/overview",
    "mdUrl": "https://code.claude.com/docs/en/overview.md",
@@ -20,7 +20,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Getting started",
    "title": "Quickstart",
    "url": "https://code.claude.com/docs/en/quickstart",
    "mdUrl": "https://code.claude.com/docs/en/quickstart.md",
@@ -28,7 +28,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Getting started",
    "title": "Claude Code changelog",
    "url": "https://code.claude.com/docs/en/changelog",
    "mdUrl": "https://code.claude.com/docs/en/changelog.md",
@@ -36,7 +36,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "How Claude Code works",
    "url": "https://code.claude.com/docs/en/how-claude-code-works",
    "mdUrl": "https://code.claude.com/docs/en/how-claude-code-works.md",
@@ -44,7 +44,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "Extend Claude Code",
    "url": "https://code.claude.com/docs/en/features-overview",
    "mdUrl": "https://code.claude.com/docs/en/features-overview.md",
@@ -52,7 +52,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "Explore the .claude directory",
    "url": "https://code.claude.com/docs/en/claude-directory",
    "mdUrl": "https://code.claude.com/docs/en/claude-directory.md",
@@ -60,7 +60,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "Explore the context window",
    "url": "https://code.claude.com/docs/en/context-window",
    "mdUrl": "https://code.claude.com/docs/en/context-window.md",
@@ -68,7 +68,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "How Claude Code uses prompt caching",
    "url": "https://code.claude.com/docs/en/prompt-caching",
    "mdUrl": "https://code.claude.com/docs/en/prompt-caching.md",
@@ -76,7 +76,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Use Claude Code",
    "title": "How Claude remembers your project",
    "url": "https://code.claude.com/docs/en/memory",
    "mdUrl": "https://code.claude.com/docs/en/memory.md",
@@ -84,15 +84,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
-   "title": "Choose a permission mode",
-   "url": "https://code.claude.com/docs/en/permission-modes",
-   "mdUrl": "https://code.claude.com/docs/en/permission-modes.md",
-   "blurb": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop."
-  },
-  {
-   "source": "code",
-   "section": "Docs",
+   "section": "Use Claude Code",
    "title": "Manage sessions",
    "url": "https://code.claude.com/docs/en/sessions",
    "mdUrl": "https://code.claude.com/docs/en/sessions.md",
@@ -100,7 +92,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Use Claude Code",
    "title": "Common workflows",
    "url": "https://code.claude.com/docs/en/common-workflows",
    "mdUrl": "https://code.claude.com/docs/en/common-workflows.md",
@@ -108,7 +100,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Use Claude Code",
    "title": "Prompt library",
    "url": "https://code.claude.com/docs/en/prompt-library",
    "mdUrl": "https://code.claude.com/docs/en/prompt-library.md",
@@ -116,7 +108,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Use Claude Code",
    "title": "Best practices for Claude Code",
    "url": "https://code.claude.com/docs/en/best-practices",
    "mdUrl": "https://code.claude.com/docs/en/best-practices.md",
@@ -124,7 +116,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Platforms and integrations",
    "url": "https://code.claude.com/docs/en/platforms",
    "mdUrl": "https://code.claude.com/docs/en/platforms.md",
@@ -132,7 +124,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Continue local sessions from any device with Remote Control",
    "url": "https://code.claude.com/docs/en/remote-control",
    "mdUrl": "https://code.claude.com/docs/en/remote-control.md",
@@ -140,7 +132,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on the web",
    "title": "Get started with Claude Code on the web",
    "url": "https://code.claude.com/docs/en/web-quickstart",
    "mdUrl": "https://code.claude.com/docs/en/web-quickstart.md",
@@ -148,7 +140,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on the web",
    "title": "Use Claude Code on the web",
    "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
    "mdUrl": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
@@ -156,7 +148,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on the web",
    "title": "Automate work with routines",
    "url": "https://code.claude.com/docs/en/routines",
    "mdUrl": "https://code.claude.com/docs/en/routines.md",
@@ -164,7 +156,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on the web",
    "title": "Find bugs with ultrareview",
    "url": "https://code.claude.com/docs/en/ultrareview",
    "mdUrl": "https://code.claude.com/docs/en/ultrareview.md",
@@ -172,7 +164,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on desktop",
    "title": "Get started with the desktop app",
    "url": "https://code.claude.com/docs/en/desktop-quickstart",
    "mdUrl": "https://code.claude.com/docs/en/desktop-quickstart.md",
@@ -180,7 +172,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on desktop",
    "title": "Desktop application",
    "url": "https://code.claude.com/docs/en/desktop",
    "mdUrl": "https://code.claude.com/docs/en/desktop.md",
@@ -188,7 +180,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on desktop",
    "title": "Claude Desktop on Linux (beta)",
    "url": "https://code.claude.com/docs/en/desktop-linux",
    "mdUrl": "https://code.claude.com/docs/en/desktop-linux.md",
@@ -196,7 +188,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on desktop",
    "title": "Claude Code Desktop in WSL",
    "url": "https://code.claude.com/docs/en/desktop-wsl",
    "mdUrl": "https://code.claude.com/docs/en/desktop-wsl.md",
@@ -204,7 +196,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on desktop",
    "title": "Schedule recurring tasks in Claude Code Desktop",
    "url": "https://code.claude.com/docs/en/desktop-scheduled-tasks",
    "mdUrl": "https://code.claude.com/docs/en/desktop-scheduled-tasks.md",
@@ -212,7 +204,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude Code on desktop",
    "title": "Test iOS apps in the simulator",
    "url": "https://code.claude.com/docs/en/desktop-ios-simulator",
    "mdUrl": "https://code.claude.com/docs/en/desktop-ios-simulator.md",
@@ -220,7 +212,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Claude Code on mobile",
    "url": "https://code.claude.com/docs/en/mobile",
    "mdUrl": "https://code.claude.com/docs/en/mobile.md",
@@ -228,7 +220,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Use Claude Code with Chrome",
    "url": "https://code.claude.com/docs/en/chrome",
    "mdUrl": "https://code.claude.com/docs/en/chrome.md",
@@ -236,7 +228,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Let Claude use your computer from the CLI",
    "url": "https://code.claude.com/docs/en/computer-use",
    "mdUrl": "https://code.claude.com/docs/en/computer-use.md",
@@ -244,7 +236,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Use Claude Code in VS Code",
    "url": "https://code.claude.com/docs/en/vs-code",
    "mdUrl": "https://code.claude.com/docs/en/vs-code.md",
@@ -252,7 +244,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "JetBrains IDEs",
    "url": "https://code.claude.com/docs/en/jetbrains",
    "mdUrl": "https://code.claude.com/docs/en/jetbrains.md",
@@ -260,7 +252,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Catch security issues as Claude writes code",
    "url": "https://code.claude.com/docs/en/security-guidance",
    "mdUrl": "https://code.claude.com/docs/en/security-guidance.md",
@@ -268,7 +260,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Scan your codebase for vulnerabilities",
    "url": "https://code.claude.com/docs/en/claude-security",
    "mdUrl": "https://code.claude.com/docs/en/claude-security.md",
@@ -276,7 +268,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Code Review",
    "url": "https://code.claude.com/docs/en/code-review",
    "mdUrl": "https://code.claude.com/docs/en/code-review.md",
@@ -284,7 +276,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Claude Code GitHub Actions",
    "url": "https://code.claude.com/docs/en/github-actions",
    "mdUrl": "https://code.claude.com/docs/en/github-actions.md",
@@ -292,7 +284,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Use Claude Code GitHub Actions with cloud providers",
    "url": "https://code.claude.com/docs/en/github-actions-cloud-providers",
    "mdUrl": "https://code.claude.com/docs/en/github-actions-cloud-providers.md",
@@ -300,7 +292,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Claude Code with GitHub Enterprise Server",
    "url": "https://code.claude.com/docs/en/github-enterprise-server",
    "mdUrl": "https://code.claude.com/docs/en/github-enterprise-server.md",
@@ -308,7 +300,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Code review & CI/CD",
    "title": "Claude Code GitLab CI/CD",
    "url": "https://code.claude.com/docs/en/gitlab-ci-cd",
    "mdUrl": "https://code.claude.com/docs/en/gitlab-ci-cd.md",
@@ -316,7 +308,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Claude Code in Slack",
    "url": "https://code.claude.com/docs/en/slack",
    "mdUrl": "https://code.claude.com/docs/en/slack.md",
@@ -324,7 +316,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Platforms and integrations",
    "title": "Claude Tag",
    "url": "https://code.claude.com/docs/en/claude-tag",
    "mdUrl": "https://code.claude.com/docs/en/claude-tag.md",
@@ -332,7 +324,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Run agents in parallel",
    "url": "https://code.claude.com/docs/en/agents",
    "mdUrl": "https://code.claude.com/docs/en/agents.md",
@@ -340,7 +332,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Create custom subagents",
    "url": "https://code.claude.com/docs/en/sub-agents",
    "mdUrl": "https://code.claude.com/docs/en/sub-agents.md",
@@ -348,7 +340,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Manage multiple agents with agent view",
    "url": "https://code.claude.com/docs/en/agent-view",
    "mdUrl": "https://code.claude.com/docs/en/agent-view.md",
@@ -356,7 +348,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Orchestrate teams of Claude Code sessions",
    "url": "https://code.claude.com/docs/en/agent-teams",
    "mdUrl": "https://code.claude.com/docs/en/agent-teams.md",
@@ -364,7 +356,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Message your other Claude Code sessions",
    "url": "https://code.claude.com/docs/en/cross-session-messaging",
    "mdUrl": "https://code.claude.com/docs/en/cross-session-messaging.md",
@@ -372,7 +364,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Orchestrate subagents at scale with dynamic workflows",
    "url": "https://code.claude.com/docs/en/workflows",
    "mdUrl": "https://code.claude.com/docs/en/workflows.md",
@@ -380,7 +372,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agents and parallel work",
    "title": "Run parallel sessions with worktrees",
    "url": "https://code.claude.com/docs/en/worktrees",
    "mdUrl": "https://code.claude.com/docs/en/worktrees.md",
@@ -388,7 +380,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "MCP",
    "title": "Connect to MCP servers",
    "url": "https://code.claude.com/docs/en/mcp-quickstart",
    "mdUrl": "https://code.claude.com/docs/en/mcp-quickstart.md",
@@ -396,7 +388,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "MCP",
    "title": "Connect Claude Code to tools via MCP",
    "url": "https://code.claude.com/docs/en/mcp",
    "mdUrl": "https://code.claude.com/docs/en/mcp.md",
@@ -404,7 +396,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Skills",
    "title": "Extend Claude with skills",
    "url": "https://code.claude.com/docs/en/skills",
    "mdUrl": "https://code.claude.com/docs/en/skills.md",
@@ -412,7 +404,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Plugins",
    "title": "Discover and install prebuilt plugins through marketplaces",
    "url": "https://code.claude.com/docs/en/discover-plugins",
    "mdUrl": "https://code.claude.com/docs/en/discover-plugins.md",
@@ -420,7 +412,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Plugins",
    "title": "Create plugins",
    "url": "https://code.claude.com/docs/en/plugins",
    "mdUrl": "https://code.claude.com/docs/en/plugins.md",
@@ -428,7 +420,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Artifacts",
    "title": "Share session output as artifacts",
    "url": "https://code.claude.com/docs/en/artifacts",
    "mdUrl": "https://code.claude.com/docs/en/artifacts.md",
@@ -436,7 +428,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Automation",
    "title": "Automate actions with hooks",
    "url": "https://code.claude.com/docs/en/hooks-guide",
    "mdUrl": "https://code.claude.com/docs/en/hooks-guide.md",
@@ -444,7 +436,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Automation",
    "title": "Push events into a running session with channels",
    "url": "https://code.claude.com/docs/en/channels",
    "mdUrl": "https://code.claude.com/docs/en/channels.md",
@@ -452,7 +444,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Automation",
    "title": "Run prompts on a schedule",
    "url": "https://code.claude.com/docs/en/scheduled-tasks",
    "mdUrl": "https://code.claude.com/docs/en/scheduled-tasks.md",
@@ -460,7 +452,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Automation",
    "title": "Keep Claude working toward a goal",
    "url": "https://code.claude.com/docs/en/goal",
    "mdUrl": "https://code.claude.com/docs/en/goal.md",
@@ -468,7 +460,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Automation",
    "title": "Run Claude Code programmatically",
    "url": "https://code.claude.com/docs/en/headless",
    "mdUrl": "https://code.claude.com/docs/en/headless.md",
@@ -476,7 +468,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Automation",
    "title": "Launch sessions from links",
    "url": "https://code.claude.com/docs/en/deep-links",
    "mdUrl": "https://code.claude.com/docs/en/deep-links.md",
@@ -484,7 +476,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Guides",
    "title": "Set up Claude Code in a monorepo or large codebase",
    "url": "https://code.claude.com/docs/en/large-codebases",
    "mdUrl": "https://code.claude.com/docs/en/large-codebases.md",
@@ -492,7 +484,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Troubleshooting",
    "title": "Troubleshoot installation and login",
    "url": "https://code.claude.com/docs/en/troubleshoot-install",
    "mdUrl": "https://code.claude.com/docs/en/troubleshoot-install.md",
@@ -500,7 +492,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Troubleshooting",
    "title": "Troubleshooting",
    "url": "https://code.claude.com/docs/en/troubleshooting",
    "mdUrl": "https://code.claude.com/docs/en/troubleshooting.md",
@@ -508,7 +500,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Troubleshooting",
    "title": "Debug your configuration",
    "url": "https://code.claude.com/docs/en/debug-your-config",
    "mdUrl": "https://code.claude.com/docs/en/debug-your-config.md",
@@ -516,7 +508,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Troubleshooting",
    "title": "Error reference",
    "url": "https://code.claude.com/docs/en/errors",
    "mdUrl": "https://code.claude.com/docs/en/errors.md",
@@ -524,7 +516,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Setup and access",
    "title": "Set up Claude Code for your organization",
    "url": "https://code.claude.com/docs/en/admin-setup",
    "mdUrl": "https://code.claude.com/docs/en/admin-setup.md",
@@ -532,7 +524,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Setup and access",
    "title": "Advanced setup",
    "url": "https://code.claude.com/docs/en/setup",
    "mdUrl": "https://code.claude.com/docs/en/setup.md",
@@ -540,7 +532,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Setup and access",
    "title": "Authentication",
    "url": "https://code.claude.com/docs/en/authentication",
    "mdUrl": "https://code.claude.com/docs/en/authentication.md",
@@ -548,7 +540,15 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Setup and access",
+   "title": "Deploy managed settings",
+   "url": "https://code.claude.com/docs/en/managed-settings",
+   "mdUrl": "https://code.claude.com/docs/en/managed-settings.md",
+   "blurb": "Deploy managed settings to every developer's machine: delivery mechanisms per OS, which managed source Claude Code uses, and how to verify enforcement."
+  },
+  {
+   "source": "code",
+   "section": "Setup and access",
    "title": "Configure server-managed settings",
    "url": "https://code.claude.com/docs/en/server-managed-settings",
    "mdUrl": "https://code.claude.com/docs/en/server-managed-settings.md",
@@ -556,7 +556,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Setup and access",
    "title": "Control MCP server access for your organization",
    "url": "https://code.claude.com/docs/en/managed-mcp",
    "mdUrl": "https://code.claude.com/docs/en/managed-mcp.md",
@@ -564,7 +564,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Setup and access",
    "title": "Configure auto mode",
    "url": "https://code.claude.com/docs/en/auto-mode-config",
    "mdUrl": "https://code.claude.com/docs/en/auto-mode-config.md",
@@ -572,7 +572,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Enterprise deployment overview",
    "url": "https://code.claude.com/docs/en/third-party-integrations",
    "mdUrl": "https://code.claude.com/docs/en/third-party-integrations.md",
@@ -580,7 +580,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Feature availability",
    "url": "https://code.claude.com/docs/en/feature-availability",
    "mdUrl": "https://code.claude.com/docs/en/feature-availability.md",
@@ -588,7 +588,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Claude Code on Amazon Bedrock",
    "url": "https://code.claude.com/docs/en/amazon-bedrock",
    "mdUrl": "https://code.claude.com/docs/en/amazon-bedrock.md",
@@ -596,7 +596,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Claude Code on Claude Platform on AWS",
    "url": "https://code.claude.com/docs/en/claude-platform-on-aws",
    "mdUrl": "https://code.claude.com/docs/en/claude-platform-on-aws.md",
@@ -604,7 +604,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Claude Code on Google Cloud's Agent Platform",
    "url": "https://code.claude.com/docs/en/google-vertex-ai",
    "mdUrl": "https://code.claude.com/docs/en/google-vertex-ai.md",
@@ -612,7 +612,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Claude Code on Microsoft Foundry",
    "url": "https://code.claude.com/docs/en/microsoft-foundry",
    "mdUrl": "https://code.claude.com/docs/en/microsoft-foundry.md",
@@ -620,7 +620,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Enterprise network configuration",
    "url": "https://code.claude.com/docs/en/network-config",
    "mdUrl": "https://code.claude.com/docs/en/network-config.md",
@@ -628,7 +628,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Run Claude Code behind a corporate launcher",
    "url": "https://code.claude.com/docs/en/corporate-launcher",
    "mdUrl": "https://code.claude.com/docs/en/corporate-launcher.md",
@@ -636,7 +636,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Development containers",
    "url": "https://code.claude.com/docs/en/devcontainer",
    "mdUrl": "https://code.claude.com/docs/en/devcontainer.md",
@@ -644,7 +644,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Gateways",
    "title": "Run Claude Code through a gateway",
    "url": "https://code.claude.com/docs/en/gateways",
    "mdUrl": "https://code.claude.com/docs/en/gateways.md",
@@ -652,7 +652,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude apps gateway",
    "title": "Claude apps gateway for Amazon Bedrock, Claude Platform on AWS, Google Cloud, and Microsoft Foundry",
    "url": "https://code.claude.com/docs/en/claude-apps-gateway",
    "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway.md",
@@ -660,7 +660,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude apps gateway",
    "title": "Claude apps gateway configuration",
    "url": "https://code.claude.com/docs/en/claude-apps-gateway-config",
    "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-config.md",
@@ -668,7 +668,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude apps gateway",
    "title": "Claude apps gateway spend limits",
    "url": "https://code.claude.com/docs/en/claude-apps-gateway-spend-limits",
    "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-spend-limits.md",
@@ -676,7 +676,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude apps gateway",
    "title": "Claude apps gateway deployment and operations",
    "url": "https://code.claude.com/docs/en/claude-apps-gateway-deploy",
    "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-deploy.md",
@@ -684,7 +684,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude apps gateway",
    "title": "Deploy Claude apps gateway on AWS",
    "url": "https://code.claude.com/docs/en/claude-apps-gateway-on-aws",
    "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-on-aws.md",
@@ -692,7 +692,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Claude apps gateway",
    "title": "Deploy Claude apps gateway on Google Cloud",
    "url": "https://code.claude.com/docs/en/claude-apps-gateway-on-gcp",
    "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-on-gcp.md",
@@ -700,7 +700,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Other gateways",
    "title": "Other LLM gateways",
    "url": "https://code.claude.com/docs/en/llm-gateway",
    "mdUrl": "https://code.claude.com/docs/en/llm-gateway.md",
@@ -708,7 +708,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Other gateways",
    "title": "Connect Claude Code to an LLM gateway",
    "url": "https://code.claude.com/docs/en/llm-gateway-connect",
    "mdUrl": "https://code.claude.com/docs/en/llm-gateway-connect.md",
@@ -716,7 +716,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Other gateways",
    "title": "Roll out an LLM gateway for your organization",
    "url": "https://code.claude.com/docs/en/llm-gateway-rollout",
    "mdUrl": "https://code.claude.com/docs/en/llm-gateway-rollout.md",
@@ -724,7 +724,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Other gateways",
    "title": "Gateway protocol reference",
    "url": "https://code.claude.com/docs/en/llm-gateway-protocol",
    "mdUrl": "https://code.claude.com/docs/en/llm-gateway-protocol.md",
@@ -732,7 +732,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Usage and costs",
    "title": "Monitoring",
    "url": "https://code.claude.com/docs/en/monitoring-usage",
    "mdUrl": "https://code.claude.com/docs/en/monitoring-usage.md",
@@ -740,7 +740,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Usage and costs",
    "title": "Manage costs effectively",
    "url": "https://code.claude.com/docs/en/costs",
    "mdUrl": "https://code.claude.com/docs/en/costs.md",
@@ -748,7 +748,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Usage and costs",
    "title": "Track team usage with analytics",
    "url": "https://code.claude.com/docs/en/analytics",
    "mdUrl": "https://code.claude.com/docs/en/analytics.md",
@@ -756,7 +756,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Plugin distribution",
    "title": "Create and distribute a plugin marketplace",
    "url": "https://code.claude.com/docs/en/plugin-marketplaces",
    "mdUrl": "https://code.claude.com/docs/en/plugin-marketplaces.md",
@@ -764,7 +764,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Plugin distribution",
    "title": "Constrain plugin dependency versions",
    "url": "https://code.claude.com/docs/en/plugin-dependencies",
    "mdUrl": "https://code.claude.com/docs/en/plugin-dependencies.md",
@@ -772,7 +772,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Plugin distribution",
    "title": "Recommend your plugin from your CLI",
    "url": "https://code.claude.com/docs/en/plugin-hints",
    "mdUrl": "https://code.claude.com/docs/en/plugin-hints.md",
@@ -780,7 +780,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Plugin distribution",
    "title": "Recommend plugins for your org",
    "url": "https://code.claude.com/docs/en/plugin-relevance",
    "mdUrl": "https://code.claude.com/docs/en/plugin-relevance.md",
@@ -788,7 +788,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Security and data",
    "title": "Security",
    "url": "https://code.claude.com/docs/en/security",
    "mdUrl": "https://code.claude.com/docs/en/security.md",
@@ -796,7 +796,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Security and data",
    "title": "Data usage",
    "url": "https://code.claude.com/docs/en/data-usage",
    "mdUrl": "https://code.claude.com/docs/en/data-usage.md",
@@ -804,7 +804,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Security and data",
    "title": "Zero data retention",
    "url": "https://code.claude.com/docs/en/zero-data-retention",
    "mdUrl": "https://code.claude.com/docs/en/zero-data-retention.md",
@@ -812,7 +812,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Adoption",
    "title": "Communications kit",
    "url": "https://code.claude.com/docs/en/communications-kit",
    "mdUrl": "https://code.claude.com/docs/en/communications-kit.md",
@@ -820,7 +820,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Adoption",
    "title": "Champion kit",
    "url": "https://code.claude.com/docs/en/champion-kit",
    "mdUrl": "https://code.claude.com/docs/en/champion-kit.md",
@@ -828,15 +828,31 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Settings",
    "title": "Claude Code settings",
    "url": "https://code.claude.com/docs/en/settings",
    "mdUrl": "https://code.claude.com/docs/en/settings.md",
-   "blurb": "Configure Claude Code with global and project-level settings, and environment variables."
+   "blurb": "Change Claude Code settings, pick the scope a key belongs in, verify the change, and learn which value Claude Code uses when a key is set in several places."
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Settings",
+   "title": "Claude Code settings reference",
+   "url": "https://code.claude.com/docs/en/settings-reference",
+   "mdUrl": "https://code.claude.com/docs/en/settings-reference.md",
+   "blurb": "Complete reference for every Claude Code settings.json key: where each one goes, its type and default, and a paste-ready example, with an index of every key."
+  },
+  {
+   "source": "code",
+   "section": "Settings",
+   "title": "Example settings files",
+   "url": "https://code.claude.com/docs/en/settings-example",
+   "mdUrl": "https://code.claude.com/docs/en/settings-example.md",
+   "blurb": "Realistic settings.json files for a developer, a team, and an organization: copy one, keep the keys you want, and change the values."
+  },
+  {
+   "source": "code",
+   "section": "Permissions and sandboxing",
    "title": "Configure permissions",
    "url": "https://code.claude.com/docs/en/permissions",
    "mdUrl": "https://code.claude.com/docs/en/permissions.md",
@@ -844,15 +860,15 @@
   },
   {
    "source": "code",
-   "section": "Docs",
-   "title": "Choose a sandbox environment",
-   "url": "https://code.claude.com/docs/en/sandbox-environments",
-   "mdUrl": "https://code.claude.com/docs/en/sandbox-environments.md",
-   "blurb": "Compare Claude Code sandbox options: the built-in sandboxed Bash tool, sandbox runtime, dev containers, Docker, and VMs. Choose the right isolation for your threat model."
+   "section": "Permissions and sandboxing",
+   "title": "Choose a permission mode",
+   "url": "https://code.claude.com/docs/en/permission-modes",
+   "mdUrl": "https://code.claude.com/docs/en/permission-modes.md",
+   "blurb": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop."
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Permissions and sandboxing",
    "title": "Configure the sandboxed Bash tool",
    "url": "https://code.claude.com/docs/en/sandboxing",
    "mdUrl": "https://code.claude.com/docs/en/sandboxing.md",
@@ -860,7 +876,15 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Permissions and sandboxing",
+   "title": "Choose a sandbox environment",
+   "url": "https://code.claude.com/docs/en/sandbox-environments",
+   "mdUrl": "https://code.claude.com/docs/en/sandbox-environments.md",
+   "blurb": "Compare Claude Code sandbox options: the built-in sandboxed Bash tool, sandbox runtime, dev containers, Docker, and VMs. Choose the right isolation for your threat model."
+  },
+  {
+   "source": "code",
+   "section": "Environments",
    "title": "Configure cloud environments",
    "url": "https://code.claude.com/docs/en/cloud-environments",
    "mdUrl": "https://code.claude.com/docs/en/cloud-environments.md",
@@ -868,7 +892,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Self-hosted environments",
    "url": "https://code.claude.com/docs/en/self-hosted-environments",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments.md",
@@ -876,7 +900,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Self-hosted environments quickstart",
    "url": "https://code.claude.com/docs/en/self-hosted-environments-quickstart",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-quickstart.md",
@@ -884,7 +908,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Deploy self-hosted environments to production",
    "url": "https://code.claude.com/docs/en/self-hosted-environments-deploy",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-deploy.md",
@@ -892,7 +916,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Customize sessions in self-hosted environments",
    "url": "https://code.claude.com/docs/en/self-hosted-environments-configuration",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-configuration.md",
@@ -900,7 +924,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Test self-hosted environments end to end",
    "url": "https://code.claude.com/docs/en/self-hosted-environments-testing",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-testing.md",
@@ -908,7 +932,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Self-hosted environments reference",
    "url": "https://code.claude.com/docs/en/self-hosted-environments-reference",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-reference.md",
@@ -916,7 +940,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Self-hosted environments",
    "title": "Verify session identity in self-hosted environments",
    "url": "https://code.claude.com/docs/en/self-hosted-environments-identity",
    "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-identity.md",
@@ -924,7 +948,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Model and responses",
    "title": "Model configuration",
    "url": "https://code.claude.com/docs/en/model-config",
    "mdUrl": "https://code.claude.com/docs/en/model-config.md",
@@ -932,7 +956,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Model and responses",
    "title": "Speed up responses with fast mode",
    "url": "https://code.claude.com/docs/en/fast-mode",
    "mdUrl": "https://code.claude.com/docs/en/fast-mode.md",
@@ -940,7 +964,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Model and responses",
    "title": "Escalate hard decisions with the advisor tool",
    "url": "https://code.claude.com/docs/en/advisor",
    "mdUrl": "https://code.claude.com/docs/en/advisor.md",
@@ -948,7 +972,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Model and responses",
    "title": "Output styles",
    "url": "https://code.claude.com/docs/en/output-styles",
    "mdUrl": "https://code.claude.com/docs/en/output-styles.md",
@@ -956,7 +980,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Interface",
    "title": "Configure your terminal for Claude Code",
    "url": "https://code.claude.com/docs/en/terminal-config",
    "mdUrl": "https://code.claude.com/docs/en/terminal-config.md",
@@ -964,7 +988,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Interface",
    "title": "Fullscreen rendering",
    "url": "https://code.claude.com/docs/en/fullscreen",
    "mdUrl": "https://code.claude.com/docs/en/fullscreen.md",
@@ -972,7 +996,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Interface",
    "title": "Use Claude Code with a screen reader",
    "url": "https://code.claude.com/docs/en/accessibility",
    "mdUrl": "https://code.claude.com/docs/en/accessibility.md",
@@ -980,7 +1004,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Interface",
    "title": "Voice dictation",
    "url": "https://code.claude.com/docs/en/voice-dictation",
    "mdUrl": "https://code.claude.com/docs/en/voice-dictation.md",
@@ -988,7 +1012,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Interface",
    "title": "Customize your status line",
    "url": "https://code.claude.com/docs/en/statusline",
    "mdUrl": "https://code.claude.com/docs/en/statusline.md",
@@ -996,7 +1020,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Interface",
    "title": "Customize keyboard shortcuts",
    "url": "https://code.claude.com/docs/en/keybindings",
    "mdUrl": "https://code.claude.com/docs/en/keybindings.md",
@@ -1004,7 +1028,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "CLI reference",
    "url": "https://code.claude.com/docs/en/cli-reference",
    "mdUrl": "https://code.claude.com/docs/en/cli-reference.md",
@@ -1012,7 +1036,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Commands",
    "url": "https://code.claude.com/docs/en/commands",
    "mdUrl": "https://code.claude.com/docs/en/commands.md",
@@ -1020,7 +1044,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Environment variables",
    "url": "https://code.claude.com/docs/en/env-vars",
    "mdUrl": "https://code.claude.com/docs/en/env-vars.md",
@@ -1028,7 +1052,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Tools reference",
    "url": "https://code.claude.com/docs/en/tools-reference",
    "mdUrl": "https://code.claude.com/docs/en/tools-reference.md",
@@ -1036,7 +1060,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Interactive mode",
    "url": "https://code.claude.com/docs/en/interactive-mode",
    "mdUrl": "https://code.claude.com/docs/en/interactive-mode.md",
@@ -1044,7 +1068,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Checkpointing",
    "url": "https://code.claude.com/docs/en/checkpointing",
    "mdUrl": "https://code.claude.com/docs/en/checkpointing.md",
@@ -1052,7 +1076,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Hooks reference",
    "url": "https://code.claude.com/docs/en/hooks",
    "mdUrl": "https://code.claude.com/docs/en/hooks.md",
@@ -1060,7 +1084,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Plugins reference",
    "url": "https://code.claude.com/docs/en/plugins-reference",
    "mdUrl": "https://code.claude.com/docs/en/plugins-reference.md",
@@ -1068,7 +1092,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Reference",
    "title": "Channels reference",
    "url": "https://code.claude.com/docs/en/channels-reference",
    "mdUrl": "https://code.claude.com/docs/en/channels-reference.md",
@@ -1076,7 +1100,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Glossary",
    "title": "Glossary",
    "url": "https://code.claude.com/docs/en/glossary",
    "mdUrl": "https://code.claude.com/docs/en/glossary.md",
@@ -1084,7 +1108,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agent SDK",
    "title": "Agent SDK overview",
    "url": "https://code.claude.com/docs/en/agent-sdk/overview",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/overview.md",
@@ -1092,7 +1116,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Agent SDK",
    "title": "Quickstart",
    "url": "https://code.claude.com/docs/en/agent-sdk/quickstart",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/quickstart.md",
@@ -1100,7 +1124,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Build agents",
    "title": "Examples",
    "url": "https://code.claude.com/docs/en/agent-sdk/examples",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/examples.md",
@@ -1108,7 +1132,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Build agents",
    "title": "Troubleshooting",
    "url": "https://code.claude.com/docs/en/agent-sdk/troubleshooting",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/troubleshooting.md",
@@ -1116,7 +1140,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "How the agent loop works",
    "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/agent-loop.md",
@@ -1124,7 +1148,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "Use Claude Code features in the SDK",
    "url": "https://code.claude.com/docs/en/agent-sdk/claude-code-features",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/claude-code-features.md",
@@ -1132,7 +1156,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "Work with sessions",
    "url": "https://code.claude.com/docs/en/agent-sdk/sessions",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/sessions.md",
@@ -1140,7 +1164,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Core concepts",
    "title": "Persist sessions to external storage",
    "url": "https://code.claude.com/docs/en/agent-sdk/session-storage",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/session-storage.md",
@@ -1148,7 +1172,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Input and output",
    "title": "Streaming Input",
    "url": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode.md",
@@ -1156,7 +1180,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Input and output",
    "title": "Handle approvals and user input",
    "url": "https://code.claude.com/docs/en/agent-sdk/user-input",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/user-input.md",
@@ -1164,7 +1188,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Input and output",
    "title": "Stream responses in real-time",
    "url": "https://code.claude.com/docs/en/agent-sdk/streaming-output",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/streaming-output.md",
@@ -1172,7 +1196,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Input and output",
    "title": "Get structured output from agents",
    "url": "https://code.claude.com/docs/en/agent-sdk/structured-outputs",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/structured-outputs.md",
@@ -1180,7 +1204,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Extend with tools",
    "title": "Give Claude custom tools",
    "url": "https://code.claude.com/docs/en/agent-sdk/custom-tools",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/custom-tools.md",
@@ -1188,7 +1212,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Extend with tools",
    "title": "Connect to external tools with MCP",
    "url": "https://code.claude.com/docs/en/agent-sdk/mcp",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/mcp.md",
@@ -1196,7 +1220,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Extend with tools",
    "title": "Scale to many tools with tool search",
    "url": "https://code.claude.com/docs/en/agent-sdk/tool-search",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/tool-search.md",
@@ -1204,7 +1228,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Extend with tools",
    "title": "Subagents in the SDK",
    "url": "https://code.claude.com/docs/en/agent-sdk/subagents",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/subagents.md",
@@ -1212,7 +1236,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Customize behavior",
    "title": "Modifying system prompts",
    "url": "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts.md",
@@ -1220,7 +1244,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Customize behavior",
    "title": "Extend agents with skills",
    "url": "https://code.claude.com/docs/en/agent-sdk/skills",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/skills.md",
@@ -1228,7 +1252,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Customize behavior",
    "title": "Plugins in the SDK",
    "url": "https://code.claude.com/docs/en/agent-sdk/plugins",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/plugins.md",
@@ -1236,7 +1260,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Control and observability",
    "title": "Configure permissions",
    "url": "https://code.claude.com/docs/en/agent-sdk/permissions",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/permissions.md",
@@ -1244,7 +1268,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Control and observability",
    "title": "Intercept and control agent behavior with hooks",
    "url": "https://code.claude.com/docs/en/agent-sdk/hooks",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/hooks.md",
@@ -1252,7 +1276,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Control and observability",
    "title": "Rewind file changes with checkpointing",
    "url": "https://code.claude.com/docs/en/agent-sdk/file-checkpointing",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/file-checkpointing.md",
@@ -1260,7 +1284,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Control and observability",
    "title": "Track cost and usage",
    "url": "https://code.claude.com/docs/en/agent-sdk/cost-tracking",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/cost-tracking.md",
@@ -1268,7 +1292,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Control and observability",
    "title": "Observability with OpenTelemetry",
    "url": "https://code.claude.com/docs/en/agent-sdk/observability",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/observability.md",
@@ -1276,15 +1300,15 @@
   },
   {
    "source": "code",
-   "section": "Docs",
-   "title": "Todo Lists",
+   "section": "Control and observability",
+   "title": "Track todos",
    "url": "https://code.claude.com/docs/en/agent-sdk/todo-tracking",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/todo-tracking.md",
-   "blurb": "Track and display todos using the Claude Agent SDK for organized task management"
+   "blurb": "Track todos in Agent SDK sessions and render Claude's progress in your application from structured tool calls"
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Hosting the Agent SDK",
    "url": "https://code.claude.com/docs/en/agent-sdk/hosting",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/hosting.md",
@@ -1292,7 +1316,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Deployment",
    "title": "Securely deploying AI agents",
    "url": "https://code.claude.com/docs/en/agent-sdk/secure-deployment",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md",
@@ -1300,7 +1324,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "SDK references",
    "title": "Agent SDK reference - TypeScript",
    "url": "https://code.claude.com/docs/en/agent-sdk/typescript",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/typescript.md",
@@ -1308,7 +1332,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "SDK references",
    "title": "TypeScript SDK V2 session API (removed)",
    "url": "https://code.claude.com/docs/en/agent-sdk/typescript-v2-preview",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/typescript-v2-preview.md",
@@ -1316,7 +1340,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "SDK references",
    "title": "Agent SDK reference - Python",
    "url": "https://code.claude.com/docs/en/agent-sdk/python",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/python.md",
@@ -1324,7 +1348,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "SDK references",
    "title": "Migrate to Claude Agent SDK",
    "url": "https://code.claude.com/docs/en/agent-sdk/migration-guide",
    "mdUrl": "https://code.claude.com/docs/en/agent-sdk/migration-guide.md",
@@ -1332,7 +1356,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "What's new",
    "url": "https://code.claude.com/docs/en/whats-new/index",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/index.md",
@@ -1340,7 +1364,23 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
+   "title": "Week 34 · August 17–21, 2026",
+   "url": "https://code.claude.com/docs/en/whats-new/2026-w34",
+   "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w34.md",
+   "blurb": "Draft editable UI artboards with the /design skill, set the Concise output style, and start a Claude Code session on your machine from your phone."
+  },
+  {
+   "source": "code",
+   "section": "What's New",
+   "title": "Week 33 · August 10–14, 2026",
+   "url": "https://code.claude.com/docs/en/whats-new/2026-w33",
+   "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w33.md",
+   "blurb": "Claude Code Desktop auto-continues after a usage limit resets, fork mode turns on by default, and GitLab merge requests and marketplaces join GitHub."
+  },
+  {
+   "source": "code",
+   "section": "What's New",
    "title": "Week 32 · August 3–7, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w32",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w32.md",
@@ -1348,7 +1388,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 30 · July 20–24, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w30",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w30.md",
@@ -1356,7 +1396,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 29 · July 13–17, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w29",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w29.md",
@@ -1364,7 +1404,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 28 · July 6–10, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w28",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w28.md",
@@ -1372,7 +1412,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 27 · June 29 – July 3, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w27",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w27.md",
@@ -1380,7 +1420,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 26 · June 22–26, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w26",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w26.md",
@@ -1388,7 +1428,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 25 · June 15–19, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w25",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w25.md",
@@ -1396,7 +1436,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 24 · June 8–12, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w24",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w24.md",
@@ -1404,7 +1444,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 23 · June 1–5, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w23",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w23.md",
@@ -1412,7 +1452,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 22 · May 25–29, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w22",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w22.md",
@@ -1420,7 +1460,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 21 · May 18–22, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w21",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w21.md",
@@ -1428,7 +1468,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 20 · May 11–15, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w20",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w20.md",
@@ -1436,7 +1476,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 19 · May 4–8, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w19",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w19.md",
@@ -1444,7 +1484,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 18 · April 27 – May 1, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w18",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w18.md",
@@ -1452,7 +1492,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 17 · April 20–24, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w17",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w17.md",
@@ -1460,7 +1500,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 16 · April 13–17, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w16",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w16.md",
@@ -1468,7 +1508,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 15 · April 6–10, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w15",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w15.md",
@@ -1476,7 +1516,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 14 · March 30 – April 3, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w14",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w14.md",
@@ -1484,7 +1524,7 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "What's New",
    "title": "Week 13 · March 23–27, 2026",
    "url": "https://code.claude.com/docs/en/whats-new/2026-w13",
    "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w13.md",
@@ -1492,20 +1532,108 @@
   },
   {
    "source": "code",
-   "section": "Docs",
+   "section": "Resources",
    "title": "Legal and compliance",
    "url": "https://code.claude.com/docs/en/legal-and-compliance",
    "mdUrl": "https://code.claude.com/docs/en/legal-and-compliance.md",
    "blurb": "Legal agreements, compliance certifications, and security information for Claude Code."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "French (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/fr",
+   "mdUrl": "https://code.claude.com/docs/_llms/fr.md",
+   "blurb": "Documentation for French."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "German (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/de",
+   "mdUrl": "https://code.claude.com/docs/_llms/de.md",
+   "blurb": "Documentation for German."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Italian (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/it",
+   "mdUrl": "https://code.claude.com/docs/_llms/it.md",
+   "blurb": "Documentation for Italian."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Japanese (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/jp",
+   "mdUrl": "https://code.claude.com/docs/_llms/jp.md",
+   "blurb": "Documentation for Japanese."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Spanish (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/es",
+   "mdUrl": "https://code.claude.com/docs/_llms/es.md",
+   "blurb": "Documentation for Spanish."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Korean (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/ko",
+   "mdUrl": "https://code.claude.com/docs/_llms/ko.md",
+   "blurb": "Documentation for Korean."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Chinese (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/cn",
+   "mdUrl": "https://code.claude.com/docs/_llms/cn.md",
+   "blurb": "Documentation for Chinese."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Traditional Chinese (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/zh-hant",
+   "mdUrl": "https://code.claude.com/docs/_llms/zh-hant.md",
+   "blurb": "Documentation for Traditional Chinese."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Russian (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/ru",
+   "mdUrl": "https://code.claude.com/docs/_llms/ru.md",
+   "blurb": "Documentation for Russian."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Indonesian (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/id",
+   "mdUrl": "https://code.claude.com/docs/_llms/id.md",
+   "blurb": "Documentation for Indonesian."
+  },
+  {
+   "source": "code",
+   "section": "Indexes",
+   "title": "Brazilian Portuguese (166 pages)",
+   "url": "https://code.claude.com/docs/_llms/pt-br",
+   "mdUrl": "https://code.claude.com/docs/_llms/pt-br.md",
+   "blurb": "Documentation for Brazilian Portuguese."
   }
  ],
  "sections": [
   {
-   "name": "Docs",
+   "name": "Getting started",
    "pages": [
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Getting started",
      "title": "Overview",
      "url": "https://code.claude.com/docs/en/overview",
      "mdUrl": "https://code.claude.com/docs/en/overview.md",
@@ -1513,7 +1641,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Getting started",
      "title": "Quickstart",
      "url": "https://code.claude.com/docs/en/quickstart",
      "mdUrl": "https://code.claude.com/docs/en/quickstart.md",
@@ -1521,15 +1649,20 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Getting started",
      "title": "Claude Code changelog",
      "url": "https://code.claude.com/docs/en/changelog",
      "mdUrl": "https://code.claude.com/docs/en/changelog.md",
      "blurb": "Release notes for Claude Code, including new features, improvements, and bug fixes by version."
-    },
+    }
+   ]
+  },
+  {
+   "name": "Core concepts",
+   "pages": [
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "How Claude Code works",
      "url": "https://code.claude.com/docs/en/how-claude-code-works",
      "mdUrl": "https://code.claude.com/docs/en/how-claude-code-works.md",
@@ -1537,7 +1670,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "Extend Claude Code",
      "url": "https://code.claude.com/docs/en/features-overview",
      "mdUrl": "https://code.claude.com/docs/en/features-overview.md",
@@ -1545,7 +1678,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "Explore the .claude directory",
      "url": "https://code.claude.com/docs/en/claude-directory",
      "mdUrl": "https://code.claude.com/docs/en/claude-directory.md",
@@ -1553,7 +1686,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "Explore the context window",
      "url": "https://code.claude.com/docs/en/context-window",
      "mdUrl": "https://code.claude.com/docs/en/context-window.md",
@@ -1561,7 +1694,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "How Claude Code uses prompt caching",
      "url": "https://code.claude.com/docs/en/prompt-caching",
      "mdUrl": "https://code.claude.com/docs/en/prompt-caching.md",
@@ -1569,1047 +1702,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "How Claude remembers your project",
-     "url": "https://code.claude.com/docs/en/memory",
-     "mdUrl": "https://code.claude.com/docs/en/memory.md",
-     "blurb": "Give Claude persistent instructions with CLAUDE.md files, and let Claude accumulate learnings automatically with auto memory."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Choose a permission mode",
-     "url": "https://code.claude.com/docs/en/permission-modes",
-     "mdUrl": "https://code.claude.com/docs/en/permission-modes.md",
-     "blurb": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Manage sessions",
-     "url": "https://code.claude.com/docs/en/sessions",
-     "mdUrl": "https://code.claude.com/docs/en/sessions.md",
-     "blurb": "Name, resume, branch, and switch between Claude Code conversations. Covers `--continue`, `--resume`, `--from-pr`, the `/resume` picker, session naming, exporting transcripts, and where transcripts are stored."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Common workflows",
-     "url": "https://code.claude.com/docs/en/common-workflows",
-     "mdUrl": "https://code.claude.com/docs/en/common-workflows.md",
-     "blurb": "Step-by-step guides for exploring codebases, fixing bugs, refactoring, testing, and other everyday tasks with Claude Code."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Prompt library",
-     "url": "https://code.claude.com/docs/en/prompt-library",
-     "mdUrl": "https://code.claude.com/docs/en/prompt-library.md",
-     "blurb": "Copy-paste prompts for Claude Code, tagged by task and role."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Best practices for Claude Code",
-     "url": "https://code.claude.com/docs/en/best-practices",
-     "mdUrl": "https://code.claude.com/docs/en/best-practices.md",
-     "blurb": "Tips and patterns for getting the most out of Claude Code, from configuring your environment to scaling across parallel sessions."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Platforms and integrations",
-     "url": "https://code.claude.com/docs/en/platforms",
-     "mdUrl": "https://code.claude.com/docs/en/platforms.md",
-     "blurb": "Choose where to run Claude Code and what to connect it to. Compare the CLI, Desktop, VS Code, JetBrains, web, mobile, and integrations like Chrome, Slack, and CI/CD."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Continue local sessions from any device with Remote Control",
-     "url": "https://code.claude.com/docs/en/remote-control",
-     "mdUrl": "https://code.claude.com/docs/en/remote-control.md",
-     "blurb": "Continue a local Claude Code session from your phone, tablet, or any browser using Remote Control. Works with claude.ai/code and the Claude mobile app."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Get started with Claude Code on the web",
-     "url": "https://code.claude.com/docs/en/web-quickstart",
-     "mdUrl": "https://code.claude.com/docs/en/web-quickstart.md",
-     "blurb": "Run Claude Code in the cloud from your browser or phone. Connect a GitHub repository, submit a task, and review the PR without local setup."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Use Claude Code on the web",
-     "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
-     "mdUrl": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
-     "blurb": "Move sessions between web and terminal with `--cloud` and `--teleport`, manage and share sessions, and auto-fix pull requests from the cloud."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Automate work with routines",
-     "url": "https://code.claude.com/docs/en/routines",
-     "mdUrl": "https://code.claude.com/docs/en/routines.md",
-     "blurb": "Put Claude Code on autopilot. Define routines that run on a schedule, trigger on API calls, or react to GitHub events from cloud infrastructure."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Find bugs with ultrareview",
-     "url": "https://code.claude.com/docs/en/ultrareview",
-     "mdUrl": "https://code.claude.com/docs/en/ultrareview.md",
-     "blurb": "Run a deep, multi-agent code review in the cloud with /code-review ultra to find and verify bugs before you merge."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Get started with the desktop app",
-     "url": "https://code.claude.com/docs/en/desktop-quickstart",
-     "mdUrl": "https://code.claude.com/docs/en/desktop-quickstart.md",
-     "blurb": "Install Claude Code on desktop and start your first coding session"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Desktop application",
-     "url": "https://code.claude.com/docs/en/desktop",
-     "mdUrl": "https://code.claude.com/docs/en/desktop.md",
-     "blurb": "Get more out of Claude Code Desktop: parallel sessions with Git isolation, drag-and-drop pane layout, integrated terminal and file editor, side chats, computer use, Dispatch sessions from your phone, visual diff review, app previews, PR monitoring, connectors, and enterprise configuration."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Desktop on Linux (beta)",
-     "url": "https://code.claude.com/docs/en/desktop-linux",
-     "mdUrl": "https://code.claude.com/docs/en/desktop-linux.md",
-     "blurb": "Install and update the Claude desktop app on Ubuntu and Debian"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code Desktop in WSL",
-     "url": "https://code.claude.com/docs/en/desktop-wsl",
-     "mdUrl": "https://code.claude.com/docs/en/desktop-wsl.md",
-     "blurb": "Run Code sessions inside a WSL 2 distribution on Windows"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Schedule recurring tasks in Claude Code Desktop",
-     "url": "https://code.claude.com/docs/en/desktop-scheduled-tasks",
-     "mdUrl": "https://code.claude.com/docs/en/desktop-scheduled-tasks.md",
-     "blurb": "Set up scheduled tasks in Claude Code Desktop to run Claude automatically on a recurring basis for daily code reviews, dependency audits, or morning briefings."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Test iOS apps in the simulator",
-     "url": "https://code.claude.com/docs/en/desktop-ios-simulator",
-     "mdUrl": "https://code.claude.com/docs/en/desktop-ios-simulator.md",
-     "blurb": "Claude Code Desktop opens your app in the iOS Simulator pane when Claude builds, runs, or checks it, with a separate simulator for each session."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code on mobile",
-     "url": "https://code.claude.com/docs/en/mobile",
-     "mdUrl": "https://code.claude.com/docs/en/mobile.md",
-     "blurb": "Start, monitor, and steer Claude Code tasks from your phone with the Claude app for iOS and Android."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Use Claude Code with Chrome",
-     "url": "https://code.claude.com/docs/en/chrome",
-     "mdUrl": "https://code.claude.com/docs/en/chrome.md",
-     "blurb": "Connect Claude Code to your Chrome browser to test web apps, debug with console logs, automate form filling, and extract data from web pages."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Let Claude use your computer from the CLI",
-     "url": "https://code.claude.com/docs/en/computer-use",
-     "mdUrl": "https://code.claude.com/docs/en/computer-use.md",
-     "blurb": "Enable computer use in the Claude Code CLI so Claude can open apps, click, type, and see your screen on macOS. Test native apps, debug visual issues, and automate GUI-only tools without leaving your terminal."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Use Claude Code in VS Code",
-     "url": "https://code.claude.com/docs/en/vs-code",
-     "mdUrl": "https://code.claude.com/docs/en/vs-code.md",
-     "blurb": "Install and configure the Claude Code extension for VS Code. Get AI coding assistance with inline diffs, @-mentions, plan review, and keyboard shortcuts."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "JetBrains IDEs",
-     "url": "https://code.claude.com/docs/en/jetbrains",
-     "mdUrl": "https://code.claude.com/docs/en/jetbrains.md",
-     "blurb": "Use Claude Code with JetBrains IDEs including IntelliJ, PyCharm, WebStorm, and more"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Catch security issues as Claude writes code",
-     "url": "https://code.claude.com/docs/en/security-guidance",
-     "mdUrl": "https://code.claude.com/docs/en/security-guidance.md",
-     "blurb": "Install the security-guidance plugin to have Claude review its own code changes for vulnerabilities and fix them in the same session."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Scan your codebase for vulnerabilities",
-     "url": "https://code.claude.com/docs/en/claude-security",
-     "mdUrl": "https://code.claude.com/docs/en/claude-security.md",
-     "blurb": "Install the Claude Security plugin to scan your codebase for vulnerabilities in a Claude Code session and turn findings into patches you review and apply."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Code Review",
-     "url": "https://code.claude.com/docs/en/code-review",
-     "mdUrl": "https://code.claude.com/docs/en/code-review.md",
-     "blurb": "Set up automated PR reviews that catch logic errors, security vulnerabilities, and regressions using multi-agent analysis of your full codebase"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code GitHub Actions",
-     "url": "https://code.claude.com/docs/en/github-actions",
-     "mdUrl": "https://code.claude.com/docs/en/github-actions.md",
-     "blurb": "Run Claude Code in GitHub Actions workflows to respond to @claude mentions, automate tasks, and turn issues into pull requests"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Use Claude Code GitHub Actions with cloud providers",
-     "url": "https://code.claude.com/docs/en/github-actions-cloud-providers",
-     "mdUrl": "https://code.claude.com/docs/en/github-actions-cloud-providers.md",
-     "blurb": "Run Claude Code GitHub Actions through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry instead of the Claude API"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code with GitHub Enterprise Server",
-     "url": "https://code.claude.com/docs/en/github-enterprise-server",
-     "mdUrl": "https://code.claude.com/docs/en/github-enterprise-server.md",
-     "blurb": "Connect Claude Code to your self-hosted GitHub Enterprise Server instance for web sessions, code review, and plugin marketplaces."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code GitLab CI/CD",
-     "url": "https://code.claude.com/docs/en/gitlab-ci-cd",
-     "mdUrl": "https://code.claude.com/docs/en/gitlab-ci-cd.md",
-     "blurb": "Learn about integrating Claude Code into your development workflow with GitLab CI/CD"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code in Slack",
-     "url": "https://code.claude.com/docs/en/slack",
-     "mdUrl": "https://code.claude.com/docs/en/slack.md",
-     "blurb": "Delegate coding tasks directly from your Slack workspace. Anthropic is retiring this earlier version for Team and Enterprise workspaces in favor of Claude Tag; it remains the setup path on Pro and Max plans."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Tag",
-     "url": "https://code.claude.com/docs/en/claude-tag",
-     "mdUrl": "https://code.claude.com/docs/en/claude-tag.md",
-     "blurb": "Bring Claude into your team's Slack channels with Claude Tag and find its setup and usage documentation on claude.com."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Run agents in parallel",
-     "url": "https://code.claude.com/docs/en/agents",
-     "mdUrl": "https://code.claude.com/docs/en/agents.md",
-     "blurb": "Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, and dynamic workflows."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Create custom subagents",
-     "url": "https://code.claude.com/docs/en/sub-agents",
-     "mdUrl": "https://code.claude.com/docs/en/sub-agents.md",
-     "blurb": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Manage multiple agents with agent view",
-     "url": "https://code.claude.com/docs/en/agent-view",
-     "mdUrl": "https://code.claude.com/docs/en/agent-view.md",
-     "blurb": "Dispatch and manage many Claude Code sessions from one screen. Agent view shows what every session is doing and which ones need your input."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Orchestrate teams of Claude Code sessions",
-     "url": "https://code.claude.com/docs/en/agent-teams",
-     "mdUrl": "https://code.claude.com/docs/en/agent-teams.md",
-     "blurb": "Coordinate multiple Claude Code instances working together as a team, with shared tasks, inter-agent messaging, and centralized management."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Message your other Claude Code sessions",
-     "url": "https://code.claude.com/docs/en/cross-session-messaging",
-     "mdUrl": "https://code.claude.com/docs/en/cross-session-messaging.md",
-     "blurb": "Let Claude list and message your other Claude Code sessions on this machine, and reach your sessions on other machines or on the web."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Orchestrate subagents at scale with dynamic workflows",
-     "url": "https://code.claude.com/docs/en/workflows",
-     "mdUrl": "https://code.claude.com/docs/en/workflows.md",
-     "blurb": "Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Run parallel sessions with worktrees",
-     "url": "https://code.claude.com/docs/en/worktrees",
-     "mdUrl": "https://code.claude.com/docs/en/worktrees.md",
-     "blurb": "Isolate parallel Claude Code sessions in separate git worktrees so changes don't collide. Covers the `--worktree` flag, subagent isolation, `.worktreeinclude`, cleanup, and non-git VCS hooks."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Connect to MCP servers",
-     "url": "https://code.claude.com/docs/en/mcp-quickstart",
-     "mdUrl": "https://code.claude.com/docs/en/mcp-quickstart.md",
-     "blurb": "Add an MCP server to Claude Code, verify the connection, and find the configuration on disk."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Connect Claude Code to tools via MCP",
-     "url": "https://code.claude.com/docs/en/mcp",
-     "mdUrl": "https://code.claude.com/docs/en/mcp.md",
-     "blurb": "Learn how to connect Claude Code to your tools with the Model Context Protocol."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Extend Claude with skills",
-     "url": "https://code.claude.com/docs/en/skills",
-     "mdUrl": "https://code.claude.com/docs/en/skills.md",
-     "blurb": "Create, manage, and share skills to extend Claude's capabilities in Claude Code. Includes custom commands and bundled skills."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Discover and install prebuilt plugins through marketplaces",
-     "url": "https://code.claude.com/docs/en/discover-plugins",
-     "mdUrl": "https://code.claude.com/docs/en/discover-plugins.md",
-     "blurb": "Find and install plugins from marketplaces to extend Claude Code with new skills, agents, and capabilities."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Create plugins",
-     "url": "https://code.claude.com/docs/en/plugins",
-     "mdUrl": "https://code.claude.com/docs/en/plugins.md",
-     "blurb": "Create custom plugins to extend Claude Code with skills, agents, hooks, and MCP servers."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Share session output as artifacts",
-     "url": "https://code.claude.com/docs/en/artifacts",
-     "mdUrl": "https://code.claude.com/docs/en/artifacts.md",
-     "blurb": "Artifacts turn Claude Code's work into live, interactive pages on claude.ai that you can keep private, share with your organization, or publish to a public link."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Automate actions with hooks",
-     "url": "https://code.claude.com/docs/en/hooks-guide",
-     "mdUrl": "https://code.claude.com/docs/en/hooks-guide.md",
-     "blurb": "Run shell commands automatically when Claude Code edits files, finishes tasks, or needs input. Format code, send notifications, validate commands, and enforce project rules."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Push events into a running session with channels",
-     "url": "https://code.claude.com/docs/en/channels",
-     "mdUrl": "https://code.claude.com/docs/en/channels.md",
-     "blurb": "Use channels to push messages, alerts, and webhooks into your Claude Code session from an MCP server. Forward CI results, chat messages, and monitoring events so Claude can react while you're away."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Run prompts on a schedule",
-     "url": "https://code.claude.com/docs/en/scheduled-tasks",
-     "mdUrl": "https://code.claude.com/docs/en/scheduled-tasks.md",
-     "blurb": "Use /loop and the cron scheduling tools to run prompts repeatedly, poll for status, or set one-time reminders within a Claude Code session."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Keep Claude working toward a goal",
-     "url": "https://code.claude.com/docs/en/goal",
-     "mdUrl": "https://code.claude.com/docs/en/goal.md",
-     "blurb": "Set a completion condition with /goal and Claude keeps working until it's met, a model judges it impossible, or an error you have to fix clears the goal."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Run Claude Code programmatically",
-     "url": "https://code.claude.com/docs/en/headless",
-     "mdUrl": "https://code.claude.com/docs/en/headless.md",
-     "blurb": "Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Launch sessions from links",
-     "url": "https://code.claude.com/docs/en/deep-links",
-     "mdUrl": "https://code.claude.com/docs/en/deep-links.md",
-     "blurb": "Open a Claude Code terminal session from a URL. Embed `claude-cli://` links in runbooks, alerts, and dashboards so a click opens Claude Code in the right repo with the right prompt."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Set up Claude Code in a monorepo or large codebase",
-     "url": "https://code.claude.com/docs/en/large-codebases",
-     "mdUrl": "https://code.claude.com/docs/en/large-codebases.md",
-     "blurb": "Configure Claude Code for monorepos and large single-tree codebases with nested CLAUDE.md files, sparse worktrees, code intelligence, and per-package skills so Claude stays focused on the code you're working in."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Troubleshoot installation and login",
-     "url": "https://code.claude.com/docs/en/troubleshoot-install",
-     "mdUrl": "https://code.claude.com/docs/en/troubleshoot-install.md",
-     "blurb": "Fix command not found, PATH, permission, network, and authentication errors when installing or signing in to Claude Code."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Troubleshooting",
-     "url": "https://code.claude.com/docs/en/troubleshooting",
-     "mdUrl": "https://code.claude.com/docs/en/troubleshooting.md",
-     "blurb": "Fix high CPU or memory usage, hangs, auto-compact thrashing, and search problems in Claude Code, and find the right page for other issues."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Debug your configuration",
-     "url": "https://code.claude.com/docs/en/debug-your-config",
-     "mdUrl": "https://code.claude.com/docs/en/debug-your-config.md",
-     "blurb": "Diagnose why CLAUDE.md, settings, hooks, MCP servers, or skills aren't taking effect. Use /context, /doctor, /hooks, and /mcp to see what actually loaded."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Error reference",
-     "url": "https://code.claude.com/docs/en/errors",
-     "mdUrl": "https://code.claude.com/docs/en/errors.md",
-     "blurb": "Look up Claude Code runtime error messages with what each one means and how to fix it."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Set up Claude Code for your organization",
-     "url": "https://code.claude.com/docs/en/admin-setup",
-     "mdUrl": "https://code.claude.com/docs/en/admin-setup.md",
-     "blurb": "A decision map for administrators deploying Claude Code, covering API providers, managed settings, policy enforcement, usage monitoring, and data handling."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Advanced setup",
-     "url": "https://code.claude.com/docs/en/setup",
-     "mdUrl": "https://code.claude.com/docs/en/setup.md",
-     "blurb": "System requirements, platform-specific installation, version management, and uninstallation for Claude Code."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Authentication",
-     "url": "https://code.claude.com/docs/en/authentication",
-     "mdUrl": "https://code.claude.com/docs/en/authentication.md",
-     "blurb": "Log in to Claude Code and configure authentication for individuals, teams, and organizations."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Configure server-managed settings",
-     "url": "https://code.claude.com/docs/en/server-managed-settings",
-     "mdUrl": "https://code.claude.com/docs/en/server-managed-settings.md",
-     "blurb": "Centrally configure Claude Code for your organization through server-delivered settings, without requiring device management infrastructure."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Control MCP server access for your organization",
-     "url": "https://code.claude.com/docs/en/managed-mcp",
-     "mdUrl": "https://code.claude.com/docs/en/managed-mcp.md",
-     "blurb": "Restrict which MCP servers users can add or connect to with managed configuration files, allowlists, and denylists."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Configure auto mode",
-     "url": "https://code.claude.com/docs/en/auto-mode-config",
-     "mdUrl": "https://code.claude.com/docs/en/auto-mode-config.md",
-     "blurb": "Tell the auto mode classifier which repos, buckets, and domains your organization trusts. Set environment context, override the default block and allow rules, and inspect your effective config with the auto-mode CLI subcommands."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Enterprise deployment overview",
-     "url": "https://code.claude.com/docs/en/third-party-integrations",
-     "mdUrl": "https://code.claude.com/docs/en/third-party-integrations.md",
-     "blurb": "Learn how Claude Code can integrate with various third-party services and infrastructure to meet enterprise deployment requirements."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Feature availability",
-     "url": "https://code.claude.com/docs/en/feature-availability",
-     "mdUrl": "https://code.claude.com/docs/en/feature-availability.md",
-     "blurb": "Compare which Claude Code features are available across Anthropic subscription plans, the Anthropic Console, Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code on Amazon Bedrock",
-     "url": "https://code.claude.com/docs/en/amazon-bedrock",
-     "mdUrl": "https://code.claude.com/docs/en/amazon-bedrock.md",
-     "blurb": "Learn about configuring Claude Code through Amazon Bedrock, including setup, IAM configuration, and troubleshooting."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code on Claude Platform on AWS",
-     "url": "https://code.claude.com/docs/en/claude-platform-on-aws",
-     "mdUrl": "https://code.claude.com/docs/en/claude-platform-on-aws.md",
-     "blurb": "Configure Claude Code to use the Anthropic-operated Claude API with AWS authentication, IAM access control, and AWS Marketplace billing."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code on Google Cloud's Agent Platform",
-     "url": "https://code.claude.com/docs/en/google-vertex-ai",
-     "mdUrl": "https://code.claude.com/docs/en/google-vertex-ai.md",
-     "blurb": "Learn about configuring Claude Code through Google Cloud's Agent Platform, formerly Vertex AI, including setup, IAM configuration, and troubleshooting."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code on Microsoft Foundry",
-     "url": "https://code.claude.com/docs/en/microsoft-foundry",
-     "mdUrl": "https://code.claude.com/docs/en/microsoft-foundry.md",
-     "blurb": "Learn about configuring Claude Code through Microsoft Foundry, including setup, configuration, and troubleshooting."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Enterprise network configuration",
-     "url": "https://code.claude.com/docs/en/network-config",
-     "mdUrl": "https://code.claude.com/docs/en/network-config.md",
-     "blurb": "Configure Claude Code for enterprise environments with proxy servers, custom Certificate Authorities (CA), and mutual Transport Layer Security (mTLS) authentication."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Run Claude Code behind a corporate launcher",
-     "url": "https://code.claude.com/docs/en/corporate-launcher",
-     "mdUrl": "https://code.claude.com/docs/en/corporate-launcher.md",
-     "blurb": "Route the processes Claude Code starts from its own binary, including the background service and every agent view session, through a required launcher with CLAUDE_CODE_PROCESS_WRAPPER or the processWrapper setting."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Development containers",
-     "url": "https://code.claude.com/docs/en/devcontainer",
-     "mdUrl": "https://code.claude.com/docs/en/devcontainer.md",
-     "blurb": "Run Claude Code inside a dev container for consistent, isolated environments across your team."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Run Claude Code through a gateway",
-     "url": "https://code.claude.com/docs/en/gateways",
-     "mdUrl": "https://code.claude.com/docs/en/gateways.md",
-     "blurb": "Route Claude Code through a self-hosted gateway for centralized credentials, usage tracking, and cost controls. Covers the architecture, Anthropic's Claude apps gateway, and using other gateway products."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude apps gateway for Amazon Bedrock, Claude Platform on AWS, Google Cloud, and Microsoft Foundry",
-     "url": "https://code.claude.com/docs/en/claude-apps-gateway",
-     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway.md",
-     "blurb": "Run Claude Code through Amazon Bedrock, Claude Platform on AWS, Google Cloud, or Microsoft Foundry behind a self-hosted gateway with SSO sign-in, per-group model access, and OTLP telemetry."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude apps gateway configuration",
-     "url": "https://code.claude.com/docs/en/claude-apps-gateway-config",
-     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-config.md",
-     "blurb": "Reference for every gateway.yaml option: listener and TLS, OIDC, session, Postgres store, Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry upstreams, model routing, managed policies, and telemetry."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude apps gateway spend limits",
-     "url": "https://code.claude.com/docs/en/claude-apps-gateway-spend-limits",
-     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-spend-limits.md",
-     "blurb": "Cap each developer's spend through the Claude apps gateway by day, week, or month. Set limits with an Admin API and the gateway enforces them live on every request."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude apps gateway deployment and operations",
-     "url": "https://code.claude.com/docs/en/claude-apps-gateway-deploy",
-     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-deploy.md",
-     "blurb": "Register the gateway with your IdP, build the container, deploy on Kubernetes or Cloud Run, and operate it: health checks, secret rotation, upgrades, and security."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Deploy Claude apps gateway on AWS",
-     "url": "https://code.claude.com/docs/en/claude-apps-gateway-on-aws",
-     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-on-aws.md",
-     "blurb": "A worked example of running Claude apps gateway on AWS: ECS Fargate or EKS, Amazon RDS for PostgreSQL, AWS Secrets Manager, and IAM-role auth to Amazon Bedrock."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Deploy Claude apps gateway on Google Cloud",
-     "url": "https://code.claude.com/docs/en/claude-apps-gateway-on-gcp",
-     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-on-gcp.md",
-     "blurb": "A worked example of running Claude apps gateway on Google Cloud: Cloud Run or GKE, Cloud SQL for PostgreSQL, Secret Manager, and service-account auth to Google Cloud's Agent Platform."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Other LLM gateways",
-     "url": "https://code.claude.com/docs/en/llm-gateway",
-     "mdUrl": "https://code.claude.com/docs/en/llm-gateway.md",
-     "blurb": "Route Claude Code through an LLM gateway your organization already runs. Covers connecting Claude Code to a gateway, rolling one out for your organization, and what Claude Code sends to a gateway."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Connect Claude Code to an LLM gateway",
-     "url": "https://code.claude.com/docs/en/llm-gateway-connect",
-     "mdUrl": "https://code.claude.com/docs/en/llm-gateway-connect.md",
-     "blurb": "Point Claude Code at your organization's LLM gateway. Check whether your admin already configured it, or set the base URL and credential yourself, then verify the connection and fix gateway errors."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Roll out an LLM gateway for your organization",
-     "url": "https://code.claude.com/docs/en/llm-gateway-rollout",
-     "mdUrl": "https://code.claude.com/docs/en/llm-gateway-rollout.md",
-     "blurb": "Deploy a gateway product for Claude Code: configure it to forward what Claude Code sends, issue developer credentials, distribute the configuration through managed settings, and verify the rollout."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Gateway protocol reference",
-     "url": "https://code.claude.com/docs/en/llm-gateway-protocol",
-     "mdUrl": "https://code.claude.com/docs/en/llm-gateway-protocol.md",
-     "blurb": "The API contract between Claude Code and an LLM gateway: endpoints, headers and body fields to forward, feature degradation when fields are stripped, attribution headers for cost tracking, and model discovery."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Monitoring",
-     "url": "https://code.claude.com/docs/en/monitoring-usage",
-     "mdUrl": "https://code.claude.com/docs/en/monitoring-usage.md",
-     "blurb": "Learn how to enable and configure OpenTelemetry for Claude Code."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Manage costs effectively",
-     "url": "https://code.claude.com/docs/en/costs",
-     "mdUrl": "https://code.claude.com/docs/en/costs.md",
-     "blurb": "Track token usage, set team spend limits, and reduce Claude Code costs with context management, model selection, extended thinking settings, and preprocessing hooks."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Track team usage with analytics",
-     "url": "https://code.claude.com/docs/en/analytics",
-     "mdUrl": "https://code.claude.com/docs/en/analytics.md",
-     "blurb": "View Claude Code usage metrics, track adoption, and measure engineering velocity in the analytics dashboard."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Create and distribute a plugin marketplace",
-     "url": "https://code.claude.com/docs/en/plugin-marketplaces",
-     "mdUrl": "https://code.claude.com/docs/en/plugin-marketplaces.md",
-     "blurb": "Build and host plugin marketplaces to distribute Claude Code extensions across teams and communities."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Constrain plugin dependency versions",
-     "url": "https://code.claude.com/docs/en/plugin-dependencies",
-     "mdUrl": "https://code.claude.com/docs/en/plugin-dependencies.md",
-     "blurb": "Declare version constraints on plugin dependencies, and bundle a curated plugin set behind one install."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Recommend your plugin from your CLI",
-     "url": "https://code.claude.com/docs/en/plugin-hints",
-     "mdUrl": "https://code.claude.com/docs/en/plugin-hints.md",
-     "blurb": "Emit a one-line marker from your CLI so Claude Code prompts users to install your official plugin."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Recommend plugins for your org",
-     "url": "https://code.claude.com/docs/en/plugin-relevance",
-     "mdUrl": "https://code.claude.com/docs/en/plugin-relevance.md",
-     "blurb": "Add a relevance block to marketplace plugin entries so Claude Code suggests them when a user's work matches."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Security",
-     "url": "https://code.claude.com/docs/en/security",
-     "mdUrl": "https://code.claude.com/docs/en/security.md",
-     "blurb": "Learn about Claude Code's security safeguards and best practices for safe usage."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Data usage",
-     "url": "https://code.claude.com/docs/en/data-usage",
-     "mdUrl": "https://code.claude.com/docs/en/data-usage.md",
-     "blurb": "Learn about Anthropic's data usage policies for Claude"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Zero data retention",
-     "url": "https://code.claude.com/docs/en/zero-data-retention",
-     "mdUrl": "https://code.claude.com/docs/en/zero-data-retention.md",
-     "blurb": "Learn about Zero Data Retention (ZDR) for Claude Code, available to qualified accounts on Claude for Enterprise, including scope, disabled features, and how to request enablement."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Communications kit",
-     "url": "https://code.claude.com/docs/en/communications-kit",
-     "mdUrl": "https://code.claude.com/docs/en/communications-kit.md",
-     "blurb": "Launch announcements, drip-campaign messages, and FAQ responses for rolling Claude Code out to your engineering organization."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Champion kit",
-     "url": "https://code.claude.com/docs/en/champion-kit",
-     "mdUrl": "https://code.claude.com/docs/en/champion-kit.md",
-     "blurb": "A playbook for engineers advocating Claude Code internally: what to share, how to answer questions, and how to grow adoption on your team."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Claude Code settings",
-     "url": "https://code.claude.com/docs/en/settings",
-     "mdUrl": "https://code.claude.com/docs/en/settings.md",
-     "blurb": "Configure Claude Code with global and project-level settings, and environment variables."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Configure permissions",
-     "url": "https://code.claude.com/docs/en/permissions",
-     "mdUrl": "https://code.claude.com/docs/en/permissions.md",
-     "blurb": "Control what Claude Code can access and do with fine-grained permission rules, modes, and managed policies."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Choose a sandbox environment",
-     "url": "https://code.claude.com/docs/en/sandbox-environments",
-     "mdUrl": "https://code.claude.com/docs/en/sandbox-environments.md",
-     "blurb": "Compare Claude Code sandbox options: the built-in sandboxed Bash tool, sandbox runtime, dev containers, Docker, and VMs. Choose the right isolation for your threat model."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Configure the sandboxed Bash tool",
-     "url": "https://code.claude.com/docs/en/sandboxing",
-     "mdUrl": "https://code.claude.com/docs/en/sandboxing.md",
-     "blurb": "Learn how Claude Code's sandboxed Bash tool provides filesystem and network isolation for safer, more autonomous agent execution."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Configure cloud environments",
-     "url": "https://code.claude.com/docs/en/cloud-environments",
-     "mdUrl": "https://code.claude.com/docs/en/cloud-environments.md",
-     "blurb": "Configure cloud environments for Claude Code cloud sessions: network access levels, environment variables, setup scripts, and environment caching."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Self-hosted environments",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments.md",
-     "blurb": "Run Claude Code cloud sessions on infrastructure you control: set up a self-hosted environment, deploy runners, and route sessions to your own compute."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Self-hosted environments quickstart",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments-quickstart",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-quickstart.md",
-     "blurb": "Set up your first self-hosted environment: install Claude Code, create the environment, start a runner, and route a session to it."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Deploy self-hosted environments to production",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments-deploy",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-deploy.md",
-     "blurb": "Run self-hosted runners in production: security hardening, network egress control, git credentials, Kubernetes and Compose recipes, and troubleshooting."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Customize sessions in self-hosted environments",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments-configuration",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-configuration.md",
-     "blurb": "Customize self-hosted environment sessions with wrapper scripts for per-session credentials, lifecycle hooks, and on-demand runner spawning."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Test self-hosted environments end to end",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments-testing",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-testing.md",
-     "blurb": "Verify a self-hosted runner image from CI: dispatch a session with the CLI, read Claude's replies through a Stop hook, and script the full loop."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Self-hosted environments reference",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments-reference",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-reference.md",
-     "blurb": "Complete reference for the self-hosted runner and orchestrator: CLI flags, environment variables, and Prometheus metrics."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Verify session identity in self-hosted environments",
-     "url": "https://code.claude.com/docs/en/self-hosted-environments-identity",
-     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-identity.md",
-     "blurb": "Verify the CLAUDE_CODE_SESSION_ACCESS_TOKEN JWT so services on your network can trust requests from sessions in your self-hosted environment."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Model configuration",
-     "url": "https://code.claude.com/docs/en/model-config",
-     "mdUrl": "https://code.claude.com/docs/en/model-config.md",
-     "blurb": "Configure which model Claude Code uses, effort levels, extended context, and the auto-compact window"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Speed up responses with fast mode",
-     "url": "https://code.claude.com/docs/en/fast-mode",
-     "mdUrl": "https://code.claude.com/docs/en/fast-mode.md",
-     "blurb": "Get faster Opus responses in Claude Code by toggling fast mode."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Escalate hard decisions with the advisor tool",
-     "url": "https://code.claude.com/docs/en/advisor",
-     "mdUrl": "https://code.claude.com/docs/en/advisor.md",
-     "blurb": "Pair your main model with a stronger advisor model that Claude consults at key moments during a task."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Output styles",
-     "url": "https://code.claude.com/docs/en/output-styles",
-     "mdUrl": "https://code.claude.com/docs/en/output-styles.md",
-     "blurb": "Adapt Claude Code for uses beyond software engineering"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Configure your terminal for Claude Code",
-     "url": "https://code.claude.com/docs/en/terminal-config",
-     "mdUrl": "https://code.claude.com/docs/en/terminal-config.md",
-     "blurb": "Fix Shift+Enter for newlines, get a terminal bell when Claude finishes, configure tmux, match the color theme, and enable Vim mode in the Claude Code CLI."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Fullscreen rendering",
-     "url": "https://code.claude.com/docs/en/fullscreen",
-     "mdUrl": "https://code.claude.com/docs/en/fullscreen.md",
-     "blurb": "Enable a smoother, flicker-free rendering mode with mouse support and stable memory usage in long conversations."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Use Claude Code with a screen reader",
-     "url": "https://code.claude.com/docs/en/accessibility",
-     "mdUrl": "https://code.claude.com/docs/en/accessibility.md",
-     "blurb": "Set up Claude Code for screen readers such as VoiceOver and NVDA, plus settings for screen magnifiers, reduced motion, and colorblind-friendly themes."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Voice dictation",
-     "url": "https://code.claude.com/docs/en/voice-dictation",
-     "mdUrl": "https://code.claude.com/docs/en/voice-dictation.md",
-     "blurb": "Speak your prompts in the Claude Code CLI with hold-to-record or tap-to-record voice dictation."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Customize your status line",
-     "url": "https://code.claude.com/docs/en/statusline",
-     "mdUrl": "https://code.claude.com/docs/en/statusline.md",
-     "blurb": "Configure a custom status bar to monitor context window usage, costs, and git status in Claude Code"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Customize keyboard shortcuts",
-     "url": "https://code.claude.com/docs/en/keybindings",
-     "mdUrl": "https://code.claude.com/docs/en/keybindings.md",
-     "blurb": "Customize keyboard shortcuts in Claude Code with a keybindings configuration file."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "CLI reference",
-     "url": "https://code.claude.com/docs/en/cli-reference",
-     "mdUrl": "https://code.claude.com/docs/en/cli-reference.md",
-     "blurb": "Complete reference for Claude Code command-line interface, including commands and flags."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Commands",
-     "url": "https://code.claude.com/docs/en/commands",
-     "mdUrl": "https://code.claude.com/docs/en/commands.md",
-     "blurb": "Complete reference for commands available in Claude Code, including built-in commands and bundled skills."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Environment variables",
-     "url": "https://code.claude.com/docs/en/env-vars",
-     "mdUrl": "https://code.claude.com/docs/en/env-vars.md",
-     "blurb": "Reference for environment variables that control Claude Code behavior."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Tools reference",
-     "url": "https://code.claude.com/docs/en/tools-reference",
-     "mdUrl": "https://code.claude.com/docs/en/tools-reference.md",
-     "blurb": "Complete reference for the tools Claude Code can use, including permission requirements and per-tool behavior."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Interactive mode",
-     "url": "https://code.claude.com/docs/en/interactive-mode",
-     "mdUrl": "https://code.claude.com/docs/en/interactive-mode.md",
-     "blurb": "Complete reference for keyboard shortcuts, input modes, and interactive features in Claude Code sessions."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Checkpointing",
-     "url": "https://code.claude.com/docs/en/checkpointing",
-     "mdUrl": "https://code.claude.com/docs/en/checkpointing.md",
-     "blurb": "Track, rewind, and summarize Claude's edits and conversation to manage session state."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Hooks reference",
-     "url": "https://code.claude.com/docs/en/hooks",
-     "mdUrl": "https://code.claude.com/docs/en/hooks.md",
-     "blurb": "Reference for Claude Code hook events, configuration schema, JSON input/output formats, exit codes, async hooks, HTTP hooks, prompt hooks, and MCP tool hooks."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Plugins reference",
-     "url": "https://code.claude.com/docs/en/plugins-reference",
-     "mdUrl": "https://code.claude.com/docs/en/plugins-reference.md",
-     "blurb": "Complete technical reference for Claude Code plugin system, including schemas, CLI commands, and component specifications."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Channels reference",
-     "url": "https://code.claude.com/docs/en/channels-reference",
-     "mdUrl": "https://code.claude.com/docs/en/channels-reference.md",
-     "blurb": "Build an MCP server that pushes webhooks, alerts, and chat messages into a Claude Code session. Reference for the channel contract: capability declaration, notification events, reply tools, sender gating, and permission relay."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Glossary",
-     "url": "https://code.claude.com/docs/en/glossary",
-     "mdUrl": "https://code.claude.com/docs/en/glossary.md",
-     "blurb": "Definitions for Claude Code terminology. Learn what agentic loop, compaction, CLAUDE.md, hooks, subagents, MCP, and other core concepts mean."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Agent SDK overview",
-     "url": "https://code.claude.com/docs/en/agent-sdk/overview",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/overview.md",
-     "blurb": "Build production AI agents with Claude Code as a library"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Quickstart",
-     "url": "https://code.claude.com/docs/en/agent-sdk/quickstart",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/quickstart.md",
-     "blurb": "Get started with the Python or TypeScript Agent SDK to build AI agents that work autonomously"
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Examples",
-     "url": "https://code.claude.com/docs/en/agent-sdk/examples",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/examples.md",
-     "blurb": "Find a complete, runnable Agent SDK project or a guided recipe in the Claude Cookbook that matches what you want to build."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
-     "title": "Troubleshooting",
-     "url": "https://code.claude.com/docs/en/agent-sdk/troubleshooting",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/troubleshooting.md",
-     "blurb": "Fix Agent SDK errors by the exact message you see, with the cause and fix for each error in the TypeScript and Python SDKs."
-    },
-    {
-     "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "How the agent loop works",
      "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/agent-loop.md",
@@ -2617,7 +1710,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "Use Claude Code features in the SDK",
      "url": "https://code.claude.com/docs/en/agent-sdk/claude-code-features",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/claude-code-features.md",
@@ -2625,7 +1718,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "Work with sessions",
      "url": "https://code.claude.com/docs/en/agent-sdk/sessions",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/sessions.md",
@@ -2633,151 +1726,658 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Core concepts",
      "title": "Persist sessions to external storage",
      "url": "https://code.claude.com/docs/en/agent-sdk/session-storage",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/session-storage.md",
      "blurb": "Mirror session transcripts to S3, Redis, or your own backend so other hosts can resume your sessions."
+    }
+   ]
+  },
+  {
+   "name": "Use Claude Code",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Use Claude Code",
+     "title": "How Claude remembers your project",
+     "url": "https://code.claude.com/docs/en/memory",
+     "mdUrl": "https://code.claude.com/docs/en/memory.md",
+     "blurb": "Give Claude persistent instructions with CLAUDE.md files, and let Claude accumulate learnings automatically with auto memory."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Streaming Input",
-     "url": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode.md",
-     "blurb": "Understanding the two input modes for Claude Agent SDK and when to use each"
+     "section": "Use Claude Code",
+     "title": "Manage sessions",
+     "url": "https://code.claude.com/docs/en/sessions",
+     "mdUrl": "https://code.claude.com/docs/en/sessions.md",
+     "blurb": "Name, resume, branch, and switch between Claude Code conversations. Covers `--continue`, `--resume`, `--from-pr`, the `/resume` picker, session naming, exporting transcripts, and where transcripts are stored."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Handle approvals and user input",
-     "url": "https://code.claude.com/docs/en/agent-sdk/user-input",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/user-input.md",
-     "blurb": "Surface Claude's approval requests and clarifying questions to users, then return their decisions to the SDK."
+     "section": "Use Claude Code",
+     "title": "Common workflows",
+     "url": "https://code.claude.com/docs/en/common-workflows",
+     "mdUrl": "https://code.claude.com/docs/en/common-workflows.md",
+     "blurb": "Step-by-step guides for exploring codebases, fixing bugs, refactoring, testing, and other everyday tasks with Claude Code."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Stream responses in real-time",
-     "url": "https://code.claude.com/docs/en/agent-sdk/streaming-output",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/streaming-output.md",
-     "blurb": "Get real-time responses from the Agent SDK as text and tool calls stream in"
+     "section": "Use Claude Code",
+     "title": "Prompt library",
+     "url": "https://code.claude.com/docs/en/prompt-library",
+     "mdUrl": "https://code.claude.com/docs/en/prompt-library.md",
+     "blurb": "Copy-paste prompts for Claude Code, tagged by task and role."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Get structured output from agents",
-     "url": "https://code.claude.com/docs/en/agent-sdk/structured-outputs",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/structured-outputs.md",
-     "blurb": "Return validated JSON from agent workflows using JSON Schema, Zod, or Pydantic. Get type-safe, structured data after multi-turn tool use."
+     "section": "Use Claude Code",
+     "title": "Best practices for Claude Code",
+     "url": "https://code.claude.com/docs/en/best-practices",
+     "mdUrl": "https://code.claude.com/docs/en/best-practices.md",
+     "blurb": "Tips and patterns for getting the most out of Claude Code, from configuring your environment to scaling across parallel sessions."
+    }
+   ]
+  },
+  {
+   "name": "Platforms and integrations",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Platforms and integrations",
+     "title": "Platforms and integrations",
+     "url": "https://code.claude.com/docs/en/platforms",
+     "mdUrl": "https://code.claude.com/docs/en/platforms.md",
+     "blurb": "Choose where to run Claude Code and what to connect it to. Compare the CLI, Desktop, VS Code, JetBrains, web, mobile, and integrations like Chrome, Slack, and CI/CD."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Give Claude custom tools",
-     "url": "https://code.claude.com/docs/en/agent-sdk/custom-tools",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/custom-tools.md",
-     "blurb": "Define custom tools with the Claude Agent SDK's in-process MCP server so Claude can call your functions, hit your APIs, and perform domain-specific operations."
+     "section": "Platforms and integrations",
+     "title": "Continue local sessions from any device with Remote Control",
+     "url": "https://code.claude.com/docs/en/remote-control",
+     "mdUrl": "https://code.claude.com/docs/en/remote-control.md",
+     "blurb": "Continue a local Claude Code session from your phone, tablet, or any browser using Remote Control. Works with claude.ai/code and the Claude mobile app."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Connect to external tools with MCP",
-     "url": "https://code.claude.com/docs/en/agent-sdk/mcp",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/mcp.md",
-     "blurb": "Configure MCP servers to extend your agent with external tools. Covers transport types, tool search for large tool sets, authentication, and error handling."
+     "section": "Platforms and integrations",
+     "title": "Claude Code on mobile",
+     "url": "https://code.claude.com/docs/en/mobile",
+     "mdUrl": "https://code.claude.com/docs/en/mobile.md",
+     "blurb": "Start, monitor, and steer Claude Code tasks from your phone with the Claude app for iOS and Android."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Scale to many tools with tool search",
-     "url": "https://code.claude.com/docs/en/agent-sdk/tool-search",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/tool-search.md",
-     "blurb": "Scale your agent to thousands of tools by discovering and loading only what's needed, on demand."
+     "section": "Platforms and integrations",
+     "title": "Use Claude Code with Chrome",
+     "url": "https://code.claude.com/docs/en/chrome",
+     "mdUrl": "https://code.claude.com/docs/en/chrome.md",
+     "blurb": "Connect Claude Code to your Chrome browser to test web apps, debug with console logs, automate form filling, and extract data from web pages."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Subagents in the SDK",
-     "url": "https://code.claude.com/docs/en/agent-sdk/subagents",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/subagents.md",
-     "blurb": "Define and invoke subagents to isolate context, run tasks in parallel, and apply specialized instructions in your Claude Agent SDK applications."
+     "section": "Platforms and integrations",
+     "title": "Let Claude use your computer from the CLI",
+     "url": "https://code.claude.com/docs/en/computer-use",
+     "mdUrl": "https://code.claude.com/docs/en/computer-use.md",
+     "blurb": "Enable computer use in the Claude Code CLI so Claude can open apps, click, type, and see your screen on macOS. Test native apps, debug visual issues, and automate GUI-only tools without leaving your terminal."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Modifying system prompts",
-     "url": "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts.md",
-     "blurb": "Choose between the `claude_code` preset and a custom system prompt, and customize behavior with CLAUDE.md, output styles, append, or a fully custom prompt."
+     "section": "Platforms and integrations",
+     "title": "Use Claude Code in VS Code",
+     "url": "https://code.claude.com/docs/en/vs-code",
+     "mdUrl": "https://code.claude.com/docs/en/vs-code.md",
+     "blurb": "Install and configure the Claude Code extension for VS Code. Get AI coding assistance with inline diffs, @-mentions, plan review, and keyboard shortcuts."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Extend agents with skills",
-     "url": "https://code.claude.com/docs/en/agent-sdk/skills",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/skills.md",
-     "blurb": "Control which skills Claude can invoke in Claude Agent SDK sessions, dispatch commands by name, and author skills your sessions discover"
+     "section": "Platforms and integrations",
+     "title": "JetBrains IDEs",
+     "url": "https://code.claude.com/docs/en/jetbrains",
+     "mdUrl": "https://code.claude.com/docs/en/jetbrains.md",
+     "blurb": "Use Claude Code with JetBrains IDEs including IntelliJ, PyCharm, WebStorm, and more"
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Plugins in the SDK",
-     "url": "https://code.claude.com/docs/en/agent-sdk/plugins",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/plugins.md",
-     "blurb": "Load custom plugins to extend Claude Code with skills, agents, hooks, and MCP servers through the Agent SDK"
+     "section": "Platforms and integrations",
+     "title": "Claude Code in Slack",
+     "url": "https://code.claude.com/docs/en/slack",
+     "mdUrl": "https://code.claude.com/docs/en/slack.md",
+     "blurb": "Delegate coding tasks directly from your Slack workspace. Anthropic is retiring this earlier version for Team and Enterprise workspaces in favor of Claude Tag; it remains the setup path on Pro and Max plans."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Configure permissions",
-     "url": "https://code.claude.com/docs/en/agent-sdk/permissions",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/permissions.md",
-     "blurb": "Control how your agent uses tools with permission modes, hooks, and declarative allow/deny rules."
+     "section": "Platforms and integrations",
+     "title": "Claude Tag",
+     "url": "https://code.claude.com/docs/en/claude-tag",
+     "mdUrl": "https://code.claude.com/docs/en/claude-tag.md",
+     "blurb": "Bring Claude into your team's Slack channels with Claude Tag and find its setup and usage documentation on claude.com."
+    }
+   ]
+  },
+  {
+   "name": "Claude Code on the web",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Claude Code on the web",
+     "title": "Get started with Claude Code on the web",
+     "url": "https://code.claude.com/docs/en/web-quickstart",
+     "mdUrl": "https://code.claude.com/docs/en/web-quickstart.md",
+     "blurb": "Run Claude Code in the cloud from your browser or phone. Connect a GitHub repository, submit a task, and review the PR without local setup."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Intercept and control agent behavior with hooks",
-     "url": "https://code.claude.com/docs/en/agent-sdk/hooks",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/hooks.md",
-     "blurb": "Intercept and customize agent behavior at key execution points with hooks"
+     "section": "Claude Code on the web",
+     "title": "Use Claude Code on the web",
+     "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
+     "mdUrl": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
+     "blurb": "Move sessions between web and terminal with `--cloud` and `--teleport`, manage and share sessions, and auto-fix pull requests from the cloud."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Rewind file changes with checkpointing",
-     "url": "https://code.claude.com/docs/en/agent-sdk/file-checkpointing",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/file-checkpointing.md",
-     "blurb": "Track file changes during agent sessions and restore files to any previous state"
+     "section": "Claude Code on the web",
+     "title": "Automate work with routines",
+     "url": "https://code.claude.com/docs/en/routines",
+     "mdUrl": "https://code.claude.com/docs/en/routines.md",
+     "blurb": "Put Claude Code on autopilot. Define routines that run on a schedule, trigger on API calls, or react to GitHub events from cloud infrastructure."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Track cost and usage",
-     "url": "https://code.claude.com/docs/en/agent-sdk/cost-tracking",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/cost-tracking.md",
-     "blurb": "Learn how to track token usage, estimate costs, and configure prompt caching with the Claude Agent SDK."
+     "section": "Claude Code on the web",
+     "title": "Find bugs with ultrareview",
+     "url": "https://code.claude.com/docs/en/ultrareview",
+     "mdUrl": "https://code.claude.com/docs/en/ultrareview.md",
+     "blurb": "Run a deep, multi-agent code review in the cloud with /code-review ultra to find and verify bugs before you merge."
+    }
+   ]
+  },
+  {
+   "name": "Claude Code on desktop",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Claude Code on desktop",
+     "title": "Get started with the desktop app",
+     "url": "https://code.claude.com/docs/en/desktop-quickstart",
+     "mdUrl": "https://code.claude.com/docs/en/desktop-quickstart.md",
+     "blurb": "Install Claude Code on desktop and start your first coding session"
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Observability with OpenTelemetry",
-     "url": "https://code.claude.com/docs/en/agent-sdk/observability",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/observability.md",
-     "blurb": "Export traces, metrics, and events from the Agent SDK to your observability backend using OpenTelemetry."
+     "section": "Claude Code on desktop",
+     "title": "Desktop application",
+     "url": "https://code.claude.com/docs/en/desktop",
+     "mdUrl": "https://code.claude.com/docs/en/desktop.md",
+     "blurb": "Get more out of Claude Code Desktop: parallel sessions with Git isolation, drag-and-drop pane layout, integrated terminal and file editor, side chats, computer use, Dispatch sessions from your phone, visual diff review, app previews, PR monitoring, connectors, and enterprise configuration."
     },
     {
      "source": "code",
-     "section": "Docs",
-     "title": "Todo Lists",
-     "url": "https://code.claude.com/docs/en/agent-sdk/todo-tracking",
-     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/todo-tracking.md",
-     "blurb": "Track and display todos using the Claude Agent SDK for organized task management"
+     "section": "Claude Code on desktop",
+     "title": "Claude Desktop on Linux (beta)",
+     "url": "https://code.claude.com/docs/en/desktop-linux",
+     "mdUrl": "https://code.claude.com/docs/en/desktop-linux.md",
+     "blurb": "Install and update the Claude desktop app on Ubuntu and Debian"
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Claude Code on desktop",
+     "title": "Claude Code Desktop in WSL",
+     "url": "https://code.claude.com/docs/en/desktop-wsl",
+     "mdUrl": "https://code.claude.com/docs/en/desktop-wsl.md",
+     "blurb": "Run Code sessions inside a WSL 2 distribution on Windows"
+    },
+    {
+     "source": "code",
+     "section": "Claude Code on desktop",
+     "title": "Schedule recurring tasks in Claude Code Desktop",
+     "url": "https://code.claude.com/docs/en/desktop-scheduled-tasks",
+     "mdUrl": "https://code.claude.com/docs/en/desktop-scheduled-tasks.md",
+     "blurb": "Set up scheduled tasks in Claude Code Desktop to run Claude automatically on a recurring basis for daily code reviews, dependency audits, or morning briefings."
+    },
+    {
+     "source": "code",
+     "section": "Claude Code on desktop",
+     "title": "Test iOS apps in the simulator",
+     "url": "https://code.claude.com/docs/en/desktop-ios-simulator",
+     "mdUrl": "https://code.claude.com/docs/en/desktop-ios-simulator.md",
+     "blurb": "Claude Code Desktop opens your app in the iOS Simulator pane when Claude builds, runs, or checks it, with a separate simulator for each session."
+    }
+   ]
+  },
+  {
+   "name": "Code review & CI/CD",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Catch security issues as Claude writes code",
+     "url": "https://code.claude.com/docs/en/security-guidance",
+     "mdUrl": "https://code.claude.com/docs/en/security-guidance.md",
+     "blurb": "Install the security-guidance plugin to have Claude review its own code changes for vulnerabilities and fix them in the same session."
+    },
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Scan your codebase for vulnerabilities",
+     "url": "https://code.claude.com/docs/en/claude-security",
+     "mdUrl": "https://code.claude.com/docs/en/claude-security.md",
+     "blurb": "Install the Claude Security plugin to scan your codebase for vulnerabilities in a Claude Code session and turn findings into patches you review and apply."
+    },
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Code Review",
+     "url": "https://code.claude.com/docs/en/code-review",
+     "mdUrl": "https://code.claude.com/docs/en/code-review.md",
+     "blurb": "Set up automated PR reviews that catch logic errors, security vulnerabilities, and regressions using multi-agent analysis of your full codebase"
+    },
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Claude Code GitHub Actions",
+     "url": "https://code.claude.com/docs/en/github-actions",
+     "mdUrl": "https://code.claude.com/docs/en/github-actions.md",
+     "blurb": "Run Claude Code in GitHub Actions workflows to respond to @claude mentions, automate tasks, and turn issues into pull requests"
+    },
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Use Claude Code GitHub Actions with cloud providers",
+     "url": "https://code.claude.com/docs/en/github-actions-cloud-providers",
+     "mdUrl": "https://code.claude.com/docs/en/github-actions-cloud-providers.md",
+     "blurb": "Run Claude Code GitHub Actions through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry instead of the Claude API"
+    },
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Claude Code with GitHub Enterprise Server",
+     "url": "https://code.claude.com/docs/en/github-enterprise-server",
+     "mdUrl": "https://code.claude.com/docs/en/github-enterprise-server.md",
+     "blurb": "Connect Claude Code to your self-hosted GitHub Enterprise Server instance for web sessions, code review, and plugin marketplaces."
+    },
+    {
+     "source": "code",
+     "section": "Code review & CI/CD",
+     "title": "Claude Code GitLab CI/CD",
+     "url": "https://code.claude.com/docs/en/gitlab-ci-cd",
+     "mdUrl": "https://code.claude.com/docs/en/gitlab-ci-cd.md",
+     "blurb": "Learn about integrating Claude Code into your development workflow with GitLab CI/CD"
+    }
+   ]
+  },
+  {
+   "name": "Agents and parallel work",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Run agents in parallel",
+     "url": "https://code.claude.com/docs/en/agents",
+     "mdUrl": "https://code.claude.com/docs/en/agents.md",
+     "blurb": "Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, and dynamic workflows."
+    },
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Create custom subagents",
+     "url": "https://code.claude.com/docs/en/sub-agents",
+     "mdUrl": "https://code.claude.com/docs/en/sub-agents.md",
+     "blurb": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management."
+    },
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Manage multiple agents with agent view",
+     "url": "https://code.claude.com/docs/en/agent-view",
+     "mdUrl": "https://code.claude.com/docs/en/agent-view.md",
+     "blurb": "Dispatch and manage many Claude Code sessions from one screen. Agent view shows what every session is doing and which ones need your input."
+    },
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Orchestrate teams of Claude Code sessions",
+     "url": "https://code.claude.com/docs/en/agent-teams",
+     "mdUrl": "https://code.claude.com/docs/en/agent-teams.md",
+     "blurb": "Coordinate multiple Claude Code instances working together as a team, with shared tasks, inter-agent messaging, and centralized management."
+    },
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Message your other Claude Code sessions",
+     "url": "https://code.claude.com/docs/en/cross-session-messaging",
+     "mdUrl": "https://code.claude.com/docs/en/cross-session-messaging.md",
+     "blurb": "Let Claude list and message your other Claude Code sessions on this machine, and reach your sessions on other machines or on the web."
+    },
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Orchestrate subagents at scale with dynamic workflows",
+     "url": "https://code.claude.com/docs/en/workflows",
+     "mdUrl": "https://code.claude.com/docs/en/workflows.md",
+     "blurb": "Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research."
+    },
+    {
+     "source": "code",
+     "section": "Agents and parallel work",
+     "title": "Run parallel sessions with worktrees",
+     "url": "https://code.claude.com/docs/en/worktrees",
+     "mdUrl": "https://code.claude.com/docs/en/worktrees.md",
+     "blurb": "Isolate parallel Claude Code sessions in separate git worktrees so changes don't collide. Covers the `--worktree` flag, subagent isolation, `.worktreeinclude`, cleanup, and non-git VCS hooks."
+    }
+   ]
+  },
+  {
+   "name": "MCP",
+   "pages": [
+    {
+     "source": "code",
+     "section": "MCP",
+     "title": "Connect to MCP servers",
+     "url": "https://code.claude.com/docs/en/mcp-quickstart",
+     "mdUrl": "https://code.claude.com/docs/en/mcp-quickstart.md",
+     "blurb": "Add an MCP server to Claude Code, verify the connection, and find the configuration on disk."
+    },
+    {
+     "source": "code",
+     "section": "MCP",
+     "title": "Connect Claude Code to tools via MCP",
+     "url": "https://code.claude.com/docs/en/mcp",
+     "mdUrl": "https://code.claude.com/docs/en/mcp.md",
+     "blurb": "Learn how to connect Claude Code to your tools with the Model Context Protocol."
+    }
+   ]
+  },
+  {
+   "name": "Skills",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Skills",
+     "title": "Extend Claude with skills",
+     "url": "https://code.claude.com/docs/en/skills",
+     "mdUrl": "https://code.claude.com/docs/en/skills.md",
+     "blurb": "Create, manage, and share skills to extend Claude's capabilities in Claude Code. Includes custom commands and bundled skills."
+    }
+   ]
+  },
+  {
+   "name": "Plugins",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Plugins",
+     "title": "Discover and install prebuilt plugins through marketplaces",
+     "url": "https://code.claude.com/docs/en/discover-plugins",
+     "mdUrl": "https://code.claude.com/docs/en/discover-plugins.md",
+     "blurb": "Find and install plugins from marketplaces to extend Claude Code with new skills, agents, and capabilities."
+    },
+    {
+     "source": "code",
+     "section": "Plugins",
+     "title": "Create plugins",
+     "url": "https://code.claude.com/docs/en/plugins",
+     "mdUrl": "https://code.claude.com/docs/en/plugins.md",
+     "blurb": "Create custom plugins to extend Claude Code with skills, agents, hooks, and MCP servers."
+    }
+   ]
+  },
+  {
+   "name": "Artifacts",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Artifacts",
+     "title": "Share session output as artifacts",
+     "url": "https://code.claude.com/docs/en/artifacts",
+     "mdUrl": "https://code.claude.com/docs/en/artifacts.md",
+     "blurb": "Artifacts turn Claude Code's work into live, interactive pages on claude.ai that you can keep private, share with your organization, or publish to a public link."
+    }
+   ]
+  },
+  {
+   "name": "Automation",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Automation",
+     "title": "Automate actions with hooks",
+     "url": "https://code.claude.com/docs/en/hooks-guide",
+     "mdUrl": "https://code.claude.com/docs/en/hooks-guide.md",
+     "blurb": "Run shell commands automatically when Claude Code edits files, finishes tasks, or needs input. Format code, send notifications, validate commands, and enforce project rules."
+    },
+    {
+     "source": "code",
+     "section": "Automation",
+     "title": "Push events into a running session with channels",
+     "url": "https://code.claude.com/docs/en/channels",
+     "mdUrl": "https://code.claude.com/docs/en/channels.md",
+     "blurb": "Use channels to push messages, alerts, and webhooks into your Claude Code session from an MCP server. Forward CI results, chat messages, and monitoring events so Claude can react while you're away."
+    },
+    {
+     "source": "code",
+     "section": "Automation",
+     "title": "Run prompts on a schedule",
+     "url": "https://code.claude.com/docs/en/scheduled-tasks",
+     "mdUrl": "https://code.claude.com/docs/en/scheduled-tasks.md",
+     "blurb": "Use /loop and the cron scheduling tools to run prompts repeatedly, poll for status, or set one-time reminders within a Claude Code session."
+    },
+    {
+     "source": "code",
+     "section": "Automation",
+     "title": "Keep Claude working toward a goal",
+     "url": "https://code.claude.com/docs/en/goal",
+     "mdUrl": "https://code.claude.com/docs/en/goal.md",
+     "blurb": "Set a completion condition with /goal and Claude keeps working until it's met, a model judges it impossible, or an error you have to fix clears the goal."
+    },
+    {
+     "source": "code",
+     "section": "Automation",
+     "title": "Run Claude Code programmatically",
+     "url": "https://code.claude.com/docs/en/headless",
+     "mdUrl": "https://code.claude.com/docs/en/headless.md",
+     "blurb": "Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript."
+    },
+    {
+     "source": "code",
+     "section": "Automation",
+     "title": "Launch sessions from links",
+     "url": "https://code.claude.com/docs/en/deep-links",
+     "mdUrl": "https://code.claude.com/docs/en/deep-links.md",
+     "blurb": "Open a Claude Code terminal session from a URL. Embed `claude-cli://` links in runbooks, alerts, and dashboards so a click opens Claude Code in the right repo with the right prompt."
+    }
+   ]
+  },
+  {
+   "name": "Guides",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Guides",
+     "title": "Set up Claude Code in a monorepo or large codebase",
+     "url": "https://code.claude.com/docs/en/large-codebases",
+     "mdUrl": "https://code.claude.com/docs/en/large-codebases.md",
+     "blurb": "Configure Claude Code for monorepos and large single-tree codebases with nested CLAUDE.md files, sparse worktrees, code intelligence, and per-package skills so Claude stays focused on the code you're working in."
+    }
+   ]
+  },
+  {
+   "name": "Troubleshooting",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Troubleshooting",
+     "title": "Troubleshoot installation and login",
+     "url": "https://code.claude.com/docs/en/troubleshoot-install",
+     "mdUrl": "https://code.claude.com/docs/en/troubleshoot-install.md",
+     "blurb": "Fix command not found, PATH, permission, network, and authentication errors when installing or signing in to Claude Code."
+    },
+    {
+     "source": "code",
+     "section": "Troubleshooting",
+     "title": "Troubleshooting",
+     "url": "https://code.claude.com/docs/en/troubleshooting",
+     "mdUrl": "https://code.claude.com/docs/en/troubleshooting.md",
+     "blurb": "Fix high CPU or memory usage, hangs, auto-compact thrashing, and search problems in Claude Code, and find the right page for other issues."
+    },
+    {
+     "source": "code",
+     "section": "Troubleshooting",
+     "title": "Debug your configuration",
+     "url": "https://code.claude.com/docs/en/debug-your-config",
+     "mdUrl": "https://code.claude.com/docs/en/debug-your-config.md",
+     "blurb": "Diagnose why CLAUDE.md, settings, hooks, MCP servers, or skills aren't taking effect. Use /context, /doctor, /hooks, and /mcp to see what actually loaded."
+    },
+    {
+     "source": "code",
+     "section": "Troubleshooting",
+     "title": "Error reference",
+     "url": "https://code.claude.com/docs/en/errors",
+     "mdUrl": "https://code.claude.com/docs/en/errors.md",
+     "blurb": "Look up Claude Code runtime error messages with what each one means and how to fix it."
+    }
+   ]
+  },
+  {
+   "name": "Setup and access",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Set up Claude Code for your organization",
+     "url": "https://code.claude.com/docs/en/admin-setup",
+     "mdUrl": "https://code.claude.com/docs/en/admin-setup.md",
+     "blurb": "A decision map for administrators deploying Claude Code, covering API providers, managed settings, policy enforcement, usage monitoring, and data handling."
+    },
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Advanced setup",
+     "url": "https://code.claude.com/docs/en/setup",
+     "mdUrl": "https://code.claude.com/docs/en/setup.md",
+     "blurb": "System requirements, platform-specific installation, version management, and uninstallation for Claude Code."
+    },
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Authentication",
+     "url": "https://code.claude.com/docs/en/authentication",
+     "mdUrl": "https://code.claude.com/docs/en/authentication.md",
+     "blurb": "Log in to Claude Code and configure authentication for individuals, teams, and organizations."
+    },
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Deploy managed settings",
+     "url": "https://code.claude.com/docs/en/managed-settings",
+     "mdUrl": "https://code.claude.com/docs/en/managed-settings.md",
+     "blurb": "Deploy managed settings to every developer's machine: delivery mechanisms per OS, which managed source Claude Code uses, and how to verify enforcement."
+    },
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Configure server-managed settings",
+     "url": "https://code.claude.com/docs/en/server-managed-settings",
+     "mdUrl": "https://code.claude.com/docs/en/server-managed-settings.md",
+     "blurb": "Centrally configure Claude Code for your organization through server-delivered settings, without requiring device management infrastructure."
+    },
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Control MCP server access for your organization",
+     "url": "https://code.claude.com/docs/en/managed-mcp",
+     "mdUrl": "https://code.claude.com/docs/en/managed-mcp.md",
+     "blurb": "Restrict which MCP servers users can add or connect to with managed configuration files, allowlists, and denylists."
+    },
+    {
+     "source": "code",
+     "section": "Setup and access",
+     "title": "Configure auto mode",
+     "url": "https://code.claude.com/docs/en/auto-mode-config",
+     "mdUrl": "https://code.claude.com/docs/en/auto-mode-config.md",
+     "blurb": "Tell the auto mode classifier which repos, buckets, and domains your organization trusts. Set environment context, override the default block and allow rules, and inspect your effective config with the auto-mode CLI subcommands."
+    }
+   ]
+  },
+  {
+   "name": "Deployment",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Enterprise deployment overview",
+     "url": "https://code.claude.com/docs/en/third-party-integrations",
+     "mdUrl": "https://code.claude.com/docs/en/third-party-integrations.md",
+     "blurb": "Learn how Claude Code can integrate with various third-party services and infrastructure to meet enterprise deployment requirements."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Feature availability",
+     "url": "https://code.claude.com/docs/en/feature-availability",
+     "mdUrl": "https://code.claude.com/docs/en/feature-availability.md",
+     "blurb": "Compare which Claude Code features are available across Anthropic subscription plans, the Anthropic Console, Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Claude Code on Amazon Bedrock",
+     "url": "https://code.claude.com/docs/en/amazon-bedrock",
+     "mdUrl": "https://code.claude.com/docs/en/amazon-bedrock.md",
+     "blurb": "Learn about configuring Claude Code through Amazon Bedrock, including setup, IAM configuration, and troubleshooting."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Claude Code on Claude Platform on AWS",
+     "url": "https://code.claude.com/docs/en/claude-platform-on-aws",
+     "mdUrl": "https://code.claude.com/docs/en/claude-platform-on-aws.md",
+     "blurb": "Configure Claude Code to use the Anthropic-operated Claude API with AWS authentication, IAM access control, and AWS Marketplace billing."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Claude Code on Google Cloud's Agent Platform",
+     "url": "https://code.claude.com/docs/en/google-vertex-ai",
+     "mdUrl": "https://code.claude.com/docs/en/google-vertex-ai.md",
+     "blurb": "Learn about configuring Claude Code through Google Cloud's Agent Platform, formerly Vertex AI, including setup, IAM configuration, and troubleshooting."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Claude Code on Microsoft Foundry",
+     "url": "https://code.claude.com/docs/en/microsoft-foundry",
+     "mdUrl": "https://code.claude.com/docs/en/microsoft-foundry.md",
+     "blurb": "Learn about configuring Claude Code through Microsoft Foundry, including setup, configuration, and troubleshooting."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Enterprise network configuration",
+     "url": "https://code.claude.com/docs/en/network-config",
+     "mdUrl": "https://code.claude.com/docs/en/network-config.md",
+     "blurb": "Configure Claude Code for enterprise environments with proxy servers, custom Certificate Authorities (CA), and mutual Transport Layer Security (mTLS) authentication."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Run Claude Code behind a corporate launcher",
+     "url": "https://code.claude.com/docs/en/corporate-launcher",
+     "mdUrl": "https://code.claude.com/docs/en/corporate-launcher.md",
+     "blurb": "Route the processes Claude Code starts from its own binary, including the background service and every agent view session, through a required launcher with CLAUDE_CODE_PROCESS_WRAPPER or the processWrapper setting."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
+     "title": "Development containers",
+     "url": "https://code.claude.com/docs/en/devcontainer",
+     "mdUrl": "https://code.claude.com/docs/en/devcontainer.md",
+     "blurb": "Run Claude Code inside a dev container for consistent, isolated environments across your team."
+    },
+    {
+     "source": "code",
+     "section": "Deployment",
      "title": "Hosting the Agent SDK",
      "url": "https://code.claude.com/docs/en/agent-sdk/hosting",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/hosting.md",
@@ -2785,15 +2385,757 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Deployment",
      "title": "Securely deploying AI agents",
      "url": "https://code.claude.com/docs/en/agent-sdk/secure-deployment",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md",
      "blurb": "A guide to securing Claude Code and Agent SDK deployments with isolation, credential management, and network controls"
+    }
+   ]
+  },
+  {
+   "name": "Gateways",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Gateways",
+     "title": "Run Claude Code through a gateway",
+     "url": "https://code.claude.com/docs/en/gateways",
+     "mdUrl": "https://code.claude.com/docs/en/gateways.md",
+     "blurb": "Route Claude Code through a self-hosted gateway for centralized credentials, usage tracking, and cost controls. Covers the architecture, Anthropic's Claude apps gateway, and using other gateway products."
+    }
+   ]
+  },
+  {
+   "name": "Claude apps gateway",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Claude apps gateway",
+     "title": "Claude apps gateway for Amazon Bedrock, Claude Platform on AWS, Google Cloud, and Microsoft Foundry",
+     "url": "https://code.claude.com/docs/en/claude-apps-gateway",
+     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway.md",
+     "blurb": "Run Claude Code through Amazon Bedrock, Claude Platform on AWS, Google Cloud, or Microsoft Foundry behind a self-hosted gateway with SSO sign-in, per-group model access, and OTLP telemetry."
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Claude apps gateway",
+     "title": "Claude apps gateway configuration",
+     "url": "https://code.claude.com/docs/en/claude-apps-gateway-config",
+     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-config.md",
+     "blurb": "Reference for every gateway.yaml option: listener and TLS, OIDC, session, Postgres store, Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry upstreams, model routing, managed policies, and telemetry."
+    },
+    {
+     "source": "code",
+     "section": "Claude apps gateway",
+     "title": "Claude apps gateway spend limits",
+     "url": "https://code.claude.com/docs/en/claude-apps-gateway-spend-limits",
+     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-spend-limits.md",
+     "blurb": "Cap each developer's spend through the Claude apps gateway by day, week, or month. Set limits with an Admin API and the gateway enforces them live on every request."
+    },
+    {
+     "source": "code",
+     "section": "Claude apps gateway",
+     "title": "Claude apps gateway deployment and operations",
+     "url": "https://code.claude.com/docs/en/claude-apps-gateway-deploy",
+     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-deploy.md",
+     "blurb": "Register the gateway with your IdP, build the container, deploy on Kubernetes or Cloud Run, and operate it: health checks, secret rotation, upgrades, and security."
+    },
+    {
+     "source": "code",
+     "section": "Claude apps gateway",
+     "title": "Deploy Claude apps gateway on AWS",
+     "url": "https://code.claude.com/docs/en/claude-apps-gateway-on-aws",
+     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-on-aws.md",
+     "blurb": "A worked example of running Claude apps gateway on AWS: ECS Fargate or EKS, Amazon RDS for PostgreSQL, AWS Secrets Manager, and IAM-role auth to Amazon Bedrock."
+    },
+    {
+     "source": "code",
+     "section": "Claude apps gateway",
+     "title": "Deploy Claude apps gateway on Google Cloud",
+     "url": "https://code.claude.com/docs/en/claude-apps-gateway-on-gcp",
+     "mdUrl": "https://code.claude.com/docs/en/claude-apps-gateway-on-gcp.md",
+     "blurb": "A worked example of running Claude apps gateway on Google Cloud: Cloud Run or GKE, Cloud SQL for PostgreSQL, Secret Manager, and service-account auth to Google Cloud's Agent Platform."
+    }
+   ]
+  },
+  {
+   "name": "Other gateways",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Other gateways",
+     "title": "Other LLM gateways",
+     "url": "https://code.claude.com/docs/en/llm-gateway",
+     "mdUrl": "https://code.claude.com/docs/en/llm-gateway.md",
+     "blurb": "Route Claude Code through an LLM gateway your organization already runs. Covers connecting Claude Code to a gateway, rolling one out for your organization, and what Claude Code sends to a gateway."
+    },
+    {
+     "source": "code",
+     "section": "Other gateways",
+     "title": "Connect Claude Code to an LLM gateway",
+     "url": "https://code.claude.com/docs/en/llm-gateway-connect",
+     "mdUrl": "https://code.claude.com/docs/en/llm-gateway-connect.md",
+     "blurb": "Point Claude Code at your organization's LLM gateway. Check whether your admin already configured it, or set the base URL and credential yourself, then verify the connection and fix gateway errors."
+    },
+    {
+     "source": "code",
+     "section": "Other gateways",
+     "title": "Roll out an LLM gateway for your organization",
+     "url": "https://code.claude.com/docs/en/llm-gateway-rollout",
+     "mdUrl": "https://code.claude.com/docs/en/llm-gateway-rollout.md",
+     "blurb": "Deploy a gateway product for Claude Code: configure it to forward what Claude Code sends, issue developer credentials, distribute the configuration through managed settings, and verify the rollout."
+    },
+    {
+     "source": "code",
+     "section": "Other gateways",
+     "title": "Gateway protocol reference",
+     "url": "https://code.claude.com/docs/en/llm-gateway-protocol",
+     "mdUrl": "https://code.claude.com/docs/en/llm-gateway-protocol.md",
+     "blurb": "The API contract between Claude Code and an LLM gateway: endpoints, headers and body fields to forward, feature degradation when fields are stripped, attribution headers for cost tracking, and model discovery."
+    }
+   ]
+  },
+  {
+   "name": "Usage and costs",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Usage and costs",
+     "title": "Monitoring",
+     "url": "https://code.claude.com/docs/en/monitoring-usage",
+     "mdUrl": "https://code.claude.com/docs/en/monitoring-usage.md",
+     "blurb": "Learn how to enable and configure OpenTelemetry for Claude Code."
+    },
+    {
+     "source": "code",
+     "section": "Usage and costs",
+     "title": "Manage costs effectively",
+     "url": "https://code.claude.com/docs/en/costs",
+     "mdUrl": "https://code.claude.com/docs/en/costs.md",
+     "blurb": "Track token usage, set team spend limits, and reduce Claude Code costs with context management, model selection, extended thinking settings, and preprocessing hooks."
+    },
+    {
+     "source": "code",
+     "section": "Usage and costs",
+     "title": "Track team usage with analytics",
+     "url": "https://code.claude.com/docs/en/analytics",
+     "mdUrl": "https://code.claude.com/docs/en/analytics.md",
+     "blurb": "View Claude Code usage metrics, track adoption, and measure engineering velocity in the analytics dashboard."
+    }
+   ]
+  },
+  {
+   "name": "Plugin distribution",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Plugin distribution",
+     "title": "Create and distribute a plugin marketplace",
+     "url": "https://code.claude.com/docs/en/plugin-marketplaces",
+     "mdUrl": "https://code.claude.com/docs/en/plugin-marketplaces.md",
+     "blurb": "Build and host plugin marketplaces to distribute Claude Code extensions across teams and communities."
+    },
+    {
+     "source": "code",
+     "section": "Plugin distribution",
+     "title": "Constrain plugin dependency versions",
+     "url": "https://code.claude.com/docs/en/plugin-dependencies",
+     "mdUrl": "https://code.claude.com/docs/en/plugin-dependencies.md",
+     "blurb": "Declare version constraints on plugin dependencies, and bundle a curated plugin set behind one install."
+    },
+    {
+     "source": "code",
+     "section": "Plugin distribution",
+     "title": "Recommend your plugin from your CLI",
+     "url": "https://code.claude.com/docs/en/plugin-hints",
+     "mdUrl": "https://code.claude.com/docs/en/plugin-hints.md",
+     "blurb": "Emit a one-line marker from your CLI so Claude Code prompts users to install your official plugin."
+    },
+    {
+     "source": "code",
+     "section": "Plugin distribution",
+     "title": "Recommend plugins for your org",
+     "url": "https://code.claude.com/docs/en/plugin-relevance",
+     "mdUrl": "https://code.claude.com/docs/en/plugin-relevance.md",
+     "blurb": "Add a relevance block to marketplace plugin entries so Claude Code suggests them when a user's work matches."
+    }
+   ]
+  },
+  {
+   "name": "Security and data",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Security and data",
+     "title": "Security",
+     "url": "https://code.claude.com/docs/en/security",
+     "mdUrl": "https://code.claude.com/docs/en/security.md",
+     "blurb": "Learn about Claude Code's security safeguards and best practices for safe usage."
+    },
+    {
+     "source": "code",
+     "section": "Security and data",
+     "title": "Data usage",
+     "url": "https://code.claude.com/docs/en/data-usage",
+     "mdUrl": "https://code.claude.com/docs/en/data-usage.md",
+     "blurb": "Learn about Anthropic's data usage policies for Claude"
+    },
+    {
+     "source": "code",
+     "section": "Security and data",
+     "title": "Zero data retention",
+     "url": "https://code.claude.com/docs/en/zero-data-retention",
+     "mdUrl": "https://code.claude.com/docs/en/zero-data-retention.md",
+     "blurb": "Learn about Zero Data Retention (ZDR) for Claude Code, available to qualified accounts on Claude for Enterprise, including scope, disabled features, and how to request enablement."
+    }
+   ]
+  },
+  {
+   "name": "Adoption",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Adoption",
+     "title": "Communications kit",
+     "url": "https://code.claude.com/docs/en/communications-kit",
+     "mdUrl": "https://code.claude.com/docs/en/communications-kit.md",
+     "blurb": "Launch announcements, drip-campaign messages, and FAQ responses for rolling Claude Code out to your engineering organization."
+    },
+    {
+     "source": "code",
+     "section": "Adoption",
+     "title": "Champion kit",
+     "url": "https://code.claude.com/docs/en/champion-kit",
+     "mdUrl": "https://code.claude.com/docs/en/champion-kit.md",
+     "blurb": "A playbook for engineers advocating Claude Code internally: what to share, how to answer questions, and how to grow adoption on your team."
+    }
+   ]
+  },
+  {
+   "name": "Settings",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Settings",
+     "title": "Claude Code settings",
+     "url": "https://code.claude.com/docs/en/settings",
+     "mdUrl": "https://code.claude.com/docs/en/settings.md",
+     "blurb": "Change Claude Code settings, pick the scope a key belongs in, verify the change, and learn which value Claude Code uses when a key is set in several places."
+    },
+    {
+     "source": "code",
+     "section": "Settings",
+     "title": "Claude Code settings reference",
+     "url": "https://code.claude.com/docs/en/settings-reference",
+     "mdUrl": "https://code.claude.com/docs/en/settings-reference.md",
+     "blurb": "Complete reference for every Claude Code settings.json key: where each one goes, its type and default, and a paste-ready example, with an index of every key."
+    },
+    {
+     "source": "code",
+     "section": "Settings",
+     "title": "Example settings files",
+     "url": "https://code.claude.com/docs/en/settings-example",
+     "mdUrl": "https://code.claude.com/docs/en/settings-example.md",
+     "blurb": "Realistic settings.json files for a developer, a team, and an organization: copy one, keep the keys you want, and change the values."
+    }
+   ]
+  },
+  {
+   "name": "Permissions and sandboxing",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Permissions and sandboxing",
+     "title": "Configure permissions",
+     "url": "https://code.claude.com/docs/en/permissions",
+     "mdUrl": "https://code.claude.com/docs/en/permissions.md",
+     "blurb": "Control what Claude Code can access and do with fine-grained permission rules, modes, and managed policies."
+    },
+    {
+     "source": "code",
+     "section": "Permissions and sandboxing",
+     "title": "Choose a permission mode",
+     "url": "https://code.claude.com/docs/en/permission-modes",
+     "mdUrl": "https://code.claude.com/docs/en/permission-modes.md",
+     "blurb": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop."
+    },
+    {
+     "source": "code",
+     "section": "Permissions and sandboxing",
+     "title": "Configure the sandboxed Bash tool",
+     "url": "https://code.claude.com/docs/en/sandboxing",
+     "mdUrl": "https://code.claude.com/docs/en/sandboxing.md",
+     "blurb": "Learn how Claude Code's sandboxed Bash tool provides filesystem and network isolation for safer, more autonomous agent execution."
+    },
+    {
+     "source": "code",
+     "section": "Permissions and sandboxing",
+     "title": "Choose a sandbox environment",
+     "url": "https://code.claude.com/docs/en/sandbox-environments",
+     "mdUrl": "https://code.claude.com/docs/en/sandbox-environments.md",
+     "blurb": "Compare Claude Code sandbox options: the built-in sandboxed Bash tool, sandbox runtime, dev containers, Docker, and VMs. Choose the right isolation for your threat model."
+    }
+   ]
+  },
+  {
+   "name": "Environments",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Environments",
+     "title": "Configure cloud environments",
+     "url": "https://code.claude.com/docs/en/cloud-environments",
+     "mdUrl": "https://code.claude.com/docs/en/cloud-environments.md",
+     "blurb": "Configure cloud environments for Claude Code cloud sessions: network access levels, environment variables, setup scripts, and environment caching."
+    }
+   ]
+  },
+  {
+   "name": "Self-hosted environments",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Self-hosted environments",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments.md",
+     "blurb": "Run Claude Code cloud sessions on infrastructure you control: set up a self-hosted environment, deploy runners, and route sessions to your own compute."
+    },
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Self-hosted environments quickstart",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments-quickstart",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-quickstart.md",
+     "blurb": "Set up your first self-hosted environment: install Claude Code, create the environment, start a runner, and route a session to it."
+    },
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Deploy self-hosted environments to production",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments-deploy",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-deploy.md",
+     "blurb": "Run self-hosted runners in production: security hardening, network egress control, git credentials, Kubernetes and Compose recipes, and troubleshooting."
+    },
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Customize sessions in self-hosted environments",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments-configuration",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-configuration.md",
+     "blurb": "Customize self-hosted environment sessions with wrapper scripts for per-session credentials, lifecycle hooks, and on-demand runner spawning."
+    },
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Test self-hosted environments end to end",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments-testing",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-testing.md",
+     "blurb": "Verify a self-hosted runner image from CI: dispatch a session with the CLI, read Claude's replies through a Stop hook, and script the full loop."
+    },
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Self-hosted environments reference",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments-reference",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-reference.md",
+     "blurb": "Complete reference for the self-hosted runner and orchestrator: CLI flags, environment variables, and Prometheus metrics."
+    },
+    {
+     "source": "code",
+     "section": "Self-hosted environments",
+     "title": "Verify session identity in self-hosted environments",
+     "url": "https://code.claude.com/docs/en/self-hosted-environments-identity",
+     "mdUrl": "https://code.claude.com/docs/en/self-hosted-environments-identity.md",
+     "blurb": "Verify the CLAUDE_CODE_SESSION_ACCESS_TOKEN JWT so services on your network can trust requests from sessions in your self-hosted environment."
+    }
+   ]
+  },
+  {
+   "name": "Model and responses",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Model and responses",
+     "title": "Model configuration",
+     "url": "https://code.claude.com/docs/en/model-config",
+     "mdUrl": "https://code.claude.com/docs/en/model-config.md",
+     "blurb": "Configure which model Claude Code uses, effort levels, extended context, and the auto-compact window"
+    },
+    {
+     "source": "code",
+     "section": "Model and responses",
+     "title": "Speed up responses with fast mode",
+     "url": "https://code.claude.com/docs/en/fast-mode",
+     "mdUrl": "https://code.claude.com/docs/en/fast-mode.md",
+     "blurb": "Get faster Opus responses in Claude Code by toggling fast mode."
+    },
+    {
+     "source": "code",
+     "section": "Model and responses",
+     "title": "Escalate hard decisions with the advisor tool",
+     "url": "https://code.claude.com/docs/en/advisor",
+     "mdUrl": "https://code.claude.com/docs/en/advisor.md",
+     "blurb": "Pair your main model with a stronger advisor model that Claude consults at key moments during a task."
+    },
+    {
+     "source": "code",
+     "section": "Model and responses",
+     "title": "Output styles",
+     "url": "https://code.claude.com/docs/en/output-styles",
+     "mdUrl": "https://code.claude.com/docs/en/output-styles.md",
+     "blurb": "Adapt Claude Code for uses beyond software engineering"
+    }
+   ]
+  },
+  {
+   "name": "Interface",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Interface",
+     "title": "Configure your terminal for Claude Code",
+     "url": "https://code.claude.com/docs/en/terminal-config",
+     "mdUrl": "https://code.claude.com/docs/en/terminal-config.md",
+     "blurb": "Fix Shift+Enter for newlines, get a terminal bell when Claude finishes, configure tmux, match the color theme, and enable Vim mode in the Claude Code CLI."
+    },
+    {
+     "source": "code",
+     "section": "Interface",
+     "title": "Fullscreen rendering",
+     "url": "https://code.claude.com/docs/en/fullscreen",
+     "mdUrl": "https://code.claude.com/docs/en/fullscreen.md",
+     "blurb": "Enable a smoother, flicker-free rendering mode with mouse support and stable memory usage in long conversations."
+    },
+    {
+     "source": "code",
+     "section": "Interface",
+     "title": "Use Claude Code with a screen reader",
+     "url": "https://code.claude.com/docs/en/accessibility",
+     "mdUrl": "https://code.claude.com/docs/en/accessibility.md",
+     "blurb": "Set up Claude Code for screen readers such as VoiceOver and NVDA, plus settings for screen magnifiers, reduced motion, and colorblind-friendly themes."
+    },
+    {
+     "source": "code",
+     "section": "Interface",
+     "title": "Voice dictation",
+     "url": "https://code.claude.com/docs/en/voice-dictation",
+     "mdUrl": "https://code.claude.com/docs/en/voice-dictation.md",
+     "blurb": "Speak your prompts in the Claude Code CLI with hold-to-record or tap-to-record voice dictation."
+    },
+    {
+     "source": "code",
+     "section": "Interface",
+     "title": "Customize your status line",
+     "url": "https://code.claude.com/docs/en/statusline",
+     "mdUrl": "https://code.claude.com/docs/en/statusline.md",
+     "blurb": "Configure a custom status bar to monitor context window usage, costs, and git status in Claude Code"
+    },
+    {
+     "source": "code",
+     "section": "Interface",
+     "title": "Customize keyboard shortcuts",
+     "url": "https://code.claude.com/docs/en/keybindings",
+     "mdUrl": "https://code.claude.com/docs/en/keybindings.md",
+     "blurb": "Customize keyboard shortcuts in Claude Code with a keybindings configuration file."
+    }
+   ]
+  },
+  {
+   "name": "Reference",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "CLI reference",
+     "url": "https://code.claude.com/docs/en/cli-reference",
+     "mdUrl": "https://code.claude.com/docs/en/cli-reference.md",
+     "blurb": "Complete reference for Claude Code command-line interface, including commands and flags."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Commands",
+     "url": "https://code.claude.com/docs/en/commands",
+     "mdUrl": "https://code.claude.com/docs/en/commands.md",
+     "blurb": "Complete reference for commands available in Claude Code, including built-in commands and bundled skills."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Environment variables",
+     "url": "https://code.claude.com/docs/en/env-vars",
+     "mdUrl": "https://code.claude.com/docs/en/env-vars.md",
+     "blurb": "Reference for environment variables that control Claude Code behavior."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Tools reference",
+     "url": "https://code.claude.com/docs/en/tools-reference",
+     "mdUrl": "https://code.claude.com/docs/en/tools-reference.md",
+     "blurb": "Complete reference for the tools Claude Code can use, including permission requirements and per-tool behavior."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Interactive mode",
+     "url": "https://code.claude.com/docs/en/interactive-mode",
+     "mdUrl": "https://code.claude.com/docs/en/interactive-mode.md",
+     "blurb": "Complete reference for keyboard shortcuts, input modes, and interactive features in Claude Code sessions."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Checkpointing",
+     "url": "https://code.claude.com/docs/en/checkpointing",
+     "mdUrl": "https://code.claude.com/docs/en/checkpointing.md",
+     "blurb": "Track, rewind, and summarize Claude's edits and conversation to manage session state."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Hooks reference",
+     "url": "https://code.claude.com/docs/en/hooks",
+     "mdUrl": "https://code.claude.com/docs/en/hooks.md",
+     "blurb": "Reference for Claude Code hook events, configuration schema, JSON input/output formats, exit codes, async hooks, HTTP hooks, prompt hooks, and MCP tool hooks."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Plugins reference",
+     "url": "https://code.claude.com/docs/en/plugins-reference",
+     "mdUrl": "https://code.claude.com/docs/en/plugins-reference.md",
+     "blurb": "Complete technical reference for Claude Code plugin system, including schemas, CLI commands, and component specifications."
+    },
+    {
+     "source": "code",
+     "section": "Reference",
+     "title": "Channels reference",
+     "url": "https://code.claude.com/docs/en/channels-reference",
+     "mdUrl": "https://code.claude.com/docs/en/channels-reference.md",
+     "blurb": "Build an MCP server that pushes webhooks, alerts, and chat messages into a Claude Code session. Reference for the channel contract: capability declaration, notification events, reply tools, sender gating, and permission relay."
+    }
+   ]
+  },
+  {
+   "name": "Glossary",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Glossary",
+     "title": "Glossary",
+     "url": "https://code.claude.com/docs/en/glossary",
+     "mdUrl": "https://code.claude.com/docs/en/glossary.md",
+     "blurb": "Definitions for Claude Code terminology. Learn what agentic loop, compaction, CLAUDE.md, hooks, subagents, MCP, and other core concepts mean."
+    }
+   ]
+  },
+  {
+   "name": "Agent SDK",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Agent SDK",
+     "title": "Agent SDK overview",
+     "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/overview.md",
+     "blurb": "Build production AI agents with Claude Code as a library"
+    },
+    {
+     "source": "code",
+     "section": "Agent SDK",
+     "title": "Quickstart",
+     "url": "https://code.claude.com/docs/en/agent-sdk/quickstart",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/quickstart.md",
+     "blurb": "Get started with the Python or TypeScript Agent SDK to build AI agents that work autonomously"
+    }
+   ]
+  },
+  {
+   "name": "Build agents",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Build agents",
+     "title": "Examples",
+     "url": "https://code.claude.com/docs/en/agent-sdk/examples",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/examples.md",
+     "blurb": "Find a complete, runnable Agent SDK project or a guided recipe in the Claude Cookbook that matches what you want to build."
+    },
+    {
+     "source": "code",
+     "section": "Build agents",
+     "title": "Troubleshooting",
+     "url": "https://code.claude.com/docs/en/agent-sdk/troubleshooting",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/troubleshooting.md",
+     "blurb": "Fix Agent SDK errors by the exact message you see, with the cause and fix for each error in the TypeScript and Python SDKs."
+    }
+   ]
+  },
+  {
+   "name": "Input and output",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Input and output",
+     "title": "Streaming Input",
+     "url": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode.md",
+     "blurb": "Understanding the two input modes for Claude Agent SDK and when to use each"
+    },
+    {
+     "source": "code",
+     "section": "Input and output",
+     "title": "Handle approvals and user input",
+     "url": "https://code.claude.com/docs/en/agent-sdk/user-input",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/user-input.md",
+     "blurb": "Surface Claude's approval requests and clarifying questions to users, then return their decisions to the SDK."
+    },
+    {
+     "source": "code",
+     "section": "Input and output",
+     "title": "Stream responses in real-time",
+     "url": "https://code.claude.com/docs/en/agent-sdk/streaming-output",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/streaming-output.md",
+     "blurb": "Get real-time responses from the Agent SDK as text and tool calls stream in"
+    },
+    {
+     "source": "code",
+     "section": "Input and output",
+     "title": "Get structured output from agents",
+     "url": "https://code.claude.com/docs/en/agent-sdk/structured-outputs",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/structured-outputs.md",
+     "blurb": "Return validated JSON from agent workflows using JSON Schema, Zod, or Pydantic. Get type-safe, structured data after multi-turn tool use."
+    }
+   ]
+  },
+  {
+   "name": "Extend with tools",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Extend with tools",
+     "title": "Give Claude custom tools",
+     "url": "https://code.claude.com/docs/en/agent-sdk/custom-tools",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/custom-tools.md",
+     "blurb": "Define custom tools with the Claude Agent SDK's in-process MCP server so Claude can call your functions, hit your APIs, and perform domain-specific operations."
+    },
+    {
+     "source": "code",
+     "section": "Extend with tools",
+     "title": "Connect to external tools with MCP",
+     "url": "https://code.claude.com/docs/en/agent-sdk/mcp",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/mcp.md",
+     "blurb": "Configure MCP servers to extend your agent with external tools. Covers transport types, tool search for large tool sets, authentication, and error handling."
+    },
+    {
+     "source": "code",
+     "section": "Extend with tools",
+     "title": "Scale to many tools with tool search",
+     "url": "https://code.claude.com/docs/en/agent-sdk/tool-search",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/tool-search.md",
+     "blurb": "Scale your agent to thousands of tools by discovering and loading only what's needed, on demand."
+    },
+    {
+     "source": "code",
+     "section": "Extend with tools",
+     "title": "Subagents in the SDK",
+     "url": "https://code.claude.com/docs/en/agent-sdk/subagents",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/subagents.md",
+     "blurb": "Define and invoke subagents to isolate context, run tasks in parallel, and apply specialized instructions in your Claude Agent SDK applications."
+    }
+   ]
+  },
+  {
+   "name": "Customize behavior",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Customize behavior",
+     "title": "Modifying system prompts",
+     "url": "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts.md",
+     "blurb": "Choose between the `claude_code` preset and a custom system prompt, and customize behavior with CLAUDE.md, output styles, append, or a fully custom prompt."
+    },
+    {
+     "source": "code",
+     "section": "Customize behavior",
+     "title": "Extend agents with skills",
+     "url": "https://code.claude.com/docs/en/agent-sdk/skills",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/skills.md",
+     "blurb": "Control which skills Claude can invoke in Claude Agent SDK sessions, dispatch commands by name, and author skills your sessions discover"
+    },
+    {
+     "source": "code",
+     "section": "Customize behavior",
+     "title": "Plugins in the SDK",
+     "url": "https://code.claude.com/docs/en/agent-sdk/plugins",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/plugins.md",
+     "blurb": "Load custom plugins to extend Claude Code with skills, agents, hooks, and MCP servers through the Agent SDK"
+    }
+   ]
+  },
+  {
+   "name": "Control and observability",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Control and observability",
+     "title": "Configure permissions",
+     "url": "https://code.claude.com/docs/en/agent-sdk/permissions",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/permissions.md",
+     "blurb": "Control how your agent uses tools with permission modes, hooks, and declarative allow/deny rules."
+    },
+    {
+     "source": "code",
+     "section": "Control and observability",
+     "title": "Intercept and control agent behavior with hooks",
+     "url": "https://code.claude.com/docs/en/agent-sdk/hooks",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/hooks.md",
+     "blurb": "Intercept and customize agent behavior at key execution points with hooks"
+    },
+    {
+     "source": "code",
+     "section": "Control and observability",
+     "title": "Rewind file changes with checkpointing",
+     "url": "https://code.claude.com/docs/en/agent-sdk/file-checkpointing",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/file-checkpointing.md",
+     "blurb": "Track file changes during agent sessions and restore files to any previous state"
+    },
+    {
+     "source": "code",
+     "section": "Control and observability",
+     "title": "Track cost and usage",
+     "url": "https://code.claude.com/docs/en/agent-sdk/cost-tracking",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/cost-tracking.md",
+     "blurb": "Learn how to track token usage, estimate costs, and configure prompt caching with the Claude Agent SDK."
+    },
+    {
+     "source": "code",
+     "section": "Control and observability",
+     "title": "Observability with OpenTelemetry",
+     "url": "https://code.claude.com/docs/en/agent-sdk/observability",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/observability.md",
+     "blurb": "Export traces, metrics, and events from the Agent SDK to your observability backend using OpenTelemetry."
+    },
+    {
+     "source": "code",
+     "section": "Control and observability",
+     "title": "Track todos",
+     "url": "https://code.claude.com/docs/en/agent-sdk/todo-tracking",
+     "mdUrl": "https://code.claude.com/docs/en/agent-sdk/todo-tracking.md",
+     "blurb": "Track todos in Agent SDK sessions and render Claude's progress in your application from structured tool calls"
+    }
+   ]
+  },
+  {
+   "name": "SDK references",
+   "pages": [
+    {
+     "source": "code",
+     "section": "SDK references",
      "title": "Agent SDK reference - TypeScript",
      "url": "https://code.claude.com/docs/en/agent-sdk/typescript",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/typescript.md",
@@ -2801,7 +3143,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "SDK references",
      "title": "TypeScript SDK V2 session API (removed)",
      "url": "https://code.claude.com/docs/en/agent-sdk/typescript-v2-preview",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/typescript-v2-preview.md",
@@ -2809,7 +3151,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "SDK references",
      "title": "Agent SDK reference - Python",
      "url": "https://code.claude.com/docs/en/agent-sdk/python",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/python.md",
@@ -2817,15 +3159,20 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "SDK references",
      "title": "Migrate to Claude Agent SDK",
      "url": "https://code.claude.com/docs/en/agent-sdk/migration-guide",
      "mdUrl": "https://code.claude.com/docs/en/agent-sdk/migration-guide.md",
      "blurb": "Guide for migrating the Claude Code TypeScript and Python SDKs to the Claude Agent SDK"
-    },
+    }
+   ]
+  },
+  {
+   "name": "What's New",
+   "pages": [
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "What's new",
      "url": "https://code.claude.com/docs/en/whats-new/index",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/index.md",
@@ -2833,7 +3180,23 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
+     "title": "Week 34 · August 17–21, 2026",
+     "url": "https://code.claude.com/docs/en/whats-new/2026-w34",
+     "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w34.md",
+     "blurb": "Draft editable UI artboards with the /design skill, set the Concise output style, and start a Claude Code session on your machine from your phone."
+    },
+    {
+     "source": "code",
+     "section": "What's New",
+     "title": "Week 33 · August 10–14, 2026",
+     "url": "https://code.claude.com/docs/en/whats-new/2026-w33",
+     "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w33.md",
+     "blurb": "Claude Code Desktop auto-continues after a usage limit resets, fork mode turns on by default, and GitLab merge requests and marketplaces join GitHub."
+    },
+    {
+     "source": "code",
+     "section": "What's New",
      "title": "Week 32 · August 3–7, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w32",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w32.md",
@@ -2841,7 +3204,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 30 · July 20–24, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w30",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w30.md",
@@ -2849,7 +3212,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 29 · July 13–17, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w29",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w29.md",
@@ -2857,7 +3220,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 28 · July 6–10, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w28",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w28.md",
@@ -2865,7 +3228,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 27 · June 29 – July 3, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w27",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w27.md",
@@ -2873,7 +3236,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 26 · June 22–26, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w26",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w26.md",
@@ -2881,7 +3244,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 25 · June 15–19, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w25",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w25.md",
@@ -2889,7 +3252,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 24 · June 8–12, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w24",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w24.md",
@@ -2897,7 +3260,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 23 · June 1–5, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w23",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w23.md",
@@ -2905,7 +3268,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 22 · May 25–29, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w22",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w22.md",
@@ -2913,7 +3276,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 21 · May 18–22, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w21",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w21.md",
@@ -2921,7 +3284,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 20 · May 11–15, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w20",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w20.md",
@@ -2929,7 +3292,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 19 · May 4–8, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w19",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w19.md",
@@ -2937,7 +3300,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 18 · April 27 – May 1, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w18",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w18.md",
@@ -2945,7 +3308,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 17 · April 20–24, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w17",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w17.md",
@@ -2953,7 +3316,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 16 · April 13–17, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w16",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w16.md",
@@ -2961,7 +3324,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 15 · April 6–10, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w15",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w15.md",
@@ -2969,7 +3332,7 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 14 · March 30 – April 3, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w14",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w14.md",
@@ -2977,19 +3340,117 @@
     },
     {
      "source": "code",
-     "section": "Docs",
+     "section": "What's New",
      "title": "Week 13 · March 23–27, 2026",
      "url": "https://code.claude.com/docs/en/whats-new/2026-w13",
      "mdUrl": "https://code.claude.com/docs/en/whats-new/2026-w13.md",
      "blurb": "Auto mode for hands-off permissions, computer use built in, PR auto-fix in the cloud, transcript search, and a PowerShell tool for Windows."
-    },
+    }
+   ]
+  },
+  {
+   "name": "Resources",
+   "pages": [
     {
      "source": "code",
-     "section": "Docs",
+     "section": "Resources",
      "title": "Legal and compliance",
      "url": "https://code.claude.com/docs/en/legal-and-compliance",
      "mdUrl": "https://code.claude.com/docs/en/legal-and-compliance.md",
      "blurb": "Legal agreements, compliance certifications, and security information for Claude Code."
+    }
+   ]
+  },
+  {
+   "name": "Indexes",
+   "pages": [
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "French (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/fr",
+     "mdUrl": "https://code.claude.com/docs/_llms/fr.md",
+     "blurb": "Documentation for French."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "German (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/de",
+     "mdUrl": "https://code.claude.com/docs/_llms/de.md",
+     "blurb": "Documentation for German."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Italian (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/it",
+     "mdUrl": "https://code.claude.com/docs/_llms/it.md",
+     "blurb": "Documentation for Italian."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Japanese (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/jp",
+     "mdUrl": "https://code.claude.com/docs/_llms/jp.md",
+     "blurb": "Documentation for Japanese."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Spanish (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/es",
+     "mdUrl": "https://code.claude.com/docs/_llms/es.md",
+     "blurb": "Documentation for Spanish."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Korean (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/ko",
+     "mdUrl": "https://code.claude.com/docs/_llms/ko.md",
+     "blurb": "Documentation for Korean."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Chinese (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/cn",
+     "mdUrl": "https://code.claude.com/docs/_llms/cn.md",
+     "blurb": "Documentation for Chinese."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Traditional Chinese (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/zh-hant",
+     "mdUrl": "https://code.claude.com/docs/_llms/zh-hant.md",
+     "blurb": "Documentation for Traditional Chinese."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Russian (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/ru",
+     "mdUrl": "https://code.claude.com/docs/_llms/ru.md",
+     "blurb": "Documentation for Russian."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Indonesian (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/id",
+     "mdUrl": "https://code.claude.com/docs/_llms/id.md",
+     "blurb": "Documentation for Indonesian."
+    },
+    {
+     "source": "code",
+     "section": "Indexes",
+     "title": "Brazilian Portuguese (166 pages)",
+     "url": "https://code.claude.com/docs/_llms/pt-br",
+     "mdUrl": "https://code.claude.com/docs/_llms/pt-br.md",
+     "blurb": "Documentation for Brazilian Portuguese."
     }
    ]
   }

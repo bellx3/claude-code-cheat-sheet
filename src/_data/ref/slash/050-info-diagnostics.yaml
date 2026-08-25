@@ -8,7 +8,7 @@ summary: >-
   지금 상태가 어떤지 읽는 명령들. 고치기 전에 여기부터 확인.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-24"
+  checked_at: "2026-08-26"
 items:
   - id: status
     term: /status
@@ -79,3 +79,34 @@ items:
       메모리 사용량이 비정상적으로 높을 때의 진단용이다. 명령 메뉴에 뜨지 않으므로 이름을
       전부 입력해야 한다.
     caveat: 메모리 문제를 신고할 때 **-diagnostics.json 만** 첨부할 것. .heapsnapshot 에는 대화 전문과 자격증명이 들어 있다 — 공유하면 안 된다.
+  - id: artifacts
+    term: /artifacts
+    kind: command
+    tier: full
+    desc: 아티팩트 목록 및 첨부
+    aliases: [아티팩트, 파일 공유]
+    detail: |
+      내가 소유하거나 공유받은 아티팩트를 나열하고 세션에 첨부하거나 브라우저에서 열거나 링크를 복사한다.
+      아티팩트가 지원되는 환경에서만 사용 가능하다(v2.1.208+). Enter 로 첨부하려면 v2.1.216+ 이 필요하다.
+  - id: rate-limit-options
+    term: /rate-limit-options
+    kind: command
+    tier: full
+    desc: 사용 한도 대응 옵션
+    aliases: [한도, 제한, 사용량 제한]
+    detail: |
+      claude.ai 사용 한도로 요청이 차단될 때 계속 작업하는 방법을 보여준다 — 한도가 리셋될 때까지
+      기다리고 자동으로 계속, 사용 크레딧 추가, 플랜 업그레이드 등. 터미널에서 한도에 부딪히면
+      자동으로 이 메뉴를 열 수도 있다(v2.1.234+). 명령 메뉴에 보이지 않으므로 전체 이름을 입력해야 한다.
+    caveat: claude.ai 구독이 필요하다.
+  - id: usage-credits
+    term: /usage-credits
+    kind: command
+    tier: full
+    desc: 사용 크레딧 구성
+    aliases: [크레딧, 추가 사용량]
+    detail: |
+      사용 크레딧을 구성하거나 한도에 도달했을 때 관리자에게 요청한다. 브라우저에서 사용 크레딧
+      청구 설정을 연다(v2.1.205+ 이전에는 브라우저가 없을 때 아무것도 표시하지 않음).
+      Team·Enterprise 멤버는 CLI에서 관리자에게 요청을 보낸다.
+    caveat: 이전 이름은 `/extra-usage`였다.

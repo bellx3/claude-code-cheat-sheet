@@ -8,7 +8,7 @@ summary: >-
   다른 서피스(웹·데스크톱)로 작업을 넘기거나 가져오는 축.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-24"
+  checked_at: "2026-08-26"
 items:
   - id: desktop
     term: /desktop
@@ -84,3 +84,30 @@ items:
       로컬 `gh` CLI 자격증명으로 GitHub 계정을 웹(Claude Code on the web)에 연결한다.
       `/schedule` 처럼 클라우드에서 도는 기능이 GitHub 연결을 필요로 하면 자동으로 이것을 물어본다.
     see_also: [slash/plan-control#schedule-description]
+  - id: install-github-app
+    term: /install-github-app
+    kind: command
+    tier: full
+    desc: GitHub 앱 설치
+    aliases: [GitHub 앱, Actions 연동]
+    detail: |
+      저장소에 Claude GitHub 앱을 설치하고, GitHub Actions 워크플로와 시크릿을 설정하는 선택 단계를
+      거친다. 저장소 선택과 통합 설정을 안내하는 마법사가 실행된다.
+  - id: install-slack-app
+    term: /install-slack-app
+    kind: command
+    tier: full
+    desc: Slack 앱 설치
+    aliases: [Slack 연동, 알림]
+    detail: |
+      Claude Slack 앱을 설치한다. OAuth 흐름을 완료하기 위해 브라우저를 연다.
+  - id: team-onboarding
+    term: /team-onboarding
+    kind: command
+    tier: full
+    desc: 팀 온보딩 가이드 생성
+    aliases: [팀 온보딩, 신규 팀원]
+    detail: |
+      Claude Code 사용 기록에서 팀 온보딩 가이드를 생성한다. 지난 30일간의 세션·명령·MCP 서버
+      사용을 분석해 팀원이 첫 메시지로 붙여넣어 빠르게 설정할 수 있는 마크다운 가이드를 만든다.
+      claude.ai 구독자(Pro·Max·Team·Enterprise)에서는 바로 열 수 있는 공유 링크도 제공한다.

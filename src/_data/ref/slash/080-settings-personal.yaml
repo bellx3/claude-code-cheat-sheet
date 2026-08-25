@@ -8,7 +8,7 @@ summary: >-
   설정과 개인화. 대부분 설정 파일에도 같은 항목 존재.
 source:
   url: https://code.claude.com/docs/en/settings
-  checked_at: "2026-08-24"
+  checked_at: "2026-08-26"
 items:
   - id: config-key-value
     term: /config [key=value]
@@ -95,3 +95,23 @@ items:
       Shift+Enter 같은 단축키가 먹지 않는 터미널에서 키 바인딩을 설정한다.
       **필요한 터미널에서만 명령 목록에 보인다** — VS Code, Cursor, Devin Desktop, Alacritty, Zed 등.
       줄바꿈이 안 되고 바로 전송돼 버릴 때 찾을 명령이다.
+  - id: tui-default-fullscreen
+    term: /tui [default|fullscreen]
+    kind: command
+    tier: full
+    desc: 터미널 UI 렌더러 설정
+    aliases: [TUI, 전체화면, 화면 모드]
+    detail: |
+      터미널 UI 렌더러를 설정하고 대화를 유지한 채 다시 시작한다. `fullscreen` 은 깜빡임 없는
+      alt-screen 렌더러를 켠다. 인자 없이 실행하면 활성 렌더러를 출력한다.
+    see_also: [slash/misc-utils#focus]
+  - id: voice-hold-tap-off
+    term: /voice [hold|tap|off]
+    kind: command
+    tier: full
+    desc: 음성 받아쓰기 토글
+    aliases: [음성, 보이스, 받아쓰기]
+    detail: |
+      음성 받아쓰기를 켜거나 끄거나 특정 모드로 설정한다. hold·tap·off 중에서 고르고,
+      claude.ai 계정이 필요하다.
+    caveat: 마이크 접근 권한이 필요하다.

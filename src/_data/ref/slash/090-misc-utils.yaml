@@ -8,7 +8,7 @@ summary: >-
   자주 쓰이진 않지만 필요할 때 찾게 되는 것들.
 source:
   url: https://code.claude.com/docs/en/commands
-  checked_at: "2026-08-24"
+  checked_at: "2026-08-26"
 items:
   - id: cd-path
     term: /cd <path>
@@ -97,3 +97,100 @@ items:
       대신 찾을 곳: 웹 세션용 GitHub 연결은 `/web-setup`, 도구 허용·차단은 `/permissions`,
       웹 검색 자체는 도구 권한과 설정에서 다룬다.
     see_also: [slash/collab-surfaces#web-setup, slash/system-extend#permissions]
+  - id: focus
+    term: /focus
+    kind: command
+    tier: full
+    desc: 포커스 뷰 토글
+    aliases: [포커스, 간소화 뷰]
+    detail: |
+      포커스 뷰를 토글한다 — 마지막 프롬프트, 요약된 도구 호출 통계, 최종 응답만 보여준다.
+      도구 호출 요약에서 이번 턴에 시작된 서브에이전트 수도 세고, 완료된 백그라운드 작업 알림을
+      하나로 합친다. 전체화면 렌더링에서만 사용 가능하다. 설정의 `viewMode` 로 덮어쓸 수 있다.
+    see_also: [slash/settings-personal#tui-default-fullscreen]
+  - id: ide
+    term: /ide
+    kind: command
+    tier: full
+    desc: IDE 통합 관리 및 상태
+    aliases: [IDE, VS Code, 통합]
+    detail: |
+      IDE 통합을 관리하고 상태를 보여준다. VS Code 등 IDE에서 Claude Code를 사용할 때
+      연결 상태와 설정을 확인하는 용도다.
+  - id: release-notes
+    term: /release-notes
+    kind: command
+    tier: full
+    desc: 변경 로그
+    aliases: [릴리스 노트, 업데이트 내역]
+    detail: |
+      대화형 버전 선택기로 변경 로그를 연다. 특정 버전을 선택해 해당 버전의 릴리스 노트를 보거나,
+      모든 버전을 표시할 수도 있다. 노트는 대화 기록에 추가되지만 Claude 가 보는 대화에는 들어가지 않는다.
+  - id: stickers
+    term: /stickers
+    kind: command
+    tier: full
+    desc: Claude Code 스티커 주문
+    aliases: [스티커, 굿즈]
+    detail: |
+      Claude Code 스티커를 주문하는 페이지를 연다.
+  - id: passes
+    term: /passes
+    kind: command
+    tier: full
+    desc: Claude Code 공유 패스
+    aliases: [공유, 친구 초대]
+    detail: |
+      친구와 Claude Code를 무료로 1주일 공유할 수 있는 패스를 제공한다. 계정이 자격이 있을 때만 보인다.
+  - id: radio
+    term: /radio
+    kind: command
+    tier: full
+    desc: Claude FM 라디오
+    aliases: [라디오, 음악]
+    detail: |
+      브라우저에서 Claude FM lo-fi 라디오를 연다. 브라우저가 없으면 스트림 URL을 출력한다.
+      일부 플랫폼(Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry, Claude Platform on AWS)에서는
+      사용할 수 없다.
+  - id: powerup
+    term: /powerup
+    kind: command
+    tier: full
+    desc: Claude Code 기능 소개
+    aliases: [기능 소개, 튜토리얼]
+    detail: |
+      애니메이션 데모가 있는 빠른 대화형 레슨으로 Claude Code 기능을 발견한다.
+    tasks: [first-setup]
+  - id: scroll-speed
+    term: /scroll-speed
+    kind: command
+    tier: full
+    desc: 마우스 휠 스크롤 속도
+    aliases: [스크롤 속도, 휠 속도]
+    detail: |
+      마우스 휠 스크롤 속도를 대화형으로 조정한다. 대화상자가 열린 상태에서 눈금을 스크롤하며
+      변경사항을 미리 볼 수 있다. 전체화면 렌더링에서만 사용 가능하며 JetBrains IDE 터미널에서는
+      사용할 수 없다.
+    see_also: [slash/settings-personal#tui-default-fullscreen]
+  - id: setup-bedrock
+    term: /setup-bedrock
+    kind: command
+    tier: full
+    desc: Amazon Bedrock 설정
+    aliases: [Bedrock, AWS]
+    detail: |
+      Amazon Bedrock 인증·리전·모델 핀을 대화형 마법사로 설정한다. `CLAUDE_CODE_USE_BEDROCK=1` 이
+      설정되기 전까지는 명령 메뉴에 보이지 않으므로 전체 이름을 입력해야 한다. 첫 Amazon Bedrock
+      사용자는 로그인 화면에서도 이 마법사에 접근할 수 있다.
+    caveat: 명령 메뉴에 숨겨져 있으므로 전체 이름을 입력해야 한다.
+  - id: setup-vertex
+    term: /setup-vertex
+    kind: command
+    tier: full
+    desc: Google Cloud Agent Platform 설정
+    aliases: [Vertex AI, Google Cloud]
+    detail: |
+      Google Cloud Agent Platform 인증·프로젝트·리전·모델 핀을 대화형 마법사로 설정한다.
+      `CLAUDE_CODE_USE_VERTEX=1` 이 설정되기 전까지는 명령 메뉴에 보이지 않으므로 전체 이름을
+      입력해야 한다. 첫 Google Cloud Agent Platform 사용자는 로그인 화면에서도 이 마법사에 접근할 수 있다.
+    caveat: 명령 메뉴에 숨겨져 있으므로 전체 이름을 입력해야 한다.
