@@ -1,0 +1,53 @@
+# 내 규칙 카드. 한 항목 = 한 장이고 형태는 셋으로 고정한다.
+#   term   문제 — 어떤 상황에서 이 규칙이 필요한가
+#   desc   어디에 — 이 프롬프트를 어느 파일에 넣는가
+#   code   프롬프트 — 손대지 않고 그대로 복붙하면 동작하는 본문
+# detail 은 계기가 있을 때만 두세 줄. 길어지면 카드가 아니라 문서다.
+id: rules
+title: 규칙 카드
+group: meta
+order: 10
+sheet: my
+summary: >-
+  문제 · 어디에 · 복붙할 프롬프트. 새 규칙이 생기면 이 형태로 한 장 늘린다.
+items:
+  - id: browser-capture
+    term: 기본 브라우저 캡처 도구가 잘 작동하지 않을 때
+    kind: note
+    tier: core
+    desc: 어디에 — ~/.claude/CLAUDE.md (전역. 모든 프로젝트·모든 새 세션에 자동 로드)
+    code: |
+      화면 캡처는 앱 내장 스크린샷 도구를 쓰지 않는다. 브라우저 패널이 화면에 보이지
+      않으면 렌더러가 프레임을 합성하지 않아 매번 타임아웃한다("the Browser pane is
+      not displayed"). 페이지나 서버의 결함이 아니므로 재시도해도 소용없다.
+
+      대신 OS 에 설치된 Chrome 을 1회성 headless 로 돌려 PNG 를 뽑고, 그 파일을 읽어
+      육안으로 확인한다. 실행 파일 경로는 박지 말고 환경변수로 탐지한다.
+
+        PF86="${PROGRAMFILES} (x86)"
+        for p in "$PROGRAMFILES/Google/Chrome/Application/chrome.exe" \
+                 "$PF86/Google/Chrome/Application/chrome.exe" \
+                 "$LOCALAPPDATA/Google/Chrome/Application/chrome.exe" \
+                 "$PROGRAMFILES/Microsoft/Edge/Application/msedge.exe" \
+                 "$PF86/Microsoft/Edge/Application/msedge.exe"
+        do [ -f "$p" ] && { BROWSER="$p"; break; }; done
+        OUTDIR=$(cygpath -w "${TEMP:-/tmp}")
+        "$BROWSER" --headless --disable-gpu --window-size=1280,900 \
+          --virtual-time-budget=3000 --screenshot="$OUTDIR\shot.png" "$URL"
+
+      지킬 것:
+      - 저장 경로는 반드시 Windows 절대경로(cygpath -w). POSIX 경로는 조용히 실패한다.
+      - 실행 파일 경로와 URL 은 따옴표로 감싼다. 안 그러면 # 이하가 주석으로 잘린다.
+      - 페이지 전체는 --window-size 높이를 크게 잡아 한 장으로 찍는다. URL 프래그먼트로
+        구간을 나눠 찍으려 하면 스크롤이 안 먹는다.
+      - 애니메이션·전환·지연 로드가 있는 화면은 회차마다 다르게 찍힌다. video 나 지연
+        이미지가 빈 칸으로 남기도 하고, 페이드인이 끝나기 전에 찍혀 화면 전체가
+        반투명하게 저장되기도 한다. --virtual-time-budget 은 이것을 보장하지 않는다.
+        두 번 찍어 크기가 일치하는지와 정상 하한 이상인지를 함께 본다. 일치만으로는
+        두 번 연속 실패를 걸러내지 못한다.
+      - 텍스트·콘솔·네트워크 확인 도구는 그대로 쓴다(get_page_text, read_page,
+        read_console_messages). 막는 것은 스크린샷 하나다.
+      - 캡처를 못 했으면 "육안 미확인"이라고 적는다.
+    detail: |
+      2026-08-25 실측. 여러 프로젝트·세션에서 같은 실패를 반복해서 겪었고,
+      원인은 코드가 아니라 **브라우저 패널이 화면에 보이지 않는 것**이었다.

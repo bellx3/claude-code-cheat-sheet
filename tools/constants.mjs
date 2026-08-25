@@ -5,7 +5,8 @@
 // print.{columns,fontPx} 는 A3 지면 채움률을 보고 정한 값이다. 감으로 만지지 말 것 —
 // node tools/measure-print.mjs 로 재고 60~99% 안에 들어오는지 확인한 뒤 바꾼다.
 // 서피스마다 항목 수가 제각각이라(core: cli 369 / slash 117) 한 값으로는 안 맞는다.
-// 순서가 곧 상위 탭 순서다 (2026-08-20 사용자 지정: desktop → science → cli → slash).
+// 순서가 곧 상위 탭 순서다 (2026-08-20 사용자 지정: desktop → science → cli → slash,
+// 2026-08-25 에 my 를 slash 우측 끝에 추가).
 // 첫 항목이 / 리다이렉트의 착지가 된다.
 export const SURFACES = [
   { id: "desktop", label: "Claude Desktop", blurb: "데스크톱 앱의 Code 탭. 브라우저 pane·diff 리뷰·워크스페이스.",
@@ -16,6 +17,12 @@ export const SURFACES = [
     print: { columns: 4, fontPx: 10.5 } },
   { id: "slash", label: "슬래시 · 플러그인", blurb: "세션 안에서 치는 명령과 플러그인 생태계.",
     print: { columns: 3, fontPx: 11 } },
+  // 다른 넷과 성격이 다르다 — 공식 기능이 아니라 내가 Claude 와 일하는 방식이다.
+  // 정본은 ~/.claude/ 아래 파일이고 여기는 검색·인쇄되는 사본이다(my/accumulate 참조).
+  // 카드 한 장짜리로 시작한다 — 지금은 A3 채움률이 낮게 나오지만 그건 경고일 뿐이고
+  // (measure-print 는 넘칠 때만 실패한다), 카드가 쌓이면 자연히 올라간다.
+  { id: "my", label: "내 규칙 · 대화법", blurb: "문제 · 어디에 · 복붙할 프롬프트. 반복해서 겪은 것만 한 장씩 남긴다.",
+    print: { columns: 1, fontPx: 14 } },
 ];
 
 // 섹션의 group 축에 붙일 한국어 라벨. 사이드바가 섹션 37개를 평면 나열하는 대신 이 묶음으로
@@ -37,6 +44,10 @@ export const REF_GROUPS = {
   practice: "실전",
   trouble: "문제 해결",
   enterprise: "조직 · 엔터프라이즈",
+  // my 서피스 전용 축.
+  principle: "원칙",
+  guard: "확인 · 게이트",
+  meta: "규칙 관리",
 };
 
 export const TASK_GROUPS = [

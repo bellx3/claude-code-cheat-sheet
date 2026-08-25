@@ -49,9 +49,13 @@ tools/                           extraction, gates, PDF pipeline, doc-watch bot
 legacy/                          pre-migration HTML/PDF/README, read-only, kept for diffing against
 ```
 
-Site tabs are the four ref surfaces (`/ref/desktop/` `/ref/science/` `/ref/cli/` `/ref/slash/` — the
+Site tabs are the ref surfaces (`/ref/desktop/` `/ref/science/` `/ref/cli/` `/ref/slash/` `/ref/my/` — the
 order of `SURFACES` in tools/constants.mjs is the tab order), rendered straight from `refIndex.surfaces` —
-there is no nav data file to keep in sync. They are separate URLs, not
+there is no nav data file to keep in sync. `my` is not a feature reference like the other four: it holds
+my own working rules with Claude as one-card entries (문제 / 어디에 / 복붙할 프롬프트), and the source of
+truth for those rules is `~/.claude/CLAUDE.md`, not this repo — the page is a searchable copy, so a rule
+edit has to touch both. Its A3 sheet reports a low fill ratio while it holds a single card; that is a
+warning, not a failure (`measure-print.mjs` only exits non-zero when a sheet *overflows*). They are separate URLs, not
 JS-toggled panels — hidden content breaks browser Ctrl+F, which is the whole point of a reference site.
 The 2026-08-20 restructure deleted the landing and the five hub pages (`/task/` `/ref/` `/prompts/`
 `/docs/` `/download/`): `/` is a layout-less redirect to the first tab, task/prompt detail pages and
