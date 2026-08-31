@@ -160,10 +160,41 @@ scrolled into view, and sets `aria-current` on the ref-page section rail), `prom
 command download on prompt pages), `sheet.js` (A3 preview modal), and the two CSS files. `prompt.js` and
 `sheet.js` are loaded conditionally from `base.njk`, not on every page.
 
-The palette is derived from the project's own print artifact: `sheet-a3.css` rules in amber (`#b45309` /
-`#92400e`) on white and the favicon `❯` is the same amber, so the screen uses that instead of the generic
-indigo/slate it shipped with. The amber rule is the one recurring device — page head, section head, active
-rail item — and nothing else gets an accent.
+The visual system (2026-08-31 replacement, adapted from the Alrimi Studio design system — its *visual
+language only*; no wordmark, monogram, or other borrowed brand asset) is warm paper + ink + one accent,
+and it is enforced by four rules that repeat on every screen. Both stylesheets follow them, so
+`site.css` and `sheet-a3.css` now read as one artifact:
+
+1. **The grid is not hidden.** 12 vertical column rules at 7% opacity sit behind content (`main::before`,
+   6 columns under 640px). They are inset to the page padding so a column boundary lands on the card edge.
+2. **A divider is two lines.** The double rule (1px ink + 2px gap + 1px light) is the default divider —
+   page head, section head, card head, group bar, masthead, footer. It is drawn with two background
+   gradients, not `border` + `box-shadow`: a shadow offsets the whole box and produces a 3px band, not a
+   1px line. Dense places (item rows inside a card, table body) drop to a single rule on purpose — a card
+   with 60 double rules is a pattern, not a set of dividers.
+3. **Hover is a line being drawn.** A 1px ink rule sweeps left to right over 220ms (`scaleX`, so nothing
+   moves). No shadow, no lift, no background swap. This is the only hover language; `.card`, `.toc a`,
+   `.results a.hit`, and the palette shortcuts all use it.
+4. **Micro-caps for labels.** 11px / .14em / uppercase on group labels, result group heads, and table
+   headers — the "this is a category, not a name" signal.
+
+Plus one colour rule that is easy to break: **never set text in forsythia** (`--marker` `#f2c230`). It is
+for backgrounds, 3–4px marker rules, and the highlighter only — the page-head 112×4 bar, the active tab
+underline, the left marker on section/card heads, the selected-row fill, `:target`. Yellow *text* is
+`--accent` `#8a6408` (황토), which is also the link colour and the colour of the favicon `❯`. There are
+exactly two large forsythia fills on the whole site: the A3 modal's primary button and the page-head bar.
+
+Fonts are **not** loaded over the network — the zero-runtime-dependency rule wins. `--font-display` is a
+local geometric-sans-first stack (Poppins → Futura → Avenir Next → Century Gothic → body stack) used for
+headings, card titles, and the brand; where no geometric face is installed it falls back to the text
+stack rather than shipping a webfont. Headings are weight 500 with tight tracking (−.02 to −.04em):
+loose tracking looks slack in a geometric face. Buttons and tab labels deliberately stay on `--font-text`
+— at 13px the geometric stack's low x-height fails to line up with the Korean it sits next to.
+
+The scroll reveal in `motion.js` is the one deliberate deviation from the system (which has no
+scroll-triggered animation). It was kept because it already owns a verification tool
+(`motion-check.mjs`) that would otherwise be deleted with it; its values were flattened to the system
+instead — 280ms, `cubic-bezier(.2,.6,.2,1)`, 6px travel, no bounce or scale.
 
 Two rules that are not style preferences:
 

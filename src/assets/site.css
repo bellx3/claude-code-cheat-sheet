@@ -1,12 +1,26 @@
 /* 화면 전용 스타일. A3 인쇄는 sheet-a3.css로 완전히 분리한다 —
    화면용 16px과 인쇄용 8.5px를 @media print로 한 파일에 섞으면 둘 다 망가진다. */
 
-/* 팔레트는 이 프로젝트가 이미 갖고 있던 정체성에서 가져왔다.
-   A3 치트시트(sheet-a3.css)는 흰 종이 위 앰버 규칙선(#b45309 / #92400e)에 따뜻한 회색
-   헤어라인이고, 파비콘의 ❯ 도 같은 앰버다. 화면만 제네릭한 인디고(#6366f1)+슬레이트로
-   갈라져 있었다 — 같은 데이터에서 나오는 세 산출물(웹·인쇄·마크)이 서로 다른 물건처럼
-   보일 이유가 없다. 화면을 인쇄물 쪽으로 되돌린다: 종이 바탕, 앰버 규칙선, 따뜻한 회색.
-   그라디언트 3종과 .btn-primary/.btn-secondary 는 어디서도 쓰이지 않아 함께 걷어냈다. */
+/* ── 2026-08-31 디자인 전면 교체: 알리미 스튜디오 시각 언어 ────────────────
+   앞선 팔레트(흰 종이 + 앰버 #b45309)는 A3 시트에서 역으로 끌어온 것이었고 방향은 맞았다.
+   이번 교체는 그 방향을 하나의 완성된 시각 체계로 갈아끼운 것이다. 차용한 것은 시각 언어뿐이고
+   워드마크·모노그램 같은 남의 브랜드 자산은 가져오지 않는다 — 이 사이트는 알리미 제품이 아니다.
+
+   체계의 규칙 넷이 모든 화면에서 반복된다:
+   ① 격자를 숨기지 않는다 — 12열 세로 괘선이 콘텐츠 뒤에 보인다(--grid-line, 불투명도 7%).
+   ② 구분선은 두 줄이다 — 이중 괘선(1px + 2px 간격 + 1px)이 기본 구분선. 밀도가 높은 자리
+      (카드 안 항목 행, 표)에서만 한 줄로 내려간다.
+   ③ hover 는 선이 그려지는 것이다 — 먹색 1px 선이 왼쪽에서 오른쪽으로 220ms. 그림자가 뜨거나
+      요소가 들리지 않는다. 클릭 가능한 것의 hover 언어는 이것 하나뿐이다.
+   ④ 국문 우선, 라틴 병기 — 라벨은 마이크로 캡스(11px/.14em).
+
+   여기에 색 규칙 하나가 더 붙는다: 개나리(#F2C230)로 글자를 쓰지 않는다. 명도가 높아 본문
+   대비를 만들지 못한다. 노란 계열 글자가 필요하면 황토 #8A6408(--accent)를 쓰고, 개나리는
+   바탕·표시선·형광펜 세 자리에만 쓴다(--marker / --hl / --accent-soft).
+
+   폰트는 네트워크로 불러오지 않는다. 이 사이트의 런타임 의존성 0 원칙이 우선이라 Poppins·
+   Pretendard·IBM Plex 대신 기하 산세리프를 우선하는 로컬 스택으로 대체했다(--font-display).
+   기하 산세리프가 없는 환경에서는 본문 스택으로 떨어지므로 조판이 깨지지는 않는다. */
 :root {
   /* 타입 스케일 — 역할당 하나씩. 레퍼런스 장르(Claude 공식 문서·Stripe API)는 14px 를
      기준으로 조밀하게 짠다. 이 사이트는 본문 17px 로 읽히고 있어서 카드가 헐렁했고,
@@ -15,61 +29,101 @@
   --fs-ref: 0.875rem;     /* 14px. 조회하는 레퍼런스 본문 — 카드 설명의 기준 */
   --fs-sm: 0.8125rem;     /* 13px. 보조 설명·목차 */
   --fs-xs: 0.75rem;       /* 12px. 배지·출처·개수 */
+  --fs-micro: 0.6875rem;  /* 11px. 마이크로 캡스 라벨 전용 — 병기 라벨의 라틴 쪽 */
   --fs-code: 0.8125rem;
-  --lh-body: 1.65;
-  --lh-ref: 1.55;
+  --lh-body: 1.7;         /* 한글 행간은 라틴보다 넓게 잡는다 */
+  --lh-ref: 1.58;
   --lh-code: 1.5;
   --tap: 44px;            /* 최소 터치 타깃 */
   --measure: 70ch;
   --page: 1440px;         /* 헤더·본문·푸터가 공유하는 판. 1180 은 1600 화면에서 좌우 226px 를 버렸다 */
   --rail: 244px;          /* 좌측 섹션 레일 */
+  --pad: 24px;            /* 판의 좌우 여백. 노출 격자가 이 안쪽에 그어진다 */
+  --cols: 12;             /* 노출 격자의 열 수 */
 
-  --bg: #ffffff;
-  --bg-soft: #faf9f7;      /* A3 섹션 채움(#fafafa)을 살짝 데운 값 */
-  --fg: #1c1917;
-  --muted: #78716c;
-  --line: #e7e5e4;
-  --code-bg: #f5f4f2;
-  --accent: #b45309;       /* A3 규칙선·파비콘 ❯ 와 같은 앰버 */
-  --accent-soft: #fdf1e0;
-  --accent2: #92400e;      /* A3 섹션 제목의 진한 앰버 */
-  --hl: #fef3c7;
-  --danger: #b91c1c;
-  --danger-soft: #fdeaea;
-  --ok: #15803d;
+  /* 종이와 먹. 흰 페이지는 없다 — 바탕은 따뜻한 종이(#F8F6F0)이고, 순백은 카드와 입력에만 써서
+     그림자 없이도 종이 위에서 떠 보이게 한다. 먹도 순흑이 아니라 따뜻한 먹(#1A1A18)이다. */
+  --paper: #f8f6f0;        /* 페이지 바탕 */
+  --bg: #ffffff;           /* 카드·입력·팔레트 — 종이 위에 놓이는 흰 면 */
+  --bg-soft: #f1eee5;      /* 가라앉은 면: 카드 머리·레일 hover·코드 */
+  --fg: #1a1a18;
+  --fg-mid: #3c3a34;
+  --muted: #6a655b;
+  --faint: #9b9589;
+  --line: #e4dfd3;         /* 연한 괘선 — 이중 괘선의 아래쪽, 항목 구분 */
+  --line-2: #d5cfc1;       /* 컨트롤·카드 경계 */
+  --rule-strong: #1a1a18;  /* 먹 괘선 — 이중 괘선의 위쪽, 섹션 구분 */
+  --grid-line: rgb(26 24 22 / 0.07);   /* 노출 격자. 의도적으로 아주 옅게 */
+  --code-bg: #f1eee5;
 
-  --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
-  --ease: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* 개나리(강조색)는 하나뿐이고 쓰는 자리가 셋으로 정해져 있다: 바탕 · 표시선 · 형광펜.
+     글자에는 --accent(황토)만 쓴다. */
+  --marker: #f2c230;       /* 표시선·활성 탭·좌측 마커 */
+  --marker-2: #e0ae18;     /* 포커스 링·hover 시 한 단계 어두운 개나리 */
+  --accent: #8a6408;       /* 황토 — 노란 계열 "글자"는 전부 이 값이다 */
+  --accent2: #5e4405;      /* 링크 hover·더 진한 황토 */
+  --accent-soft: #fcf5de;  /* 선택된 행 바탕 */
+  --hl: #f0dfa0;           /* 형광펜 — :target 착지 표시 */
 
-  /* 그림자는 떠 있는 것(팔레트·복사 버튼)에만 남긴다. 종이 위 카드는 헤어라인으로 나눈다. */
-  --shadow-sm: 0 1px 2px 0 rgb(28 25 23 / 0.05);
-  --shadow-md: 0 2px 6px -1px rgb(28 25 23 / 0.08);
-  --shadow-lg: 0 8px 20px -6px rgb(28 25 23 / 0.14);
-  --shadow-xl: 0 24px 48px -12px rgb(28 25 23 / 0.24);
+  --danger: #a32b1e;
+  --danger-soft: #f6e2de;
+  --ok: #3f6f4a;
+
+  /* 기하 산세리프. 워드마크가 없는 사이트지만 제목의 성격은 체계를 따른다 — 명조나 휴머니스트로
+     내려가면 다른 물건이 된다. 로컬에 기하 산세리프가 없으면 본문 스택으로 떨어진다.
+     버튼·탭 라벨은 의도적으로 본문 스택이다: 13px 자리에서 기하 산세리프는 x-height 가 낮아
+     한글 병기와 기준선이 어긋난다. */
+  --font-display: "Poppins", "Futura", "Avenir Next", "Century Gothic",
+    "Pretendard", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-text: "IBM Plex Sans", -apple-system, "Pretendard", "Malgun Gothic",
+    "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  /* 모션은 짧고 평평하다. 바운스·스프링·확대 등장 없음. */
+  --ease-std: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease: 120ms var(--ease-std);   /* hover/focus 색 */
+  --draw: 220ms;                    /* 괘선 드로잉 */
+
+  /* 그림자는 실제로 떠 있는 것에만 — 팔레트·모달·토스트. 종이 위 카드는 괘선으로 나눈다.
+     색은 따뜻한 갈흑이고 절대 청흑으로 가지 않는다. */
+  --shadow-sm: 0 1px 2px rgb(58 44 26 / 0.07);
+  --shadow-md: 0 2px 6px rgb(58 44 26 / 0.08), 0 1px 2px rgb(58 44 26 / 0.05);
+  --shadow-lg: 0 8px 24px rgb(58 44 26 / 0.1), 0 2px 6px rgb(58 44 26 / 0.06);
+  --shadow-xl: 0 20px 48px rgb(58 44 26 / 0.16), 0 4px 12px rgb(58 44 26 / 0.08);
 }
 
-/* 다크도 같은 따뜻한 축으로 내린다 — 차가운 청회색으로 갈아타면 라이트와 다른 제품이 된다.
-   앰버는 어두운 바탕에서 #b45309 로는 대비가 모자라 amber-500 로 올린다. */
+/* 다크는 종이를 뒤집은 것이지 다른 체계가 아니다 — 같은 따뜻한 축에서 명도만 내린다.
+   개나리는 어두운 바탕에서도 바탕·표시선 전용이고, 글자용 황토만 명도를 올려 대비를 맞춘다. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1c1917;
-    --bg-soft: #262322;
-    --fg: #f5f5f4;
-    --muted: #a8a29e;
-    --line: #3b3735;
-    --code-bg: #262322;
-    --accent: #f59e0b;
-    --accent-soft: #3a2408;
-    --accent2: #fbbf24;
-    --hl: #422006;
-    --danger: #f87171;
-    --danger-soft: #4c1d1d;
-    --ok: #4ade80;
+    --paper: #14130f;
+    --bg: #1a1a18;
+    --bg-soft: #232220;
+    --fg: #f1eee5;
+    --fg-mid: #ddd8cc;
+    --muted: #a8a29a;
+    --faint: #7c766c;
+    --line: #33312c;
+    --line-2: #45423b;
+    --rule-strong: #6a655b;
+    --grid-line: rgb(241 238 229 / 0.05);
+    --code-bg: #232220;
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
-    --shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.5);
-    --shadow-lg: 0 8px 20px -6px rgb(0 0 0 / 0.6);
-    --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.7);
+    --marker: #f2c230;
+    --marker-2: #e0ae18;
+    --accent: #e2b33f;      /* 황토는 어두운 바탕에서 대비가 모자라 한 단계 올린다 */
+    --accent2: #f0d78d;
+    --accent-soft: #2e2612;
+    --hl: #3d3216;
+
+    --danger: #e08a7e;
+    --danger-soft: #3a1f1a;
+    --ok: #7fae87;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 2px 6px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.55);
+    --shadow-xl: 0 20px 48px rgb(0 0 0 / 0.7);
   }
 }
 
@@ -78,120 +132,211 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: calc(var(--tap) + 16px);
+  background: var(--paper);
 }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font: var(--fs-body) / var(--lh-body) -apple-system, "Pretendard", "Malgun Gothic",
-    "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--fg-mid);
+  font: var(--fs-body) / var(--lh-body) var(--font-text);
   word-break: keep-all;     /* 한국어는 어절 단위로 개행 */
   overflow-wrap: anywhere;  /* 긴 URL만 강제 개행 */
 }
 
 a { color: inherit; }
+/* 브라우저 기본 포커스는 쓰지 않는다 — 종이 간격 2px + 개나리 링 2px. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--marker-2);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  box-shadow: 0 0 0 2px var(--paper);
 }
 
-.wrap { max-width: var(--page); margin: 0 auto; padding: 0 24px; }
-@media (max-width: 640px) { .wrap { padding: 0 16px; } }
+/* ── 이중 괘선 (시그니처 ②) ──────────────────────────────────
+   1px + 2px 간격 + 1px. border 로는 두 줄을 그릴 수 없어서 배경 그라디언트 두 장으로 그린다
+   (border-bottom + box-shadow 조합은 그림자가 상자 전체를 밀어 3px 띠가 되지 버린다).
+   배경색은 background-color 라 이 규칙과 충돌하지 않는다 — 카드 머리처럼 채움이 있는 곳에도
+   그대로 얹힌다. 위 선의 색만 자리에 따라 바뀐다(--r2-top). */
+.rule2 {
+  background-image:
+    linear-gradient(var(--r2-top, var(--rule-strong)), var(--r2-top, var(--rule-strong))),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
+}
+
+/* ── 괘선 드로잉 hover (시그니처 ③) ───────────────────────────
+   먹색 1px 선이 왼쪽에서 오른쪽으로 220ms 그려진다. 그림자·들림·배경 전환은 쓰지 않는다.
+   scaleX 라 레이아웃을 건드리지 않고, 요소가 옆으로 밀리지 않는다(화살표로 훑을 때 중요). */
+.draw { position: relative; }
+.draw::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--rule-strong);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--draw) var(--ease-std);
+  pointer-events: none;
+}
+.draw:hover::after,
+.draw:focus-visible::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  .draw::after { transition: none; }
+}
+
+/* ── 마이크로 캡스 라벨 (시그니처 ④) ─────────────────────────
+   11px / .14em / 대문자. 그룹 라벨·결과 묶음 머리처럼 "이름이 아니라 분류"인 자리에만 쓴다. */
+.mcaps {
+  font-family: var(--font-text);
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wrap { max-width: var(--page); margin: 0 auto; padding: 0 var(--pad); }
+@media (max-width: 640px) { :root { --pad: 16px; } }
 /* 카드 그리드 페이지(레퍼런스 서피스)만 판을 넓힌다. 한글 설명이 좁은 열에서 2~3줄로
    깨지는 걸 줄이려면 카드 폭이 필요하다. 머리말·푸터까지 같이 넓혀야 축이 맞는다. */
 .prose { max-width: var(--measure); }
 .skip {
   position: absolute; left: -9999px; top: 0; z-index: 100;
-  background: var(--bg); padding: 12px; border: 2px solid var(--accent);
+  background: var(--bg); padding: 12px; border: 2px solid var(--rule-strong);
 }
 .skip:focus { left: 8px; top: 8px; }
 
 /* ── 헤더 / 상위 탭 ─────────────────────────────────────── */
-.masthead {
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
-  box-shadow: var(--shadow-sm);
-}
+.masthead { background: var(--paper); }
 .masthead .wrap {
   display: flex; align-items: baseline; gap: 12px;
-  padding-top: 16px; padding-bottom: 14px; flex-wrap: wrap;
+  padding-top: 18px; padding-bottom: 12px; flex-wrap: wrap;
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: calc(100% - var(--pad) * 2) 1px, calc(100% - var(--pad) * 2) 1px;
+  background-position: left var(--pad) bottom 3px, left var(--pad) bottom;
+  background-repeat: no-repeat;
 }
 /* 타입 규칙: 모노스페이스는 영문·기호만 든 문자열에만 쓴다. 한글이 한 글자라도 섞이면
    본문 폰트 — 한글은 모노 스택에서 본문과 다른 폴백 페이스로 떨어진다(실측 192.9 vs 204.1px).
    그래서 브랜드도 "❯ Claude"(b)만 모노고 "참고자료"는 본문 폰트다. */
 .brand {
-  font-size: 1.0625rem; font-weight: 700; line-height: 1;
+  font-family: var(--font-display);
+  font-size: 1.0625rem; font-weight: 500; line-height: 1;
+  letter-spacing: -0.032em;
   text-decoration: none; color: var(--fg);
 }
-.brand b { color: var(--accent); font-family: var(--font-mono); letter-spacing: -0.01em; }
+.brand b { color: var(--accent); font-family: var(--font-mono); font-weight: 600; letter-spacing: -0.01em; }
 .masthead .tagline { font-size: var(--fs-sm); color: var(--muted); }
 
+/* sticky 는 셋만 허용된다(마케팅 헤더·문서 헤더·모바일 탭바) — 여기서는 상위 탭 하나다.
+   반투명 종이 + 블러 + 이중 괘선이 그 세 자리의 공통 처리다. */
 .topnav {
   position: sticky; top: 0; z-index: 20;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.95);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(9px);
 }
-@media (prefers-color-scheme: dark) {
-  .topnav {
-    background: rgba(15, 23, 42, 0.95);
-  }
+.topnav .wrap {
+  display: flex; align-items: center; gap: 10px;
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: calc(100% - var(--pad) * 2) 1px, calc(100% - var(--pad) * 2) 1px;
+  background-position: left var(--pad) bottom 3px, left var(--pad) bottom;
+  background-repeat: no-repeat;
 }
 .topnav ul {
-  display: flex; gap: 2px; margin: 0; padding: 0; list-style: none;
+  display: flex; gap: 0; margin: 0; padding: 0; list-style: none;
   overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+  flex: 1 1 auto; min-width: 0;
 }
 .topnav ul::-webkit-scrollbar { display: none; }
 .topnav a {
   flex: 0 0 auto; scroll-snap-align: start;
   display: flex; align-items: center; min-height: var(--tap);
-  padding: 0 14px; text-decoration: none;
+  padding: 0 16px; text-decoration: none;
   font-size: var(--fs-sm); font-weight: 600; color: var(--muted);
   border-bottom: 3px solid transparent;
-  transition: color var(--ease), border-color var(--ease);
+  transition: color var(--ease), border-color 180ms var(--ease-std);
   /* 375px 에서 "레퍼런스"가 "레퍼런/스"로 쪼개졌다. 탭 라벨은 절대 꺾지 않는다. */
   white-space: nowrap;
 }
 .topnav a:hover { color: var(--fg); }
-.topnav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+/* 활성 탭 표시선은 개나리 3px — 개나리를 "바탕·표시선"으로만 쓰는 규칙의 표시선 쪽이다.
+   글자는 개나리가 아니라 먹이다. */
+.topnav a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--marker); }
 
 /* 탭 우측의 검색 트리거 — 진짜 입력창이 아니라 팔레트를 여는 버튼이다. 입력창을 헤더에
    직접 두면 결과 드롭다운·모바일 폭·포커스 관리가 전부 새 문제가 되고, 팔레트와 랭킹이
-   갈라질 길이 하나 더 생긴다. */
-.topnav .wrap { display: flex; align-items: center; gap: 10px; }
-.topnav ul { flex: 1 1 auto; min-width: 0; }
+   갈라질 길이 하나 더 생긴다. 반경은 3px — 알약형은 스위치·라디오·아바타에만 쓴다. */
 .navsearch {
   flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px;
   min-height: 34px; margin: 5px 0; padding: 0 14px;
   font-size: var(--fs-sm); font-family: inherit; color: var(--muted);
-  background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 3px;
   cursor: pointer;
-  transition: border-color var(--ease), color var(--ease), box-shadow var(--ease);
+  transition: border-color var(--ease), color var(--ease);
 }
-.navsearch:hover, .navsearch:focus-visible { border-color: var(--accent); color: var(--fg); box-shadow: var(--shadow-sm); }
-.navsearch .pfx { color: var(--accent); font: 700 0.875rem/1 var(--font-mono); }
+.navsearch:hover, .navsearch:focus-visible { border-color: var(--rule-strong); color: var(--fg); }
+.navsearch .pfx { color: var(--accent); font: 600 0.875rem/1 var(--font-mono); }
 @media (max-width: 640px) { .navsearch .ex { display: none; } }
 
 /* ── 페이지 골격 ─────────────────────────────────────────── */
 /* 상단 탭이 sticky 라 제목이 탭 밑에 바짝 붙으면 한 덩어리로 읽힌다. 한 숨 띄운다. */
-main { padding: 28px 0 64px; }
-h1 { font-size: 1.5rem; margin: 0 0 6px; line-height: 1.3; font-weight: 700; letter-spacing: -0.01em; }
-h2 { font-size: 1.1875rem; margin: 32px 0 8px; line-height: 1.35; font-weight: 800; scroll-margin-top: calc(var(--tap) + 16px); }
-h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
-/* 섹션 제목은 앰버 규칙선 하나로 구분한다 — A3 시트에서 모든 섹션 제목 아래 그어지는
-   2px 선을 그대로 화면에 가져온 것이고, 이 사이트의 서명이다. 예전의 그라디언트 바 +
-   hover 시 padding 이동은 121개 섹션에서 시그니처가 아니라 소음이었다(움직이는 제목은
-   훑는 눈을 붙잡는다). 구조 신호는 한 번의 시각 장치로 충분하다. */
+main { padding: 28px 0 64px; position: relative; }
+
+/* ── 노출 격자 (시그니처 ①) ──────────────────────────────────
+   12열 세로 괘선을 콘텐츠 뒤에 그린다. 격자를 숨기지 않는 것이 이 체계의 첫 규칙이다.
+   판(--page)과 좌우 여백(--pad)에 정확히 맞물려야 카드 경계와 어긋나 보이지 않으므로,
+   본문 폭과 같은 상자를 만들어 그 안쪽에만 긋는다.
+   ::before 로 얹는 이유: 배경을 body 에 두면 판이 아니라 창 전체를 기준으로 잡히고,
+   main 자체의 background 에 두면 .doc 열이나 카드가 그 위에 얹혀 격자가 끊긴다.
+   pointer-events 를 끄고 aria 에서 뺄 필요는 없다(콘텐츠가 아닌 ::before 다). */
+main::before {
+  content: ""; position: absolute; inset: 0;
+  max-width: var(--page); margin: 0 auto;
+  padding: 0 var(--pad);
+  pointer-events: none; z-index: 0;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--grid-line) 0 1px,
+    transparent 1px calc(100% / var(--cols))
+  );
+  background-clip: content-box;
+  background-origin: content-box;
+}
+/* 콘텐츠는 격자 위에 온다. main 의 직계 자식만 올리면 되고, 카드의 흰 바탕이 격자를 가리는
+   것은 의도된 동작이다 — 격자는 여백에서 보인다. */
+main > * { position: relative; z-index: 1; }
+/* 375px 에서는 12열이 31px 간격이라 격자가 아니라 노이즈다. 열을 절반으로 줄인다. */
+@media (max-width: 640px) { :root { --cols: 6; } }
+@media print { main::before { display: none; } }
+
+/* 제목은 기하 산세리프이고, 그래서 자간을 본문보다 확실히 조인다 — 느슨한 트래킹은
+   기하 산세리프에서 곧바로 허술해 보인다. 굵기는 700 이 아니라 500 이다. */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--fg);
+}
+h1 { font-size: 1.625rem; margin: 0 0 6px; line-height: 1.32; letter-spacing: -0.04em; }
+h2 { font-size: 1.25rem; margin: 32px 0 8px; line-height: 1.35; letter-spacing: -0.032em; scroll-margin-top: calc(var(--tap) + 16px); }
+h3 { font-size: 1rem; margin: 20px 0 6px; letter-spacing: -0.026em; color: var(--fg-mid); }
+
+/* 섹션 제목은 이중 괘선으로 끊는다 — 앞선 팔레트의 앰버 2px 한 줄을 대체한 자리이고,
+   섹션 구분에서 위 선이 먹색인 것이 체계의 기본형이다. 제목 왼쪽에는 개나리 표시선
+   (3px)이 붙는다: 개나리가 허용된 "표시선" 자리이고, 글자에는 닿지 않는다.
+   예전의 그라디언트 바 + hover 시 padding 이동은 121개 섹션에서 시그니처가 아니라
+   소음이었다(움직이는 제목은 훑는 눈을 붙잡는다). 구조 신호는 한 번의 장치로 충분하다. */
 .section > h2 {
-  padding-bottom: 6px;
-  border-bottom: 2px solid var(--accent);
-  color: var(--accent2);
+  padding: 0 0 7px 10px;
+  border-left: 3px solid var(--marker);
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
 }
 /* 페이지 머리는 어느 페이지에서나 같은 순서다:
    [.pagehead 또는 h1] → .lede(상세 페이지, 한 개) → .pagemeta(선택) → 본문(.prose).
@@ -200,12 +345,25 @@ h3 { font-size: 1rem; margin: 20px 0 6px; color: var(--muted); }
 .pagemeta { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); max-width: var(--measure); }
 
 /* 서피스 페이지 머리: 제목 좌측 · 치트시트 버튼 우측 (다운로드 허브의 이관처).
-   앰버 규칙선은 A3 시트에서 가져온 이 사이트의 서명이다 — 지면에서 h1 아래 3px,
-   섹션 제목 아래 2px 로 반복되는 그 선. 화면에서도 같은 두 자리에만 쓴다. */
+   제목 위의 112×4 개나리 표시선은 이 체계에서 리드 위에 붙는 유일한 큰 개나리 자국이고,
+   페이지마다 한 번만 나온다. 아래는 이중 괘선. */
 .pagehead {
   display: flex; align-items: baseline; gap: 8px 16px; flex-wrap: wrap;
-  margin: 0 0 20px; padding-bottom: 10px;
-  border-bottom: 2px solid var(--accent);
+  position: relative;
+  margin: 0 0 22px; padding: 18px 0 12px;
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
+}
+/* 표시선은 절대배치다. flex 자식으로 두면 flex-basis 가 width 를 이겨(실측: 112px 로 준
+   막대가 판 전체 폭으로 늘어났다) 개나리를 크게 칠하는 자리가 하나 늘어난다. */
+.pagehead::before {
+  content: ""; position: absolute; left: 0; top: 0;
+  width: 112px; height: 4px;
+  background: var(--marker);
 }
 .pagehead h1 { margin: 0; }
 .pagehead .pagemeta { margin: 0; flex: 1 1 auto; }
@@ -238,13 +396,16 @@ main.doc .caveat { max-width: 42rem; }
 
 /* 레퍼런스 서피스의 앱 셸: 좌측 섹션 레일 + 본문. 판을 --page 로 넓혀 창을 쓴다 —
    1180px 고정은 1600px 화면에서 좌우 226px 씩을 버리고 있었다(실측). */
-main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
-@media (max-width: 640px) { main.shell { padding: 20px 16px 48px; } }
+main.shell { max-width: var(--page); margin: 0 auto; padding: 24px var(--pad) 64px; }
+@media (max-width: 640px) { main.shell { padding: 20px var(--pad) 48px; } }
+/* shell 은 .wrap 을 거치지 않고 자기가 판이다. 격자 상자가 padding 을 두 번 세지 않도록
+   inset 으로 여백을 주고 안쪽 padding 은 0 으로 둔다 — 그래야 열 경계가 카드 좌우 끝과 맞는다. */
+main.shell::before { inset: 0 var(--pad); padding: 0; max-width: none; }
 
 .layout { display: block; }
 @media (min-width: 900px) {
   :root { --fs-body: 1.0625rem; }
-  /* 레일과 본문 사이는 gap 이 아니라 헤어라인으로 나눈다 — 목록과 본문이 다른 층이라는
+  /* 레일과 본문 사이는 gap 이 아니라 괘선으로 나눈다 — 목록과 본문이 다른 층이라는
      신호를 여백보다 선이 더 적은 비용으로 낸다(Stripe·Claude 문서 모두 같은 처리). */
   .layout { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); align-items: start; }
   .toc {
@@ -262,15 +423,23 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
 .toc { font-size: var(--fs-sm); }
 .toc ol { list-style: none; margin: 0 0 14px; padding: 0; }
 .toc li { margin: 0; }
+/* 그룹 라벨은 마이크로 캡스 — "이름이 아니라 분류"인 자리다. 아래로 연한 이중 괘선. */
 .toc-group {
-  margin: 0 0 4px; padding: 0 8px;
-  font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em;
+  margin: 0 0 6px; padding: 0 8px 5px;
+  font-family: var(--font-text);
+  font-size: var(--fs-micro); font-weight: 600; letter-spacing: 0.14em;
   color: var(--muted); text-transform: uppercase;
+  background-image:
+    linear-gradient(var(--line-2), var(--line-2)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
 }
-.toc-group:not(:first-child) { margin-top: 4px; }
+.toc-group:not(:first-child) { margin-top: 14px; }
 .toc a {
   display: flex; align-items: baseline; gap: 8px;
-  padding: 5px 8px; border-radius: 6px;
+  padding: 6px 8px; border-radius: 0;
   border-left: 2px solid transparent;
   color: var(--muted); text-decoration: none;
   transition: color var(--ease), background var(--ease), border-color var(--ease);
@@ -279,16 +448,26 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
 /* 개수는 정렬돼야 훑을 수 있다 — 표 숫자와 같은 규칙(tabular-nums, 우측 정렬). */
 .toc a .n {
   flex: 0 0 auto; font: 400 var(--fs-xs)/1 var(--font-mono);
-  font-variant-numeric: tabular-nums; color: var(--muted); opacity: .7;
+  font-variant-numeric: tabular-nums; color: var(--faint);
 }
-.toc a:hover { background: var(--bg-soft); color: var(--fg); }
-/* 스크롤에 맞춰 tocspy.js 가 붙이는 "지금 보는 섹션" 표시. 공식 문서 사이트의
-   우측 "이 페이지에서" 활성 표시와 같은 역할을 좌측 목차 위에서 한다. */
+/* hover 언어는 괘선 드로잉 하나뿐이다. 배경이 바뀌지 않는다. */
+.toc a { position: relative; }
+.toc a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--rule-strong);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--draw) var(--ease-std);
+}
+.toc a:hover { color: var(--fg); }
+.toc a:hover::after { transform: scaleX(1); }
+/* 스크롤에 맞춰 tocspy.js 가 붙이는 "지금 보는 섹션" 표시. 선택 상태는 체계가 정해 둔
+   한 가지 형태다 — 개나리 100 바탕 + 좌측 개나리 표시선. 글자는 먹이다. */
 .toc a[aria-current="location"] {
-  background: var(--accent-soft); color: var(--accent2); font-weight: 700;
-  border-left-color: var(--accent);   /* A3 규칙선의 세로 버전 */
+  background: var(--accent-soft); color: var(--fg); font-weight: 600;
+  border-left-color: var(--marker);
 }
-.toc a[aria-current="location"] .n { color: var(--accent2); opacity: 1; }
+.toc a[aria-current="location"] .n { color: var(--accent); }
+.toc a[aria-current="location"]::after { display: none; }
 .toc summary { min-height: var(--tap); display: flex; align-items: center; font-weight: 600; cursor: pointer; }
 @media (min-width: 900px) {
   .toc > summary { display: none; }
@@ -303,14 +482,20 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
   .toc { margin-bottom: 20px; }
   .toc[open] > .toc-nav {
     max-height: 40vh; overflow-y: auto;
-    border: 1px solid var(--line); border-radius: 8px; padding: 8px 6px;
+    border: 1px solid var(--line); border-radius: 6px; padding: 8px 6px;
+    background: var(--bg);
   }
 }
 
 /* ── 섹션 / 항목 ─────────────────────────────────────────── */
 .section {
-  border-top: 2px solid var(--line);
   padding-top: 18px; margin-top: 28px;
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left top, left top 3px;
+  background-repeat: no-repeat;
   /* 긴 페이지 성능 완화. hidden이 아니라 auto여야 Ctrl+F와 탭 순서에 남는다. */
   content-visibility: auto;
   contain-intrinsic-size: auto 700px;
@@ -318,6 +503,8 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
 .section > h2 { margin-top: 0; }
 .section .summary { color: var(--muted); margin: 0 0 10px; max-width: var(--measure); }
 
+/* 항목 행은 밀도가 높은 자리라 한 줄 괘선으로 내려간다 — 이중 괘선을 여기까지 쓰면
+   카드 하나에 선이 60개가 되고, 그 순간 이중 괘선은 구분이 아니라 무늬가 된다. */
 .item {
   padding: 12px 0;
   border-top: 1px solid var(--line);
@@ -326,18 +513,20 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
 .item:first-of-type { border-top: none; }
 /* 항목 이름은 두 갈래다. 그대로 쳐서 쓰는 명령·플래그(ASCII)만 코드 칩이고,
    「설명」·「주의」처럼 한글 라벨인 것(전체의 39%)은 그냥 제목이다.
-   둘에 같은 옷을 입히면 39%가 "칠 수 있는 것"이라는 거짓 신호를 낸다. */
+   둘에 같은 옷을 입히면 39%가 "칠 수 있는 것"이라는 거짓 신호를 낸다.
+   칩 반경은 2px — 배지와 같은 급이다. */
 .item .term {
   display: inline-block; margin-bottom: 6px; color: var(--accent);
   background: var(--accent-soft);
-  padding: 1px 8px; border-radius: 5px;
-  font: 600 var(--fs-code) / 1.45 var(--font-mono);
+  padding: 1px 8px; border-radius: 2px;
+  font: 500 var(--fs-code) / 1.45 var(--font-mono);
 }
 /* font 단축 속성에 font-family 로 inherit 을 쓰면 선언 전체가 무효가 된다(실측으로 잡았다).
    롱핸드로 써야 .item 의 본문 폰트를 실제로 물려받는다. */
 .item .term-label {
   background: none; padding: 0; color: var(--fg);
-  font-family: inherit; font-size: var(--fs-ref); font-weight: 700; line-height: 1.45;
+  font-family: var(--font-display); font-size: var(--fs-ref);
+  font-weight: 500; letter-spacing: -0.02em; line-height: 1.45;
 }
 /* 레퍼런스 본문의 기준 크기. 예전에는 본문 상속(≥900px 에서 17px)이라 설명이 섹션 제목
    (15px)보다 커서 위계가 뒤집혀 있었다 — 카드 한 장 안에 12·13·14·15·16·17px 여섯 종이
@@ -348,20 +537,24 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
 .item .caveat {
   margin: 8px 0 0; padding: 8px 10px;
   border-left: 3px solid var(--danger); background: var(--danger-soft);
+  color: var(--fg-mid);
   font-size: var(--fs-sm); line-height: var(--lh-ref); max-width: var(--measure);
 }
 .item .seealso { margin: 6px 0 0; font-size: var(--fs-xs); }
-.item .seealso a { color: var(--accent2); }
+/* 링크는 황토다. hover 에서 색이 내려가고 밑줄이 1px → 1.5px 로 두꺼워진다. */
+.item .seealso a { color: var(--accent); text-underline-offset: 2px; }
+.item .seealso a:hover { color: var(--accent2); text-decoration-thickness: 1.5px; }
 .item .anchor {
-  float: right; color: var(--muted); text-decoration: none;
+  float: right; color: var(--faint); text-decoration: none;
   font-size: var(--fs-sm); opacity: 0; padding: 0 4px;
 }
 .item:hover .anchor, .anchor:focus { opacity: 1; }
 
+/* 배지 반경은 2px. 알약형(999px)은 스위치·라디오·아바타에만 쓴다 — 배지는 알약이 아니다. */
 .badge {
-  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  display: inline-block; padding: 2px 7px; border-radius: 2px;
   font-size: var(--fs-xs); font-weight: 600; vertical-align: middle;
-  border: 1px solid var(--line); color: var(--muted); background: var(--bg-soft);
+  border: 1px solid var(--line-2); color: var(--muted); background: var(--bg-soft);
   transition: background var(--ease), color var(--ease), border-color var(--ease);
 }
 .badge.warn {
@@ -376,15 +569,16 @@ main.shell { max-width: var(--page); margin: 0 auto; padding: 24px 24px 64px; }
 }
 
 pre {
-  margin: 8px 0; padding: 12px; border-radius: 8px;
-  background: var(--code-bg); overflow-x: auto; -webkit-overflow-scrolling: touch;
-  font: var(--fs-code) / var(--lh-code) ui-monospace, "Cascadia Code", Consolas, monospace;
+  margin: 8px 0; padding: 12px; border-radius: 6px;
+  background: var(--code-bg); border: 1px solid var(--line);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  font: var(--fs-code) / var(--lh-code) var(--font-mono);
   word-break: normal; overflow-wrap: normal;   /* 명령어는 절대 꺾지 않는다 */
 }
 code {
-  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.9375em; background: var(--code-bg);
-  padding: 1px 5px; border-radius: 4px;
+  padding: 1px 5px; border-radius: 2px;
 }
 pre code { background: none; padding: 0; font-size: inherit; }
 
@@ -402,12 +596,17 @@ pre code { background: none; padding: 0; font-size: inherit; }
       여전히 금지다 — G10 게이트가 본문의 <details>를 막는다(닫힌 상태는 Ctrl+F에서 빠진다).
 
    카드 스타일 자체는 그대로다 — /print/ 와 A3 치트시트는 같은 데이터에서 별도 템플릿
-   (print-all/print-sheet + sheet-a3.css)으로 생성되므로 이 배치와 무관하다. */
+   (print-all/print-sheet + sheet-a3.css)으로 생성되므로 이 배치와 무관하다.
+
+   카드는 종이(--paper) 위의 흰 면이다. 대기 상태 그림자는 없다 — 흰 면과 따뜻한 바탕의
+   명도 차이만으로 떠 보이고, 그게 이 체계가 그림자를 아끼는 방식이다. */
 
 .cardgrid .section {
   margin: 0 0 18px;
-  border: 1px solid var(--line); border-radius: 10px;
+  border: 1px solid var(--line); border-radius: 6px;
   background: var(--bg);
+  background-image: none;     /* 카드일 때는 위쪽 이중 괘선을 쓰지 않는다 — 테두리가 이미 끊는다 */
+  padding-top: 0;
   overflow: hidden;
   /* 다단 배치는 지연 렌더와 궁합이 나쁘다 */
   content-visibility: visible;
@@ -419,24 +618,39 @@ pre code { background: none; padding: 0; font-size: inherit; }
 }
 
 /* 그룹 띠 — 카드 37장을 8개 묶음으로 끊는다. 레일의 그룹 라벨과 같은 축·같은 순서라
-   좌우가 서로를 가리킨다. 제목이 아니라 구분이므로 작고 조용하게. */
+   좌우가 서로를 가리킨다. 제목이 아니라 구분이므로 마이크로 캡스 + 먹 괘선으로 조용하게. */
 .groupbar {
-  margin: 26px 0 10px; font-size: var(--fs-xs); font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  margin: 34px 0 12px; padding-bottom: 6px;
+  font-family: var(--font-text);
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
   scroll-margin-top: calc(var(--tap) + 16px);
 }
 .groupbar:first-child { margin-top: 0; }
 
-/* 카드 머리 — 따뜻한 바탕 + 앰버 밑선. 제목(15px)이 설명(14px)보다 확실히 위에 있게 한다. */
+/* 카드 머리 — 가라앉은 면 + 이중 괘선 + 좌측 개나리 표시선.
+   제목(15px)이 설명(14px)보다 확실히 위에 있게 한다. */
 .cardgrid .section > h3 {
-  margin: 0; padding: 9px 14px;
-  background: var(--bg-soft);
-  border-bottom: 2px solid var(--accent);
-  color: var(--accent2);
-  font-size: 0.9375rem; font-weight: 700; line-height: 1.4;
+  margin: 0; padding: 10px 14px 11px;
+  background-color: var(--bg-soft);
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
+  border-left: 3px solid var(--marker);
+  color: var(--fg);
+  font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.024em; line-height: 1.4;
 }
 .cardgrid .section .summary {
-  margin: 0; padding: 10px 14px 2px;
+  margin: 0; padding: 11px 14px 2px;
   font-size: var(--fs-sm); line-height: var(--lh-ref); max-width: none;
 }
 
@@ -505,50 +719,69 @@ pre code { background: none; padding: 0; font-size: inherit; }
   border-top: 1px solid var(--line); background: var(--bg-soft);
   font-size: var(--fs-xs);
 }
+.cardgrid .section > .seealso a { color: var(--accent); }
 
 /* ── 검색 ────────────────────────────────────────────────── */
-/* 1148px 짜리 한 줄 입력창은 어느 페이지에서도 읽기 나쁘다. 전역으로 묶는다. */
+/* 1148px 짜리 한 줄 입력창은 어느 페이지에서도 읽기 나쁘다. 전역으로 묶는다.
+   입력 반경 3px, 포커스는 개나리 600 경계 + 개나리 100 헤일로 — 체계가 정한 입력 포커스다. */
 .searchbox { margin: 18px 0 8px; position: relative; max-width: 640px; }
 .searchbox input {
   width: 100%; min-height: var(--tap); padding: 0 14px 0 44px;
   font-size: 16px;              /* iOS가 16px 미만 입력에서 자동 확대한다 */
-  border: 2px solid var(--line); border-radius: 12px;
+  font-family: var(--font-text);
+  border: 1px solid var(--line-2); border-radius: 3px;
   background: var(--bg); color: var(--fg);
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+  transition: border-color var(--ease), box-shadow var(--ease);
 }
 .searchbox::before {
   content: "❯"; position: absolute; left: 16px; top: 0;
   height: var(--tap); display: flex; align-items: center;
-  color: var(--accent); font: 700 1rem/1 var(--font-mono); pointer-events: none;
+  color: var(--accent); font: 600 1rem/1 var(--font-mono); pointer-events: none;
 }
 .searchbox input:focus-visible {
-  outline: none; border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft), var(--shadow-md);
-  transform: translateY(-1px);
+  outline: none; border-color: var(--marker-2);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 /* 검색 결과도 본문과 같은 스케일을 쓴다. 제목에 크기를 안 준 탓에 본문(≥900px 에서 17px)을
    물려받아, 카드는 14px 인데 결과만 17px 로 떠 있었다. 조회 도구에서는 한 화면에 결과가
-   많이 보이는 편이 낫기도 하다. 선택 표시는 레일의 활성 항목과 같은 앰버 세로 바로 맞춘다 —
-   hover 마다 행이 옆으로 밀리면(translateX) 화살표로 훑을 때 눈이 따라가기 어렵다. */
+   많이 보이는 편이 낫기도 하다. 선택 표시는 레일의 활성 항목과 같다 — 개나리 100 바탕 +
+   좌측 개나리 표시선. hover 마다 행이 옆으로 밀리면(translateX) 화살표로 훑을 때 눈이
+   따라가기 어렵다. */
 .results { margin: 12px 0 0; }
-.results .group { margin-bottom: 14px; }
+.results .group { margin-bottom: 16px; }
 .results .group > h3 {
-  margin: 0 0 4px; font-size: var(--fs-xs); text-transform: uppercase;
-  letter-spacing: .06em; color: var(--muted); font-weight: 700;
+  margin: 0 0 6px; padding-bottom: 5px;
+  font-family: var(--font-text);
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  background-image:
+    linear-gradient(var(--line-2), var(--line-2)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
 }
 .results a.hit {
-  display: block; padding: 7px 10px; border-radius: 6px;
+  display: block; position: relative; padding: 7px 10px; border-radius: 0;
   text-decoration: none; border-left: 2px solid transparent;
   transition: background var(--ease), border-color var(--ease);
 }
-.results a.hit:hover, .results a.hit.sel {
-  background: var(--accent-soft);
-  border-left-color: var(--accent);
+/* hover 는 괘선 드로잉, 선택(키보드 이동)은 개나리 바탕 — 둘을 겹치지 않게 나눈다. */
+.results a.hit::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--rule-strong);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--draw) var(--ease-std);
 }
-.results .hit .t { display: block; font-weight: 600; font-size: var(--fs-ref); line-height: 1.45; }
+.results a.hit:hover::after { transform: scaleX(1); }
+.results a.hit.sel {
+  background: var(--accent-soft);
+  border-left-color: var(--marker);
+}
+.results a.hit.sel::after { display: none; }
+.results .hit .t { display: block; font-weight: 600; font-size: var(--fs-ref); line-height: 1.45; color: var(--fg); }
 .results .hit .t code { background: none; padding: 0; color: var(--accent); font-size: inherit; }
-.results .hit .c { display: block; font-size: var(--fs-xs); color: var(--muted); }
+.results .hit .c { display: block; font-size: var(--fs-xs); color: var(--faint); }
 .results .hit .s { display: block; font-size: var(--fs-sm); color: var(--muted); }
 .results .empty { padding: 16px 0; color: var(--muted); }
 .results .empty a { color: var(--accent); }
@@ -556,15 +789,17 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* ── 전역 검색 팔레트 · 단축키 도움말 ────────────────────── */
 /* <dialog> 를 쓰니 포커스 트랩·Esc·스크롤 잠금·backdrop 은 브라우저가 준다.
    위치만 잡는다 — 화면 정중앙이 아니라 위쪽 10vh. 팔레트는 결과가 아래로 자라는 물건이라
-   가운데 정렬하면 입력창이 타이핑 중에 위아래로 흔들린다. */
+   가운데 정렬하면 입력창이 타이핑 중에 위아래로 흔들린다.
+   모달 반경 10px, 그림자는 여기서 허용된다 — 진짜로 떠 있는 것이기 때문이다.
+   위쪽 4px 개나리는 리드 위 표시선과 같은 장치다. */
 .palette, .keyhelp {
   margin: 10vh auto auto; padding: 16px 20px 20px; width: min(680px, calc(100vw - 32px));
   max-height: 78vh; overflow-y: auto;
-  border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 16px;
-  background: var(--bg); color: var(--fg);
+  border: 1px solid var(--line-2); border-top: 4px solid var(--marker); border-radius: 10px;
+  background: var(--bg); color: var(--fg-mid);
   box-shadow: var(--shadow-xl);
 }
-.palette::backdrop, .keyhelp::backdrop { background: rgb(10 12 16 / 0.45); }
+.palette::backdrop, .keyhelp::backdrop { background: rgb(26 24 22 / 0.44); }
 @media (prefers-color-scheme: dark) {
   .palette::backdrop, .keyhelp::backdrop { background: rgb(0 0 0 / 0.62); }
 }
@@ -581,25 +816,33 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .palette[data-q="1"] .palette-empty { display: none; }
 .palette-empty { margin: 14px 0 0; }
 .palette-empty h3 {
-  margin: 0 0 4px; font-size: var(--fs-sm); text-transform: uppercase;
-  letter-spacing: .04em; color: var(--muted);
+  margin: 0 0 6px;
+  font-family: var(--font-text);
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
 }
 .palette-empty ul { list-style: none; margin: 0; padding: 0; }
 .palette-empty a {
-  display: flex; align-items: baseline; gap: 8px;
-  min-height: var(--tap); padding: 4px 10px; border-radius: 8px;
+  display: flex; align-items: baseline; gap: 8px; position: relative;
+  min-height: var(--tap); padding: 4px 10px; border-radius: 0;
   text-decoration: none; color: var(--fg); font-weight: 600;
 }
-.palette-empty a:hover { background: var(--bg-soft); }
+.palette-empty a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--rule-strong);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--draw) var(--ease-std);
+}
+.palette-empty a:hover::after { transform: scaleX(1); }
 .palette-empty a b {
-  font: 700 0.75rem/1 var(--font-mono); color: var(--muted);
-  background: var(--code-bg); border-radius: 4px; padding: 4px 6px;
+  font: 600 0.75rem/1 var(--font-mono); color: var(--muted);
+  background: var(--code-bg); border-radius: 2px; padding: 4px 6px;
 }
 .palette-empty a span { font-weight: 400; font-size: var(--fs-sm); color: var(--muted); }
 .palette-foot { margin: 12px 0 0; font-size: 0.8125rem; color: var(--muted); }
 .palette-foot kbd, .keyhelp kbd {
   font-family: var(--font-mono); font-size: 0.8125rem; color: var(--fg);
-  background: var(--code-bg); border-radius: 4px; padding: 1px 5px;
+  background: var(--code-bg); border: 1px solid var(--line); border-radius: 2px; padding: 1px 5px;
 }
 .keyhelp h2 { margin: 0 0 12px; font-size: 1.0625rem; }
 .keyhelp dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0; }
@@ -615,15 +858,18 @@ pre code { background: none; padding: 0; font-size: inherit; }
 /* ── 스크롤 등장 모션 ────────────────────────────────────── */
 /* .rv 는 motion.js 가 붙일 때만 걸린다. CSS 에 시작 상태를 기본값으로 적어두면
    JS 한 줄 오류가 백지 페이지가 된다 — GSAP 을 쓸 때도 지켰던 규칙이다.
-   이징은 GSAP power2.out(= quad out) 대응치. */
-.rv { opacity: 0; transform: translateY(var(--rv-y, 10px)); }
-.rv-card { --rv-y: 10px; --rv-dur: .5s; }
-.rv-sec  { --rv-y: 14px; --rv-dur: .6s; }
+   이 체계는 스크롤 트리거 애니메이션을 쓰지 않는 쪽이지만, 여기서는 구조(motion.js +
+   motion-check.mjs)가 이미 검증 장치를 갖고 있어 걷어내지 않고 값만 체계에 맞췄다:
+   이징은 --ease-std, 지속은 280ms(--duration-slow), 이동은 14px → 6px.
+   바운스도 확대도 없고, 남은 건 짧고 평평한 페이드 한 번이다. */
+.rv { opacity: 0; transform: translateY(var(--rv-y, 6px)); }
+.rv-card { --rv-y: 6px; --rv-dur: .28s; }
+.rv-sec  { --rv-y: 6px; --rv-dur: .28s; }
 .rv.in {
   opacity: 1; transform: none;
   transition:
-    opacity var(--rv-dur, .5s) cubic-bezier(.25, .46, .45, .94) var(--rv-del, 0s),
-    transform var(--rv-dur, .5s) cubic-bezier(.25, .46, .45, .94) var(--rv-del, 0s);
+    opacity var(--rv-dur, .28s) var(--ease-std) var(--rv-del, 0s),
+    transform var(--rv-dur, .28s) var(--ease-std) var(--rv-del, 0s);
 }
 /* 관측 전에 인쇄하면 통째로 빈 종이가 나온다. 인쇄에서는 모션 상태를 무시한다. */
 @media print { .rv { opacity: 1 !important; transform: none !important; } }
@@ -633,23 +879,28 @@ pre code { background: none; padding: 0; font-size: inherit; }
   display: grid; gap: 12px; margin: 16px 0 0; padding: 0; list-style: none;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
 }
+/* 클릭 가능한 카드의 hover 는 아래쪽 괘선 드로잉이다 — 그림자도, 들림(translateY)도 없다.
+   대기 상태 그림자도 없다: 흰 면이 따뜻한 종이 위에 있다는 것만으로 층이 읽힌다. */
 .card {
-  display: block; padding: 14px; border: 1px solid var(--line); border-radius: 12px;
+  display: block; position: relative; padding: 14px;
+  border: 1px solid var(--line); border-radius: 6px;
   text-decoration: none; background: var(--bg);
-  box-shadow: var(--shadow-sm);
-  /* transform은 여기서 트랜지션 안 함 — 등장 모션은 바깥 li(.rv)가 transform 으로 하는데,
-     안쪽 .card 까지 상시 transform 트랜지션을 걸면 이중 이징으로 버벅인다. hover 에서만 건다. */
-  transition: border-color var(--ease), background var(--ease), box-shadow var(--ease);
+  transition: border-color var(--ease);
 }
-.card:hover {
-  border-color: var(--accent); background: var(--bg-soft); 
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  transition: border-color var(--ease), background var(--ease), transform var(--ease), box-shadow var(--ease);
+.card::after {
+  content: ""; position: absolute; left: -1px; right: -1px; bottom: -1px; height: 1px;
+  background: var(--rule-strong);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--draw) var(--ease-std);
 }
-@media (prefers-reduced-motion: reduce) { .card:hover { transform: none; } }
+.card:hover { border-color: var(--line-2); }
+.card:hover::after { transform: scaleX(1); }
 /* span 에 margin 은 안 먹는다 — display:block 이 없으면 제목과 설명이 한 줄로 붙어 나온다. */
-.card .t { display: block; font-weight: 800; font-size: 1.0625rem; margin-bottom: 6px; line-height: 1.35; }
+.card .t {
+  display: block; font-family: var(--font-display); font-weight: 500;
+  letter-spacing: -0.03em; font-size: 1.0625rem; margin-bottom: 6px; line-height: 1.35;
+  color: var(--fg);
+}
 .card .s { display: block; font-size: var(--fs-sm); color: var(--muted); }
 
 /* ── 프롬프트 ────────────────────────────────────────────── */
@@ -658,17 +909,19 @@ pre code { background: none; padding: 0; font-size: inherit; }
 }
 .prompt-body pre { background: var(--code-bg); white-space: pre-wrap; }
 /* 버튼 정의는 여기 하나뿐이다. 한때 페이지 머리 쪽에 .btn 을 또 선언해 두 규칙이 서로를
-   덮었고(min-height 38px vs var(--tap)), 같은 버튼이 자리마다 다른 크기로 나왔다. */
+   덮었고(min-height 38px vs var(--tap)), 같은 버튼이 자리마다 다른 크기로 나왔다.
+   반경 3px, press 에서 0.5px 내려간다 — 확대도 리플도 없다. */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: var(--tap); min-width: var(--tap); padding: 0 14px;
+  min-height: var(--tap); min-width: var(--tap); padding: 0 16px;
   /* 단축 속성 + inherit 은 무효라 button 이 UA 기본 폰트로 남는다. 롱핸드로 쓴다. */
   font-family: inherit; font-size: var(--fs-sm); font-weight: 600; line-height: 1;
-  border: 1px solid var(--line); border-radius: 8px;
+  border: 1px solid var(--line-2); border-radius: 3px;
   background: var(--bg); color: var(--fg); cursor: pointer; text-decoration: none;
-  transition: border-color var(--ease), color var(--ease);
+  transition: border-color var(--ease), background var(--ease), color var(--ease), translate var(--ease);
 }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn:hover { border-color: var(--rule-strong); background: var(--bg-soft); }
+.btn:active { translate: 0 0.5px; }
 .btn[data-copied="1"] { border-color: var(--ok); color: var(--ok); }
 .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
 /* 슬롯은 `--staged` 같은 짧은 값을 받는 자리다. 판 전체 폭(1148px)짜리 입력창은
@@ -677,18 +930,25 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .slots, main.doc .slots { display: grid; gap: 8px; margin: 10px 0; max-width: 30rem; }
 .slots label { display: grid; gap: 4px; font-size: var(--fs-sm); color: var(--muted); }
 .slots input {
-  min-height: 38px; padding: 0 10px; font-size: 16px;
-  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg);
+  min-height: 38px; padding: 0 10px; font-size: 16px; font-family: var(--font-text);
+  border: 1px solid var(--line-2); border-radius: 3px; background: var(--bg); color: var(--fg);
 }
 .attribution {
-  margin: 12px 0 0; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 8px;
+  margin: 12px 0 0; padding: 10px 12px;
+  border: 1px solid var(--line); border-left: 3px solid var(--line-2); border-radius: 0;
+  background: var(--bg-soft);
   font-size: var(--fs-sm); color: var(--muted);
 }
 
 /* ── 표 ──────────────────────────────────────────────────── */
+/* 표 안은 밀도가 높은 자리라 한 줄 괘선이다. 머리행만 먹 한 줄로 눌러 준다. */
 .tbl { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: var(--fs-sm); }
 .tbl th, .tbl td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.tbl th { color: var(--muted); font-weight: 600; }
+.tbl th {
+  color: var(--muted); font-weight: 600;
+  font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase;
+  border-bottom: 1px solid var(--rule-strong);
+}
 
 /* ── A3 치트시트 미리보기 모달 ─────────────────────────────────
    시트를 실제 조판 폭(1587px = A3 가로 @96dpi)으로 그린 뒤 축소만 한다. iframe 을 좁히면
@@ -704,19 +964,28 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .sheetmodal {
   width: min(96vw, 1500px); max-width: none;
   height: 92vh; max-height: 92vh; padding: 0;
-  border: 1px solid var(--line); border-radius: 12px;
-  background: var(--bg); color: var(--fg);
+  border: 1px solid var(--line-2); border-radius: 10px;
+  background: var(--bg); color: var(--fg-mid);
   box-shadow: var(--shadow-xl);
 }
-.sheetmodal::backdrop { background: rgb(28 25 23 / 0.55); }
+.sheetmodal::backdrop { background: rgb(26 24 22 / 0.44); }
 .sheetmodal-bar {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  padding: 12px 16px; border-bottom: 2px solid var(--accent);
+  padding: 12px 16px;
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px, 100% 1px;
+  background-position: left bottom 3px, left bottom;
+  background-repeat: no-repeat;
 }
-.sheetmodal-bar .t { margin: 0; font-weight: 700; font-size: var(--fs-ref); }
+.sheetmodal-bar .t { margin: 0; font-weight: 600; font-size: var(--fs-ref); color: var(--fg); }
 .sheetmodal-bar .s { margin: 0; flex: 1 1 auto; font-size: var(--fs-xs); color: var(--muted); }
-.sheetmodal-bar .btn.primary { border-color: var(--accent); color: var(--accent); font-weight: 700; }
-.sheetmodal-bar .btn.primary:hover { background: var(--accent-soft); }
+/* 개나리는 여기서 "바탕"으로 쓴다 — 유일한 주 동작 버튼이고, 글자는 먹이다. */
+.sheetmodal-bar .btn.primary {
+  border-color: var(--marker-2); background: var(--marker); color: #1a1a18; font-weight: 600;
+}
+.sheetmodal-bar .btn.primary:hover { background: var(--marker-2); border-color: var(--marker-2); }
 .sheetmodal-stage {
   display: flex; justify-content: center; align-items: center;
   padding: 16px; background: var(--bg-soft);
@@ -725,7 +994,7 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .sheetmodal-paper {
   flex: 0 0 auto;
   width: calc(1587px * var(--s, 0.5)); height: calc(1123px * var(--s, 0.5));
-  overflow: hidden; background: #fff; border: 1px solid var(--line);
+  overflow: hidden; background: #fff; border: 1px solid var(--line-2);
   box-shadow: var(--shadow-md);
 }
 .sheetmodal-paper iframe {
@@ -739,6 +1008,7 @@ pre code { background: none; padding: 0; font-size: inherit; }
 @media (max-width: 640px) { .sheetmodal-bar .s { display: none; } }
 
 /* ── 착지 하이라이트 ──────────────────────────────────────── */
+/* 형광펜(개나리 200)은 한 화면에 한 번만 나온다 — 그게 정확히 :target 의 성격이다. */
 :target { background: var(--hl); }
 :target .term { text-decoration: underline; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
@@ -746,8 +1016,17 @@ pre code { background: none; padding: 0; font-size: inherit; }
 
 /* ── 푸터 ────────────────────────────────────────────────── */
 footer.site {
-  border-top: 1px solid var(--line); margin-top: 48px; padding: 20px 0 40px;
+  margin-top: 56px; padding: 20px 0 40px;
   font-size: var(--fs-sm); color: var(--muted);
+}
+footer.site .wrap {
+  padding-top: 20px;
+  background-image:
+    linear-gradient(var(--rule-strong), var(--rule-strong)),
+    linear-gradient(var(--line), var(--line));
+  background-size: calc(100% - var(--pad) * 2) 1px, calc(100% - var(--pad) * 2) 1px;
+  background-position: left var(--pad) top, left var(--pad) top 3px;
+  background-repeat: no-repeat;
 }
 footer.site a { color: var(--muted); }
 footer.site .meta { font-size: 0.8125rem; }   /* 한글이 섞여 있어 모노를 쓰지 않는다 */
