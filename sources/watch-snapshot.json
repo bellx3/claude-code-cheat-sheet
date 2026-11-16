@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-20",
+ "fetchedAt": "2026-11-16",
  "pages": {
   "https://code.claude.com/docs/en/overview.md": "Overview",
   "https://code.claude.com/docs/en/quickstart.md": "Quickstart",
@@ -10,37 +10,43 @@
   "https://code.claude.com/docs/en/context-window.md": "Explore the context window",
   "https://code.claude.com/docs/en/prompt-caching.md": "How Claude Code uses prompt caching",
   "https://code.claude.com/docs/en/memory.md": "How Claude remembers your project",
-  "https://code.claude.com/docs/en/permission-modes.md": "Choose a permission mode",
   "https://code.claude.com/docs/en/sessions.md": "Manage sessions",
   "https://code.claude.com/docs/en/common-workflows.md": "Common workflows",
   "https://code.claude.com/docs/en/prompt-library.md": "Prompt library",
   "https://code.claude.com/docs/en/best-practices.md": "Best practices for Claude Code",
   "https://code.claude.com/docs/en/platforms.md": "Platforms and integrations",
   "https://code.claude.com/docs/en/remote-control.md": "Continue local sessions from any device with Remote Control",
-  "https://code.claude.com/docs/en/web-quickstart.md": "Get started with Claude Code on the web",
-  "https://code.claude.com/docs/en/claude-code-on-the-web.md": "Use Claude Code on the web",
-  "https://code.claude.com/docs/en/routines.md": "Automate work with routines",
-  "https://code.claude.com/docs/en/ultrareview.md": "Find bugs with ultrareview",
+  "https://code.claude.com/docs/en/claude-projects.md": "Let Claude coordinate ongoing work with Projects",
+  "https://code.claude.com/docs/en/mobile.md": "Claude Code on mobile",
+  "https://code.claude.com/docs/en/chrome.md": "Use Claude Code with Chrome",
+  "https://code.claude.com/docs/en/computer-use.md": "Let Claude use your computer from the CLI",
+  "https://code.claude.com/docs/en/vs-code.md": "Use Claude Code in VS Code",
+  "https://code.claude.com/docs/en/jetbrains.md": "JetBrains IDEs",
+  "https://code.claude.com/docs/en/slack.md": "Claude Code in Slack",
+  "https://code.claude.com/docs/en/claude-tag.md": "Claude Tag",
+  "https://code.claude.com/docs/en/web-quickstart.md": "Get started with Claude Code in the cloud",
+  "https://code.claude.com/docs/en/claude-code-on-the-web.md": "Use Claude Code in the cloud",
+  "https://code.claude.com/docs/en/routines.md": "Automate work with scheduled tasks",
   "https://code.claude.com/docs/en/desktop-quickstart.md": "Get started with the desktop app",
   "https://code.claude.com/docs/en/desktop.md": "Desktop application",
   "https://code.claude.com/docs/en/desktop-linux.md": "Claude Desktop on Linux (beta)",
   "https://code.claude.com/docs/en/desktop-wsl.md": "Claude Code Desktop in WSL",
   "https://code.claude.com/docs/en/desktop-scheduled-tasks.md": "Schedule recurring tasks in Claude Code Desktop",
   "https://code.claude.com/docs/en/desktop-ios-simulator.md": "Test iOS apps in the simulator",
-  "https://code.claude.com/docs/en/mobile.md": "Claude Code on mobile",
-  "https://code.claude.com/docs/en/chrome.md": "Use Claude Code with Chrome",
-  "https://code.claude.com/docs/en/computer-use.md": "Let Claude use your computer from the CLI",
-  "https://code.claude.com/docs/en/vs-code.md": "Use Claude Code in VS Code",
-  "https://code.claude.com/docs/en/jetbrains.md": "JetBrains IDEs",
+  "https://code.claude.com/docs/en/code-review-local.md": "Review locally with /code-review",
+  "https://code.claude.com/docs/en/ultrareview.md": "Find bugs with ultrareview",
+  "https://code.claude.com/docs/en/github-enterprise-server.md": "Claude Code with GitHub Enterprise Server",
+  "https://code.claude.com/docs/en/code-review.md": "Code Review",
+  "https://code.claude.com/docs/en/code-review-setup.md": "Set up Code Review",
+  "https://code.claude.com/docs/en/code-review-customize.md": "Customize Code Review",
+  "https://code.claude.com/docs/en/code-review-pull-requests.md": "Read and request reviews on a pull request",
+  "https://code.claude.com/docs/en/code-review-costs.md": "Code Review costs and usage",
+  "https://code.claude.com/docs/en/code-review-troubleshooting.md": "Troubleshoot Code Review",
   "https://code.claude.com/docs/en/security-guidance.md": "Catch security issues as Claude writes code",
   "https://code.claude.com/docs/en/claude-security.md": "Scan your codebase for vulnerabilities",
-  "https://code.claude.com/docs/en/code-review.md": "Code Review",
   "https://code.claude.com/docs/en/github-actions.md": "Claude Code GitHub Actions",
   "https://code.claude.com/docs/en/github-actions-cloud-providers.md": "Use Claude Code GitHub Actions with cloud providers",
-  "https://code.claude.com/docs/en/github-enterprise-server.md": "Claude Code with GitHub Enterprise Server",
   "https://code.claude.com/docs/en/gitlab-ci-cd.md": "Claude Code GitLab CI/CD",
-  "https://code.claude.com/docs/en/slack.md": "Claude Code in Slack",
-  "https://code.claude.com/docs/en/claude-tag.md": "Claude Tag",
   "https://code.claude.com/docs/en/agents.md": "Run agents in parallel",
   "https://code.claude.com/docs/en/sub-agents.md": "Create custom subagents",
   "https://code.claude.com/docs/en/agent-view.md": "Manage multiple agents with agent view",
@@ -51,8 +57,6 @@
   "https://code.claude.com/docs/en/mcp-quickstart.md": "Connect to MCP servers",
   "https://code.claude.com/docs/en/mcp.md": "Connect Claude Code to tools via MCP",
   "https://code.claude.com/docs/en/skills.md": "Extend Claude with skills",
-  "https://code.claude.com/docs/en/discover-plugins.md": "Discover and install prebuilt plugins through marketplaces",
-  "https://code.claude.com/docs/en/plugins.md": "Create plugins",
   "https://code.claude.com/docs/en/artifacts.md": "Share session output as artifacts",
   "https://code.claude.com/docs/en/hooks-guide.md": "Automate actions with hooks",
   "https://code.claude.com/docs/en/channels.md": "Push events into a running session with channels",
@@ -65,9 +69,41 @@
   "https://code.claude.com/docs/en/troubleshooting.md": "Troubleshooting",
   "https://code.claude.com/docs/en/debug-your-config.md": "Debug your configuration",
   "https://code.claude.com/docs/en/errors.md": "Error reference",
+  "https://code.claude.com/docs/en/plugins/overview.md": "Plugins overview",
+  "https://code.claude.com/docs/en/plugins/install.md": "Install and manage plugins",
+  "https://code.claude.com/docs/en/plugins/anthropic-marketplaces.md": "Anthropic's marketplaces",
+  "https://code.claude.com/docs/en/plugins/code-intelligence.md": "Code intelligence plugins",
+  "https://code.claude.com/docs/en/plugins/security.md": "Plugin security and trust",
+  "https://code.claude.com/docs/en/plugins/create.md": "Create a Claude Code plugin",
+  "https://code.claude.com/docs/en/plugins/components.md": "Add components to a plugin",
+  "https://code.claude.com/docs/en/plugins/dependencies.md": "Plugin dependencies",
+  "https://code.claude.com/docs/en/plugin-evals.md": "Test plugins with evals",
+  "https://code.claude.com/docs/en/plugins/publish.md": "Publish and distribute a plugin",
+  "https://code.claude.com/docs/en/plugins/measure.md": "Measure plugin cost and usage",
+  "https://code.claude.com/docs/en/plugins/cli-hints.md": "Recommend your plugin from your CLI",
+  "https://code.claude.com/docs/en/plugins/mods/overview.md": "Mods overview",
+  "https://code.claude.com/docs/en/plugins/mods/create.md": "Create a mod",
+  "https://code.claude.com/docs/en/plugins/mods/reference.md": "Mods reference",
+  "https://code.claude.com/docs/en/plugins/mods/interface.md": "Draw in the interface with a mod",
+  "https://code.claude.com/docs/en/plugins/mods/gallery.md": "Interface gallery for mods",
+  "https://code.claude.com/docs/en/plugins/mods/events.md": "React to events with a mod",
+  "https://code.claude.com/docs/en/plugins/mods/api.md": "Use the mods API",
+  "https://code.claude.com/docs/en/plugins/mods/test.md": "Test a mod",
+  "https://code.claude.com/docs/en/plugins/mods/troubleshoot.md": "Troubleshoot a mod",
+  "https://code.claude.com/docs/en/plugins/create-marketplace.md": "Create a marketplace",
+  "https://code.claude.com/docs/en/plugins/host-marketplace.md": "Host and maintain a marketplace",
+  "https://code.claude.com/docs/en/plugins/relevance.md": "Recommend plugins for your org",
+  "https://code.claude.com/docs/en/plugins/org.md": "Manage Claude Code plugins for your organization",
+  "https://code.claude.com/docs/en/plugins/mods/admin.md": "Manage mods for your organization",
+  "https://code.claude.com/docs/en/plugins/troubleshooting.md": "Troubleshoot plugins",
+  "https://code.claude.com/docs/en/plugins/loading.md": "Plugin loading reference",
+  "https://code.claude.com/docs/en/plugins/manifest-reference.md": "Plugin manifest reference",
+  "https://code.claude.com/docs/en/plugins/marketplace-reference.md": "Marketplace reference",
+  "https://code.claude.com/docs/en/plugins/cli-reference.md": "Plugin commands reference",
   "https://code.claude.com/docs/en/admin-setup.md": "Set up Claude Code for your organization",
   "https://code.claude.com/docs/en/setup.md": "Advanced setup",
   "https://code.claude.com/docs/en/authentication.md": "Authentication",
+  "https://code.claude.com/docs/en/managed-settings.md": "Deploy managed settings",
   "https://code.claude.com/docs/en/server-managed-settings.md": "Configure server-managed settings",
   "https://code.claude.com/docs/en/managed-mcp.md": "Control MCP server access for your organization",
   "https://code.claude.com/docs/en/auto-mode-config.md": "Configure auto mode",
@@ -75,6 +111,7 @@
   "https://code.claude.com/docs/en/feature-availability.md": "Feature availability",
   "https://code.claude.com/docs/en/amazon-bedrock.md": "Claude Code on Amazon Bedrock",
   "https://code.claude.com/docs/en/claude-platform-on-aws.md": "Claude Code on Claude Platform on AWS",
+  "https://code.claude.com/docs/en/claude-models-on-google-cloud-anthropic-managed.md": "Claude Code with Claude Models on Google Cloud (Anthropic managed)",
   "https://code.claude.com/docs/en/google-vertex-ai.md": "Claude Code on Google Cloud's Agent Platform",
   "https://code.claude.com/docs/en/microsoft-foundry.md": "Claude Code on Microsoft Foundry",
   "https://code.claude.com/docs/en/network-config.md": "Enterprise network configuration",
@@ -90,23 +127,24 @@
   "https://code.claude.com/docs/en/llm-gateway.md": "Other LLM gateways",
   "https://code.claude.com/docs/en/llm-gateway-connect.md": "Connect Claude Code to an LLM gateway",
   "https://code.claude.com/docs/en/llm-gateway-rollout.md": "Roll out an LLM gateway for your organization",
-  "https://code.claude.com/docs/en/llm-gateway-protocol.md": "Gateway protocol reference",
+  "https://code.claude.com/docs/en/llm-gateway-protocol.md": "Claude Code gateway compatibility guide",
   "https://code.claude.com/docs/en/monitoring-usage.md": "Monitoring",
   "https://code.claude.com/docs/en/costs.md": "Manage costs effectively",
   "https://code.claude.com/docs/en/analytics.md": "Track team usage with analytics",
-  "https://code.claude.com/docs/en/plugin-marketplaces.md": "Create and distribute a plugin marketplace",
-  "https://code.claude.com/docs/en/plugin-dependencies.md": "Constrain plugin dependency versions",
-  "https://code.claude.com/docs/en/plugin-hints.md": "Recommend your plugin from your CLI",
-  "https://code.claude.com/docs/en/plugin-relevance.md": "Recommend plugins for your org",
   "https://code.claude.com/docs/en/security.md": "Security",
   "https://code.claude.com/docs/en/data-usage.md": "Data usage",
   "https://code.claude.com/docs/en/zero-data-retention.md": "Zero data retention",
+  "https://code.claude.com/docs/en/hipaa-setup.md": "Set up Claude Code (local mode) for a HIPAA-ready organization",
   "https://code.claude.com/docs/en/communications-kit.md": "Communications kit",
   "https://code.claude.com/docs/en/champion-kit.md": "Champion kit",
-  "https://code.claude.com/docs/en/settings.md": "Claude Code settings",
+  "https://code.claude.com/docs/en/settings.md": "Settings files and precedence",
+  "https://code.claude.com/docs/en/settings-reference.md": "All settings",
+  "https://code.claude.com/docs/en/settings-example.md": "Example settings files",
   "https://code.claude.com/docs/en/permissions.md": "Configure permissions",
-  "https://code.claude.com/docs/en/sandbox-environments.md": "Choose a sandbox environment",
+  "https://code.claude.com/docs/en/permission-modes.md": "Choose a permission mode",
+  "https://code.claude.com/docs/en/auto-mode-classifier-billing.md": "Auto mode classifier request charges",
   "https://code.claude.com/docs/en/sandboxing.md": "Configure the sandboxed Bash tool",
+  "https://code.claude.com/docs/en/sandbox-environments.md": "Choose a sandbox environment",
   "https://code.claude.com/docs/en/cloud-environments.md": "Configure cloud environments",
   "https://code.claude.com/docs/en/self-hosted-environments.md": "Self-hosted environments",
   "https://code.claude.com/docs/en/self-hosted-environments-quickstart.md": "Self-hosted environments quickstart",
@@ -118,6 +156,7 @@
   "https://code.claude.com/docs/en/model-config.md": "Model configuration",
   "https://code.claude.com/docs/en/fast-mode.md": "Speed up responses with fast mode",
   "https://code.claude.com/docs/en/advisor.md": "Escalate hard decisions with the advisor tool",
+  "https://code.claude.com/docs/en/code-mode.md": "Run tool calls from code with Code Mode",
   "https://code.claude.com/docs/en/output-styles.md": "Output styles",
   "https://code.claude.com/docs/en/terminal-config.md": "Configure your terminal for Claude Code",
   "https://code.claude.com/docs/en/fullscreen.md": "Fullscreen rendering",
@@ -132,13 +171,14 @@
   "https://code.claude.com/docs/en/interactive-mode.md": "Interactive mode",
   "https://code.claude.com/docs/en/checkpointing.md": "Checkpointing",
   "https://code.claude.com/docs/en/hooks.md": "Hooks reference",
-  "https://code.claude.com/docs/en/plugins-reference.md": "Plugins reference",
   "https://code.claude.com/docs/en/channels-reference.md": "Channels reference",
   "https://code.claude.com/docs/en/glossary.md": "Glossary",
   "https://code.claude.com/docs/en/agent-sdk/overview.md": "Agent SDK overview",
   "https://code.claude.com/docs/en/agent-sdk/quickstart.md": "Quickstart",
+  "https://code.claude.com/docs/en/agent-sdk/migration-guide.md": "Migrate to Claude Agent SDK",
+  "https://code.claude.com/docs/en/agent-sdk/troubleshooting.md": "Troubleshoot the Agent SDK",
+  "https://code.claude.com/docs/en/agent-sdk/configuration.md": "Configure your agent",
   "https://code.claude.com/docs/en/agent-sdk/examples.md": "Examples",
-  "https://code.claude.com/docs/en/agent-sdk/troubleshooting.md": "Troubleshooting",
   "https://code.claude.com/docs/en/agent-sdk/agent-loop.md": "How the agent loop works",
   "https://code.claude.com/docs/en/agent-sdk/claude-code-features.md": "Use Claude Code features in the SDK",
   "https://code.claude.com/docs/en/agent-sdk/sessions.md": "Work with sessions",
@@ -159,228 +199,332 @@
   "https://code.claude.com/docs/en/agent-sdk/file-checkpointing.md": "Rewind file changes with checkpointing",
   "https://code.claude.com/docs/en/agent-sdk/cost-tracking.md": "Track cost and usage",
   "https://code.claude.com/docs/en/agent-sdk/observability.md": "Observability with OpenTelemetry",
-  "https://code.claude.com/docs/en/agent-sdk/todo-tracking.md": "Todo Lists",
+  "https://code.claude.com/docs/en/agent-sdk/todo-tracking.md": "Track todos",
   "https://code.claude.com/docs/en/agent-sdk/hosting.md": "Hosting the Agent SDK",
   "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md": "Securely deploying AI agents",
   "https://code.claude.com/docs/en/agent-sdk/typescript.md": "Agent SDK reference - TypeScript",
   "https://code.claude.com/docs/en/agent-sdk/typescript-v2-preview.md": "TypeScript SDK V2 session API (removed)",
   "https://code.claude.com/docs/en/agent-sdk/python.md": "Agent SDK reference - Python",
-  "https://code.claude.com/docs/en/agent-sdk/migration-guide.md": "Migrate to Claude Agent SDK",
-  "https://code.claude.com/docs/en/whats-new/index.md": "What's new",
-  "https://code.claude.com/docs/en/whats-new/2026-w32.md": "Week 32 · August 3–7, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w30.md": "Week 30 · July 20–24, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w29.md": "Week 29 · July 13–17, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w28.md": "Week 28 · July 6–10, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w27.md": "Week 27 · June 29 – July 3, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w26.md": "Week 26 · June 22–26, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w25.md": "Week 25 · June 15–19, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w24.md": "Week 24 · June 8–12, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w23.md": "Week 23 · June 1–5, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w22.md": "Week 22 · May 25–29, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w21.md": "Week 21 · May 18–22, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w20.md": "Week 20 · May 11–15, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w19.md": "Week 19 · May 4–8, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w18.md": "Week 18 · April 27 – May 1, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w17.md": "Week 17 · April 20–24, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w16.md": "Week 16 · April 13–17, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w15.md": "Week 15 · April 6–10, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w14.md": "Week 14 · March 30 – April 3, 2026",
-  "https://code.claude.com/docs/en/whats-new/2026-w13.md": "Week 13 · March 23–27, 2026",
-  "https://code.claude.com/docs/en/legal-and-compliance.md": "Legal and compliance"
+  "https://code.claude.com/docs/en/legal-and-compliance.md": "Legal and compliance",
+  "https://code.claude.com/docs/_llms/fr.txt": "French (205 pages)",
+  "https://code.claude.com/docs/_llms/de.txt": "German (205 pages)",
+  "https://code.claude.com/docs/_llms/it.txt": "Italian (205 pages)",
+  "https://code.claude.com/docs/_llms/jp.txt": "Japanese (205 pages)",
+  "https://code.claude.com/docs/_llms/es.txt": "Spanish (205 pages)",
+  "https://code.claude.com/docs/_llms/ko.txt": "Korean (205 pages)",
+  "https://code.claude.com/docs/_llms/zh-cn.txt": "Simplified Chinese (205 pages)",
+  "https://code.claude.com/docs/_llms/zh-tw.txt": "Traditional Chinese (205 pages)",
+  "https://code.claude.com/docs/_llms/ru.txt": "Russian (205 pages)",
+  "https://code.claude.com/docs/_llms/id.txt": "Indonesian (205 pages)",
+  "https://code.claude.com/docs/_llms/pt-br.txt": "Brazilian Portuguese (205 pages)"
  },
  "bodies": {
-  "https://code.claude.com/docs/en/admin-setup.md": {
-   "sha": "3e9e27ed05533ba5d0d69efd9c887f4c94f7f291b74e8e2869755cabe4b58377",
-   "bytes": 35975,
+  "https://claude.com/docs/claude-science/annotations.md": {
+   "sha": "9a45c96fd836ab8b6772d28da3036b49041bff2adabed876cd3742ee73eda6ba",
+   "bytes": 2726,
+   "headings": 3,
+   "headingSha": "2de209bce65d343d6c987b904801d0fc21b38796113e9fd0e45c46c319d35926"
+  },
+  "https://claude.com/docs/claude-science/artifacts.md": {
+   "sha": "75821d0a674f0ba29a43e7897e84e00e1b2273b8bf3522fd0ab0c84fb2272967",
+   "bytes": 3545,
+   "headings": 5,
+   "headingSha": "3b77f2fd530eb33adf80b090a747533b738108098bb99ab74fc336c5a96b490a"
+  },
+  "https://claude.com/docs/claude-science/cloud-storage.md": {
+   "sha": "f8077da2dd05763f9b50cd2f6fa434ded6f1941b58872eeaea6d23c012cf6c84",
+   "bytes": 1972,
+   "headings": 1,
+   "headingSha": "1a862b43a88f1674e2023c210fd7e25958abf292f3d3908e440d0272a329bfb3"
+  },
+  "https://claude.com/docs/claude-science/command-line-settings.md": {
+   "sha": "640dc1c2bf7fb64365bd8e2d5f6704e5d63edc717fa270b874759b71c223b55c",
+   "bytes": 12456,
    "headings": 9,
-   "headingSha": "a2b8a0208e539c2f5ff2d85e66f6cefe7e2a1cee7b36b253cf42e0c51affffa8"
+   "headingSha": "4a0cbd8c6c369c60de147e38ebf477304dd8d1138b35d2a11db3a4557bb56c48"
+  },
+  "https://claude.com/docs/claude-science/compute-providers.md": {
+   "sha": "006accac8a646c53000785ed30789457d13ace709fa9c46e364a3572cc860957",
+   "bytes": 5155,
+   "headings": 7,
+   "headingSha": "5ada177597cf9fd1cc599198aacdcb4ee1702ad0259ab3f41306b4a32476eabf"
+  },
+  "https://claude.com/docs/claude-science/configuration-file-reference.md": {
+   "sha": "ada4c16a2d56ea417f3456c230315ecaae58f23f244ef2a5d5dff1d5b39d55e0",
+   "bytes": 10977,
+   "headings": 9,
+   "headingSha": "071605970886f2069a049ebbdd8d2c94b516c9f9707f93d5666ab6ec0c6aeba6"
+  },
+  "https://claude.com/docs/claude-science/connectors-and-skills.md": {
+   "sha": "1b70f5ae01ec52b8434c23d88cf82756b158ca4ab583d3e23ce4c2441daebcb4",
+   "bytes": 8756,
+   "headings": 6,
+   "headingSha": "1801bd7b9c10c3b60409a018833aa71b1c1e66987220f5b83bdf1a7975f935a5"
+  },
+  "https://claude.com/docs/claude-science/core-concepts.md": {
+   "sha": "b6d4a6b5dd7184edcc2361b0b43104353c42de558aa52ccd20752f33b00cafa9",
+   "bytes": 8014,
+   "headings": 9,
+   "headingSha": "7f4b6a3cab4efde30252e058df26af8a2ddeb202e28c9e4d2fcc7244b5262d46"
+  },
+  "https://claude.com/docs/claude-science/custom-connectors.md": {
+   "sha": "a7b6775b5282ce6e9af6c05a681d1588ec6548b48934da6a1cc7556469bddf77",
+   "bytes": 2325,
+   "headings": 1,
+   "headingSha": "d19b5e1ad85ba124391704cbbc68793699b629dac44250336fea49038cfd9f5b"
+  },
+  "https://claude.com/docs/claude-science/enable-claude-science.md": {
+   "sha": "eb0215a4b84dc5a5d9aefd96ae1982ab128443a30ae0d3f9731371f8cc0ac9d1",
+   "bytes": 10739,
+   "headings": 9,
+   "headingSha": "bfd6bf47c90f4127a119e6d7cb3afef1d1552663773cabf6f3d78ea9a71669c3"
+  },
+  "https://claude.com/docs/claude-science/get-started.md": {
+   "sha": "acb9ffd5a8b08b8c0d81eb40e39e55dd6c559433089e6c96e212a3c3315d3d4d",
+   "bytes": 24064,
+   "headings": 6,
+   "headingSha": "9440cdb902ee1ff7855e3235dcde3e20ae66deed102a2a1d86c006a2613d0726"
+  },
+  "https://claude.com/docs/claude-science/glossary.md": {
+   "sha": "558a35fa5d71fcc7900bdb9beee2f3d24678f17894db45eb380279231f4c7ad8",
+   "bytes": 4328,
+   "headings": 1,
+   "headingSha": "d76a58bcd5643375d4886c1a988b3b2e6c604b334d7f6860b5b7e9573cbfe1ca"
+  },
+  "https://claude.com/docs/claude-science/how-claude-science-works-with-your-data.md": {
+   "sha": "753fe1662576c7131da8f85c2de6e0329564839f1bbd972368031dcd7c10a833",
+   "bytes": 11739,
+   "headings": 11,
+   "headingSha": "e1f7430d0a0a88059003fd21d8bc94812c01511d5b352093034e04c18bf18ccf"
+  },
+  "https://claude.com/docs/claude-science/literature-access.md": {
+   "sha": "0d5253054fbf71bd1395b8a857b373251dccf376eda3e6c70f6ca7d3d0247520",
+   "bytes": 2838,
+   "headings": 2,
+   "headingSha": "c61924b7a12c21f4f6cb7cb1750d715b1b0d9cd65555d4c68fc40ac15b2fcfc1"
+  },
+  "https://claude.com/docs/claude-science/network-requirements.md": {
+   "sha": "cc13a23a2afd523647f01477e8e92d6c5502dfd92c061d05e56bf267e41cdda3",
+   "bytes": 13985,
+   "headings": 10,
+   "headingSha": "af890ae475b945253e289ba06ee36bb888fd58642560046c8cdecd3df7cedf20"
+  },
+  "https://claude.com/docs/claude-science/overview.md": {
+   "sha": "f275d50d466bf8ebe6979bc9e6054ce8f3f4b51d0db51df94d3543de4d0421fb",
+   "bytes": 8013,
+   "headings": 5,
+   "headingSha": "cb8ef2c3618c9d87e895f04ffb4cb20177709db964cb202fb18d1dfd9fe6aa12"
+  },
+  "https://claude.com/docs/claude-science/remote-compute-clusters.md": {
+   "sha": "3650e04b6bc9f2bcff3c08c05d6518cbc30103d9f0bab8275ba5a60d67c19c04",
+   "bytes": 3383,
+   "headings": 4,
+   "headingSha": "216e164c64a643233a30c2db41ac296b58441bf68bb54d596c56bed4f9df37cc"
+  },
+  "https://claude.com/docs/claude-science/run-on-remote-linux-server.md": {
+   "sha": "19ccc07fa4405cfb92c5fe1f1fc03df6e98677afbebae7c87d49bbd7d168e927",
+   "bytes": 16284,
+   "headings": 10,
+   "headingSha": "2501d98e69a8f0b2de3cc10306c12093670a481cd698b0b6cca5d46515082b11"
+  },
+  "https://claude.com/docs/claude-science/run-on-windows-wsl.md": {
+   "sha": "acb9ffd5a8b08b8c0d81eb40e39e55dd6c559433089e6c96e212a3c3315d3d4d",
+   "bytes": 24064,
+   "headings": 6,
+   "headingSha": "9440cdb902ee1ff7855e3235dcde3e20ae66deed102a2a1d86c006a2613d0726"
+  },
+  "https://claude.com/docs/claude-science/the-reviewer.md": {
+   "sha": "6ff85aaaf08e06201323a374c0b3fb9f3b8f8f2e2ed90a0c172cac1112646331",
+   "bytes": 3034,
+   "headings": 5,
+   "headingSha": "23ecd8a89e2b39afc5cd0fbb1150bfcd67dcfd546b222c16adb2128cb54cbd49"
+  },
+  "https://claude.com/docs/claude-science/tools-and-environments.md": {
+   "sha": "eec090776a8fcf92901db3155f75eebbc4540a4f0fe39aaa670b5ef72d70b604",
+   "bytes": 8362,
+   "headings": 8,
+   "headingSha": "e4ed67acbe1b4b2e948aff2466f8f68b4afdf9f17c469f7cc42718a03180f881"
+  },
+  "https://claude.com/docs/claude-science/whats-not-available-yet.md": {
+   "sha": "690159677431ffa09784feda1d9f65be49118dee1fe1a39fe69c9d38e5acf2c5",
+   "bytes": 55843,
+   "headings": 27,
+   "headingSha": "b1cdb2a91b7c52d21f3bbd086c4c42ee67892443714191cbd37101a4620d9cdd"
+  },
+  "https://code.claude.com/docs/en/admin-setup.md": {
+   "sha": "9503ec30afb3be70475249a917841fc3a2c5145967e0f72c4688dc26c9ebaabf",
+   "bytes": 29826,
+   "headings": 10,
+   "headingSha": "c890e8126f911ea20bbe9141de63fb79d85e78f7e9b9dc5e112cbd523dea27f5"
   },
   "https://code.claude.com/docs/en/agents.md": {
-   "sha": "2d470eb82b5bc217bbd423db193677c49690ad0b4c4f73a0a9e97530caef6ca0",
-   "bytes": 8739,
+   "sha": "de72ed10bf4598b409997457f9c8d3c8402751488eb1d5c897339ef0d51c1ea4",
+   "bytes": 9383,
    "headings": 4,
    "headingSha": "743bb0fc064c84cc8854a571b0d74efe532e4637b28c7c4e24edc6e7a7232701"
   },
   "https://code.claude.com/docs/en/cli-reference.md": {
-   "sha": "949a0882cedc28bcbfb3f268e93e485695b78ec50c66d8573cf3bc51c8b45fdf",
-   "bytes": 106538,
-   "headings": 5,
-   "headingSha": "364333304458b6cdd0dda4b6525a4112ecf1e030963d39b70e06fc46c92233c2"
+   "sha": "cb95a1a31746f6e90cf7dc80678b2588c47b2e8543fa35d9b4aa62dd699dc2d6",
+   "bytes": 51595,
+   "headings": 6,
+   "headingSha": "0e5bc3c8efe0cb0920534ff9fe4fb2ab20f31e9940afe3beb9f51dd0577d0d9a"
   },
-  "https://code.claude.com/docs/en/cloud-environments.md": {
-   "sha": "d785ec6be011d7a0617f4a92092cdf05443526f5f37a5044ba975ed090b4408b",
-   "bytes": 56477,
-   "headings": 30,
-   "headingSha": "4989335953d9d220b5588e1747b8aac005b5a724117ca3c022593b551b448bd4"
+  "https://code.claude.com/docs/en/code-review.md": {
+   "sha": "78ff48627f8e08e5551e254a963356b6988160a6b0edc873fc8772e3f301e06a",
+   "bytes": 10663,
+   "headings": 9,
+   "headingSha": "5f437667d52a10f6c7ed07ba332c2baede20a7d3d96b84b45968710366e08652"
   },
   "https://code.claude.com/docs/en/commands.md": {
-   "sha": "76dcbb9439a42fcf868ddaad54c7fa5c439ce275ec0da6d9e514c86fc6970583",
-   "bytes": 154228,
-   "headings": 5,
-   "headingSha": "3a1c6b1967ae6e7a5edc59b08a3195a5a76032d5295ad33a53b31d292b021b0b"
+   "sha": "f1d341295c6a88d9878a87ac317f1c5c88989c9ad30ecebe91536c779979fbc8",
+   "bytes": 56993,
+   "headings": 6,
+   "headingSha": "6cb0978adc4092366c80c06cce0f925eb5b9d3afefa70d86d1e06bf23db7aef9"
   },
   "https://code.claude.com/docs/en/costs.md": {
-   "sha": "98bdf036000ead4997d141b8660dd99b619c48e0b41d16986b1eb46792f5e04c",
-   "bytes": 33541,
-   "headings": 30,
-   "headingSha": "8cf84050fb0a0a2a2e1215a1a72d8a9bc130d77857471464d589374e5c4f4185"
-  },
-  "https://code.claude.com/docs/en/desktop-quickstart.md": {
-   "sha": "4d7f8765d4533c66dd69f7c852d08dcbf668caa51f1fd5afe5d189244a901ded",
-   "bytes": 11629,
-   "headings": 6,
-   "headingSha": "5f6b87bd7b6494fc48cbf794b3600d9073eb83e54096aae8eb25e4b1166d3e04"
+   "sha": "859c2c4bd0462e9fc904475095cf498cb3817ff12477d0122fb651b5e08a0218",
+   "bytes": 46791,
+   "headings": 35,
+   "headingSha": "23c81a5ba925968562b7915e5d57500d899fc9a060e1770b49dcb129c3e1a910"
   },
   "https://code.claude.com/docs/en/desktop.md": {
-   "sha": "2f2c7eb04dc016d1156dca5281b956e1ad1378b7be528872ededc4dae1676a70",
-   "bytes": 95258,
-   "headings": 74,
-   "headingSha": "3ed5f3b7558c73eeb3fa407a21449d1eb3e35f63724f3fa3824e2b37e80d1ff2"
+   "sha": "62babc490508d4d53ed58c8887630131bcf392c0a31e53e81ed8f10dac0b74ac",
+   "bytes": 227987,
+   "headings": 128,
+   "headingSha": "f9b9b0870b17a04153add3eb96c71b6210ebfac248ddfdbadcb2d9ace38102eb"
   },
   "https://code.claude.com/docs/en/discover-plugins.md": {
-   "sha": "60b15a31df37efddcbced8b23230969e43e13cacf4ef9f6ed4bd580f4b8cf096",
-   "bytes": 32317,
-   "headings": 30,
-   "headingSha": "c0d56e448103ce4dea3abf92ee5c4c6e8e6e362d16c7af2626c5a20f00701a5a"
+   "sha": "041d060043a23273eba6c4679dc3ac22d01afccb51db65f8d82d231a338e187e",
+   "bytes": 32735,
+   "headings": 25,
+   "headingSha": "9926062467f7fd34852ca8b4135df6ea134038d937a51039a60dcb5becef9e65"
   },
   "https://code.claude.com/docs/en/github-actions.md": {
-   "sha": "0ca99e2a65d0522aae03d28a6b18c10a1355f268f3332beb3dc287e7b070968e",
-   "bytes": 32697,
+   "sha": "5c793c4ef08da88eb59e5e9ea6eedad0a2b97b31fd8e504ed7ac7995c738c471",
+   "bytes": 29804,
    "headings": 27,
    "headingSha": "f65e8eaa59be356e216d2b991c366198c967b4c277717beb34cff6bafb0401c9"
   },
   "https://code.claude.com/docs/en/headless.md": {
-   "sha": "e20a738b2d2dce6a1922741c60649ff1a0348eeee3b8cef38e96fe394596a0d0",
-   "bytes": 28908,
-   "headings": 21,
-   "headingSha": "d61a7333f7847d4a170f0d5eb28fadcbea6b3f8e84f4ceef16df20607a60b7e2"
+   "sha": "0cc0e5123cdbb554c09d3b4e182e01ee352d763900d7a858b8b2852e5b55e3a4",
+   "bytes": 38894,
+   "headings": 26,
+   "headingSha": "a9e27f4fd2b8a5bdddcb9105556a56ea4dab64234c1a67a85d2c907297e6958e"
   },
   "https://code.claude.com/docs/en/hooks.md": {
-   "sha": "57d5619cb9d96147c023025d83a41075ad24885129031d031cc9e2d58ce4891d",
-   "bytes": 277217,
-   "headings": 145,
-   "headingSha": "a7e38a69096a6731708565a318cbd1b2996129872dde2d1941232419e39203d0"
+   "sha": "cf74269ef6d156ca0f965c042b09d57f7a3f4f23731c7bf5b435bb48b764af5e",
+   "bytes": 293529,
+   "headings": 172,
+   "headingSha": "cc6b31f5fccb989297093589bf587dc1bbf9d26b96276c094b9077f12eee6eb8"
   },
   "https://code.claude.com/docs/en/interactive-mode.md": {
-   "sha": "a7a9ca4ac5efa44ed7167ba70d5983b52350607371bc684caccd74a856bca750",
-   "bytes": 66870,
-   "headings": 40,
-   "headingSha": "a2e936ee0346d8616a093d020c80c8a59bbf1a5292c5f162207ae65ce53d553a"
+   "sha": "cd3a58dc2b3d4f054e9c23982b2f6cb745a9ed384f6ed546166fadb5f6d84497",
+   "bytes": 78768,
+   "headings": 59,
+   "headingSha": "cc9e073655e21dba6f59eaf5e79dfb73deadc8840f044901b7bec9932843d26f"
   },
   "https://code.claude.com/docs/en/mcp.md": {
-   "sha": "66ee91eed4f14dbf5fa9171ac90b47ceacb6fad70a1454e2df4f4fe451eda145",
-   "bytes": 88469,
-   "headings": 81,
-   "headingSha": "528f53d53c39e46fe7ac937eb68c088e86bdde044e2947c08d47ead54729735d"
+   "sha": "4df615e0fc0e0f632550c98eaaf973d16db8ab98cbaed13fea85512fd427d518",
+   "bytes": 156945,
+   "headings": 130,
+   "headingSha": "1a6129f0085beaacc7de29e707c689387c6ee4bfbc8d0925b655bce1753a5e17"
   },
   "https://code.claude.com/docs/en/memory.md": {
-   "sha": "ac9efcab29939e429226c6331890d50ed22e64fe78f64befb237011667b78cff",
-   "bytes": 36269,
-   "headings": 35,
-   "headingSha": "6e8ab1c87a673ecd2cd65a469124b85bd838f3e5b9365f943e16302639b8a37c"
+   "sha": "524cff77043d4b230e427dfcebce29a5284fcd2e3f4678abb2ef9b6e856c5ff8",
+   "bytes": 55366,
+   "headings": 46,
+   "headingSha": "a2ef21b752af38caa95b4839cd44c8e65c0b7340943f01547e6c5d1cf957b869"
   },
   "https://code.claude.com/docs/en/model-config.md": {
-   "sha": "2ecaaa6e9bcbcd28e74c6acca5d3a2bc1fb95a3fe1f2e316b51c26594e016352",
-   "bytes": 96914,
-   "headings": 47,
-   "headingSha": "648f8850fd9e2166d2be248b37b7ca22f09aeaef5f50bd15f2f0ab2f5aff7a19"
+   "sha": "3174ce7b7981da3d1c0296cd7ff13fe7cd5bf3c267e635f30bbd61509deaca6a",
+   "bytes": 135287,
+   "headings": 64,
+   "headingSha": "f37be230c9f269eac179405775c2cb91a5569038938a26e821f89cdb25c76423"
   },
   "https://code.claude.com/docs/en/overview.md": {
-   "sha": "12a8ac12ac36b417afdd968c64944bd1ade572dbf51aeb1ef56c45eccf36a55c",
-   "bytes": 16412,
+   "sha": "966993397d19e6a81a2d36bb562b0a3c99fbc7198ff618b9fe1cfdd99f4f1427",
+   "bytes": 17474,
    "headings": 5,
    "headingSha": "8d70ff2598f4be8fe6edca2ebbd0133fac656318139b248dd0a4c998a1b60da7"
   },
   "https://code.claude.com/docs/en/permission-modes.md": {
-   "sha": "1fcc0dfc821c04fb3c7dd84f0d4b4ef8457033b4a94475f27c72fe8465b7a3bb",
-   "bytes": 73948,
-   "headings": 17,
-   "headingSha": "a1647ebedc84f750870d5996254b9431f89982b6391cd55c9a6b9465ce9d856b"
+   "sha": "e4b21e3717458e028a041a753580c398d5e577a55e8ce8133af1353ab85583f3",
+   "bytes": 120324,
+   "headings": 49,
+   "headingSha": "d33a2e3124461db92135be424b6ceba217eb9ab8779707a8ee868d1dd6d28e51"
   },
   "https://code.claude.com/docs/en/permissions.md": {
-   "sha": "89f064c3f87f8e15f6bae5cd357fb05b37d8763a14cfe40b5195b4ecb33a0984",
-   "bytes": 67214,
-   "headings": 33,
-   "headingSha": "6c7e3482a0a9bfb7091b455014d46e91f6bffcf6ae71a9f80e4aa438a9d0e176"
+   "sha": "3f504ff0e98e70ae6711065d3644ab30b0469664bf2a6b69c7bd4f81875f138e",
+   "bytes": 92722,
+   "headings": 48,
+   "headingSha": "6f39ba263574e1d441bf9e45b9c1a671a3ddee014ac79a7f1e65104d1c9f5b56"
   },
   "https://code.claude.com/docs/en/platforms.md": {
-   "sha": "4516ef873bfb1337a9ad8db5f4fc47089186f052dbdf47d016984318c24d9c98",
-   "bytes": 12360,
+   "sha": "caba9aa624d5c718fcc855724a475714a2d7e5885711fc8f9fbe5200d604569e",
+   "bytes": 10321,
    "headings": 8,
    "headingSha": "9a3baaa2cbcb7a630c55957c5252ab7349d35aaf5b9d3c8b1d7447c8b25b9ff9"
   },
-  "https://code.claude.com/docs/en/plugins-reference.md": {
-   "sha": "dee03b014c2bc3ee8760344525a5289e14402a15e023ee61df49250ee2e479f4",
-   "bytes": 105175,
-   "headings": 60,
-   "headingSha": "3182531d09dc791816f89a876ce7b768336742e7520d717a5e77b667e9bd9483"
-  },
-  "https://code.claude.com/docs/en/plugins.md": {
-   "sha": "d353344e65fed118a88565ab463770a99d88ca073419b4d868ab4eb4dd54103a",
-   "bytes": 26751,
-   "headings": 23,
-   "headingSha": "0bd7a33a96073f772d7d122eca421cfc3268d74784fba9f8dc1e8fe46c9d6792"
-  },
   "https://code.claude.com/docs/en/quickstart.md": {
-   "sha": "f5b59b2f5b7186ab5fec800beacc45413c103c3e19b2c1292c00838b7d7c0c8d",
-   "bytes": 13323,
-   "headings": 14,
-   "headingSha": "4c2c683df1ce497e1c0298bf5c3b2f16e0563ca9ec6aa7cb12ffb0a891547be4"
+   "sha": "23c55fbb18ebf8690ee7c02ba405cc7bfde226beca2350c427909f77e6a6afbf",
+   "bytes": 12983,
+   "headings": 15,
+   "headingSha": "0f08a235e6123838797dee34b24357227b213dd1a6e2cbc4cc27b30967dc8f46"
   },
   "https://code.claude.com/docs/en/sandboxing.md": {
-   "sha": "d4b9736740b8d928ad83f824bdc1f64feae1ab3216c0c549c589499cf96bcc74",
-   "bytes": 67728,
-   "headings": 36,
-   "headingSha": "32a2f73727355b05597f7833701c1c282a249432d0b10239d7ee6a5bdb76b504"
+   "sha": "2df1b27e787a5c7919c328a565ee08e5cb34a706d0b89e1390f70c39a915e447",
+   "bytes": 110890,
+   "headings": 69,
+   "headingSha": "db03a5e5e874790d0d9aaafd02d8510b6da8350ca9905590f2f2263f19d00c84"
   },
   "https://code.claude.com/docs/en/security-guidance.md": {
-   "sha": "a21699a9713e1e5ac6afb1a416dcfcebe186de6b6a197a09717d8421f372ea7a",
-   "bytes": 20560,
+   "sha": "0e8c2fc3869f867711ab8f2ea262e283afda528acd024755a0150e76f44d17a0",
+   "bytes": 19157,
    "headings": 20,
-   "headingSha": "37ed72d7a7a0f8cb61d3c12cd28a167a5087336b78653ba764455b545f5a2709"
+   "headingSha": "6534e129f01d6fb4b15c2cc434fadf1b94d23f57548c7dad0162d4de01182738"
   },
   "https://code.claude.com/docs/en/security.md": {
-   "sha": "7aba02e7f539d2384954d05443e1ce3ccd4f4b99adf54937b9e623b8fdaa7d25",
-   "bytes": 12684,
+   "sha": "f977728f330c56334bbf350c7374a164012aa22247a099d4f97c456d8012e2b2",
+   "bytes": 15436,
    "headings": 18,
    "headingSha": "cced2ae9581e6ba90efc74b9d04c62a32e24fee3bc10fa9dcb25d807b79674bd"
   },
   "https://code.claude.com/docs/en/settings.md": {
-   "sha": "b456a5603bb5399de68a95b88ddeba42bd66f1e79920f5e298551ec15acf257a",
-   "bytes": 337426,
-   "headings": 42,
-   "headingSha": "d2c5096530897c0938ec424a5b0f6a672b359becb22b51f27f1d032501e54ea0"
+   "sha": "bc72fdd5dc45fdf7ea3ce5d480628ce1fcb31aa09b6b796316f1db8ac02eb5e9",
+   "bytes": 45978,
+   "headings": 31,
+   "headingSha": "e65c2dec066578dc14a882962dc091a4a7efb091a5850afae5863603e9d09a7d"
   },
   "https://code.claude.com/docs/en/setup.md": {
-   "sha": "22d94bf028d677c9069d0ccfba5c8feccf665460ebd4b3db5acbc1ab4b3e46c4",
-   "bytes": 30869,
-   "headings": 28,
-   "headingSha": "61cb1ef6143751384ab0332a5e50283e0d435f7499fafdc02aaa75b086502d3f"
+   "sha": "87badee7612cc5b6b7c11086d3203362bfd5290deda2f0e13d785aad25bf2edc",
+   "bytes": 36653,
+   "headings": 32,
+   "headingSha": "cb70ee53af78b277fe00a392cb6323618520796b973d962dc280249018da5a26"
   },
   "https://code.claude.com/docs/en/skills.md": {
-   "sha": "448fde484cc410c84d871ccffe9c8676f6a5e5fd8ff8330183ef2461fed43575",
-   "bytes": 96865,
-   "headings": 53,
-   "headingSha": "23fb9dc59f382cedf6702e8d73fed659bd3bedd823da370865cef7e00b631a5d"
+   "sha": "654fd3e23932c9a0e0f79f382a348a231ed8add3944c7ef3e3cec543589a6060",
+   "bytes": 119740,
+   "headings": 73,
+   "headingSha": "b3e5781fc64a66171bdf57aaa26ae5177bf0136e9c81d15a1db798d85194e9bd"
   },
   "https://code.claude.com/docs/en/sub-agents.md": {
-   "sha": "6f51d2b55ae01c0a9c4915788ba0969d99130634512968d870f3b08e8860e5a5",
-   "bytes": 102644,
-   "headings": 55,
-   "headingSha": "82caa53e5bd6432d3b17c62aa94162186eb071c451c100e3b8eda9a5ab7724eb"
+   "sha": "00bda45456b22baae5d1a3f953f1d84b2fb8c191871d7e8753d13a24d9b74cf5",
+   "bytes": 116580,
+   "headings": 69,
+   "headingSha": "4d0a2f87d7a5016d3662948500fb77fdf0ceb9edd56da0e6992c0015080befc0"
   },
   "https://code.claude.com/docs/en/troubleshoot-install.md": {
-   "sha": "00ee610707c923d4014190aa678b73475c3cd442322d39d39d36843bbc63a84e",
-   "bytes": 59884,
-   "headings": 39,
-   "headingSha": "522ff42e212f4173760a779d801fd4b6ae0096f84cc8ebf893189d127f551e60"
+   "sha": "c1ac45099afe6563ff8670b2cd97806ddaf2d9fa44454214c8f26b04e5c2cbfc",
+   "bytes": 82148,
+   "headings": 53,
+   "headingSha": "a558b08081e64bdec257035d2625a471efb8967083e1df3dba160a9f2704bcc0"
   },
   "https://code.claude.com/docs/en/troubleshooting.md": {
-   "sha": "cce81af0a27e251016386854857b98282a856c72e62bbf583719452e66784824",
-   "bytes": 11876,
-   "headings": 10,
-   "headingSha": "4952e9d99e174f9db066b3a5f1d19c30903dd01d7188f7bceefc8e516b4e7c9b"
+   "sha": "0cf09833417323c4bd7fc753cc48c3596aec1cf74da0d54cbcbebb45df3ac73b",
+   "bytes": 16566,
+   "headings": 14,
+   "headingSha": "8b52fd956afdb9ed8e04f68911bfe9ee5bc4a3b9e44dc3de13414ffc3aac0947"
   }
  },
- "llmsSha": "8693b8dcf0e3d90e7eae08b8133c67c0e169fc6435d1d2cda1e8be4af9c7435d"
+ "llmsSha": "63528d953cc9084ad5481ee64690cff9e095ed2473b21afbaac607827887c81c"
 }
